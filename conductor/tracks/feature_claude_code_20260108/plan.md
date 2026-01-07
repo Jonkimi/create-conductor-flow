@@ -17,14 +17,14 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Architecture Refactor & OpenCode Migration' (Protocol in workflow.md)
 
 ## Phase 2: Add Claude Code Support
-- [ ] Task: Implement Claude Code Generator
-    - [ ] Create `src/generators/claude_code.rs`.
-    - [ ] Implement `Generator` trait for `ClaudeCodeGenerator`.
-    - [ ] Set paths: `install_path` = ".claude/conductor", `commands_path` = ".claude/commands".
-    - [ ] Reuse shared logic for extraction/transformation.
-- [ ] Task: Update Install Command Selection
-    - [ ] Update `src/commands/install.rs` to add "Claude Code" to `inquire::Select`.
-    - [ ] Add matching logic to instantiate and run `ClaudeCodeGenerator`.
+- [x] Task: Implement Claude Code Generator [96fcf80]
+    - [x] Create `src/generators/claude_code.rs`.
+    - [x] Implement `Generator` trait for `ClaudeCodeGenerator`.
+    - [x] Set paths: `install_path` = ".claude/conductor", `commands_path` = ".claude/commands".
+    - [x] Reuse shared logic for extraction/transformation.
+- [x] Task: Update Install Command Selection [2c8c030]
+    - [x] Update `src/commands/install.rs` to add "Claude Code" to `inquire::Select`.
+    - [x] Add matching logic to instantiate and run `ClaudeCodeGenerator`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Add Claude Code Support' (Protocol in workflow.md)
 
 ## Phase 3: Final Verification
