@@ -13,7 +13,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Rename & Asset Bundling' (Protocol in workflow.md)
 
 ## Phase 2: Dependencies & Data Structures
-- [ ] Task: Add necessary dependencies to `Cargo.toml`.
+- [ ] Task: Add necessary dependencies to `Cargo.toml`. [checkpoint: 8200ad0]
   - [ ] Subtask: `tar`, `flate2` (if compression needed, likely yes for tar), `toml`, `inquire`.
 - [ ] Task: Define data structures for Command parsing.
   - [ ] Subtask: Create struct `CommandConfig` deriving `Deserialize` to parse the TOML files.
