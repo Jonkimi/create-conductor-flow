@@ -1,5 +1,5 @@
 # Initial Concept
-To create a standalone command-line tool using Rust and `clap` that brings the Conductor methodology to *any* coding environment. Currently, Conductor is tied to the Gemini CLI extension. This project, `conductor-4-all`, aims to decouple it, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by any AI Coding Agent (e.g., Cline, Cursor, Windsurf) or IDE.
+To create a standalone command-line tool using Rust and `clap` that brings the Conductor methodology to *any* coding environment. Currently, Conductor is tied to the Gemini CLI extension. This project, `conductor-4-all`, aims to decouple it, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by any AI Coding Agent (e.g., Claude Code, Cline, Cursor, Windsurf) or IDE.
 
 ## Target Audience
 - **Software Developers:** Who want to bring structured, agent-friendly workflows to their projects regardless of the tools they use.
