@@ -1,6 +1,7 @@
 use clap::Parser;
 use cli::{Cli, Commands};
 
+mod assets;
 mod cli;
 mod commands;
 
