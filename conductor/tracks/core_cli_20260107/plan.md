@@ -18,7 +18,7 @@
   - [ ] Subtask: Dispatch commands to handler functions.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: CLI Architecture Setup' (Protocol in workflow.md)
 
-## Phase 3: Verification & Polish
+## Phase 3: Verification & Polish [checkpoint: 0e1145c]
 - [x] Task: Verify the CLI build and execution. [checkpoint: e05ae45] 5e21ca9
   - [ ] Subtask: Run `cargo run -- --help` and verify output.
   - [ ] Subtask: Run `cargo run -- init` and verify output.
