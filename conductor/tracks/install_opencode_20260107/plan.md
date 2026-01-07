@@ -24,7 +24,7 @@
   - [ ] Subtask: Implement `inquire` prompt for agent selection.
   - [ ] Subtask: Implement file existence check logic.
   - [ ] Subtask: Implement overwrite confirmation prompt.
-- [ ] Task: Implement file extraction and transformation logic.
+- [x] Task: Implement file extraction and transformation logic. e05aeb2
   - [ ] Subtask: Implement `extract_and_transform` function.
   - [ ] Subtask: Read TOML, replace placeholder string with `.opencode/conductor`.
   - [ ] Subtask: Generate Markdown content with frontmatter.
