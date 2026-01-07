@@ -146,4 +146,28 @@ mod tests {
         assert_eq!(generator.install_path(), "path");
         assert_eq!(generator.commands_path(), "cmds");
     }
+
+    #[test]
+    fn test_parse_command_config() {
+        let toml_str = r#"
+            description = "Test Description"
+            prompt = "Test Prompt"
+        "#;
+        let config: CommandConfig = toml::from_str(toml_str).unwrap();
+        assert_eq!(config.description, "Test Description");
+        assert_eq!(config.prompt, "Test Prompt");
+    }
+
+    #[test]
+    fn test_transform_toml_to_markdown() {
+        let toml_content = r#"
+            description = "Test Command"
+            prompt = "Run command in __$$CODE_AGENT_INSTALL_PATH$$__"
+        "#;
+        let expected_markdown =
+            "---\ndescription: Test Command\n---\nRun command in .opencode/conductor";
+
+        let markdown = transform_to_markdown(toml_content, ".opencode/conductor");
+        assert_eq!(markdown, expected_markdown);
+    }
 }
