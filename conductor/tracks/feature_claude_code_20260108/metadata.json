@@ -1,8 +1,0 @@
-{
-  "track_id": "feature_claude_code_20260108",
-  "type": "feature",
-  "status": "new",
-  "created_at": "2026-01-08T01:28:00Z",
-  "updated_at": "2026-01-08T01:28:00Z",
-  "description": "Add Claude Code generator support to conductor:install"
-}
