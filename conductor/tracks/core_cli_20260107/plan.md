@@ -12,7 +12,7 @@
 - [x] Task: Define CLI interface in `src/cli.rs` using `clap` derive macros. f94eebb
   - [ ] Subtask: Write unit tests for argument parsing in `src/cli.rs`.
   - [ ] Subtask: Implement `Cli` struct and `Commands` enum including `Init`.
-- [ ] Task: Implement `main.rs` entry point.
+- [x] Task: Implement `main.rs` entry point. a8180c1
   - [ ] Subtask: Initialize logger (optional, if env_logger added later, but good to have `println` for now).
   - [ ] Subtask: Parse args using `Cli::parse()`.
   - [ ] Subtask: Dispatch commands to handler functions.
