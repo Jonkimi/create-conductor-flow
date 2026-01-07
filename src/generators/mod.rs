@@ -1,3 +1,4 @@
+pub mod claude_code;
 pub mod opencode;
 
 use crate::assets::GEMINI_CONDUCTOR_CODEBASE;
