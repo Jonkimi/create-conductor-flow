@@ -11,9 +11,9 @@
     - [x] Move logic from `src/commands/install.rs` to `src/generators/opencode.rs`.
     - [x] Implement `Generator` trait for `OpenCodeGenerator`.
     - [x] Ensure existing logic (asset extraction, toml transformation) is preserved/shared.
-- [~] Task: Update Install Command
-    - [ ] Refactor `src/commands/install.rs` to use `OpenCodeGenerator` via the trait.
-    - [ ] Verify `conductor:install` still works for OpenCode (Regression Test).
+- [x] Task: Update Install Command [1821a14]
+    - [x] Refactor `src/commands/install.rs` to use `OpenCodeGenerator` via the trait.
+    - [x] Verify `conductor:install` still works for OpenCode (Regression Test).
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Architecture Refactor & OpenCode Migration' (Protocol in workflow.md)
 
 ## Phase 2: Add Claude Code Support
