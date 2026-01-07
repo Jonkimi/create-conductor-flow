@@ -4,6 +4,7 @@ use cli::{Cli, Commands};
 mod assets;
 mod cli;
 mod commands;
+mod generators;
 
 fn main() {
     let cli = Cli::parse();
