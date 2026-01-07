@@ -19,7 +19,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: CLI Architecture Setup' (Protocol in workflow.md)
 
 ## Phase 3: Verification & Polish
-- [ ] Task: Verify the CLI build and execution.
+- [ ] Task: Verify the CLI build and execution. [checkpoint: e05ae45]
   - [ ] Subtask: Run `cargo run -- --help` and verify output.
   - [ ] Subtask: Run `cargo run -- init` and verify output.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Verification & Polish' (Protocol in workflow.md)
