@@ -5,8 +5,8 @@
     - [x] Create `src/generators/mod.rs`
     - [x] Create `src/generators/opencode.rs`
     - [x] Register module in `src/main.rs` (or lib root)
-- [ ] Task: Define `Generator` Trait
-    - [ ] Define trait in `src/generators/mod.rs` with methods for `install`, `install_path`, `commands_path`, and `check_existing`.
+- [x] Task: Define `Generator` Trait [37fc7ce]
+    - [x] Define trait in `src/generators/mod.rs` with methods for `install`, `install_path`, `commands_path`, and `check_existing`.
 - [ ] Task: Migrate OpenCode Logic
     - [ ] Move logic from `src/commands/install.rs` to `src/generators/opencode.rs`.
     - [ ] Implement `Generator` trait for `OpenCodeGenerator`.
