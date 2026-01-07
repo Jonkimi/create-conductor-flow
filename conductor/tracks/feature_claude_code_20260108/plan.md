@@ -7,11 +7,11 @@
     - [x] Register module in `src/main.rs` (or lib root)
 - [x] Task: Define `Generator` Trait [37fc7ce]
     - [x] Define trait in `src/generators/mod.rs` with methods for `install`, `install_path`, `commands_path`, and `check_existing`.
-- [ ] Task: Migrate OpenCode Logic
-    - [ ] Move logic from `src/commands/install.rs` to `src/generators/opencode.rs`.
-    - [ ] Implement `Generator` trait for `OpenCodeGenerator`.
-    - [ ] Ensure existing logic (asset extraction, toml transformation) is preserved/shared.
-- [ ] Task: Update Install Command
+- [x] Task: Migrate OpenCode Logic [370e8f0]
+    - [x] Move logic from `src/commands/install.rs` to `src/generators/opencode.rs`.
+    - [x] Implement `Generator` trait for `OpenCodeGenerator`.
+    - [x] Ensure existing logic (asset extraction, toml transformation) is preserved/shared.
+- [~] Task: Update Install Command
     - [ ] Refactor `src/commands/install.rs` to use `OpenCodeGenerator` via the trait.
     - [ ] Verify `conductor:install` still works for OpenCode (Regression Test).
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Architecture Refactor & OpenCode Migration' (Protocol in workflow.md)
