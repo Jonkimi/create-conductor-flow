@@ -11,8 +11,8 @@ pub struct Cli {
 
 #[derive(Subcommand)]
 pub enum Commands {
-    /// Initialize a new conductor project
-    Init,
+    /// Install conductor commands and templates
+    Install,
 }
 
 #[cfg(test)]
@@ -27,10 +27,10 @@ mod tests {
     }
 
     #[test]
-    fn test_init_subcommand() {
-        let args = Cli::try_parse_from(["conductor", "init"]).unwrap();
+    fn test_install_subcommand() {
+        let args = Cli::try_parse_from(["conductor", "install"]).unwrap();
         match args.command {
-            Commands::Init => assert!(true),
+            Commands::Install => assert!(true),
         }
     }
 }
