@@ -20,7 +20,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Dependencies & Data Structures' (Protocol in workflow.md)
 
 ## Phase 3: Install Logic Implementation
-- [ ] Task: Implement Opencode installation flow.
+- [ ] Task: Implement Opencode installation flow. [checkpoint: 3eb5f26]
   - [ ] Subtask: Implement `inquire` prompt for agent selection.
   - [ ] Subtask: Implement file existence check logic.
   - [ ] Subtask: Implement overwrite confirmation prompt.
