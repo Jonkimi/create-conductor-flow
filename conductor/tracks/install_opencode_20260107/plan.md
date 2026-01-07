@@ -6,7 +6,7 @@
   - [ ] Subtask: Update `src/commands/mod.rs` to expose `install`.
   - [ ] Subtask: Update `src/cli.rs` to replace `Init` variant with `Install`.
   - [ ] Subtask: Update `src/main.rs` dispatch logic.
-- [ ] Task: Bundle static assets.
+- [x] Task: Bundle static assets. 52914e1
   - [ ] Subtask: Add `gemini-conductor-codebase.tar` (dummy or real) to project root for dev.
   - [ ] Subtask: Create a `src/assets.rs` module to handle `include_bytes!`.
   - [ ] Subtask: Verify bundling by printing size of embedded bytes in `install` command.
