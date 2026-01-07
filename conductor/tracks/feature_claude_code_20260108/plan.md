@@ -25,10 +25,10 @@
 - [x] Task: Update Install Command Selection [2c8c030]
     - [x] Update `src/commands/install.rs` to add "Claude Code" to `inquire::Select`.
     - [x] Add matching logic to instantiate and run `ClaudeCodeGenerator`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Add Claude Code Support' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Add Claude Code Support' (Protocol in workflow.md)
 
 ## Phase 3: Final Verification
-- [ ] Task: Run full test suite
-    - [ ] Ensure unit tests for generators pass.
-    - [ ] Ensure integration with `install` command works.
+- [x] Task: Run full test suite
+    - [x] Ensure unit tests for generators pass.
+    - [x] Ensure integration with `install` command works.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Final Verification' (Protocol in workflow.md)
