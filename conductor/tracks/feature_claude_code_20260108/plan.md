@@ -16,7 +16,7 @@
     - [x] Verify `conductor:install` still works for OpenCode (Regression Test).
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Architecture Refactor & OpenCode Migration' (Protocol in workflow.md)
 
-## Phase 2: Add Claude Code Support
+## Phase 2: Add Claude Code Support [checkpoint: fff69fc]
 - [x] Task: Implement Claude Code Generator [96fcf80]
     - [x] Create `src/generators/claude_code.rs`.
     - [x] Implement `Generator` trait for `ClaudeCodeGenerator`.
@@ -27,8 +27,8 @@
     - [x] Add matching logic to instantiate and run `ClaudeCodeGenerator`.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Add Claude Code Support' (Protocol in workflow.md)
 
-## Phase 3: Final Verification
-- [x] Task: Run full test suite
+## Phase 3: Final Verification [checkpoint: fff69fc]
+- [x] Task: Run full test suite [9aeafe6]
     - [x] Ensure unit tests for generators pass.
     - [x] Ensure integration with `install` command works.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Final Verification' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Final Verification' (Protocol in workflow.md)
