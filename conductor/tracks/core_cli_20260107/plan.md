@@ -9,7 +9,7 @@
   - [ ] Subtask: Create `src/cli.rs`.
   - [ ] Subtask: Create `src/commands/` directory and `src/commands/mod.rs`.
   - [ ] Subtask: Create `src/commands/init.rs` with a dummy function.
-- [ ] Task: Define CLI interface in `src/cli.rs` using `clap` derive macros.
+- [x] Task: Define CLI interface in `src/cli.rs` using `clap` derive macros. f94eebb
   - [ ] Subtask: Write unit tests for argument parsing in `src/cli.rs`.
   - [ ] Subtask: Implement `Cli` struct and `Commands` enum including `Init`.
 - [ ] Task: Implement `main.rs` entry point.
