@@ -1,7 +1,7 @@
 # Implementation Plan - Core CLI Structure
 
 ## Phase 1: Project Configuration & Dependencies
-- [ ] Task: Add project dependencies (`clap`, `anyhow`, `serde`, `serde_json`) to `Cargo.toml`.
+- [x] Task: Add project dependencies (`clap`, `anyhow`, `serde`, `serde_json`) to `Cargo.toml`. f8d9911
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Configuration & Dependencies' (Protocol in workflow.md)
 
 ## Phase 2: CLI Architecture Setup
