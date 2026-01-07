@@ -10,7 +10,7 @@
 - **Parsing Reliability:** Avoid interactive prompts that block execution unless explicitly requested.
 
 ## Installation & Configuration
-- **Idempotency:** All installation and initialization commands (`conductor init`, `conductor install`) must be idempotent. Re-running them should verify the state, repair missing components, or update outdated ones without overwriting user customizations or causing data loss.
+- **Idempotency:** All installation commands (`conductor install`) must be idempotent. Re-running them should verify the state, repair missing components, or update outdated ones without overwriting user customizations or causing data loss.
 - **Embedded Resources:** The binary should be self-contained, including all necessary default templates and scripts to function without external runtime dependencies or network fetches during basic initialization.
 
 ## Documentation Style
