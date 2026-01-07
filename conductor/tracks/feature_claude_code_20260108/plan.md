@@ -1,6 +1,6 @@
 # Implementation Plan - Add Claude Code Generator Support
 
-## Phase 1: Architecture Refactor & OpenCode Migration
+## Phase 1: Architecture Refactor & OpenCode Migration [checkpoint: cebc4f3]
 - [x] Task: Create `generators` module structure [9a68cca]
     - [x] Create `src/generators/mod.rs`
     - [x] Create `src/generators/opencode.rs`
@@ -14,7 +14,7 @@
 - [x] Task: Update Install Command [1821a14]
     - [x] Refactor `src/commands/install.rs` to use `OpenCodeGenerator` via the trait.
     - [x] Verify `conductor:install` still works for OpenCode (Regression Test).
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Architecture Refactor & OpenCode Migration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Architecture Refactor & OpenCode Migration' (Protocol in workflow.md)
 
 ## Phase 2: Add Claude Code Support
 - [ ] Task: Implement Claude Code Generator
