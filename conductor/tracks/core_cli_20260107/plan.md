@@ -5,7 +5,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Configuration & Dependencies' (Protocol in workflow.md)
 
 ## Phase 2: CLI Architecture Setup
-- [ ] Task: Create module structure. [checkpoint: c2c1471]
+- [x] Task: Create module structure. [checkpoint: c2c1471] 2a6612a
   - [ ] Subtask: Create `src/cli.rs`.
   - [ ] Subtask: Create `src/commands/` directory and `src/commands/mod.rs`.
   - [ ] Subtask: Create `src/commands/init.rs` with a dummy function.
