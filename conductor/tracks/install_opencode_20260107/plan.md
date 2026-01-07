@@ -19,7 +19,7 @@
   - [ ] Subtask: Create struct `CommandConfig` deriving `Deserialize` to parse the TOML files.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Dependencies & Data Structures' (Protocol in workflow.md)
 
-## Phase 3: Install Logic Implementation
+## Phase 3: Install Logic Implementation [checkpoint: 0b071f4]
 - [x] Task: Implement Opencode installation flow. [checkpoint: 3eb5f26] 55a7f16
   - [ ] Subtask: Implement `inquire` prompt for agent selection.
   - [ ] Subtask: Implement file existence check logic.
