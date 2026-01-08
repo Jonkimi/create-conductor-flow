@@ -15,3 +15,18 @@ export interface AgentGenerator {
    */
   generate(targetDir: string): Promise<void>;
 }
+
+/**
+ * Configuration for an agent type defining directory structure and naming conventions.
+ */
+export interface AgentConfig {
+  /** The agent type identifier (e.g., 'opencode', 'claude-code', 'cursor') */
+  agentType: string;
+  /** The root directory for agent files (e.g., '.opencode', '.claude', '.cursor') */
+  agentDir: string;
+  /** The subdirectory for command files (e.g., 'commands', 'workflows') */
+  commandsDir: string;
+  /** Human-readable display name for error messages and logs */
+  displayName: string;
+}
+
