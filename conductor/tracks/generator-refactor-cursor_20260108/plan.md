@@ -6,15 +6,15 @@
     - [x] Define `AgentConfig` interface in `src/generators/types.ts`
     - [x] Create `AGENT_CONFIGS` registry with existing agents (opencode, claude-code, antigravity)
     - [x] Verify tests pass
-- [ ] Task: Implement ConfigurableGenerator class
-    - [ ] Write failing tests for ConfigurableGenerator validate/generate methods
-    - [ ] Move `processTemplateContent()` from `src/generators/utils.ts` to generator module
-    - [ ] Implement `ConfigurableGenerator` class using config-driven logic
-    - [ ] Verify tests pass
-- [ ] Task: Create factory function
-    - [ ] Write failing tests for `createGenerator()` factory function
-    - [ ] Implement `createGenerator(config: AgentConfig): AgentGenerator`
-    - [ ] Verify tests pass
+- [x] Task: Implement ConfigurableGenerator class `e6144eb`
+    - [x] Write failing tests for ConfigurableGenerator validate/generate methods
+    - [x] Move `processTemplateContent()` from `src/generators/utils.ts` to generator module
+    - [x] Implement `ConfigurableGenerator` class using config-driven logic
+    - [x] Verify tests pass
+- [x] Task: Create factory function `ec1f776`
+    - [x] Write failing tests for `createGenerator()` factory function
+    - [x] Implement `createGenerator(config: AgentConfig): AgentGenerator`
+    - [x] Verify tests pass
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: Wrapper Classes Refactor

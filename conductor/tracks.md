@@ -4,6 +4,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
+- [~] **Track: Generator Refactor and Cursor Agent Support**
+  *Link: [./conductor/tracks/generator-refactor-cursor_20260108/](./conductor/tracks/generator-refactor-cursor_20260108/)*
+
 ## Archived Tracks
 
 - [x] **Track: Refactor installation logic into modular Generators**

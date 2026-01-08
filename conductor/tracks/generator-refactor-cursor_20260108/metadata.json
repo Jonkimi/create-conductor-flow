@@ -1,0 +1,8 @@
+{
+  "track_id": "generator-refactor-cursor_20260108",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-08T22:33:09+08:00",
+  "updated_at": "2026-01-08T22:33:09+08:00",
+  "description": "Refactor generator architecture to configuration-driven factory pattern and add Cursor agent support"
+}
