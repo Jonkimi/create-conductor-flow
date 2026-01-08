@@ -37,6 +37,8 @@ node dist/index.js install
 AI コーディングエージェントを選択するように求められます：
 -   **Opencode**
 -   **Claude Code**
+-   **Antigravity**
+-   **Cursor**
 
 これにより、環境が検証され、必要な Conductor ファイルがインストールされます：
 -   **Commands:** エージェントが実行できるエージェント固有のプロンプトファイル（例：`.opencode/commands/conductor:setup.md`）。
