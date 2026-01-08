@@ -11,7 +11,7 @@
 
 ## Phase 2: Template Processing Enhancements
 - [x] Task: Extend `AgentConfig` in `src/generators/types.ts` to support optional `extension` and `frontmatterTemplate`. 7bb03e0
-- [ ] Task: Refactor `ConfigurableGenerator.ts` to use custom extensions and handle VS Code Copilot specific frontmatter.
+- [x] Task: Refactor `ConfigurableGenerator.ts` to use custom extensions and handle VS Code Copilot specific frontmatter. 1f4365e
     - Update `processTemplateContent` to optionally use a fixed `agent: agent` metadata.
     - Implementation should ensure NO `model` or `tools` are generated for `vscode-copilot`.
 - [ ] Task: Create `src/generators/VSCodeCopilotGenerator.ts` as a wrapper around the enhanced `ConfigurableGenerator`.
