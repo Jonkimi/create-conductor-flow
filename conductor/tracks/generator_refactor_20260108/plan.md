@@ -7,7 +7,7 @@
 - [x] Task: Extract Shared Logic 8888427
     - [ ] Analyze `src/utils/install.ts` to identify reusable logic (directory checking, template loading, validation checks).
     - [ ] Move shared logic into composable internal utilities (e.g., `src/generators/utils.ts` or keep specific parts in `src/utils/install.ts` if appropriate for reuse).
-- [ ] Task: Conductor - User Manual Verification 'Foundation & Interface Definition' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Foundation & Interface Definition' (Protocol in workflow.md) [checkpoint: 36f812d]
 
 ## Phase 2: Implement Generators
 - [ ] Task: Implement `OpenCodeGenerator`
