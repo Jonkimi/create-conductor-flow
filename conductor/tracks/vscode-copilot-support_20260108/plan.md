@@ -6,7 +6,7 @@
     - `agentDir`: `.github`
     - `commandsDir`: `prompts`
     - `displayName`: `VS Code Copilot`
-- [ ] Task: Register `VSCodeCopilotGenerator` in `src/generators/index.ts`.
+- [x] Task: Register `VSCodeCopilotGenerator` in `src/generators/index.ts`. 8b40c8c
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: Template Processing Enhancements
