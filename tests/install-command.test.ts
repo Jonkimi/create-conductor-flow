@@ -1,40 +1,49 @@
+
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { installHandler } from '../src/commands/install.js';
 import * as promptModule from '../src/cli/prompt.js';
-import * as installUtils from '../src/utils/install.js';
+import * as generatorFactory from '../src/generators/index.js';
 
 vi.mock('../src/cli/prompt.js');
-vi.mock('../src/utils/install.js');
+vi.mock('../src/generators/index.js', () => ({
+    getGenerator: vi.fn(),
+}));
 
 describe('Install Command', () => {
+  const mockGenerator = {
+      validate: vi.fn(),
+      generate: vi.fn(),
+  };
+
   beforeEach(() => {
     vi.resetAllMocks();
     vi.spyOn(process, 'exit').mockImplementation((() => {}) as any);
     vi.spyOn(console, 'log').mockImplementation(() => {});
     vi.spyOn(console, 'error').mockImplementation(() => {});
+    (generatorFactory.getGenerator as any).mockReturnValue(mockGenerator);
   });
 
-  it('should run successful installation flow', async () => {
+  it('should run successful installation flow using generator', async () => {
     // Setup mocks
     const mockArgv = { path: '.', _: [], $0: 'conductor' };
-    vi.mocked(installUtils.validateProjectDirectory).mockResolvedValue('/abs/path');
+    mockGenerator.validate.mockResolvedValue('/abs/path');
     vi.mocked(promptModule.promptForAgent).mockResolvedValue('opencode');
     
     // Execute
     await installHandler(mockArgv);
     
     // Verify flow
-    expect(installUtils.validateProjectDirectory).toHaveBeenCalled();
-    expect(promptModule.promptForAgent).toHaveBeenCalled();
-    expect(installUtils.createConductorDirectories).toHaveBeenCalledWith('/abs/path', 'opencode');
-    expect(installUtils.copyTemplateFiles).toHaveBeenCalledWith('/abs/path', 'opencode');
+    expect(generatorFactory.getGenerator).toHaveBeenCalledWith('opencode');
+    expect(mockGenerator.validate).toHaveBeenCalled(); 
+    expect(mockGenerator.generate).toHaveBeenCalledWith('/abs/path');
     expect(console.log).toHaveBeenCalledWith(expect.stringContaining('initialized successfully'));
   });
 
   it('should handle validation errors', async () => {
     // Setup mocks
     const mockArgv = { path: '.', _: [], $0: 'conductor' };
-    vi.mocked(installUtils.validateProjectDirectory).mockRejectedValue(new Error('Validation failed'));
+    mockGenerator.validate.mockRejectedValue(new Error('Validation failed'));
+    vi.mocked(promptModule.promptForAgent).mockResolvedValue('opencode');
     
     // Execute
     await installHandler(mockArgv);
@@ -42,6 +51,6 @@ describe('Install Command', () => {
     // Verify error handling
     expect(console.error).toHaveBeenCalledWith(expect.stringContaining('Installation failed'), 'Validation failed');
     expect(process.exit).toHaveBeenCalledWith(1);
-    expect(installUtils.createConductorDirectories).not.toHaveBeenCalled();
+    expect(mockGenerator.generate).not.toHaveBeenCalled();
   });
 });
