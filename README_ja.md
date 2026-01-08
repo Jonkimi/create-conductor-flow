@@ -4,7 +4,7 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md)
 
-**Conductor for All** は、[Conductor](https://github.com/google/labs-prototypes/tree/main/gemini-cli) の仕様駆動型開発手法を *あらゆる* コーディング環境にもたらすために設計されたスタンドアロンのコマンドラインツールです。
+**Conductor for All** は、[Conductor](https://github.com/gemini-cli-extensions/conductor) の仕様駆動型開発手法を *あらゆる* コーディング環境にもたらすために設計されたスタンドアロンのコマンドラインツールです。
 
 もともと Gemini CLI 拡張機能に紐付いていたこのプロジェクトは、その手法を分離し、開発者が自分のプロジェクトに Conductor ワークフローをインストールして初期化できるようにすることで、**あらゆる** AI コーディングエージェント（Claude Code、Cline、Cursor、Windsurf など）や IDE で活用できるようにすることを目指しています。
 
@@ -57,4 +57,4 @@ AI コーディングエージェントを選択するように求められま�
 
 ## 🙏 謝辞
 
-このプロジェクトは、**Gemini CLI** のために最初に開発された **Conductor** 手法に触発され、それに基づいています。私たちはその利点をより広い開発者エコシステムに拡大することを目指しています。
+このプロジェクトは、**Gemini CLI** のために最初に開発された [Conductor](https://github.com/gemini-cli-extensions/conductor) 手法に触発され、それに基づいています。私たちはその利点をより広い開発者エコシステムに拡大することを目指しています。

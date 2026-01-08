@@ -4,7 +4,7 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md)
 
-**Conductor for All** 是一个独立的命令行工具，旨在将 [Conductor](https://github.com/google/labs-prototypes/tree/main/gemini-cli) 规范驱动的开发方法论带入 *任何* 编码环境。
+**Conductor for All** 是一个独立的命令行工具，旨在将 [Conductor](https://github.com/gemini-cli-extensions/conductor) 规范驱动的开发方法论带入 *任何* 编码环境。
 
 该项目最初与 Gemini CLI 扩展绑定，旨在解耦该方法论，允许开发人员在他们的项目中安装和初始化 Conductor 工作流，以便可以被 **任何** AI 编码代理（例如 Claude Code, Cline, Cursor, Windsurf）或 IDE 利用。
 
@@ -57,4 +57,4 @@ node dist/index.js install
 
 ## 🙏 致谢
 
-本项目受到最初为 **Gemini CLI** 开发的 **Conductor** 方法论的启发并基于此构建。我们旨在将其优势扩展到更广泛的开发者生态系统。
+本项目受到最初为 **Gemini CLI** 开发的 [Conductor](https://github.com/gemini-cli-extensions/conductor) 方法论的启发并基于此构建。我们旨在将其优势扩展到更广泛的开发者生态系统。
