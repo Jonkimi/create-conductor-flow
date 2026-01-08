@@ -19,7 +19,7 @@
     - [ ] Create `src/generators/ClaudeCodeGenerator.ts`.
     - [ ] Implement logic mirroring the current `claude-code` path handling.
     - [ ] Write unit tests for `ClaudeCodeGenerator`.
-- [ ] Task: Implement `AntigravityGenerator`
+- [x] Task: Implement `AntigravityGenerator` 87b35fa
     - [ ] Create `src/generators/AntigravityGenerator.ts`.
     - [ ] Implement logic mirroring the current `antigravity` path handling.
     - [ ] Write unit tests for `AntigravityGenerator`.
