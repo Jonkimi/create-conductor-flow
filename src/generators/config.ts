@@ -35,5 +35,7 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     agentDir: '.github',
     commandsDir: 'prompts',
     displayName: 'VS Code Copilot',
+    extension: '.prompt.md',
+    fixedAgent: 'agent',
   },
 };

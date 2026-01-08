@@ -28,5 +28,9 @@ export interface AgentConfig {
   commandsDir: string;
   /** Human-readable display name for error messages and logs */
   displayName: string;
+  /** Optional file extension for command files (e.g., '.prompt.md', defaults to '.md') */
+  extension?: string;
+  /** If set, the frontmatter will use this fixed agent value and omit model/tools */
+  fixedAgent?: string;
 }
 
