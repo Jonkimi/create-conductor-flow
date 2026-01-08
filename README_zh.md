@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/conductor-4-all.svg)](https://badge.fury.io/js/conductor-4-all)
 
-[English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md)
+![Conductor Banner](./conductor_banner.png)
+
+[English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
 **Conductor for All** 是一个独立的命令行工具，旨在将 [Conductor](https://github.com/gemini-cli-extensions/conductor) 规范驱动的开发方法论带入 *任何* 编码环境。
 

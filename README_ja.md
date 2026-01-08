@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/conductor-4-all.svg)](https://badge.fury.io/js/conductor-4-all)
 
-[English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md)
+![Conductor Banner](./conductor_banner.png)
+
+[English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
 **Conductor for All** は、[Conductor](https://github.com/gemini-cli-extensions/conductor) の仕様駆動型開発手法を *あらゆる* コーディング環境にもたらすために設計されたスタンドアロンのコマンドラインツールです。
 
