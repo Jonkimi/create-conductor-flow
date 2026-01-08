@@ -30,4 +30,10 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     commandsDir: 'commands',
     displayName: 'Cursor',
   },
+  'vscode-copilot': {
+    agentType: 'vscode-copilot',
+    agentDir: '.github',
+    commandsDir: 'prompts',
+    displayName: 'VS Code Copilot',
+  },
 };
