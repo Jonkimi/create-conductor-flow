@@ -41,7 +41,7 @@ describe('ClaudeCodeGenerator', () => {
 
         it('should throw if conductor is already installed', async () => {
             (fs.existsSync as any).mockReturnValue(true);
-            await expect(generator.validate(targetDir)).rejects.toThrow('Conductor (claude-code) is already installed');
+            await expect(generator.validate(targetDir)).rejects.toThrow('Conductor (Claude Code) is already installed');
         });
     });
 

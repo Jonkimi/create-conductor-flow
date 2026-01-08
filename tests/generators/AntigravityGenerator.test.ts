@@ -41,7 +41,7 @@ describe('AntigravityGenerator', () => {
 
         it('should throw if conductor is already installed', async () => {
             (fs.existsSync as any).mockReturnValue(true);
-            await expect(generator.validate(targetDir)).rejects.toThrow('Conductor (antigravity) is already installed');
+            await expect(generator.validate(targetDir)).rejects.toThrow('Conductor (Antigravity) is already installed');
         });
     });
 

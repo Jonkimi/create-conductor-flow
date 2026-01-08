@@ -1,6 +1,6 @@
 
 import { describe, it, expect } from 'vitest';
-import { processTemplateContent } from '../src/generators/utils.js';
+import { processTemplateContent } from '../src/generators/ConfigurableGenerator.js';
 
 describe('processTemplateContent', () => {
   it('should process TOML content and substitute variables', () => {

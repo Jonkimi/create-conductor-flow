@@ -18,7 +18,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md) `3ce2eec`
 
 ## Phase 2: Wrapper Classes Refactor
-- [ ] Task: Refactor OpenCodeGenerator as wrapper
+- [~] Task: Refactor OpenCodeGenerator as wrapper
     - [ ] Write failing tests for OpenCodeGenerator delegation
     - [ ] Refactor `OpenCodeGenerator` to delegate to `createGenerator()`
     - [ ] Verify tests pass

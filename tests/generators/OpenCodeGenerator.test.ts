@@ -41,7 +41,7 @@ describe('OpenCodeGenerator', () => {
 
         it('should throw if conductor is already installed', async () => {
             (fs.existsSync as any).mockReturnValue(true);
-            await expect(generator.validate(targetDir)).rejects.toThrow('Conductor (opencode) is already installed');
+            await expect(generator.validate(targetDir)).rejects.toThrow('Conductor (OpenCode) is already installed');
         });
     });
 
