@@ -1,12 +1,15 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
-describe('Dependencies - Simplified', () => {
-  const packageJsonPath = join(process.cwd(), 'js', 'package.json');
+describe('Dependencies', () => {
+  const packageJsonPath = join(process.cwd(), 'package.json');
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
 
   describe('Core dependencies', () => {
     it('should have yargs installed', () => {
       expect(packageJson.devDependencies?.yargs).toBeDefined();
+      expect(packageJson.devDependencies?.['@types/yargs']).toBeDefined();
     });
 
     it('should have inquirer installed', () => {
@@ -19,6 +22,7 @@ describe('Dependencies - Simplified', () => {
 
     it('should have vitest installed', () => {
       expect(packageJson.devDependencies?.vitest).toBeDefined();
+      expect(packageJson.devDependencies?.['@vitest/coverage-v8']).toBeDefined();
     });
 
     it('should have TypeScript installed', () => {
@@ -31,9 +35,6 @@ describe('Dependencies - Simplified', () => {
 
     it('should have fs-extra installed', () => {
       expect(packageJson.devDependencies?.['fs-extra']).toBeDefined();
-    });
-
-    it('should have @types/fs-extra installed', () => {
       expect(packageJson.devDependencies?.['@types/fs-extra']).toBeDefined();
     });
   });
