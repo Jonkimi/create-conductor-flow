@@ -36,7 +36,7 @@
     - [x] Verify all tests still pass
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md) `825e4c4`
 
-## Phase 3: Cursor Agent Support
+## Phase 3: Cursor Agent Support [checkpoint: a78c318]
 - [x] Task: Add Cursor to AgentType `2b2541b`
     - [x] Write failing tests for Cursor AgentType
     - [x] Update `AgentType` type definition to include `'cursor'`
@@ -56,7 +56,7 @@
     - [x] Write failing tests for Cursor path detection
     - [x] Add Cursor agent paths to validation logic (via ConfigurableGenerator)
     - [x] Verify tests pass
-- [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md) `a78c318`
 
 ## Phase 4: Documentation and Cleanup
 - [ ] Task: Update README documentation
