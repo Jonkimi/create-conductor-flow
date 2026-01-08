@@ -18,22 +18,22 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md) `3ce2eec`
 
 ## Phase 2: Wrapper Classes Refactor
-- [~] Task: Refactor OpenCodeGenerator as wrapper
-    - [ ] Write failing tests for OpenCodeGenerator delegation
-    - [ ] Refactor `OpenCodeGenerator` to delegate to `createGenerator()`
-    - [ ] Verify tests pass
-- [ ] Task: Refactor ClaudeCodeGenerator as wrapper
-    - [ ] Write failing tests for ClaudeCodeGenerator delegation
-    - [ ] Refactor `ClaudeCodeGenerator` to delegate to `createGenerator()`
-    - [ ] Verify tests pass
-- [ ] Task: Refactor AntigravityGenerator as wrapper
-    - [ ] Write failing tests for AntigravityGenerator delegation
-    - [ ] Refactor `AntigravityGenerator` to delegate to `createGenerator()`
-    - [ ] Verify tests pass
-- [ ] Task: Delete redundant utils file
-    - [ ] Remove `src/generators/utils.ts`
-    - [ ] Update all imports
-    - [ ] Verify all tests still pass
+- [x] Task: Refactor OpenCodeGenerator as wrapper `bc89cbd`
+    - [x] Write failing tests for OpenCodeGenerator delegation
+    - [x] Refactor `OpenCodeGenerator` to delegate to `createGenerator()`
+    - [x] Verify tests pass
+- [x] Task: Refactor ClaudeCodeGenerator as wrapper `bc89cbd`
+    - [x] Write failing tests for ClaudeCodeGenerator delegation
+    - [x] Refactor `ClaudeCodeGenerator` to delegate to `createGenerator()`
+    - [x] Verify tests pass
+- [x] Task: Refactor AntigravityGenerator as wrapper `bc89cbd`
+    - [x] Write failing tests for AntigravityGenerator delegation
+    - [x] Refactor `AntigravityGenerator` to delegate to `createGenerator()`
+    - [x] Verify tests pass
+- [x] Task: Delete redundant utils file `bc89cbd`
+    - [x] Remove `src/generators/utils.ts`
+    - [x] Update all imports
+    - [x] Verify all tests still pass
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3: Cursor Agent Support
