@@ -9,7 +9,7 @@
 - [x] Task: Register `VSCodeCopilotGenerator` in `src/generators/index.ts`. 8b40c8c
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
-## Phase 2: Template Processing Enhancements
+## Phase 2: Template Processing Enhancements [checkpoint: 9544623]
 - [x] Task: Extend `AgentConfig` in `src/generators/types.ts` to support optional `extension` and `frontmatterTemplate`. 7bb03e0
 - [x] Task: Refactor `ConfigurableGenerator.ts` to use custom extensions and handle VS Code Copilot specific frontmatter. 1f4365e
     - Update `processTemplateContent` to optionally use a fixed `agent: agent` metadata.
