@@ -8,7 +8,7 @@
 
 **Conductor for All** 是一个独立的命令行工具，旨在将 [Conductor](https://github.com/gemini-cli-extensions/conductor) 规范驱动的开发方法论带入 *任何* 编码环境。
 
-该项目最初与 Gemini CLI 扩展绑定，旨在解耦该方法论，允许开发人员在他们的项目中安装和初始化 Conductor 工作流，以便可以被 **任何** AI 编码代理（例如 Claude Code, Cline, Cursor, Windsurf）或 IDE 利用。
+该项目最初与 Gemini CLI 扩展绑定，旨在解耦该方法论，允许开发人员在他们的项目中安装和初始化 Conductor 工作流，以便可以被 **任何** AI 编码代理（例如 Claude Code, Cline, Cursor, Windsurf, VS Code Copilot）或 IDE 利用。
 
 ## 🎯 目标
 
@@ -41,6 +41,7 @@ node dist/index.js install
 -   **Claude Code**
 -   **Antigravity**
 -   **Cursor**
+-   **VS Code Copilot**
 
 这将验证环境并安装必要的 Conductor 文件：
 -   **Commands:** 代理特定的提示文件（例如 `.opencode/commands/conductor:setup.md`），你的代理可以执行这些文件。

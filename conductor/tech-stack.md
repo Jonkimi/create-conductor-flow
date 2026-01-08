@@ -11,6 +11,7 @@
 - **Bundler:** `tsup` (TypeScript bundler for building distribution files)
 - **Testing Framework:** `vitest` (Unit and integration testing)
 - **File System:** Built-in `fs/promises` with `fs-extra` for advanced operations
+- **TOML Parser:** `smol-toml` (For processing command templates)
 
 ## Development Tools
 - **TypeScript Compiler:** For type checking and compilation

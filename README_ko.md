@@ -8,7 +8,7 @@
 
 **Conductor for All**은 [Conductor](https://github.com/gemini-cli-extensions/conductor) 사양 기반 개발 방법론을 *모든* 코딩 환경에 도입하기 위해 설계된 독립형 명령줄 도구입니다.
 
-원래 Gemini CLI 확장에 종속되어 있던 이 프로젝트는 방법론을 분리하여 개발자가 자신의 프로젝트에서 Conductor 워크플로우를 설치하고 초기화할 수 있도록 함으로써 **모든** AI 코딩 에이전트(예: Claude Code, Cline, Cursor, Windsurf) 또는 IDE에서 활용할 수 있도록 하는 것을 목표로 합니다.
+원래 Gemini CLI 확장에 종속되어 있던 이 프로젝트는 방법론을 분리하여 개발자가 자신의 프로젝트에서 Conductor 워크플로우를 설치하고 초기화할 수 있도록 함으로써 **모든** AI 코딩 에이전트(예: Claude Code, Cline, Cursor, Windsurf, VS Code Copilot) 또는 IDE에서 활용할 수 있도록 하는 것을 목표로 합니다.
 
 ## 🎯 목표
 
@@ -41,6 +41,7 @@ AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
 -   **Claude Code**
 -   **Antigravity**
 -   **Cursor**
+-   **VS Code Copilot**
 
 이 작업은 환경을 확인하고 필요한 Conductor 파일을 설치합니다:
 -   **Commands:** 에이전트가 실행할 수 있는 에이전트별 프롬프트 파일 (예: `.opencode/commands/conductor:setup.md`).
