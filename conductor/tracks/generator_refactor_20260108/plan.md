@@ -33,4 +33,4 @@
     - [ ] Replace procedural calls with `getGenerator(type).validate()` and `getGenerator(type).generate()`.
 - [x] Task: Clean up Legacy Code 946aa3d
     - [ ] Remove deprecated functions from `src/utils/install.ts` once fully replaced.
-- [ ] Task: Conductor - User Manual Verification 'Integration & Switchover' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Integration & Switchover' (Protocol in workflow.md) [checkpoint: b8575a4]
