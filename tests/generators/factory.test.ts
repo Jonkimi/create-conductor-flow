@@ -4,6 +4,7 @@ import { getGenerator } from '../../src/generators/index.js';
 import { OpenCodeGenerator } from '../../src/generators/OpenCodeGenerator.js';
 import { ClaudeCodeGenerator } from '../../src/generators/ClaudeCodeGenerator.js';
 import { AntigravityGenerator } from '../../src/generators/AntigravityGenerator.js';
+import { CursorGenerator } from '../../src/generators/CursorGenerator.js';
 
 describe('getGenerator', () => {
     it('should return OpenCodeGenerator for "opencode"', () => {
@@ -16,5 +17,9 @@ describe('getGenerator', () => {
 
     it('should return AntigravityGenerator for "antigravity"', () => {
         expect(getGenerator('antigravity')).toBeInstanceOf(AntigravityGenerator);
+    });
+
+    it('should return CursorGenerator for "cursor"', () => {
+        expect(getGenerator('cursor')).toBeInstanceOf(CursorGenerator);
     });
 });

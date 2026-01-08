@@ -37,7 +37,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md) `825e4c4`
 
 ## Phase 3: Cursor Agent Support
-- [ ] Task: Add Cursor to AgentType
+- [~] Task: Add Cursor to AgentType
     - [ ] Write failing tests for Cursor AgentType
     - [ ] Update `AgentType` type definition to include `'cursor'`
     - [ ] Add Cursor configuration to `AGENT_CONFIGS`

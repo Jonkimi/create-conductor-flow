@@ -20,6 +20,11 @@ export async function promptForAgent(): Promise<AgentType> {
         value: 'antigravity',
         description: "Google's agentic coding assistant",
       },
+      {
+        name: 'Cursor',
+        value: 'cursor',
+        description: "Cursor IDE's AI agent",
+      },
     ],
     default: 'opencode',
   });

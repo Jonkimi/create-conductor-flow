@@ -31,6 +31,15 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Antigravity');
         });
 
+        it('should have configuration for cursor agent', () => {
+            const config = AGENT_CONFIGS.cursor;
+            expect(config).toBeDefined();
+            expect(config.agentType).toBe('cursor');
+            expect(config.agentDir).toBe('.cursor');
+            expect(config.commandsDir).toBe('commands');
+            expect(config.displayName).toBe('Cursor');
+        });
+
         it('should have all required fields for each config', () => {
             const requiredFields: (keyof AgentConfig)[] = [
                 'agentType',

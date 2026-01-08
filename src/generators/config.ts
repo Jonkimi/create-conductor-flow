@@ -24,4 +24,10 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     commandsDir: 'workflows',
     displayName: 'Antigravity',
   },
+  cursor: {
+    agentType: 'cursor',
+    agentDir: '.cursor',
+    commandsDir: 'commands',
+    displayName: 'Cursor',
+  },
 };
