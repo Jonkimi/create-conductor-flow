@@ -18,11 +18,7 @@ Originally tied to the Gemini CLI extension, this project aims to decouple the m
 
 ### 1. Installation
 
-#### Global Installation via pnpm (Recommended)
 
-```bash
-pnpm add -g conductor-4-all
-```
 
 #### Run via npx (No Installation Required)
 
@@ -42,8 +38,8 @@ pnpm build
 Run the `install` command in the root of your project:
 
 ```bash
-# If installed globally:
-conductor install
+# Run via npx:
+npx conductor-4-all install
 
 # If built from source:
 node dist/index.js install
@@ -68,18 +64,7 @@ Once installed, you can instruct your AI Agent to perform Conductor tasks using 
 
 *Note: The exact invocation syntax depends on your specific agent's slash command or file context capabilities.*
 
-## 🛠️ Contribution Guide
 
-We follow a strict spec-driven development workflow ourselves!
-
--   **Workflow:** Please read [`conductor/workflow.md`](./conductor/workflow.md) for our detailed development protocols (Tasks, TDD, Commits).
--   **Tech Stack:** Check [`conductor/tech-stack.md`](./conductor/tech-stack.md) for approved technologies (TypeScript/Node.js).
--   **Product Guidelines:** See [`conductor/product-guidelines.md`](./conductor/product-guidelines.md) for design philosophy.
-
-To start contributing:
-1.  Read the docs above.
-2.  Pick a task from `conductor/tracks.md` (or propose one).
-3.  Follow the **Conductor Workflow** to implement it.
 
 ## 🙏 Acknowledgements
 

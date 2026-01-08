@@ -18,11 +18,7 @@
 
 ### 1. インストール
 
-#### pnpm によるグローバルインストール（推奨）
 
-```bash
-pnpm add -g conductor-4-all
-```
 
 #### npx 経由での実行（インストール不要）
 
@@ -42,8 +38,8 @@ pnpm build
 プロジェクトのルートで `install` コマンドを実行します：
 
 ```bash
-# グローバルにインストールされている場合:
-conductor install
+# npx 経由での実行:
+npx conductor-4-all install
 
 # ソースからビルドした場合:
 node dist/index.js install
@@ -68,18 +64,7 @@ AI コーディングエージェントを選択するように求められま�
 
 *注：正確な呼び出し構文は、特定のエージェントのスラッシュコマンドまたはファイルコンテキスト機能によって異なります。*
 
-## 🛠️ 貢献ガイド
 
-私たち自身、厳格な仕様駆動型開発ワークフローに従っています！
-
--   **Workflow:** 私たちの詳細な開発プロトコル（タスク、TDD、コミット）については、[`conductor/workflow.md`](./conductor/workflow.md) をお読みください。
--   **Tech Stack:** 承認された技術（TypeScript/Node.js）については、[`conductor/tech-stack.md`](./conductor/tech-stack.md) を確認してください。
--   **Product Guidelines:** 設計哲学については、[`conductor/product-guidelines.md`](./conductor/product-guidelines.md) を参照してください。
-
-貢献を開始するには：
-1.  上記のドキュメントを読みます。
-2.  `conductor/tracks.md` からタスクを選択します（または提案します）。
-3.  **Conductor Workflow** に従い実装します。
 
 ## 🙏 謝辞
 

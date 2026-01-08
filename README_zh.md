@@ -18,11 +18,7 @@
 
 ### 1. 安装
 
-#### 通过 pnpm 全局安装（推荐）
 
-```bash
-pnpm add -g conductor-4-all
-```
 
 #### 通过 npx 运行（无需安装）
 
@@ -42,8 +38,8 @@ pnpm build
 在你的项目根目录下运行 `install` 命令：
 
 ```bash
-# 如果已全局安装：
-conductor install
+# 通过 npx 运行：
+npx conductor-4-all install
 
 # 如果从源码构建：
 node dist/index.js install
@@ -68,18 +64,7 @@ node dist/index.js install
 
 *注意：确切的调用语法取决于你的特定代理的斜杠命令或文件上下文功能。*
 
-## 🛠️ 贡献指南
 
-我们自己遵循严格的规范驱动开发工作流！
-
--   **Workflow:** 请阅读 [`conductor/workflow.md`](./conductor/workflow.md) 了解我们详细的开发协议（任务、TDD、提交）。
--   **Tech Stack:** 查看 [`conductor/tech-stack.md`](./conductor/tech-stack.md) 了解批准的技术（TypeScript/Node.js）。
--   **Product Guidelines:** 参阅 [`conductor/product-guidelines.md`](./conductor/product-guidelines.md) 了解设计理念。
-
-开始贡献：
-1.  阅读上述文档。
-2.  从 `conductor/tracks.md` 中选择一个任务（或提议一个）。
-3.  遵循 **Conductor Workflow** 来实现它。
 
 ## 🙏 致谢
 

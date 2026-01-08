@@ -7,6 +7,10 @@
     "url": "git+https://github.com/hlhr202/Conductor-for-all.git"
   },
   "homepage": "https://github.com/hlhr202/Conductor-for-all",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "bin": {
     "conductor": "./dist/index.js",
