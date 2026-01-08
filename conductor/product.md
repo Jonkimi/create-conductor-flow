@@ -1,5 +1,5 @@
 # Initial Concept
-A standalone command-line tool built with TypeScript and Node.js that brings the Conductor methodology to *any* coding environment. This project, `conductor-4-all`, decouples the Conductor methodology from the Gemini CLI extension, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by any AI Coding Agent (e.g., Claude Code, Cline, Cursor, Windsurf) or IDE.
+A standalone command-line tool built with TypeScript and Node.js that brings the Conductor methodology to *any* coding environment. This project, `conductor-4-all`, decouples the Conductor methodology from the Gemini CLI extension, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by any AI Coding Agent (e.g., Claude Code, Cursor, VS Code Copilot) or IDE.
 
 ## Target Audience
 - **Software Developers:** Who want to bring structured, agent-friendly workflows to their projects regardless of the tools they use.

@@ -8,7 +8,7 @@
 
 **Conductor for All** is a standalone command-line tool designed to bring the [Conductor](https://github.com/gemini-cli-extensions/conductor) spec-driven development methodology to *any* coding environment.
 
-Originally tied to the Gemini CLI extension, this project aims to decouple the methodology, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by **any** AI Coding Agent (e.g., Claude Code, Cline, Cursor, Windsurf, VS Code Copilot) or IDE.
+Originally tied to the Gemini CLI extension, this project aims to decouple the methodology, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by **any** AI Coding Agent (e.g., Claude Code, Cursor, VS Code Copilot) or IDE.
 
 ## 🎯 Goals
 
