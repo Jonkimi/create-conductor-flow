@@ -16,32 +16,21 @@
 
 ## 🚀 使用方法
 
-### 1. 安装
+### 1. 在你的项目中设置 Conductor
 
-
-
-#### 通过 npx 运行（无需安装）
+要在你的项目中初始化 Conductor，只需在项目根目录下运行以下命令：
 
 ```bash
 npx conductor-4-all install
 ```
 
-#### 从源码安装
+### 2. 或者：从源码构建
+
+如果你更喜欢从源码构建：
 
 ```bash
 pnpm install
 pnpm build
-```
-
-### 2. 在你的项目中设置 Conductor
-
-在你的项目根目录下运行 `install` 命令：
-
-```bash
-# 通过 npx 运行：
-npx conductor-4-all install
-
-# 如果从源码构建：
 node dist/index.js install
 ```
 

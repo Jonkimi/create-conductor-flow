@@ -7,7 +7,7 @@
     "url": "git+https://github.com/hlhr202/Conductor-for-all.git"
   },
   "homepage": "https://github.com/hlhr202/Conductor-for-all",
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@10.24.0",
   "engines": {
     "node": ">=18"
   },

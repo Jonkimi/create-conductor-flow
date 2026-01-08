@@ -16,32 +16,21 @@ Originally tied to the Gemini CLI extension, this project aims to decouple the m
 
 ## 🚀 Usage
 
-### 1. Installation
+### 1. Setup Conductor in Your Project
 
-
-
-#### Run via npx (No Installation Required)
+To initialize Conductor in your project, simply run the following command in your project root:
 
 ```bash
 npx conductor-4-all install
 ```
 
-#### From Source
+### 2. Alternative: Build from Source
+
+If you prefer to build from source:
 
 ```bash
 pnpm install
 pnpm build
-```
-
-### 2. Setup Conductor in Your Project
-
-Run the `install` command in the root of your project:
-
-```bash
-# Run via npx:
-npx conductor-4-all install
-
-# If built from source:
 node dist/index.js install
 ```
 

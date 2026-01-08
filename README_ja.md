@@ -16,32 +16,21 @@
 
 ## 🚀 使用方法
 
-### 1. インストール
+### 1. プロジェクトでの Conductor のセットアップ
 
-
-
-#### npx 経由での実行（インストール不要）
+プロジェクトで Conductor を初期化するには、プロジェクトのルートで次のコマンドを実行するだけです：
 
 ```bash
 npx conductor-4-all install
 ```
 
-#### ソースから
+### 2. 代替手段：ソースからビルド
+
+ソースからビルドする場合：
 
 ```bash
 pnpm install
 pnpm build
-```
-
-### 2. プロジェクトでの Conductor のセットアップ
-
-プロジェクトのルートで `install` コマンドを実行します：
-
-```bash
-# npx 経由での実行:
-npx conductor-4-all install
-
-# ソースからビルドした場合:
 node dist/index.js install
 ```
 
