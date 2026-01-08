@@ -39,6 +39,20 @@ describe('Install Command', () => {
     expect(console.log).toHaveBeenCalledWith(expect.stringContaining('initialized successfully'));
   });
 
+  it('should use agent from CLI if provided', async () => {
+    // Setup mocks
+    const mockArgv = { path: '.', agent: 'cursor', _: [], $0: 'conductor' };
+    mockGenerator.validate.mockResolvedValue('/abs/path');
+    
+    // Execute
+    await installHandler(mockArgv as any);
+    
+    // Verify flow - promptForAgent should NOT be called
+    expect(promptModule.promptForAgent).not.toHaveBeenCalled();
+    expect(generatorFactory.getGenerator).toHaveBeenCalledWith('cursor');
+    expect(mockGenerator.generate).toHaveBeenCalled();
+  });
+
   it('should handle validation errors', async () => {
     // Setup mocks
     const mockArgv = { path: '.', _: [], $0: 'conductor' };

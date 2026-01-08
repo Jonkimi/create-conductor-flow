@@ -9,11 +9,18 @@ export const cli = yargs(hideBin(process.argv))
     'install [path]',
     'Install Conductor in the specified directory',
     (yargs) => {
-      return yargs.positional('path', {
-        describe: 'Directory to install Conductor',
-        default: '.',
-        type: 'string',
-      });
+      return yargs
+        .positional('path', {
+          describe: 'Directory to install Conductor',
+          default: '.',
+          type: 'string',
+        })
+        .option('agent', {
+          alias: 'a',
+          describe: 'Specify the coding agent',
+          type: 'string',
+          choices: ['opencode', 'claude-code', 'antigravity', 'cursor', 'vscode-copilot'],
+        });
     },
     installHandler
   )

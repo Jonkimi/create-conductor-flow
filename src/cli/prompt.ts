@@ -25,6 +25,11 @@ export async function promptForAgent(): Promise<AgentType> {
         value: 'cursor',
         description: "Cursor IDE's AI agent",
       },
+      {
+        name: 'VS Code Copilot',
+        value: 'vscode-copilot',
+        description: "VS Code Copilot's Prompt Files",
+      },
     ],
     default: 'opencode',
   });
