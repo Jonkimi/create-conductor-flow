@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/conductor-4-all.svg)](https://badge.fury.io/js/conductor-4-all)
 
-<img src="./conductor_banner.png" width="800" height="480" alt="Conductor for All Banner" />
+<img src="./conductor_banner.png" height="400" alt="Conductor for All Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
