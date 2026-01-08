@@ -8,4 +8,9 @@ describe('AgentType Definition', () => {
     const agent: AgentType = 'antigravity';
     expectTypeOf(agent).toMatchTypeOf<AgentType>();
   });
+
+  it('should include vscode-copilot as a valid agent type', () => {
+    const agent: AgentType = 'vscode-copilot';
+    expectTypeOf(agent).toMatchTypeOf<AgentType>();
+  });
 });

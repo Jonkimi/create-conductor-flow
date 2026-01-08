@@ -27,4 +27,14 @@ prompt = "Execute this"
     expect(result).toContain('---\ndescription: My Command\n---');
     expect(result).toContain('Execute this');
   });
+
+  it('should use fixedAgent and omit other metadata if fixedAgent is provided', () => {
+    const tomlContent = `
+description = "My Command"
+prompt = "Execute this"
+`;
+    // Pass 'agent' as fixedAgent
+    const result = processTemplateContent(tomlContent, '/path', 'vscode-copilot', 'agent');
+    expect(result).toBe('---\ndescription: My Command\nagent: agent\n---\nExecute this');
+  });
 });
