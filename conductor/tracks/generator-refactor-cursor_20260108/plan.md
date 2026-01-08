@@ -37,25 +37,25 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md) `825e4c4`
 
 ## Phase 3: Cursor Agent Support
-- [~] Task: Add Cursor to AgentType
-    - [ ] Write failing tests for Cursor AgentType
-    - [ ] Update `AgentType` type definition to include `'cursor'`
-    - [ ] Add Cursor configuration to `AGENT_CONFIGS`
-    - [ ] Verify tests pass
-- [ ] Task: Implement CursorGenerator wrapper
-    - [ ] Write failing tests for CursorGenerator
-    - [ ] Create `CursorGenerator` class delegating to factory
-    - [ ] Export from `src/generators/index.ts`
-    - [ ] Verify tests pass
-- [ ] Task: Update CLI install command
-    - [ ] Write failing tests for cursor option in agent selection
-    - [ ] Add 'cursor' to agent choices in install command
-    - [ ] Update `getGenerator()` to handle 'cursor' type
-    - [ ] Verify tests pass
-- [ ] Task: Update validateProjectDirectory for Cursor
-    - [ ] Write failing tests for Cursor path detection
-    - [ ] Add Cursor agent paths to validation logic
-    - [ ] Verify tests pass
+- [x] Task: Add Cursor to AgentType `2b2541b`
+    - [x] Write failing tests for Cursor AgentType
+    - [x] Update `AgentType` type definition to include `'cursor'`
+    - [x] Add Cursor configuration to `AGENT_CONFIGS`
+    - [x] Verify tests pass
+- [x] Task: Implement CursorGenerator wrapper `2b2541b`
+    - [x] Write failing tests for CursorGenerator
+    - [x] Create `CursorGenerator` class delegating to factory
+    - [x] Export from `src/generators/index.ts`
+    - [x] Verify tests pass
+- [x] Task: Update CLI install command `2b2541b`
+    - [x] Write failing tests for cursor option in agent selection
+    - [x] Add 'cursor' to agent choices in install command
+    - [x] Update `getGenerator()` to handle 'cursor' type
+    - [x] Verify tests pass
+- [x] Task: Update validateProjectDirectory for Cursor `2b2541b`
+    - [x] Write failing tests for Cursor path detection
+    - [x] Add Cursor agent paths to validation logic (via ConfigurableGenerator)
+    - [x] Verify tests pass
 - [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
 
 ## Phase 4: Documentation and Cleanup
