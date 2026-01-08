@@ -37,6 +37,8 @@ node dist/index.js install
 You will be prompted to select your AI Coding Agent:
 -   **Opencode**
 -   **Claude Code**
+-   **Antigravity**
+-   **Cursor**
 
 This will verify the environment and install the necessary Conductor files:
 -   **Commands:** Agent-specific prompt files (e.g., `.opencode/commands/conductor:setup.md`) that your agent can execute.
