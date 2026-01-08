@@ -15,7 +15,7 @@
     - [ ] Implement `validate` using specific `opencode` paths.
     - [ ] Implement `generate` using specific `opencode` paths and shared utilities.
     - [ ] Write unit tests for `OpenCodeGenerator`.
-- [ ] Task: Implement `ClaudeCodeGenerator`
+- [x] Task: Implement `ClaudeCodeGenerator` ce095a4
     - [ ] Create `src/generators/ClaudeCodeGenerator.ts`.
     - [ ] Implement logic mirroring the current `claude-code` path handling.
     - [ ] Write unit tests for `ClaudeCodeGenerator`.
