@@ -1,5 +1,9 @@
 # Conductor for All
 
+[![npm version](https://badge.fury.io/js/conductor-4-all.svg)](https://badge.fury.io/js/conductor-4-all)
+
+[English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md)
+
 **Conductor for All** is a standalone command-line tool designed to bring the [Conductor](https://github.com/google/labs-prototypes/tree/main/gemini-cli) spec-driven development methodology to *any* coding environment.
 
 Originally tied to the Gemini CLI extension, this project aims to decouple the methodology, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by **any** AI Coding Agent (e.g., Claude Code, Cline, Cursor, Windsurf) or IDE.
@@ -14,17 +18,23 @@ Originally tied to the Gemini CLI extension, this project aims to decouple the m
 
 ### 1. Installation
 
-#### Global Installation via npm (Recommended)
+#### Global Installation via pnpm (Recommended)
 
 ```bash
-npm install -g conductor-4-all
+pnpm add -g conductor-4-all
+```
+
+#### Run via npx (No Installation Required)
+
+```bash
+npx conductor-4-all install
 ```
 
 #### From Source
 
 ```bash
-npm install
-npm run build
+pnpm install
+pnpm build
 ```
 
 ### 2. Setup Conductor in Your Project
