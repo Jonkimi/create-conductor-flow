@@ -13,7 +13,8 @@ const { existsSync, ensureDir, writeFile, copy } = fs;
 export function processTemplateContent(
     tomlContent: string,
     installPath: string,
-    agentType: string
+    agentType: string,
+    fixedAgent?: string
 ): string | null {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const parsed = parse(tomlContent) as any;
@@ -25,6 +26,10 @@ export function processTemplateContent(
     let prompt = parsed.prompt;
     prompt = prompt.replace(/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g, installPath);
     const finalContent = substituteVariables(prompt, { agent_type: agentType });
+
+    if (fixedAgent) {
+        return `---\ndescription: ${parsed.description || ''}\nagent: ${fixedAgent}\n---\n${finalContent}`;
+    }
 
     if (parsed.description) {
         return `---\ndescription: ${parsed.description}\n---\n${finalContent}`;
@@ -75,13 +80,16 @@ export class ConfigurableGenerator implements AgentGenerator {
         }
 
         const commands = ['setup', 'newTrack', 'implement', 'status', 'revert'];
+        const extension = this.config.extension || '.md';
+        const fixedAgent = this.config.fixedAgent;
+
         for (const cmd of commands) {
             try {
                 const tomlContent = await loadTemplate(`commands/${cmd}.toml`);
-                const finalContent = processTemplateContent(tomlContent, installPath, agentType);
+                const finalContent = processTemplateContent(tomlContent, installPath, agentType, fixedAgent);
 
                 if (finalContent) {
-                    const fileName = `conductor:${cmd}.md`;
+                    const fileName = `conductor:${cmd}${extension}`;
                     await writeFile(join(targetCommandsDir, fileName), finalContent);
                 }
             } catch (e) {
