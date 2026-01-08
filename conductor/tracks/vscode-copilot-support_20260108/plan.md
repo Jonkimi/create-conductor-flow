@@ -10,7 +10,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: Template Processing Enhancements
-- [ ] Task: Extend `AgentConfig` in `src/generators/types.ts` to support optional `extension` and `frontmatterTemplate`.
+- [x] Task: Extend `AgentConfig` in `src/generators/types.ts` to support optional `extension` and `frontmatterTemplate`. 7bb03e0
 - [ ] Task: Refactor `ConfigurableGenerator.ts` to use custom extensions and handle VS Code Copilot specific frontmatter.
     - Update `processTemplateContent` to optionally use a fixed `agent: agent` metadata.
     - Implementation should ensure NO `model` or `tools` are generated for `vscode-copilot`.
