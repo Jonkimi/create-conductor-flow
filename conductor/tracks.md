@@ -4,6 +4,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
+- [x] **Track: 增加vscode copilot版本支持**
+  *Link: [./conductor/tracks/vscode-copilot-support_20260108/](./conductor/tracks/vscode-copilot-support_20260108/)*
+
 
 
 ## Archived Tracks
