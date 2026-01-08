@@ -26,7 +26,7 @@
 - [x] Task: Conductor - User Manual Verification 'Implement Generators' (Protocol in workflow.md) [checkpoint: 4a71097]
 
 ## Phase 3: Integration & Switchover
-- [ ] Task: Create Generator Factory
+- [x] Task: Create Generator Factory 60e0ac6
     - [ ] Create `src/generators/index.ts` (or `factory.ts`) to export a function `getGenerator(agentType: AgentType): AgentGenerator`.
 - [ ] Task: Refactor Command Consumption
     - [ ] Locate usage of `validateProjectDirectory`, `createConductorDirectories`, and `copyTemplateFiles` (likely in `src/commands/setup.ts` or similar).
