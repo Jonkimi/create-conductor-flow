@@ -17,7 +17,7 @@
 - [x] Task: Create `src/generators/VSCodeCopilotGenerator.ts` as a wrapper around the enhanced `ConfigurableGenerator`. 8b40c8c
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
-## Phase 3: Validation and Verification
+## Phase 3: Validation and Verification [checkpoint: f1d1ac8]
 - [x] Task: Verify directory creation and file generation logic.
     - Target: `.github/prompts/conductor:setup.prompt.md`
     - Assets: `.github/conductor/templates/`
