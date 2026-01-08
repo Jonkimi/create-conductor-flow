@@ -4,7 +4,7 @@
 - [~] Task: Define `AgentGenerator` Interface
     - [ ] Create `src/generators/types.ts`
     - [ ] Define the `AgentGenerator` interface with `validate` and `generate` methods.
-- [ ] Task: Extract Shared Logic
+- [x] Task: Extract Shared Logic 8888427
     - [ ] Analyze `src/utils/install.ts` to identify reusable logic (directory checking, template loading, validation checks).
     - [ ] Move shared logic into composable internal utilities (e.g., `src/generators/utils.ts` or keep specific parts in `src/utils/install.ts` if appropriate for reuse).
 - [ ] Task: Conductor - User Manual Verification 'Foundation & Interface Definition' (Protocol in workflow.md)
