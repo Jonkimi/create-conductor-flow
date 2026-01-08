@@ -21,5 +21,5 @@
 - [x] Task: Verify directory creation and file generation logic.
     - Target: `.github/prompts/conductor:setup.prompt.md`
     - Assets: `.github/conductor/templates/`
-- [ ] Task: Run existing tests and add a new integration test for `vscode-copilot` generator.
+- [x] Task: Run existing tests and add a new integration test for `vscode-copilot` generator.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
