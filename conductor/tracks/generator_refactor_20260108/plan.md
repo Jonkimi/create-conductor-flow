@@ -23,7 +23,7 @@
     - [ ] Create `src/generators/AntigravityGenerator.ts`.
     - [ ] Implement logic mirroring the current `antigravity` path handling.
     - [ ] Write unit tests for `AntigravityGenerator`.
-- [ ] Task: Conductor - User Manual Verification 'Implement Generators' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Implement Generators' (Protocol in workflow.md) [checkpoint: 4a71097]
 
 ## Phase 3: Integration & Switchover
 - [ ] Task: Create Generator Factory
