@@ -2,7 +2,7 @@
 
 ## Phase 1: Support `AgentType` and Configurations
 - [x] Task: Update `AgentType` to include `vscode-copilot` in `src/types.ts`. 8743797
-- [ ] Task: Add `vscode-copilot` configuration in `src/generators/config.ts`.
+- [x] Task: Add `vscode-copilot` configuration in `src/generators/config.ts`. 582b57e
     - `agentDir`: `.github`
     - `commandsDir`: `prompts`
     - `displayName`: `VS Code Copilot`
