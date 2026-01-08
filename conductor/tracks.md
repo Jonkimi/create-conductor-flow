@@ -4,6 +4,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
+- [~] **Track: Refactor installation logic into modular Generators**
+  *Link: [./conductor/tracks/generator_refactor_20260108/](./conductor/tracks/generator_refactor_20260108/)*
+
 ## Archived Tracks
 
 - [x] **Track: Install Command Path and Agent Compatibility Improvements**
