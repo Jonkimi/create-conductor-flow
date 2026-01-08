@@ -5,12 +5,14 @@ import { OpenCodeGenerator } from './OpenCodeGenerator.js';
 import { ClaudeCodeGenerator } from './ClaudeCodeGenerator.js';
 import { AntigravityGenerator } from './AntigravityGenerator.js';
 import { CursorGenerator } from './CursorGenerator.js';
+import { VSCodeCopilotGenerator } from './VSCodeCopilotGenerator.js';
 
 export * from './types.js';
 export * from './OpenCodeGenerator.js';
 export * from './ClaudeCodeGenerator.js';
 export * from './AntigravityGenerator.js';
 export * from './CursorGenerator.js';
+export * from './VSCodeCopilotGenerator.js';
 
 export function getGenerator(agentType: AgentType): AgentGenerator {
   switch (agentType) {
@@ -20,6 +22,8 @@ export function getGenerator(agentType: AgentType): AgentGenerator {
       return new AntigravityGenerator();
     case 'cursor':
       return new CursorGenerator();
+    case 'vscode-copilot':
+      return new VSCodeCopilotGenerator();
     case 'opencode':
     default:
       return new OpenCodeGenerator();
