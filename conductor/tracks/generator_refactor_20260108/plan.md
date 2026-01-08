@@ -10,7 +10,7 @@
 - [x] Task: Conductor - User Manual Verification 'Foundation & Interface Definition' (Protocol in workflow.md) [checkpoint: 36f812d]
 
 ## Phase 2: Implement Generators
-- [ ] Task: Implement `OpenCodeGenerator`
+- [x] Task: Implement `OpenCodeGenerator` 4f7da6b
     - [ ] Create `src/generators/OpenCodeGenerator.ts`.
     - [ ] Implement `validate` using specific `opencode` paths.
     - [ ] Implement `generate` using specific `opencode` paths and shared utilities.
