@@ -28,7 +28,7 @@
 ## Phase 3: Integration & Switchover
 - [x] Task: Create Generator Factory 60e0ac6
     - [ ] Create `src/generators/index.ts` (or `factory.ts`) to export a function `getGenerator(agentType: AgentType): AgentGenerator`.
-- [ ] Task: Refactor Command Consumption
+- [x] Task: Refactor Command Consumption fdc0c96
     - [ ] Locate usage of `validateProjectDirectory`, `createConductorDirectories`, and `copyTemplateFiles` (likely in `src/commands/setup.ts` or similar).
     - [ ] Replace procedural calls with `getGenerator(type).validate()` and `getGenerator(type).generate()`.
 - [ ] Task: Clean up Legacy Code
