@@ -1,6 +1,6 @@
 # Plan: Generator Refactor and Cursor Agent Support
 
-## Phase 1: Core Architecture Refactor
+## Phase 1: Core Architecture Refactor [checkpoint: 3ce2eec]
 - [x] Task: Define AgentConfig interface and configuration registry `343654f`
     - [x] Write failing tests for AgentConfig type validation
     - [x] Define `AgentConfig` interface in `src/generators/types.ts`
@@ -15,7 +15,7 @@
     - [x] Write failing tests for `createGenerator()` factory function
     - [x] Implement `createGenerator(config: AgentConfig): AgentGenerator`
     - [x] Verify tests pass
-- [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md) `3ce2eec`
 
 ## Phase 2: Wrapper Classes Refactor
 - [ ] Task: Refactor OpenCodeGenerator as wrapper
