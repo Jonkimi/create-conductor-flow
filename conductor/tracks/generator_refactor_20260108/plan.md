@@ -31,6 +31,6 @@
 - [x] Task: Refactor Command Consumption fdc0c96
     - [ ] Locate usage of `validateProjectDirectory`, `createConductorDirectories`, and `copyTemplateFiles` (likely in `src/commands/setup.ts` or similar).
     - [ ] Replace procedural calls with `getGenerator(type).validate()` and `getGenerator(type).generate()`.
-- [ ] Task: Clean up Legacy Code
+- [x] Task: Clean up Legacy Code 946aa3d
     - [ ] Remove deprecated functions from `src/utils/install.ts` once fully replaced.
 - [ ] Task: Conductor - User Manual Verification 'Integration & Switchover' (Protocol in workflow.md)
