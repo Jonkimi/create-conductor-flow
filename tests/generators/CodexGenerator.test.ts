@@ -1,9 +1,12 @@
-
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { CodexGenerator } from '../../src/generators/CodexGenerator.js';
 import fs from 'fs-extra';
+import { homedir } from 'os';
 
 vi.mock('fs-extra');
+vi.mock('os', () => ({
+    homedir: vi.fn(),
+}));
 
 vi.mock('../../src/utils/template.js', async (importOriginal) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -43,6 +46,19 @@ describe('CodexGenerator', () => {
             (fs.existsSync as any).mockReturnValue(true);
             await expect(generator.validate(targetDir)).rejects.toThrow('Conductor (Codex) is already installed');
         });
+
+        it('should resolve to homedir if scope is global', async () => {
+            (homedir as any).mockReturnValue('/mock/home');
+            // Mock existsSync for homedir
+            (fs.existsSync as any).mockImplementation((path: string) => {
+                 if (path === '/mock/home') return true;
+                 return false;
+            });
+
+            // We expect the generator to validate against homedir
+            // Since we mocked existsSync to success for home, validation should pass returning home
+            await expect(generator.validate('/any/path', 'global')).resolves.toBe('/mock/home');
+        });
     });
 
     describe('generate', () => {
@@ -55,6 +71,17 @@ describe('CodexGenerator', () => {
              // Check for correct directory structure: .codex/prompts
              expect(fs.ensureDir).toHaveBeenCalledWith(expect.stringContaining('.codex/prompts'));
              expect(fs.writeFile).toHaveBeenCalled();
+        });
+
+        it('should generate in homedir if scope is global', async () => {
+             (homedir as any).mockReturnValue('/mock/home');
+             (loadTemplate as any).mockResolvedValue('prompt = "some prompt"');
+             (fs.existsSync as any).mockReturnValue(true); // target dir exists
+
+             await generator.generate('/any/path', 'global');
+             
+             // Check that it tried to create directories in /mock/home/.codex/...
+             expect(fs.ensureDir).toHaveBeenCalledWith(expect.stringContaining('/mock/home/.codex'));
         });
     });
 });
