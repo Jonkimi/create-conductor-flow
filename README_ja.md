@@ -8,7 +8,7 @@
 
 **Conductor for All** は、[Conductor](https://github.com/gemini-cli-extensions/conductor) の仕様駆動型開発手法を *あらゆる* コーディング環境にもたらすために設計されたスタンドアロンのコマンドラインツールです。
 
-もともと Gemini CLI 拡張機能に紐付いていたこのプロジェクトは、その手法を分離し、開発者が自分のプロジェクトに Conductor ワークフローをインストールして初期化できるようにすることで、**あらゆる** AI コーディングエージェント（Claude Code、Cursor、VS Code Copilot など）や IDE で活用できるようにすることを目指しています。
+もともと Gemini CLI 拡張機能に紐付いていたこのプロジェクトは、その手法を分離し、開発者が自分のプロジェクトに Conductor ワークフローをインストールして初期化できるようにすることで、**あらゆる** AI コーディングエージェント（Claude Code、Cursor、VS Code Copilot、Codex など）や IDE で活用できるようにすることを目指しています。
 
 ## 🎯 目標
 
@@ -42,6 +42,7 @@ AI コーディングエージェントを選択するように求められま�
 -   **Antigravity**
 -   **Cursor**
 -   **VS Code Copilot**
+-   **Codex**
 
 これにより、環境が検証され、必要な Conductor ファイルがインストールされます：
 -   **Commands:** エージェントが実行できるエージェント固有のプロンプトファイル（例：`.opencode/commands/conductor:setup.md`）。
