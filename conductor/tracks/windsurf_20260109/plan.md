@@ -9,13 +9,13 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Configuration & CLI Updates' (Protocol in workflow.md) [a8016c4]
 
 ## Phase 2: Generator Implementation
-- [ ] Task: Create `src/generators/WindsurfGenerator.ts`
-    - [ ] Implement `WindsurfGenerator` class implementing `AgentGenerator`
-    - [ ] Use `createGenerator` factory with `AGENT_CONFIGS.windsurf`
-- [ ] Task: Export new generator in `src/generators/index.ts`
-    - [ ] Export `WindsurfGenerator`
-    - [ ] Update `getGenerator` factory function to handle `windsurf` case
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Generator Implementation' (Protocol in workflow.md)
+- [x] Task: Create `src/generators/WindsurfGenerator.ts` [174c89c]
+    - [x] Implement `WindsurfGenerator` class implementing `AgentGenerator`
+    - [x] Use `createGenerator` factory with `AGENT_CONFIGS.windsurf`
+- [x] Task: Export new generator in `src/generators/index.ts` [404c250]
+    - [x] Export `WindsurfGenerator`
+    - [x] Update `getGenerator` factory function to handle `windsurf` case
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Generator Implementation' (Protocol in workflow.md) [404c250]
 
 ## Phase 3: Verification
 - [ ] Task: Build project locally (`npm run build`) to ensure type safety
