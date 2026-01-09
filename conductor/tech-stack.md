@@ -3,7 +3,7 @@
 ## Core Technology
 - **Language:** TypeScript
 - **Runtime:** Node.js (v18+)
-- **Build System & Package Manager:** npm/pnpm
+- **Build System & Package Manager:** pnpm
 
 ## Libraries & Dependencies
 - **CLI Framework:** `yargs` (Command Line Argument Parser)
