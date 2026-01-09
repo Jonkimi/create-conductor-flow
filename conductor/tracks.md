@@ -4,7 +4,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
-- [~] **Track: Add support for windsurf as coding agent**
+- [x] **Track: Add support for windsurf as coding agent**
   *Link: [./conductor/tracks/windsurf_20260109/](./conductor/tracks/windsurf_20260109/)*
 
 
