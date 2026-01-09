@@ -2,6 +2,7 @@
   "name": "conductor-4-all",
   "version": "0.0.7",
   "description": "Conductor spec-driven development CLI - TypeScript/Node.js version",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hlhr202/Conductor-for-all.git"
