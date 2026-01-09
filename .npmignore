@@ -13,6 +13,8 @@ vitest.config.ts
 .gitignore
 .claude/
 .opencode/
+.windsurf/
+.agent/
 
 # Assets
 gemini-conductor-codebase.tar

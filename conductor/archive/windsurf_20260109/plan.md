@@ -23,4 +23,4 @@
     - [x] Run `node dist/index.js install` (or equivalent)
     - [x] Select "Windsurf"
     - [x] Verify files are created in `.windsurf/workflows` and `.windsurf/conductor` [1f0fb70]
-- [x] Task: Conductor - User Manual Verification 'Phase 3: Verification' (Protocol in workflow.md) [1f0fb70]
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Verification' (Protocol in workflow.md) [1f0fb70] [checkpoint: 7e1f805]
