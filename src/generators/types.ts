@@ -1,19 +1,23 @@
 
+import { InstallScope } from '../types.js';
+
 export interface AgentGenerator {
   /**
    * Validates the target directory for installation.
    * Checks if critical files or directories already exist to prevent overwriting.
    * Returns the target directory path if valid, or throws an error.
    * @param targetDir The directory to validate
+   * @param scope The installation scope (global or project)
    */
-  validate(targetDir: string): Promise<string>;
+  validate(targetDir: string, scope?: InstallScope): Promise<string>;
 
   /**
    * Generates the agent-specific configuration and commands.
    * Creates directories, copies templates, and processes configuration files.
    * @param targetDir The directory where the agent configuration should be generated
+   * @param scope The installation scope (global or project)
    */
-  generate(targetDir: string): Promise<void>;
+  generate(targetDir: string, scope?: InstallScope): Promise<void>;
 }
 
 /**
