@@ -1,6 +1,6 @@
 
 import { ArgumentsCamelCase } from 'yargs';
-import { promptForAgent } from '../cli/prompt.js';
+import { promptForAgent, promptForInstallScope } from '../cli/prompt.js';
 import { getGenerator } from '../generators/index.js';
 import { resolve } from 'path';
 
@@ -24,16 +24,20 @@ export async function installHandler(argv: ArgumentsCamelCase<{ path: string; ag
       console.log(`✔ Selected agent: ${agent}`);
     }
 
+    // 2. Select Installation Scope
+    const scope = await promptForInstallScope(agent);
+    console.log(`✔ Selected scope: ${scope}`);
+
     const generator = getGenerator(agent);
 
-    // 2. Validate
-    console.log('\nStep 2: Validating project directory...');
-    const validatedPath = await generator.validate(targetDir);
+    // 3. Validate
+    console.log('\nStep 3: Validating project directory...');
+    const validatedPath = await generator.validate(targetDir, scope);
     console.log(`✔ Validation complete: ${validatedPath}`);
     
-    // 3. Generate
-    console.log('\nStep 3: Generating files...');
-    await generator.generate(validatedPath);
+    // 4. Generate
+    console.log('\nStep 4: Generating files...');
+    await generator.generate(validatedPath, scope);
     console.log('✔ Files generated');
     
     console.log('\n✔ Conductor initialized successfully!');
