@@ -39,10 +39,10 @@ The goal of this track is to enforce installation scope constraints (Global vs. 
 - [x] Task: Create `InstallScope` type and update `Generator` interface <!-- 819f2ac -->
     - [x] Update `src/types.ts` to include `InstallScope` ('global' | 'project').
     - [x] Update `Generator` interface in `src/generators/types.ts` (or similar) to accept scope in `validate` or `generate`.
-- [ ] Task: Implement `promptForInstallScope` with TDD
-    - [ ] Create test `__tests__/cli/prompt.test.ts` (or relevant) verifying correct single-option behavior for Codex vs others.
-    - [ ] Implement `promptForInstallScope` in `src/cli/prompt.ts`.
-- [ ] Task: Update `CodexGenerator` for Global Path Resolution
+- [x] Task: Implement `promptForInstallScope` with TDD <!-- be93f55 -->
+    - [x] Create test `__tests__/cli/prompt.test.ts` (or relevant) verifying correct single-option behavior for Codex vs others.
+    - [x] Implement `promptForInstallScope` in `src/cli/prompt.ts`.
+- [~] Task: Update `CodexGenerator` for Global Path Resolution
     - [ ] Create test `__tests__/generators/CodexGenerator.test.ts` verifying path resolution to `~/.codex`.
     - [ ] Implement path resolution logic using `os.homedir()`.
 - [ ] Task: Conductor - User Manual Verification 'Core Logic & Tests' (Protocol in workflow.md)
