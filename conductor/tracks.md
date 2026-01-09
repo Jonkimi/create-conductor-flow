@@ -22,5 +22,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] **Track: TypeScript/Node.js Port of Conductor CLI**
   *Link: [./conductor/archive/typescript-port_20260108/](./conductor/archive/typescript-port_20260108/)*
 
-- [~] **Track: implement a new generator that support codex**
+- [x] **Track: implement a new generator that support codex**
   *Link: [./conductor/tracks/codex_support_20260109/](./conductor/tracks/codex_support_20260109/)*
