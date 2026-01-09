@@ -38,4 +38,11 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     extension: '.prompt.md',
     fixedAgent: 'agent',
   },
+  codex: {
+    agentType: 'codex',
+    agentDir: '.codex',
+    commandsDir: 'prompts',
+    displayName: 'Codex',
+    extension: '.md',
+  },
 };

@@ -19,7 +19,7 @@ export const cli = yargs(hideBin(process.argv))
           alias: 'a',
           describe: 'Specify the coding agent',
           type: 'string',
-          choices: ['opencode', 'claude-code', 'antigravity', 'cursor', 'vscode-copilot'],
+          choices: ['opencode', 'claude-code', 'antigravity', 'cursor', 'vscode-copilot', 'codex'],
         });
     },
     installHandler

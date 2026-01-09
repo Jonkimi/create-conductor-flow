@@ -30,6 +30,11 @@ export async function promptForAgent(): Promise<AgentType> {
         value: 'vscode-copilot',
         description: "VS Code Copilot's Prompt Files",
       },
+      {
+        name: 'Codex',
+        value: 'codex',
+        description: "OpenAI Codex Agent",
+      },
     ],
     default: 'opencode',
   });
