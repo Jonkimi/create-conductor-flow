@@ -45,4 +45,10 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     displayName: 'Codex',
     extension: '.md',
   },
+  windsurf: {
+    agentType: 'windsurf',
+    agentDir: '.windsurf',
+    commandsDir: 'workflows',
+    displayName: 'Windsurf',
+  },
 };

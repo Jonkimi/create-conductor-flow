@@ -1,4 +1,4 @@
-export type AgentType = 'opencode' | 'claude-code' | 'antigravity' | 'cursor' | 'vscode-copilot' | 'codex';
+export type AgentType = 'opencode' | 'claude-code' | 'antigravity' | 'cursor' | 'vscode-copilot' | 'codex' | 'windsurf';
 
 export type InstallScope = 'global' | 'project';
 
