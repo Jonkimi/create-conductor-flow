@@ -4,8 +4,8 @@
 - [x] Task: Update `AgentType` definition in `src/types.ts` to include `windsurf` [f4484b1]
 - [x] Task: Update `AGENT_CONFIGS` in `src/generators/config.ts` [f4484b1]
     - [x] Add `windsurf` config with `agentDir: '.windsurf'`, `commandsDir: 'workflows'`, `displayName: 'Windsurf'`
-- [ ] Task: Update CLI prompts in `src/cli/prompt.ts`
-    - [ ] Add `Windsurf` to the `select` choices in `promptForAgent`
+- [x] Task: Update CLI prompts in `src/cli/prompt.ts` [eaafb87]
+    - [x] Add `Windsurf` to the `select` choices in `promptForAgent`
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Configuration & CLI Updates' (Protocol in workflow.md)
 
 ## Phase 2: Generator Implementation
