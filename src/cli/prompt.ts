@@ -3,19 +3,19 @@ import { AgentType, InstallScope } from '../types.js';
 
 export async function promptForInstallScope(agent: AgentType): Promise<InstallScope> {
   const isCodex = agent === 'codex';
-  
-  const choices = isCodex 
+
+  const choices = isCodex
     ? [{ name: 'Global (User Home Directory)', value: 'global' as const }]
     : [{ name: 'Project (Current Directory)', value: 'project' as const }];
-    
-  // Use a type assertion to satisfy the select generic if needed, 
+
+  // Use a type assertion to satisfy the select generic if needed,
   // though it implies the return type based on values.
   const answer = await select<InstallScope>({
     message: 'Select installation method:',
     choices: choices,
     default: isCodex ? 'global' : 'project',
   });
-  
+
   return answer;
 }
 
@@ -52,6 +52,11 @@ export async function promptForAgent(): Promise<AgentType> {
         name: 'Codex',
         value: 'codex',
         description: "OpenAI Codex Agent",
+      },
+      {
+        name: 'Windsurf',
+        value: 'windsurf',
+        description: "Windsurf Cascade AI Agent",
       },
     ],
     default: 'opencode',
