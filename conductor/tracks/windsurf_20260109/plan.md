@@ -15,7 +15,7 @@
 - [x] Task: Export new generator in `src/generators/index.ts` [404c250]
     - [x] Export `WindsurfGenerator`
     - [x] Update `getGenerator` factory function to handle `windsurf` case
-- [x] Task: Conductor - User Manual Verification 'Phase 2: Generator Implementation' (Protocol in workflow.md) [404c250]
+    - [x] Task: Conductor - User Manual Verification 'Phase 2: Generator Implementation' (Protocol in workflow.md) [f7ca21f]
 
 ## Phase 3: Verification
 - [ ] Task: Build project locally (`npm run build`) to ensure type safety
