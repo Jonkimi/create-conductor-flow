@@ -48,10 +48,10 @@ The goal of this track is to enforce installation scope constraints (Global vs. 
 - [x] Task: Conductor - User Manual Verification 'Core Logic & Tests' (Protocol in workflow.md)
 
 ### Phase 2: Integration
-- [ ] Task: Wire up `install` command
-    - [ ] Update `src/commands/install.ts` to call `promptForInstallScope`.
-    - [ ] Pass the result to the generator.
-- [ ] Task: Verify End-to-End Installation Flow
+- [x] Task: Wire up `install` command <!-- dbfe51b -->
+    - [x] Update `src/commands/install.ts` to call `promptForInstallScope`.
+    - [x] Pass the result to the generator.
+- [~] Task: Verify End-to-End Installation Flow
     - [ ] Run manual installation of Codex (verify `~/.codex` creation).
     - [ ] Run manual installation of OpenCode (verify local creation).
 - [ ] Task: Conductor - User Manual Verification 'Integration' (Protocol in workflow.md)
