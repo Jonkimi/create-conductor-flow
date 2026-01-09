@@ -8,7 +8,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Archived Tracks
 
-- [x] **Track: 增加vscode copilot版本支持**
+- [x] **Track: Add VS Code Copilot version support**
   *Link: [./conductor/archive/vscode-copilot-support_20260108/](./conductor/archive/vscode-copilot-support_20260108/)*
 
 - [x] **Track: Generator Refactor and Cursor Agent Support**
@@ -22,5 +22,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] **Track: TypeScript/Node.js Port of Conductor CLI**
   *Link: [./conductor/archive/typescript-port_20260108/](./conductor/archive/typescript-port_20260108/)*
 
-- [x] **Track: implement a new generator that support codex**
+- [x] **Track: Implement a new generator that supports Codex**
   *Link: [./conductor/archive/codex_support_20260109/](./conductor/archive/codex_support_20260109/)*
