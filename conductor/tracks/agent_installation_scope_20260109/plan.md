@@ -35,7 +35,7 @@ The goal of this track is to enforce installation scope constraints (Global vs. 
 
 ## Plan
 
-### Phase 1: Core Logic & Tests
+### Phase 1: Core Logic & Tests [checkpoint: 4d5e748]
 - [x] Task: Create `InstallScope` type and update `Generator` interface <!-- 819f2ac -->
     - [x] Update `src/types.ts` to include `InstallScope` ('global' | 'project').
     - [x] Update `Generator` interface in `src/generators/types.ts` (or similar) to accept scope in `validate` or `generate`.
@@ -45,7 +45,7 @@ The goal of this track is to enforce installation scope constraints (Global vs. 
 - [x] Task: Update `CodexGenerator` for Global Path Resolution <!-- 2440184 -->
     - [x] Create test `__tests__/generators/CodexGenerator.test.ts` verifying path resolution to `~/.codex`.
     - [x] Implement path resolution logic using `os.homedir()`.
-- [ ] Task: Conductor - User Manual Verification 'Core Logic & Tests' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Core Logic & Tests' (Protocol in workflow.md)
 
 ### Phase 2: Integration
 - [ ] Task: Wire up `install` command
