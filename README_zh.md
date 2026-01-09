@@ -43,6 +43,7 @@ node dist/index.js install
 -   **Cursor**
 -   **VS Code Copilot**
 -   **Codex**
+-   **Windsurf**
 
 这将验证环境并安装必要的 Conductor 文件：
 -   **Commands:** 代理特定的提示文件（例如 `.opencode/commands/conductor:setup.md`），你的代理可以执行这些文件。
