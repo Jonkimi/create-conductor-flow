@@ -6,4 +6,3 @@ coverage
 # Agent installation directories
 .claude
 .opencode
-.agent
