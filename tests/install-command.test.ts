@@ -28,14 +28,17 @@ describe('Install Command', () => {
     const mockArgv = { path: '.', _: [], $0: 'conductor' };
     mockGenerator.validate.mockResolvedValue('/abs/path');
     vi.mocked(promptModule.promptForAgent).mockResolvedValue('opencode');
+    // Mock scope selection
+    vi.mocked(promptModule.promptForInstallScope).mockResolvedValue('project');
     
     // Execute
     await installHandler(mockArgv);
     
     // Verify flow
     expect(generatorFactory.getGenerator).toHaveBeenCalledWith('opencode');
-    expect(mockGenerator.validate).toHaveBeenCalled(); 
-    expect(mockGenerator.generate).toHaveBeenCalledWith('/abs/path');
+    // Check that validate and generate are called with scope
+    expect(mockGenerator.validate).toHaveBeenCalledWith(expect.any(String), 'project'); 
+    expect(mockGenerator.generate).toHaveBeenCalledWith('/abs/path', 'project');
     expect(console.log).toHaveBeenCalledWith(expect.stringContaining('initialized successfully'));
   });
 
@@ -43,6 +46,8 @@ describe('Install Command', () => {
     // Setup mocks
     const mockArgv = { path: '.', agent: 'cursor', _: [], $0: 'conductor' };
     mockGenerator.validate.mockResolvedValue('/abs/path');
+    // Mock scope selection
+    vi.mocked(promptModule.promptForInstallScope).mockResolvedValue('project');
     
     // Execute
     await installHandler(mockArgv as any);
@@ -50,7 +55,9 @@ describe('Install Command', () => {
     // Verify flow - promptForAgent should NOT be called
     expect(promptModule.promptForAgent).not.toHaveBeenCalled();
     expect(generatorFactory.getGenerator).toHaveBeenCalledWith('cursor');
-    expect(mockGenerator.generate).toHaveBeenCalled();
+    // Verify promptForInstallScope is still called even if agent is provided by flag
+    expect(promptModule.promptForInstallScope).toHaveBeenCalledWith('cursor');
+    expect(mockGenerator.generate).toHaveBeenCalledWith(expect.any(String), 'project');
   });
 
   it('should handle validation errors', async () => {
