@@ -2,6 +2,7 @@ import { join } from 'path';
 import fs from 'fs-extra';
 import { parse } from 'smol-toml';
 import type { AgentGenerator, AgentConfig } from './types.js';
+import type { InstallScope } from '../types.js';
 import { getTemplateRoot, loadTemplate, substituteVariables } from '../utils/template.js';
 
 const { existsSync, ensureDir, writeFile, copy } = fs;
@@ -45,7 +46,7 @@ export function processTemplateContent(
 export class ConfigurableGenerator implements AgentGenerator {
     constructor(private readonly config: AgentConfig) {}
 
-    async validate(targetDir: string): Promise<string> {
+    async validate(targetDir: string, scope?: InstallScope): Promise<string> {
         if (!existsSync(targetDir)) {
             throw new Error(`Target directory does not exist: ${targetDir}`);
         }
@@ -61,11 +62,19 @@ export class ConfigurableGenerator implements AgentGenerator {
         return targetDir;
     }
 
-    async generate(targetDir: string): Promise<void> {
+    async generate(targetDir: string, scope?: InstallScope): Promise<void> {
         const { agentDir, commandsDir, agentType } = this.config;
         const agentPath = join(targetDir, agentDir);
         const targetCommandsDir = join(agentPath, commandsDir);
-        const installPath = join(agentDir, 'conductor');
+        
+        // Determine the installation path string used in templates
+        // For project-level: relative path (e.g., ".codex/conductor")
+        // For global-level: absolute/home path (e.g., "~/.codex/conductor")
+        let installPath = join(agentDir, 'conductor');
+        if (scope === 'global') {
+             // Assuming agentDir doesn't start with / or ~
+             installPath = `~/${agentDir}/conductor`;
+        }
 
         await ensureDir(targetCommandsDir);
         await ensureDir(join(agentPath, 'conductor'));
