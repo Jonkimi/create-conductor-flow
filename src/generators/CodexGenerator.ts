@@ -15,13 +15,13 @@ export class CodexGenerator implements AgentGenerator {
         if (scope === 'global') {
             targetDir = homedir();
         }
-        return this.generator.validate(targetDir);
+        return this.generator.validate(targetDir, scope);
     }
 
     generate(targetDir: string, scope?: InstallScope): Promise<void> {
         if (scope === 'global') {
             targetDir = homedir();
         }
-        return this.generator.generate(targetDir);
+        return this.generator.generate(targetDir, scope);
     }
 }
