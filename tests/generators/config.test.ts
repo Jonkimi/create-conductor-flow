@@ -40,6 +40,15 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Cursor');
         });
 
+        it('should have configuration for windsurf agent', () => {
+            const config = AGENT_CONFIGS.windsurf;
+            expect(config).toBeDefined();
+            expect(config.agentType).toBe('windsurf');
+            expect(config.agentDir).toBe('.windsurf');
+            expect(config.commandsDir).toBe('workflows');
+            expect(config.displayName).toBe('Windsurf');
+        });
+
         it('should have all required fields for each config', () => {
             const requiredFields: (keyof AgentConfig)[] = [
                 'agentType',

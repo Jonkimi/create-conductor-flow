@@ -13,4 +13,9 @@ describe('AgentType Definition', () => {
     const agent: AgentType = 'vscode-copilot';
     expectTypeOf(agent).toMatchTypeOf<AgentType>();
   });
+
+  it('should include windsurf as a valid agent type', () => {
+    const agent: AgentType = 'windsurf';
+    expectTypeOf(agent).toMatchTypeOf<AgentType>();
+  });
 });

@@ -7,6 +7,7 @@ import { AntigravityGenerator } from './AntigravityGenerator.js';
 import { CursorGenerator } from './CursorGenerator.js';
 import { VSCodeCopilotGenerator } from './VSCodeCopilotGenerator.js';
 import { CodexGenerator } from './CodexGenerator.js';
+import { WindsurfGenerator } from './WindsurfGenerator.js';
 
 export * from './types.js';
 export * from './OpenCodeGenerator.js';
@@ -15,6 +16,7 @@ export * from './AntigravityGenerator.js';
 export * from './CursorGenerator.js';
 export * from './VSCodeCopilotGenerator.js';
 export * from './CodexGenerator.js';
+export * from './WindsurfGenerator.js';
 
 export function getGenerator(agentType: AgentType): AgentGenerator {
   switch (agentType) {
@@ -28,6 +30,8 @@ export function getGenerator(agentType: AgentType): AgentGenerator {
       return new VSCodeCopilotGenerator();
     case 'codex':
       return new CodexGenerator();
+    case 'windsurf':
+      return new WindsurfGenerator();
     case 'opencode':
     default:
       return new OpenCodeGenerator();

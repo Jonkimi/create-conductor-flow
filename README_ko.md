@@ -43,6 +43,7 @@ AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
 -   **Cursor**
 -   **VS Code Copilot**
 -   **Codex**
+-   **Windsurf**
 
 이 작업은 환경을 확인하고 필요한 Conductor 파일을 설치합니다:
 -   **Commands:** 에이전트가 실행할 수 있는 에이전트별 프롬프트 파일 (예: `.opencode/commands/conductor:setup.md`).

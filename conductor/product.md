@@ -9,12 +9,12 @@ A standalone command-line tool built with TypeScript and Node.js that brings the
 ## Core Goals
 - **Universal Compatibility:** Enable the Conductor methodology outside of the Gemini CLI ecosystem.
 - **Agent-Agnostic Setup:** Provide a mechanism to "install" Conductor commands and templates into a project, effectively "enabling" it for consumption by multiple different coding agents.
-- **Standardization:** Create a unified interface for project orchestration that bridge the gap between human intent and AI execution.
+- **Standardization:** Create a unified interface for project orchestration that bridges the gap between human intent and AI execution.
 
 ## Key Features
 - **Project Initialization & Installation:** A robust CLI to scaffold the necessary Conductor directories, templates, and configuration files into any project.
 - **Agent Installation Scope Control**: Enforces global (e.g., `~/.codex`) or project-level installation based on agent type requirements.
 - **Smart Agent Selection**: Interactive CLI to choose your preferred AI agent.
-- **Multi-Agent Support:** Built-in support for multiple AI agents including **OpenCode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, and **Codex**, with automated generation of tailored command structures and file formats for each.
+- **Multi-Agent Support:** Built-in support for multiple AI agents including **OpenCode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, and **Windsurf**, with automated generation of tailored command structures and file formats for each.
 - **Universal Command Interface:** A set of standardized commands (implemented via `yargs`) to manage the lifecycle of tasks and tracks, designed to be easily invoked by both humans and agents.
 - **Cross-Platform Support:** Cross-platform execution provided by Node.js.

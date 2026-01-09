@@ -43,6 +43,7 @@ You will be prompted to select your AI Coding Agent:
 -   **Cursor**
 -   **VS Code Copilot**
 -   **Codex**
+-   **Windsurf**
 
 This will verify the environment and install the necessary Conductor files:
 -   **Commands:** Agent-specific prompt files (e.g., `.opencode/commands/conductor:setup.md`) that your agent can execute.
