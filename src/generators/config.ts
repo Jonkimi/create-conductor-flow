@@ -51,4 +51,10 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     commandsDir: 'workflows',
     displayName: 'Windsurf',
   },
+  cline: {
+    agentType: 'cline',
+    agentDir: '.clinerules',
+    commandsDir: 'workflows',
+    displayName: 'Cline',
+  },
 };

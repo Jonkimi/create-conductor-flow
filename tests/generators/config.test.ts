@@ -49,6 +49,15 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Windsurf');
         });
 
+        it('should have configuration for cline agent', () => {
+            const config = AGENT_CONFIGS.cline;
+            expect(config).toBeDefined();
+            expect(config.agentType).toBe('cline');
+            expect(config.agentDir).toBe('.clinerules');
+            expect(config.commandsDir).toBe('workflows');
+            expect(config.displayName).toBe('Cline');
+        });
+
         it('should have all required fields for each config', () => {
             const requiredFields: (keyof AgentConfig)[] = [
                 'agentType',
