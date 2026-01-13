@@ -1,6 +1,6 @@
 # Implementation Plan: Add Cline Agent Support
 
-## Phase 1: Type System and Configuration
+## Phase 1: Type System and Configuration [checkpoint: 4924368]
 - [x] Task: Add 'cline' to AgentType union type [33d29f2]
     - [x] Update `src/types.ts` to include 'cline' in AgentType union
 - [x] Task: Add cline configuration to AGENT_CONFIGS [aad79f1]
@@ -8,7 +8,7 @@
     - [x] Configure agentDir as '.clinerules'
     - [x] Configure commandsDir as 'workflows'
     - [x] Set displayName as 'Cline'
-- [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: Generator Implementation
 - [ ] Task: Create ClineGenerator class
