@@ -15,7 +15,7 @@
     - [x] Create `src/generators/ClineGenerator.ts`
     - [x] Implement AgentGenerator interface
     - [x] Delegate to createGenerator(AGENT_CONFIGS.cline)
-- [x] Task: Update factory to handle cline agent type
+- [x] Task: Update factory to handle cline agent type [9a73b2c]
     - [x] Update `src/generators/index.ts` getGenerator function
     - [x] Add case for 'cline' to return ClineGenerator instance
     - [x] Export ClineGenerator
