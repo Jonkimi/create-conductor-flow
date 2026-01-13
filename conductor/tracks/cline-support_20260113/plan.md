@@ -45,22 +45,22 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
 
 ## Phase 5: Testing and Verification
-- [ ] Task: Write unit tests for ClineGenerator
-    - [ ] Create test file `src/generators/ClineGenerator.test.ts`
-    - [ ] Write tests for validate method
-    - [ ] Write tests for generate method
-    - [ ] Test directory creation for .clinerules
-    - [ ] Test command file generation with plain markdown format
-- [ ] Task: Write tests for CLI prompt integration
-    - [ ] Update test file for agent selection
-    - [ ] Verify cline appears in agent choices
-    - [ ] Test install scope prompt for cline
-    - [ ] Verify only project-level option available for cline
-- [ ] Task: Run full test suite
-    - [ ] Execute `pnpm test`
-    - [ ] Verify all existing tests still pass
-    - [ ] Verify new tests pass
-    - [ ] Check code coverage meets >80% requirement
+- [x] Task: Write unit tests for ClineGenerator [76b75e5]
+    - [x] Create test file `src/generators/ClineGenerator.test.ts`
+    - [x] Write tests for validate method
+    - [x] Write tests for generate method
+    - [x] Test directory creation for .clinerules
+    - [x] Test command file generation with plain markdown format
+- [x] Task: Write tests for CLI prompt integration [e0d9550]
+    - [x] Update test file for agent selection
+    - [x] Verify cline appears in agent choices
+    - [x] Test install scope prompt for cline
+    - [x] Verify only project-level option available for cline
+- [x] Task: Run full test suite [76b75e5]
+    - [x] Execute `pnpm test`
+    - [x] Verify all existing tests still pass
+    - [x] Verify new tests pass
+    - [x] Check code coverage meets >80% requirement
 - [ ] Task: Conductor - User Manual Verification 'Phase 5' (Protocol in workflow.md)
 
 ## Phase 6: Documentation and Finalization
