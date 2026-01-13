@@ -10,7 +10,7 @@
     - [x] Set displayName as 'Cline'
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
-## Phase 2: Generator Implementation
+## Phase 2: Generator Implementation [checkpoint: 6296436]
 - [x] Task: Create ClineGenerator class [067f6b0]
     - [x] Create `src/generators/ClineGenerator.ts`
     - [x] Implement AgentGenerator interface
@@ -19,7 +19,7 @@
     - [x] Update `src/generators/index.ts` getGenerator function
     - [x] Add case for 'cline' to return ClineGenerator instance
     - [x] Export ClineGenerator
-- [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3: CLI Integration
 - [ ] Task: Add cline to agent selection prompt
