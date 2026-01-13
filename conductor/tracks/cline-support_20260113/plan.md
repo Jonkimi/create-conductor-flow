@@ -8,7 +8,7 @@
     - [x] Configure agentDir as '.clinerules'
     - [x] Configure commandsDir as 'workflows'
     - [x] Set displayName as 'Cline'
-- [~] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: Generator Implementation
 - [ ] Task: Create ClineGenerator class
