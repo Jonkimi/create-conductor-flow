@@ -54,5 +54,25 @@ describe('ClineGenerator', () => {
              expect(fs.ensureDir).toHaveBeenCalledWith(expect.stringContaining('.clinerules/workflows'));
              expect(fs.writeFile).toHaveBeenCalled();
         });
+
+        it('should generate command files with plain markdown format', async () => {
+            const mockToml = 'description = "Test command"\nprompt = "Test prompt content"';
+            (loadTemplate as any).mockResolvedValue(mockToml);
+
+            await generator.generate(targetDir);
+
+            expect(fs.writeFile).toHaveBeenCalled();
+            const writeCalls = (fs.writeFile as any).mock.calls;
+            const setupCall = writeCalls.find((call: any) =>
+                call[0].includes('conductor:setup.md')
+            );
+
+            expect(setupCall).toBeDefined();
+            const content = setupCall[1];
+            expect(content).toMatch(/^# Conductor Setup\n/);
+            expect(content).not.toMatch(/^---/);
+            expect(content).toContain('Test command');
+            expect(content).toContain('Test prompt content');
+        });
     });
-});
+ });
