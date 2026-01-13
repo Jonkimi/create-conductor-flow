@@ -26,11 +26,11 @@
     - [x] Update `src/cli/prompt.ts` promptForAgent function
     - [x] Add cline option with name "Cline"
     - [x] Add description "Cline AI coding assistant"
-- [ ] Task: Configure install scope for cline
-    - [ ] Update `src/cli/prompt.ts` promptForInstallScope function
-    - [ ] Add logic to detect cline agent type
-    - [ ] Restrict options to project-level only for cline
-    - [ ] Set default to 'project' for cline
+- [x] Task: Configure install scope for cline [94c23b8]
+    - [x] Update `src/cli/prompt.ts` promptForInstallScope function
+    - [x] Add logic to detect cline agent type
+    - [x] Restrict options to project-level only for cline
+    - [x] Set default to 'project' for cline
 - [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
 
 ## Phase 4: Command File Format Customization
