@@ -19,7 +19,7 @@
     - [x] Update `src/generators/index.ts` getGenerator function
     - [x] Add case for 'cline' to return ClineGenerator instance
     - [x] Export ClineGenerator
-- [~] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3: CLI Integration
 - [ ] Task: Add cline to agent selection prompt
