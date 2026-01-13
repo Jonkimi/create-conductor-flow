@@ -15,10 +15,10 @@
     - [x] Create `src/generators/ClineGenerator.ts`
     - [x] Implement AgentGenerator interface
     - [x] Delegate to createGenerator(AGENT_CONFIGS.cline)
-- [ ] Task: Update factory to handle cline agent type
-    - [ ] Update `src/generators/index.ts` getGenerator function
-    - [ ] Add case for 'cline' to return ClineGenerator instance
-    - [ ] Export ClineGenerator
+- [x] Task: Update factory to handle cline agent type
+    - [x] Update `src/generators/index.ts` getGenerator function
+    - [x] Add case for 'cline' to return ClineGenerator instance
+    - [x] Export ClineGenerator
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3: CLI Integration
