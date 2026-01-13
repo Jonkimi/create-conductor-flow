@@ -11,7 +11,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: Generator Implementation
-- [x] Task: Create ClineGenerator class
+- [x] Task: Create ClineGenerator class [067f6b0]
     - [x] Create `src/generators/ClineGenerator.ts`
     - [x] Implement AgentGenerator interface
     - [x] Delegate to createGenerator(AGENT_CONFIGS.cline)
