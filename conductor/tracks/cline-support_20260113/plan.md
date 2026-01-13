@@ -22,10 +22,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
 ## Phase 3: CLI Integration
-- [ ] Task: Add cline to agent selection prompt
-    - [ ] Update `src/cli/prompt.ts` promptForAgent function
-    - [ ] Add cline option with name "Cline"
-    - [ ] Add description "Cline AI coding assistant"
+- [x] Task: Add cline to agent selection prompt [e0d9550]
+    - [x] Update `src/cli/prompt.ts` promptForAgent function
+    - [x] Add cline option with name "Cline"
+    - [x] Add description "Cline AI coding assistant"
 - [ ] Task: Configure install scope for cline
     - [ ] Update `src/cli/prompt.ts` promptForInstallScope function
     - [ ] Add logic to detect cline agent type
