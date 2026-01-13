@@ -34,14 +34,14 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
 
 ## Phase 4: Command File Format Customization
-- [ ] Task: Update processTemplateContent for plain markdown format
-    - [ ] Analyze ConfigurableGenerator.processTemplateContent function
-    - [ ] Add logic to detect cline agent type
-    - [ ] Generate plain markdown without frontmatter for cline
-    - [ ] Extract description from TOML and use as command title prefix
-- [ ] Task: Implement title generation for cline commands
-    - [ ] Create "Conductor <Command Name>" title format
-    - [ ] Apply titles for all 5 commands (setup, newTrack, implement, status, revert)
+- [x] Task: Update processTemplateContent for plain markdown format [509b671]
+    - [x] Analyze ConfigurableGenerator.processTemplateContent function
+    - [x] Add logic to detect cline agent type
+    - [x] Generate plain markdown without frontmatter for cline
+    - [x] Extract description from TOML and use as command title prefix
+- [x] Task: Implement title generation for cline commands [509b671]
+    - [x] Create "Conductor <Command Name>" title format
+    - [x] Apply titles for all 5 commands (setup, newTrack, implement, status, revert)
 - [ ] Task: Conductor - User Manual Verification 'Phase 4' (Protocol in workflow.md)
 
 ## Phase 5: Testing and Verification
