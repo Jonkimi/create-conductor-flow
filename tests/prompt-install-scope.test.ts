@@ -29,13 +29,27 @@ describe('Installation Scope Prompt', () => {
 
   it('should restrict OpenCode to Project scope', async () => {
     vi.mocked(select).mockResolvedValue('project');
-    
+
     const scope = await promptForInstallScope('opencode');
-    
+
     expect(scope).toBe('project');
     const callArgs = vi.mocked(select).mock.calls[0][0];
     const choices = callArgs.choices as Array<{ name: string; value: string }>;
-    
+
+    expect(choices).toHaveLength(1);
+    expect(choices[0].value).toBe('project');
+    expect(choices[0].name).toContain('Project');
+  });
+
+  it('should restrict Cline to Project scope', async () => {
+    vi.mocked(select).mockResolvedValue('project');
+
+    const scope = await promptForInstallScope('cline');
+
+    expect(scope).toBe('project');
+    const callArgs = vi.mocked(select).mock.calls[0][0];
+    const choices = callArgs.choices as Array<{ name: string; value: string }>;
+
     expect(choices).toHaveLength(1);
     expect(choices[0].value).toBe('project');
     expect(choices[0].name).toContain('Project');

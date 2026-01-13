@@ -34,4 +34,17 @@ describe('CLI Prompts', () => {
     expect(windsurfChoice).toBeDefined();
     expect(windsurfChoice?.name).toBe('Windsurf');
   });
+
+  it('should include Cline in options', async () => {
+    vi.mocked(select).mockResolvedValue('cline');
+
+    await promptForAgent();
+
+    const callArgs = vi.mocked(select).mock.calls[0][0];
+    const choices = callArgs.choices as Array<{ name: string; value: string }>;
+
+    const clineChoice = choices.find(c => c.value === 'cline');
+    expect(clineChoice).toBeDefined();
+    expect(clineChoice?.name).toBe('Cline');
+  });
 });

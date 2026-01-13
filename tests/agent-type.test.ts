@@ -18,4 +18,9 @@ describe('AgentType Definition', () => {
     const agent: AgentType = 'windsurf';
     expectTypeOf(agent).toMatchTypeOf<AgentType>();
   });
+
+  it('should include cline as a valid agent type', () => {
+    const agent: AgentType = 'cline';
+    expectTypeOf(agent).toMatchTypeOf<AgentType>();
+  });
 });

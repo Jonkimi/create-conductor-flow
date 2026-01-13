@@ -3,6 +3,7 @@ import { AgentType, InstallScope } from '../types.js';
 
 export async function promptForInstallScope(agent: AgentType): Promise<InstallScope> {
   const isCodex = agent === 'codex';
+  const isCline = agent === 'cline';
 
   const choices = isCodex
     ? [{ name: 'Global (User Home Directory)', value: 'global' as const }]
@@ -57,6 +58,11 @@ export async function promptForAgent(): Promise<AgentType> {
         name: 'Windsurf',
         value: 'windsurf',
         description: "Windsurf Cascade AI Agent",
+      },
+      {
+        name: 'Cline',
+        value: 'cline',
+        description: "Cline AI coding assistant",
       },
     ],
     default: 'opencode',

@@ -2,9 +2,11 @@
 
 This file tracks all major tracks for the project. Each track has its own detailed plan in its respective folder.
 
+
 ## Active Tracks
+  
 
-
+ 
 
 ## Archived Tracks
 
@@ -24,5 +26,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Implement a new generator that supports Codex**
   *Link: [./conductor/archive/codex_support_20260109/](./conductor/archive/codex_support_20260109/)*
+
 - [x] **Track: Enforce installation scope (Global vs Project) based on Agent type**
   *Link: [./conductor/archive/agent_installation_scope_20260109/](./conductor/archive/agent_installation_scope_20260109/)*
+

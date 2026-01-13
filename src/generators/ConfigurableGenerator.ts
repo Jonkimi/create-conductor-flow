@@ -8,14 +8,15 @@ import { getTemplateRoot, loadTemplate, substituteVariables } from '../utils/tem
 const { existsSync, ensureDir, writeFile, copy } = fs;
 
 /**
- * Processes TOML template content and converts it to the agent-specific markdown format.
+ * Processes TOML template content and converts it to agent-specific markdown format.
  * Replaces install path placeholders and agent type variables.
  */
 export function processTemplateContent(
     tomlContent: string,
     installPath: string,
     agentType: string,
-    fixedAgent?: string
+    fixedAgent?: string,
+    commandName?: string
 ): string | null {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const parsed = parse(tomlContent) as any;
@@ -27,6 +28,12 @@ export function processTemplateContent(
     let prompt = parsed.prompt;
     prompt = prompt.replace(/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g, installPath);
     const finalContent = substituteVariables(prompt, { agent_type: agentType });
+
+    // Cline requires plain markdown with title header, no frontmatter
+    if (agentType === 'cline') {
+        const title = commandName ? commandName.charAt(0).toUpperCase() + commandName.slice(1) : 'Command';
+        return `# Conductor ${title}${parsed.description ? '\n\n' + parsed.description + '\n\n' : '\n\n'}${finalContent}`;
+    }
 
     if (fixedAgent) {
         return `---\ndescription: ${parsed.description || ''}\nagent: ${fixedAgent}\n---\n${finalContent}`;
@@ -41,7 +48,7 @@ export function processTemplateContent(
 
 /**
  * A generator that uses configuration to produce agent-specific output.
- * This class implements the AgentGenerator interface using a config-driven approach.
+ * This class implements AgentGenerator interface using a config-driven approach.
  */
 export class ConfigurableGenerator implements AgentGenerator {
     constructor(private readonly config: AgentConfig) {}
@@ -67,7 +74,7 @@ export class ConfigurableGenerator implements AgentGenerator {
         const agentPath = join(targetDir, agentDir);
         const targetCommandsDir = join(agentPath, commandsDir);
         
-        // Determine the installation path string used in templates
+        // Determine installation path string used in templates
         // For project-level: relative path (e.g., ".codex/conductor")
         // For global-level: absolute/home path (e.g., "~/.codex/conductor")
         let installPath = join(agentDir, 'conductor');
@@ -95,7 +102,7 @@ export class ConfigurableGenerator implements AgentGenerator {
         for (const cmd of commands) {
             try {
                 const tomlContent = await loadTemplate(`commands/${cmd}.toml`);
-                const finalContent = processTemplateContent(tomlContent, installPath, agentType, fixedAgent);
+                const finalContent = processTemplateContent(tomlContent, installPath, agentType, fixedAgent, cmd);
 
                 if (finalContent) {
                     const fileName = `conductor:${cmd}${extension}`;
