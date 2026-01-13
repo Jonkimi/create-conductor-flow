@@ -3,11 +3,11 @@
 ## Phase 1: Type System and Configuration
 - [x] Task: Add 'cline' to AgentType union type [33d29f2]
     - [x] Update `src/types.ts` to include 'cline' in AgentType union
-- [ ] Task: Add cline configuration to AGENT_CONFIGS
-    - [ ] Update `src/generators/config.ts` with cline configuration
-    - [ ] Configure agentDir as '.clinerules'
-    - [ ] Configure commandsDir as 'workflows'
-    - [ ] Set displayName as 'Cline'
+- [x] Task: Add cline configuration to AGENT_CONFIGS [aad79f1]
+    - [x] Update `src/generators/config.ts` with cline configuration
+    - [x] Configure agentDir as '.clinerules'
+    - [x] Configure commandsDir as 'workflows'
+    - [x] Set displayName as 'Cline'
 - [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: Generator Implementation
