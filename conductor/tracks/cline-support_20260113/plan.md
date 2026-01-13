@@ -21,7 +21,7 @@
     - [x] Export ClineGenerator
 - [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
 
-## Phase 3: CLI Integration
+## Phase 3: CLI Integration [checkpoint: 73bbdb7]
 - [x] Task: Add cline to agent selection prompt [e0d9550]
     - [x] Update `src/cli/prompt.ts` promptForAgent function
     - [x] Add cline option with name "Cline"
@@ -31,7 +31,7 @@
     - [x] Add logic to detect cline agent type
     - [x] Restrict options to project-level only for cline
     - [x] Set default to 'project' for cline
-- [ ] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3' (Protocol in workflow.md)
 
 ## Phase 4: Command File Format Customization
 - [ ] Task: Update processTemplateContent for plain markdown format
