@@ -11,10 +11,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
 
 ## Phase 2: Generator Implementation
-- [ ] Task: Create ClineGenerator class
-    - [ ] Create `src/generators/ClineGenerator.ts`
-    - [ ] Implement AgentGenerator interface
-    - [ ] Delegate to createGenerator(AGENT_CONFIGS.cline)
+- [x] Task: Create ClineGenerator class
+    - [x] Create `src/generators/ClineGenerator.ts`
+    - [x] Implement AgentGenerator interface
+    - [x] Delegate to createGenerator(AGENT_CONFIGS.cline)
 - [ ] Task: Update factory to handle cline agent type
     - [ ] Update `src/generators/index.ts` getGenerator function
     - [ ] Add case for 'cline' to return ClineGenerator instance
