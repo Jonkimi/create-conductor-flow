@@ -68,9 +68,9 @@
     - [x] Review README for agent mentions
     - [x] Add cline to supported agents list
     - [x] Update usage examples if needed
-- [x] Task: Final verification [COMMIT_HASH]
+- [x] Task: Final verification [c7bdbe6]
     - [x] Build project with `pnpm build`
     - [x] Test installation with cline agent
     - [x] Verify command files are created in correct location
     - [x] Verify command files have correct format
-- [ ] Task: Conductor - User Manual Verification 'Phase 6' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 6' (Protocol in workflow.md)
