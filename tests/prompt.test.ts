@@ -47,4 +47,17 @@ describe('CLI Prompts', () => {
     expect(clineChoice).toBeDefined();
     expect(clineChoice?.name).toBe('Cline');
   });
+
+  it('should include Gemini CLI in options', async () => {
+    vi.mocked(select).mockResolvedValue('gemini');
+
+    await promptForAgent();
+
+    const callArgs = vi.mocked(select).mock.calls[0][0];
+    const choices = callArgs.choices as Array<{ name: string; value: string }>;
+
+    const geminiChoice = choices.find(c => c.value === 'gemini');
+    expect(geminiChoice).toBeDefined();
+    expect(geminiChoice?.name).toBe('Gemini CLI');
+  });
 });

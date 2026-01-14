@@ -64,6 +64,11 @@ export async function promptForAgent(): Promise<AgentType> {
         value: 'cline',
         description: "Cline AI coding assistant",
       },
+      {
+        name: 'Gemini CLI',
+        value: 'gemini',
+        description: "Google Gemini CLI agent",
+      },
     ],
     default: 'opencode',
   });
