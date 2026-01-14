@@ -74,4 +74,20 @@ describe('Install Command', () => {
     expect(process.exit).toHaveBeenCalledWith(1);
     expect(mockGenerator.generate).not.toHaveBeenCalled();
   });
+
+  it('should run successful installation flow for Gemini CLI', async () => {
+    // Setup mocks
+    const mockArgv = { path: '.', agent: 'gemini', _: [], $0: 'conductor' };
+    mockGenerator.validate.mockResolvedValue('/abs/path');
+    vi.mocked(promptModule.promptForInstallScope).mockResolvedValue('project');
+    
+    // Execute
+    await installHandler(mockArgv as any);
+    
+    // Verify flow
+    expect(generatorFactory.getGenerator).toHaveBeenCalledWith('gemini');
+    expect(mockGenerator.validate).toHaveBeenCalledWith(expect.any(String), 'project'); 
+    expect(mockGenerator.generate).toHaveBeenCalledWith('/abs/path', 'project');
+    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('initialized successfully'));
+  });
 });
