@@ -1,7 +1,7 @@
-import { AGENT_CONFIGS } from './config.js';
-import { createGenerator } from './factory.js';
-import type { AgentGenerator } from './types.js';
-import { InstallScope } from '../types.js';
+import { geminiConfig } from './config.js';
+import { createGenerator } from '../factory.js';
+import type { AgentGenerator } from '../types.js';
+import { InstallScope } from '../../types.js';
 
 /**
  * Gemini CLI agent generator.
@@ -9,7 +9,7 @@ import { InstallScope } from '../types.js';
  * but restricts installation to project-level only.
  */
 export class GeminiGenerator implements AgentGenerator {
-    private readonly generator = createGenerator(AGENT_CONFIGS.gemini);
+    private readonly generator = createGenerator(geminiConfig);
 
     async validate(targetDir: string, scope?: InstallScope): Promise<string> {
         if (scope === 'global') {

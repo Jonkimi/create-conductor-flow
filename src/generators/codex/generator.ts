@@ -1,15 +1,15 @@
 import { homedir } from 'os';
-import type { AgentGenerator } from './types.js';
-import { InstallScope } from '../types.js';
-import { createGenerator } from './factory.js';
-import { AGENT_CONFIGS } from './config.js';
+import { codexConfig } from './config.js';
+import { createGenerator } from '../factory.js';
+import type { AgentGenerator } from '../types.js';
+import { InstallScope } from '../../types.js';
 
 /**
  * Codex agent generator.
  * This is a wrapper that delegates to the configuration-driven generator.
  */
 export class CodexGenerator implements AgentGenerator {
-    private readonly generator = createGenerator(AGENT_CONFIGS.codex);
+    private readonly generator = createGenerator(codexConfig);
 
     validate(targetDir: string, scope?: InstallScope): Promise<string> {
         if (scope === 'global') {

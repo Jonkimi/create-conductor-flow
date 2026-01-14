@@ -1,26 +1,25 @@
-
 import { AgentType } from '../types.js';
 import { AgentGenerator } from './types.js';
-import { OpenCodeGenerator } from './OpenCodeGenerator.js';
-import { ClaudeCodeGenerator } from './ClaudeCodeGenerator.js';
-import { AntigravityGenerator } from './AntigravityGenerator.js';
-import { CursorGenerator } from './CursorGenerator.js';
-import { VSCodeCopilotGenerator } from './VSCodeCopilotGenerator.js';
-import { CodexGenerator } from './CodexGenerator.js';
-import { WindsurfGenerator } from './WindsurfGenerator.js';
-import { ClineGenerator } from './ClineGenerator.js';
-import { GeminiGenerator } from './GeminiGenerator.js';
+import { OpenCodeGenerator } from './opencode/index.js';
+import { ClaudeCodeGenerator } from './claude-code/index.js';
+import { AntigravityGenerator } from './antigravity/index.js';
+import { CursorGenerator } from './cursor/index.js';
+import { VSCodeCopilotGenerator } from './vscode-copilot/index.js';
+import { CodexGenerator } from './codex/index.js';
+import { WindsurfGenerator } from './windsurf/index.js';
+import { ClineGenerator } from './cline/index.js';
+import { GeminiGenerator } from './gemini/index.js';
 
 export * from './types.js';
-export * from './OpenCodeGenerator.js';
-export * from './ClaudeCodeGenerator.js';
-export * from './AntigravityGenerator.js';
-export * from './CursorGenerator.js';
-export * from './VSCodeCopilotGenerator.js';
-export * from './CodexGenerator.js';
-export * from './WindsurfGenerator.js';
-export * from './ClineGenerator.js';
-export * from './GeminiGenerator.js';
+export * from './opencode/index.js';
+export * from './claude-code/index.js';
+export * from './antigravity/index.js';
+export * from './cursor/index.js';
+export * from './vscode-copilot/index.js';
+export * from './codex/index.js';
+export * from './windsurf/index.js';
+export * from './cline/index.js';
+export * from './gemini/index.js';
 
 export function getGenerator(agentType: AgentType): AgentGenerator {
   switch (agentType) {

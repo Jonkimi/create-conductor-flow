@@ -1,11 +1,13 @@
 
 import { describe, it, expect } from 'vitest';
-import { getGenerator } from '../../src/generators/index.js';
-import { OpenCodeGenerator } from '../../src/generators/OpenCodeGenerator.js';
-import { ClaudeCodeGenerator } from '../../src/generators/ClaudeCodeGenerator.js';
-import { AntigravityGenerator } from '../../src/generators/AntigravityGenerator.js';
-import { CursorGenerator } from '../../src/generators/CursorGenerator.js';
-import { ClineGenerator } from '../../src/generators/ClineGenerator.js';
+import { 
+    getGenerator,
+    OpenCodeGenerator,
+    ClaudeCodeGenerator,
+    AntigravityGenerator,
+    CursorGenerator,
+    ClineGenerator
+} from '../../src/generators/index.js';
 
 describe('getGenerator', () => {
     it('should return OpenCodeGenerator for "opencode"', () => {

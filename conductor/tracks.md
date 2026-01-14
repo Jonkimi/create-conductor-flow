@@ -5,6 +5,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
+- [x] **Track: Modularize Agent Generators and Configs**
+  *Link: [./conductor/tracks/refactor_generator_modular_20260114/](./conductor/tracks/refactor_generator_modular_20260114/)*
+
 ## Archived Tracks
 
 - [x] **Track: Refactor ConfigurableGenerator and Gemini CLI Paths**
