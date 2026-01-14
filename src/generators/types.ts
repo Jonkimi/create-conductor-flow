@@ -36,5 +36,7 @@ export interface AgentConfig {
   extension?: string;
   /** If set, the frontmatter will use this fixed agent value and omit model/tools */
   fixedAgent?: string;
+  /** Optional strategy to override default content processing or file writing */
+  strategy?: import('./types/strategies.js').AgentGeneratorStrategy;
 }
 

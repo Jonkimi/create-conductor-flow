@@ -1,5 +1,8 @@
 import type { AgentConfig } from './types.js';
 import type { AgentType } from '../types.js';
+import { clineContentStrategy } from './cline/index.js';
+import { vscodeCopilotContentStrategy } from './vscode-copilot/index.js';
+import { geminiContentStrategy, geminiFileStrategy } from './gemini/index.js';
 
 /**
  * Registry of configurations for all supported agent types.
@@ -37,6 +40,9 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     displayName: 'VS Code Copilot',
     extension: '.prompt.md',
     fixedAgent: 'agent',
+    strategy: {
+      content: vscodeCopilotContentStrategy
+    }
   },
   codex: {
     agentType: 'codex',
@@ -56,12 +62,19 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     agentDir: '.clinerules',
     commandsDir: 'workflows',
     displayName: 'Cline',
+    strategy: {
+      content: clineContentStrategy
+    }
   },
   gemini: {
     agentType: 'gemini',
     agentDir: '.gemini',
-    commandsDir: 'commands',
+    commandsDir: 'commands/conductor',
     displayName: 'Gemini CLI',
     extension: '.toml',
+    strategy: {
+      content: geminiContentStrategy,
+      file: geminiFileStrategy
+    }
   },
 };

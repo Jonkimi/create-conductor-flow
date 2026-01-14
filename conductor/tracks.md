@@ -7,6 +7,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Archived Tracks
 
+- [x] **Track: Refactor ConfigurableGenerator and Gemini CLI Paths**
+  *Link: [./conductor/archive/refactor_generator_gemini_20260114/](./conductor/archive/refactor_generator_gemini_20260114/)*
+
 - [x] **Track: Add Gemini CLI Agent Support**
   *Link: [./conductor/archive/gemini-cli-support_20260114/](./conductor/archive/gemini-cli-support_20260114/)*
 

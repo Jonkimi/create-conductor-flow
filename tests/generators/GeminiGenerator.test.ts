@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { GeminiGenerator } from '../../src/generators/GeminiGenerator.js';
 import fs from 'fs-extra';
 import { parse } from 'smol-toml';
+import { join } from 'path';
 
 vi.mock('fs-extra');
 
@@ -64,16 +65,19 @@ describe('GeminiGenerator', () => {
             await generator.generate(targetDir, 'project');
 
             expect(fs.ensureDir).toHaveBeenCalledWith(
-                expect.stringContaining('.gemini/commands')
+                join(targetDir, '.gemini/commands/conductor')
             );
             expect(fs.ensureDir).toHaveBeenCalledWith(
-                expect.stringContaining('.gemini/conductor')
+                join(targetDir, '.gemini/conductor')
             );
             
-            // Verify written content is valid TOML
+            // Verify written content is valid TOML and path is correct
             const writeFileMock = fs.writeFile as any;
             const [filePath, content] = writeFileMock.mock.calls[0];
-            expect(filePath).toContain('.toml');
+            
+            // Should be .gemini/commands/conductor/setup.toml (no conductor: prefix)
+            expect(filePath).toBe(join(targetDir, '.gemini/commands/conductor/setup.toml'));
+            expect(filePath).not.toContain('conductor:');
             expect(() => parse(content)).not.toThrow();
         });
 

@@ -3,53 +3,11 @@ import fs from 'fs-extra';
 import { parse } from 'smol-toml';
 import type { AgentGenerator, AgentConfig } from './types.js';
 import type { InstallScope } from '../types.js';
-import { getTemplateRoot, loadTemplate, substituteVariables } from '../utils/template.js';
+import { getTemplateRoot, loadTemplate } from '../utils/template.js';
+import { defaultContentStrategy, defaultFileStrategy } from './default/index.js';
 
 const { existsSync, ensureDir, writeFile, copy } = fs;
 
-/**
- * Processes TOML template content and converts it to agent-specific markdown format.
- * Replaces install path placeholders and agent type variables.
- */
-export function processTemplateContent(
-    tomlContent: string,
-    installPath: string,
-    agentType: string,
-    fixedAgent?: string,
-    commandName?: string
-): string | null {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const parsed = parse(tomlContent) as any;
-
-    if (!parsed.prompt) {
-        return null;
-    }
-
-    if (agentType === 'gemini') {
-        let content = tomlContent.replace(/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g, installPath);
-        return substituteVariables(content, { agent_type: agentType });
-    }
-
-    let prompt = parsed.prompt;
-    prompt = prompt.replace(/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g, installPath);
-    const finalContent = substituteVariables(prompt, { agent_type: agentType });
-
-    // Cline requires plain markdown with title header, no frontmatter
-    if (agentType === 'cline') {
-        const title = commandName ? commandName.charAt(0).toUpperCase() + commandName.slice(1) : 'Command';
-        return `# Conductor ${title}${parsed.description ? '\n\n' + parsed.description + '\n\n' : '\n\n'}${finalContent}`;
-    }
-
-    if (fixedAgent) {
-        return `---\ndescription: ${parsed.description || ''}\nagent: ${fixedAgent}\n---\n${finalContent}`;
-    }
-
-    if (parsed.description) {
-        return `---\ndescription: ${parsed.description}\n---\n${finalContent}`;
-    }
-
-    return finalContent;
-}
 
 /**
  * A generator that uses configuration to produce agent-specific output.
@@ -107,11 +65,25 @@ export class ConfigurableGenerator implements AgentGenerator {
         for (const cmd of commands) {
             try {
                 const tomlContent = await loadTemplate(`commands/${cmd}.toml`);
-                const finalContent = processTemplateContent(tomlContent, installPath, agentType, fixedAgent, cmd);
+                
+                const contentStrategy = this.config.strategy?.content || defaultContentStrategy;
+                const finalContent = contentStrategy.process(tomlContent, {
+                    installPath,
+                    agentType,
+                    fixedAgent,
+                    commandName: cmd
+                });
 
                 if (finalContent) {
-                    const fileName = `conductor:${cmd}${extension}`;
-                    await writeFile(join(targetCommandsDir, fileName), finalContent);
+                    const fileStrategy = this.config.strategy?.file || defaultFileStrategy;
+                    await fileStrategy.write({
+                        targetDir,
+                        agentDir,
+                        commandsDir,
+                        commandName: cmd,
+                        extension,
+                        content: finalContent
+                    });
                 }
             } catch (e) {
                 console.warn(`Failed to process ${cmd}:`, e);

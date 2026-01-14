@@ -1,0 +1,8 @@
+{
+  "track_id": "refactor_generator_gemini_20260114",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-14T22:40:00+08:00",
+  "updated_at": "2026-01-14T22:40:00+08:00",
+  "description": "Refactor ConfigurableGenerator and Gemini CLI Paths"
+}

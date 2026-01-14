@@ -63,7 +63,7 @@ describe('AgentConfig', () => {
             expect(config).toBeDefined();
             expect(config.agentType).toBe('gemini');
             expect(config.agentDir).toBe('.gemini');
-            expect(config.commandsDir).toBe('commands');
+            expect(config.commandsDir).toBe('commands/conductor');
             expect(config.displayName).toBe('Gemini CLI');
             expect(config.extension).toBe('.toml');
         });
@@ -78,9 +78,12 @@ describe('AgentConfig', () => {
 
             Object.values(AGENT_CONFIGS).forEach((config) => {
                 requiredFields.forEach((field) => {
-                    expect(config[field]).toBeDefined();
-                    expect(typeof config[field]).toBe('string');
-                    expect(config[field]!.length).toBeGreaterThan(0);
+                    const value = config[field];
+                    expect(value).toBeDefined();
+                    expect(typeof value).toBe('string');
+                    if (typeof value === 'string') {
+                        expect(value.length).toBeGreaterThan(0);
+                    }
                 });
             });
         });
