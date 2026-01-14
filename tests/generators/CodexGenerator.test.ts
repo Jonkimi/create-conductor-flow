@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { CodexGenerator } from '../../src/generators/CodexGenerator.js';
+import { CodexGenerator } from '../../src/generators/index.js';
 import fs from 'fs-extra';
 import { homedir } from 'os';
 

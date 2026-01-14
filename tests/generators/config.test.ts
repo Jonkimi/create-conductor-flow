@@ -1,11 +1,19 @@
 import { describe, it, expect } from 'vitest';
 import type { AgentConfig } from '../../src/generators/types.js';
-import { AGENT_CONFIGS } from '../../src/generators/config.js';
+import { opencodeConfig } from '../../src/generators/opencode/index.js';
+import { claudeCodeConfig } from '../../src/generators/claude-code/index.js';
+import { antigravityConfig } from '../../src/generators/antigravity/index.js';
+import { cursorConfig } from '../../src/generators/cursor/index.js';
+import { vscodeCopilotConfig } from '../../src/generators/vscode-copilot/index.js';
+import { codexConfig } from '../../src/generators/codex/index.js';
+import { windsurfConfig } from '../../src/generators/windsurf/index.js';
+import { clineConfig } from '../../src/generators/cline/index.js';
+import { geminiConfig } from '../../src/generators/gemini/index.js';
 
 describe('AgentConfig', () => {
-    describe('AGENT_CONFIGS registry', () => {
-        it('should have configuration for opencode agent', () => {
-            const config = AGENT_CONFIGS.opencode;
+    describe('Agent Specific Configurations', () => {
+        it('should have correct configuration for opencode agent', () => {
+            const config = opencodeConfig;
             expect(config).toBeDefined();
             expect(config.agentType).toBe('opencode');
             expect(config.agentDir).toBe('.opencode');
@@ -13,8 +21,8 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('OpenCode');
         });
 
-        it('should have configuration for claude-code agent', () => {
-            const config = AGENT_CONFIGS['claude-code'];
+        it('should have correct configuration for claude-code agent', () => {
+            const config = claudeCodeConfig;
             expect(config).toBeDefined();
             expect(config.agentType).toBe('claude-code');
             expect(config.agentDir).toBe('.claude');
@@ -22,8 +30,8 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Claude Code');
         });
 
-        it('should have configuration for antigravity agent', () => {
-            const config = AGENT_CONFIGS.antigravity;
+        it('should have correct configuration for antigravity agent', () => {
+            const config = antigravityConfig;
             expect(config).toBeDefined();
             expect(config.agentType).toBe('antigravity');
             expect(config.agentDir).toBe('.agent');
@@ -31,8 +39,8 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Antigravity');
         });
 
-        it('should have configuration for cursor agent', () => {
-            const config = AGENT_CONFIGS.cursor;
+        it('should have correct configuration for cursor agent', () => {
+            const config = cursorConfig;
             expect(config).toBeDefined();
             expect(config.agentType).toBe('cursor');
             expect(config.agentDir).toBe('.cursor');
@@ -40,8 +48,8 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Cursor');
         });
 
-        it('should have configuration for windsurf agent', () => {
-            const config = AGENT_CONFIGS.windsurf;
+        it('should have correct configuration for windsurf agent', () => {
+            const config = windsurfConfig;
             expect(config).toBeDefined();
             expect(config.agentType).toBe('windsurf');
             expect(config.agentDir).toBe('.windsurf');
@@ -49,8 +57,8 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Windsurf');
         });
 
-        it('should have configuration for cline agent', () => {
-            const config = AGENT_CONFIGS.cline;
+        it('should have correct configuration for cline agent', () => {
+            const config = clineConfig;
             expect(config).toBeDefined();
             expect(config.agentType).toBe('cline');
             expect(config.agentDir).toBe('.clinerules');
@@ -58,8 +66,8 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Cline');
         });
 
-        it('should have configuration for gemini agent', () => {
-            const config = AGENT_CONFIGS.gemini;
+        it('should have correct configuration for gemini agent', () => {
+            const config = geminiConfig;
             expect(config).toBeDefined();
             expect(config.agentType).toBe('gemini');
             expect(config.agentDir).toBe('.gemini');
@@ -69,6 +77,18 @@ describe('AgentConfig', () => {
         });
 
         it('should have all required fields for each config', () => {
+            const allConfigs: AgentConfig[] = [
+                opencodeConfig,
+                claudeCodeConfig,
+                antigravityConfig,
+                cursorConfig,
+                vscodeCopilotConfig,
+                codexConfig,
+                windsurfConfig,
+                clineConfig,
+                geminiConfig
+            ];
+
             const requiredFields: (keyof AgentConfig)[] = [
                 'agentType',
                 'agentDir',
@@ -76,7 +96,7 @@ describe('AgentConfig', () => {
                 'displayName'
             ];
 
-            Object.values(AGENT_CONFIGS).forEach((config) => {
+            allConfigs.forEach((config) => {
                 requiredFields.forEach((field) => {
                     const value = config[field];
                     expect(value).toBeDefined();

@@ -1,6 +1,6 @@
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { WindsurfGenerator } from '../../src/generators/WindsurfGenerator.js';
+import { WindsurfGenerator } from '../../src/generators/index.js';
 import fs from 'fs-extra';
 
 vi.mock('fs-extra');

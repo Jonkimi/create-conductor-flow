@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { GeminiGenerator } from '../../src/generators/GeminiGenerator.js';
+import { GeminiGenerator } from '../../src/generators/index.js';
 import fs from 'fs-extra';
 import { parse } from 'smol-toml';
 import { join } from 'path';

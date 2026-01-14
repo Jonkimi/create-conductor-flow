@@ -1,6 +1,6 @@
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { VSCodeCopilotGenerator } from '../src/generators/VSCodeCopilotGenerator.js';
+import { VSCodeCopilotGenerator } from '../src/generators/index.js';
 import fs from 'fs-extra';
 import * as templateUtils from '../src/utils/template.js';
 import { join } from 'path';

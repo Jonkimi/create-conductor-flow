@@ -1,6 +1,6 @@
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { ClaudeCodeGenerator } from '../../src/generators/ClaudeCodeGenerator.js';
+import { ClaudeCodeGenerator } from '../../src/generators/index.js';
 import fs from 'fs-extra';
 
 vi.mock('fs-extra');

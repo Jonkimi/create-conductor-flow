@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { ClineGenerator } from '../../src/generators/ClineGenerator.js';
+import { ClineGenerator } from '../../src/generators/index.js';
 import fs from 'fs-extra';
 
 vi.mock('fs-extra');

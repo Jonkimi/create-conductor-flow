@@ -1,23 +1,25 @@
 import { describe, it, expect } from 'vitest';
 import { createGenerator } from '../../src/generators/factory.js';
 import { ConfigurableGenerator } from '../../src/generators/ConfigurableGenerator.js';
-import { AGENT_CONFIGS } from '../../src/generators/config.js';
+import { opencodeConfig } from '../../src/generators/opencode/index.js';
+import { claudeCodeConfig } from '../../src/generators/claude-code/index.js';
+import { antigravityConfig } from '../../src/generators/antigravity/index.js';
 import type { AgentConfig } from '../../src/generators/types.js';
 
 describe('createGenerator factory function', () => {
     describe('with predefined configs', () => {
         it('should create a ConfigurableGenerator for opencode config', () => {
-            const generator = createGenerator(AGENT_CONFIGS.opencode);
+            const generator = createGenerator(opencodeConfig);
             expect(generator).toBeInstanceOf(ConfigurableGenerator);
         });
 
         it('should create a ConfigurableGenerator for claude-code config', () => {
-            const generator = createGenerator(AGENT_CONFIGS['claude-code']);
+            const generator = createGenerator(claudeCodeConfig);
             expect(generator).toBeInstanceOf(ConfigurableGenerator);
         });
 
         it('should create a ConfigurableGenerator for antigravity config', () => {
-            const generator = createGenerator(AGENT_CONFIGS.antigravity);
+            const generator = createGenerator(antigravityConfig);
             expect(generator).toBeInstanceOf(ConfigurableGenerator);
         });
     });
@@ -37,12 +39,12 @@ describe('createGenerator factory function', () => {
 
     describe('generator behavior', () => {
         it('should return a generator with validate method', () => {
-            const generator = createGenerator(AGENT_CONFIGS.opencode);
+            const generator = createGenerator(opencodeConfig);
             expect(typeof generator.validate).toBe('function');
         });
 
         it('should return a generator with generate method', () => {
-            const generator = createGenerator(AGENT_CONFIGS.opencode);
+            const generator = createGenerator(opencodeConfig);
             expect(typeof generator.generate).toBe('function');
         });
     });

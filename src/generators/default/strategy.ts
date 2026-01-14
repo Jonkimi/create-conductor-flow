@@ -8,7 +8,7 @@ import type {
   FileStrategy, 
   ContentStrategyOptions, 
   FileStrategyOptions 
-} from '../types/strategies.js';
+} from '../types.js';
 
 export class DefaultContentStrategy implements ContentStrategy {
   process(templateContent: string, options: ContentStrategyOptions): string | null {

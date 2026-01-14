@@ -1,6 +1,6 @@
 import { parse } from 'smol-toml';
 import { substituteVariables } from '../../utils/template.js';
-import type { ContentStrategy, ContentStrategyOptions } from '../types/strategies.js';
+import type { ContentStrategy, ContentStrategyOptions } from '../types.js';
 
 export class ClineContentStrategy implements ContentStrategy {
   process(templateContent: string, options: ContentStrategyOptions): string | null {
