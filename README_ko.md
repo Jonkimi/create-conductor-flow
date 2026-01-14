@@ -42,7 +42,8 @@ AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
 -   **Antigravity**
 -   **Cursor**
 -   **VS Code Copilot**
--   **Codex**
+-   **Cline**
+-   **Gemini CLI**
 -   **Windsurf**
 
 이 작업은 환경을 확인하고 필요한 Conductor 파일을 설치합니다:

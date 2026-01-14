@@ -45,9 +45,10 @@ You will be prompted to select your AI Coding Agent:
 -   **Codex**
 -   **Windsurf**
 -   **Cline**
+-   **Gemini CLI**
 
 This will verify the environment and install the necessary Conductor files:
--   **Commands:** Agent-specific prompt files (e.g., `.opencode/commands/conductor:setup.md`) that your agent can execute.
+-   **Commands:** Agent-specific prompt or command files (e.g., `.opencode/commands/conductor:setup.md` or `.gemini/commands/conductor:setup.toml`) that your agent can execute.
 -   **Templates:** Workflow guides and style guides (e.g., `.opencode/conductor/templates/`).
 
 ### 3. Using Conductor with Your Agent

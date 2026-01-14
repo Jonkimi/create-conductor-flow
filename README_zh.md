@@ -42,7 +42,8 @@ node dist/index.js install
 -   **Antigravity**
 -   **Cursor**
 -   **VS Code Copilot**
--   **Codex**
+-   **Cline**
+-   **Gemini CLI**
 -   **Windsurf**
 
 这将验证环境并安装必要的 Conductor 文件：

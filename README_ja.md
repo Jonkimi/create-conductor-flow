@@ -43,6 +43,7 @@ AI コーディングエージェントを選択するように求められま�
 -   **Cursor**
 -   **VS Code Copilot**
 -   **Codex**
+-   **Gemini CLI**
 -   **Windsurf**
 
 これにより、環境が検証され、必要な Conductor ファイルがインストールされます：
