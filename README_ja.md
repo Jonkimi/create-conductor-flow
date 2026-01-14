@@ -43,11 +43,12 @@ AI コーディングエージェントを選択するように求められま�
 -   **Cursor**
 -   **VS Code Copilot**
 -   **Codex**
--   **Gemini CLI**
 -   **Windsurf**
+-   **Cline**
+-   **Gemini CLI**
 
 これにより、環境が検証され、必要な Conductor ファイルがインストールされます：
--   **Commands:** エージェントが実行できるエージェント固有のプロンプトファイル（例：`.opencode/commands/conductor:setup.md`）。
+-   **Commands:** エージェントが実行できるエージェント固有のプロンプトまたはコマンドファイル（例：`.opencode/commands/conductor:setup.md` または `.gemini/commands/conductor:setup.toml`）。
 -   **Templates:** ワークフローガイドとスタイルガイド（例：`.opencode/conductor/templates/`）。
 
 ### 3. エージェントでの Conductor の使用

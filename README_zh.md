@@ -42,12 +42,13 @@ node dist/index.js install
 -   **Antigravity**
 -   **Cursor**
 -   **VS Code Copilot**
+-   **Codex**
+-   **Windsurf**
 -   **Cline**
 -   **Gemini CLI**
--   **Windsurf**
 
 这将验证环境并安装必要的 Conductor 文件：
--   **Commands:** 代理特定的提示文件（例如 `.opencode/commands/conductor:setup.md`），你的代理可以执行这些文件。
+-   **Commands:** 代理特定的提示或命令文件（例如 `.opencode/commands/conductor:setup.md` 或 `.gemini/commands/conductor:setup.toml`），你的代理可以执行这些文件。
 -   **Templates:** 工作流指南和风格指南（例如 `.opencode/conductor/templates/`）。
 
 ### 3. 与你的代理一起使用 Conductor

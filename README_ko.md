@@ -42,12 +42,13 @@ AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
 -   **Antigravity**
 -   **Cursor**
 -   **VS Code Copilot**
+-   **Codex**
+-   **Windsurf**
 -   **Cline**
 -   **Gemini CLI**
--   **Windsurf**
 
 이 작업은 환경을 확인하고 필요한 Conductor 파일을 설치합니다:
--   **Commands:** 에이전트가 실행할 수 있는 에이전트별 프롬프트 파일 (예: `.opencode/commands/conductor:setup.md`).
+-   **Commands:** 에이전트가 실행할 수 있는 에이전트별 프롬프트 또는 명령 파일 (예: `.opencode/commands/conductor:setup.md` 또는 `.gemini/commands/conductor:setup.toml`).
 -   **Templates:** 워크플로우 가이드 및 스타일 가이드 (예: `.opencode/conductor/templates/`).
 
 ### 3. 에이전트와 함께 Conductor 사용
