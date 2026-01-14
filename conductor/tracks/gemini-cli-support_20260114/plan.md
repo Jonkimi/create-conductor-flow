@@ -89,21 +89,21 @@
 
 ## Phase 5: Documentation
 
-### Task: Update documentation for Gemini CLI support
-- [ ] Update README.md to include Gemini CLI in supported agents list
-- [ ] Document Gemini CLI-specific behavior (TOML format, project-level only)
-- [ ] Document agent directory structure for Gemini CLI (.gemini/)
+### Task: Update documentation for Gemini CLI support [x]
+- [x] Update README.md to include Gemini CLI in supported agents list
+- [x] Document Gemini CLI-specific behavior (TOML format, project-level only)
+- [x] Document agent directory structure for Gemini CLI (.gemini/)
 
-### Task: Verify documentation
-- [ ] Review updated documentation for accuracy
-- [ ] Ensure Gemini CLI is prominently featured in agent list
-- [ ] Verify all Gemini CLI-specific details are clearly documented
+### Task: Verify documentation [x]
+- [x] Review updated documentation for accuracy
+- [x] Ensure Gemini CLI is prominently featured in agent list
+- [x] Verify all Gemini CLI-specific details are clearly documented
 
 ### Task: Conductor - User Manual Verification 'Phase 5: Documentation' (Protocol in workflow.md)
 
 ## Phase 6: Quality Assurance
 
-### Task: Run full test suite
+### Task: Run full test suite [~]
 - [ ] Execute all unit tests
 - [ ] Execute all integration tests
 - [ ] Verify test coverage >80%
