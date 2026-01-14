@@ -28,22 +28,22 @@
 
 ## Phase 2: TOML Generation Testing
 
-### Task: Write failing tests for TOML file generation
-- [ ] Test TOML structure preservation (description and prompt fields)
-- [ ] Test CODE_AGENT_INSTALL_PATH variable substitution
-- [ ] Test generation of all 5 command TOML files
-- [ ] Test that generated TOML files are valid TOML format
+### Task: Write failing tests for TOML file generation [x]
+- [x] Test TOML structure preservation (description and prompt fields)
+- [x] Test CODE_AGENT_INSTALL_PATH variable substitution
+- [x] Test generation of all 5 command TOML files
+- [x] Test that generated TOML files are valid TOML format
 
-### Task: Implement TOML generation verification
-- [ ] Ensure ConfigurableGenerator correctly processes Gemini CLI configuration
-- [ ] Verify TOML template loading works correctly
-- [ ] Verify CODE_AGENT_INSTALL_PATH substitution to ".gemini/conductor"
-- [ ] Verify TOML structure is preserved (description and prompt fields intact)
+### Task: Implement TOML generation verification [x]
+- [x] Ensure ConfigurableGenerator correctly processes Gemini CLI configuration
+- [x] Verify TOML template loading works correctly
+- [x] Verify CODE_AGENT_INSTALL_PATH substitution to ".gemini/conductor"
+- [x] Verify TOML structure is preserved (description and prompt fields intact)
 
-### Task: Verify TOML generation tests pass
-- [ ] Run unit tests for TOML generation
-- [ ] Verify all tests pass
-- [ ] Check that generated TOML files match expected structure
+### Task: Verify TOML generation tests pass [x]
+- [x] Run unit tests for TOML generation
+- [x] Verify all tests pass
+- [x] Check that generated TOML files match expected structure
 
 ### Task: Conductor - User Manual Verification 'Phase 2: TOML Generation Testing' (Protocol in workflow.md)
 
