@@ -8,7 +8,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 ## Archived Tracks
 
 - [x] **Track: Add Gemini CLI Agent Support**
-  *Link: [./conductor/tracks/gemini-cli-support_20260114/](./conductor/tracks/gemini-cli-support_20260114/)*
+  *Link: [./conductor/archive/gemini-cli-support_20260114/](./conductor/archive/gemini-cli-support_20260114/)*
 
 - [x] **Track: Add VS Code Copilot version support**
   *Link: [./conductor/archive/vscode-copilot-support_20260108/](./conductor/archive/vscode-copilot-support_20260108/)*

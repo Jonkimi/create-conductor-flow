@@ -1,0 +1,8 @@
+{
+  "track_id": "gemini-cli-support_20260114",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-14T18:30:44Z",
+  "updated_at": "2026-01-14T18:30:44Z",
+  "description": "Add install support for Gemini CLI. only support project level. agent dir is `.gemini` and the installPath is `.gemini/conductor`, and the commands dir is `.gemini/commands`. The command file format is just same as original toml. so you just replace the variable that should be enough."
+}

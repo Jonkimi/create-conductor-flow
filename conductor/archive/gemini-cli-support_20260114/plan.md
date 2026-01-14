@@ -1,0 +1,122 @@
+# Implementation Plan: Add Gemini CLI Agent Support
+
+## Phase 1: Configuration Setup
+
+### Task: Write failing tests for Gemini CLI agent configuration [x]
+- [x] Test agent configuration properties (displayName, agentType, agentDir, commandsDir, etc.)
+- [x] Test install scope is restricted to project-level only
+- [x] Test TOML extension is set correctly
+- [x] Test that configuration validates correctly
+
+### Task: Implement Gemini CLI agent configuration [x]
+- [x] Add Gemini CLI agent configuration to agent registry
+- [x] Configure displayName as "Gemini CLI"
+- [x] Configure agentType as "gemini"
+- [x] Configure agentDir as ".gemini"
+- [x] Configure installPath as ".gemini/conductor"
+- [x] Configure commandsDir as "commands"
+- [x] Configure extension as ".toml"
+- [x] Configure scope to project-level only
+- [x] Ensure no global installation support for Gemini CLI
+
+### Task: Verify configuration tests pass [x]
+- [x] Run unit tests for Gemini CLI configuration
+- [x] Verify all tests pass
+- [x] Check code coverage for new configuration code
+
+### Task: Conductor - User Manual Verification 'Phase 1: Configuration Setup' (Protocol in workflow.md)
+
+## Phase 2: TOML Generation Testing
+
+### Task: Write failing tests for TOML file generation [x]
+- [x] Test TOML structure preservation (description and prompt fields)
+- [x] Test CODE_AGENT_INSTALL_PATH variable substitution
+- [x] Test generation of all 5 command TOML files
+- [x] Test that generated TOML files are valid TOML format
+
+### Task: Implement TOML generation verification [x]
+- [x] Ensure ConfigurableGenerator correctly processes Gemini CLI configuration
+- [x] Verify TOML template loading works correctly
+- [x] Verify CODE_AGENT_INSTALL_PATH substitution to ".gemini/conductor"
+- [x] Verify TOML structure is preserved (description and prompt fields intact)
+
+### Task: Verify TOML generation tests pass [x]
+- [x] Run unit tests for TOML generation
+- [x] Verify all tests pass
+- [x] Check that generated TOML files match expected structure
+
+### Task: Conductor - User Manual Verification 'Phase 2: TOML Generation Testing' (Protocol in workflow.md)
+
+## Phase 3: CLI Integration
+
+### Task: Write failing tests for CLI agent selection [x]
+- [x] Test Gemini CLI appears in agent selection menu
+- [x] Test user can select Gemini CLI from menu
+- [x] Test selection returns correct configuration
+
+### Task: Integrate Gemini CLI into CLI agent selection [x]
+- [x] Add Gemini CLI option to agent selection menu
+- [x] Ensure proper sorting/placement in menu options
+- [x] Test menu displays correctly to users
+
+### Task: Verify CLI integration tests pass [x]
+- [x] Run unit tests for CLI integration
+- [x] Verify all tests pass
+- [x] Manual test: Verify agent selection menu shows Gemini CLI option
+
+### Task: Conductor - User Manual Verification 'Phase 3: CLI Integration' (Protocol in workflow.md)
+
+## Phase 4: End-to-End Installation Testing
+
+### Task: Write integration tests for complete installation flow [x]
+- [x] Test installation creates correct directory structure (.gemini/, .gemini/commands/, .gemini/conductor/)
+- [x] Test all 5 command TOML files are generated
+- [x] Test core Conductor files are copied (workflow.md, tech-stack.md, product.md)
+- [x] Test templates directory is copied
+- [x] Test CODE_AGENT_INSTALL_PATH substitution in generated files
+- [x] Test duplicate installation detection and prevention
+- [x] Test global installation is rejected for Gemini CLI
+
+### Task: Execute integration tests and verify installation [x]
+- [x] Run integration tests for complete installation
+- [x] Verify all tests pass
+- [x] Manual test: Run `conductor-4-all install` and select Gemini CLI (Simulated by integration tests)
+- [x] Verify directory structure is created correctly
+- [x] Verify all files are generated with correct content
+- [x] Verify TOML files have correct structure with description and prompt fields
+
+### Task: Conductor - User Manual Verification 'Phase 4: End-to-End Installation Testing' (Protocol in workflow.md)
+
+## Phase 5: Documentation
+
+### Task: Update documentation for Gemini CLI support [x]
+- [x] Update README.md to include Gemini CLI in supported agents list
+- [x] Document Gemini CLI-specific behavior (TOML format, project-level only)
+- [x] Document agent directory structure for Gemini CLI (.gemini/)
+
+### Task: Verify documentation [x]
+- [x] Review updated documentation for accuracy
+- [x] Ensure Gemini CLI is prominently featured in agent list
+- [x] Verify all Gemini CLI-specific details are clearly documented
+
+### Task: Conductor - User Manual Verification 'Phase 5: Documentation' (Protocol in workflow.md)
+
+## Phase 6: Quality Assurance
+
+### Task: Run full test suite [x]
+- [x] Execute all unit tests
+- [x] Execute all integration tests
+- [x] Verify test coverage >80%
+- [x] Fix any failing tests
+
+### Task: Verify no regressions [x]
+- [x] Test installation of other agents (Codex, Cline, Cursor, etc.)
+- [x] Verify existing functionality still works
+- [x] Ensure backward compatibility is maintained
+
+### Task: Final verification [x]
+- [x] Run linting and type checking
+- [x] Verify all code follows project guidelines
+- [x] Check for any security vulnerabilities
+
+### Task: Conductor - User Manual Verification 'Phase 6: Quality Assurance' (Protocol in workflow.md)
