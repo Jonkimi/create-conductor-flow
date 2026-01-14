@@ -9,6 +9,7 @@ import { VSCodeCopilotGenerator } from './VSCodeCopilotGenerator.js';
 import { CodexGenerator } from './CodexGenerator.js';
 import { WindsurfGenerator } from './WindsurfGenerator.js';
 import { ClineGenerator } from './ClineGenerator.js';
+import { GeminiGenerator } from './GeminiGenerator.js';
 
 export * from './types.js';
 export * from './OpenCodeGenerator.js';
@@ -19,6 +20,7 @@ export * from './VSCodeCopilotGenerator.js';
 export * from './CodexGenerator.js';
 export * from './WindsurfGenerator.js';
 export * from './ClineGenerator.js';
+export * from './GeminiGenerator.js';
 
 export function getGenerator(agentType: AgentType): AgentGenerator {
   switch (agentType) {
@@ -36,6 +38,8 @@ export function getGenerator(agentType: AgentType): AgentGenerator {
       return new WindsurfGenerator();
     case 'cline':
       return new ClineGenerator();
+    case 'gemini':
+      return new GeminiGenerator();
     case 'opencode':
     default:
       return new OpenCodeGenerator();

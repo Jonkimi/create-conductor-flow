@@ -58,6 +58,16 @@ describe('AgentConfig', () => {
             expect(config.displayName).toBe('Cline');
         });
 
+        it('should have configuration for gemini agent', () => {
+            const config = AGENT_CONFIGS.gemini;
+            expect(config).toBeDefined();
+            expect(config.agentType).toBe('gemini');
+            expect(config.agentDir).toBe('.gemini');
+            expect(config.commandsDir).toBe('commands');
+            expect(config.displayName).toBe('Gemini CLI');
+            expect(config.extension).toBe('.toml');
+        });
+
         it('should have all required fields for each config', () => {
             const requiredFields: (keyof AgentConfig)[] = [
                 'agentType',
@@ -70,7 +80,7 @@ describe('AgentConfig', () => {
                 requiredFields.forEach((field) => {
                     expect(config[field]).toBeDefined();
                     expect(typeof config[field]).toBe('string');
-                    expect(config[field].length).toBeGreaterThan(0);
+                    expect(config[field]!.length).toBeGreaterThan(0);
                 });
             });
         });

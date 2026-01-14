@@ -57,4 +57,11 @@ export const AGENT_CONFIGS: Record<AgentType, AgentConfig> = {
     commandsDir: 'workflows',
     displayName: 'Cline',
   },
+  gemini: {
+    agentType: 'gemini',
+    agentDir: '.gemini',
+    commandsDir: 'commands',
+    displayName: 'Gemini CLI',
+    extension: '.toml',
+  },
 };
