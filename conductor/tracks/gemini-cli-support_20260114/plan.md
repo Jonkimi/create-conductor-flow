@@ -103,20 +103,20 @@
 
 ## Phase 6: Quality Assurance
 
-### Task: Run full test suite [~]
-- [ ] Execute all unit tests
-- [ ] Execute all integration tests
-- [ ] Verify test coverage >80%
-- [ ] Fix any failing tests
+### Task: Run full test suite [x]
+- [x] Execute all unit tests
+- [x] Execute all integration tests
+- [x] Verify test coverage >80%
+- [x] Fix any failing tests
 
-### Task: Verify no regressions
-- [ ] Test installation of other agents (Codex, Cline, Cursor, etc.)
-- [ ] Verify existing functionality still works
-- [ ] Ensure backward compatibility is maintained
+### Task: Verify no regressions [x]
+- [x] Test installation of other agents (Codex, Cline, Cursor, etc.)
+- [x] Verify existing functionality still works
+- [x] Ensure backward compatibility is maintained
 
-### Task: Final verification
-- [ ] Run linting and type checking
-- [ ] Verify all code follows project guidelines
-- [ ] Check for any security vulnerabilities
+### Task: Final verification [x]
+- [x] Run linting and type checking
+- [x] Verify all code follows project guidelines
+- [x] Check for any security vulnerabilities
 
 ### Task: Conductor - User Manual Verification 'Phase 6: Quality Assurance' (Protocol in workflow.md)
