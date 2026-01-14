@@ -49,20 +49,20 @@
 
 ## Phase 3: CLI Integration
 
-### Task: Write failing tests for CLI agent selection
-- [ ] Test Gemini CLI appears in agent selection menu
-- [ ] Test user can select Gemini CLI from menu
-- [ ] Test selection returns correct configuration
+### Task: Write failing tests for CLI agent selection [x]
+- [x] Test Gemini CLI appears in agent selection menu
+- [x] Test user can select Gemini CLI from menu
+- [x] Test selection returns correct configuration
 
-### Task: Integrate Gemini CLI into CLI agent selection
-- [ ] Add Gemini CLI option to agent selection menu
-- [ ] Ensure proper sorting/placement in menu options
-- [ ] Test menu displays correctly to users
+### Task: Integrate Gemini CLI into CLI agent selection [x]
+- [x] Add Gemini CLI option to agent selection menu
+- [x] Ensure proper sorting/placement in menu options
+- [x] Test menu displays correctly to users
 
-### Task: Verify CLI integration tests pass
-- [ ] Run unit tests for CLI integration
-- [ ] Verify all tests pass
-- [ ] Manual test: Verify agent selection menu shows Gemini CLI option
+### Task: Verify CLI integration tests pass [x]
+- [x] Run unit tests for CLI integration
+- [x] Verify all tests pass
+- [x] Manual test: Verify agent selection menu shows Gemini CLI option
 
 ### Task: Conductor - User Manual Verification 'Phase 3: CLI Integration' (Protocol in workflow.md)
 
