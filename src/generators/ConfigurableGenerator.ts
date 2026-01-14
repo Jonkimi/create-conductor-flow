@@ -25,6 +25,11 @@ export function processTemplateContent(
         return null;
     }
 
+    if (agentType === 'gemini') {
+        let content = tomlContent.replace(/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g, installPath);
+        return substituteVariables(content, { agent_type: agentType });
+    }
+
     let prompt = parsed.prompt;
     prompt = prompt.replace(/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g, installPath);
     const finalContent = substituteVariables(prompt, { agent_type: agentType });

@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { GeminiGenerator } from '../../src/generators/GeminiGenerator.js';
 import fs from 'fs-extra';
+import { parse } from 'smol-toml';
 
 vi.mock('fs-extra');
 
@@ -68,6 +69,12 @@ describe('GeminiGenerator', () => {
             expect(fs.ensureDir).toHaveBeenCalledWith(
                 expect.stringContaining('.gemini/conductor')
             );
+            
+            // Verify written content is valid TOML
+            const writeFileMock = fs.writeFile as any;
+            const [filePath, content] = writeFileMock.mock.calls[0];
+            expect(filePath).toContain('.toml');
+            expect(() => parse(content)).not.toThrow();
         });
 
         it('should throw if scope is global during generate', async () => {

@@ -75,4 +75,14 @@ describe('processTemplateContent', () => {
         expect(result).not.toBeNull();
         expect(result).toContain('Path: .cline/conductor');
     });
+
+    it('should preserve original TOML structure for gemini agent', () => {
+        const fullToml = 'description = "Test Description"\nprompt = "Use {agent_type} in __$$CODE_AGENT_INSTALL_PATH$$__"\nversion = "1.0"';
+        const result = processTemplateContent(fullToml, '.gemini/conductor', 'gemini');
+
+        expect(result).not.toBeNull();
+        expect(result).toContain('description = "Test Description"');
+        expect(result).toContain('prompt = "Use gemini in .gemini/conductor"');
+        expect(result).toContain('version = "1.0"');
+    });
 });
