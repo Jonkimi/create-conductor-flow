@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 // read the arguments from command line
 // --input: path to the input file

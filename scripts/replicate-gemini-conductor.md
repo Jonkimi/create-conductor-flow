@@ -36,7 +36,7 @@ rm -rf gemini-conductor-codebase/conductor-main
 
 Read through the extracted files and replace any gemini related install paths with a variable placeholder so that the rust cli can replace them at runtime.
 
-placeholder can be **$$CODE_AGENT_INSTALL_PATH$$**
+placeholder can be
 
 to replace it, you can use my node script that plaed in scripts/replace.js
 
@@ -51,12 +51,4 @@ You can use grep or any text search tool to confirm this.
 
 ```bash
 grep -r "~/.gemini/extensions/conductor" gemini-conductor-codebase/
-```
-
-## Step 4: Tar into the project for compile time use
-
-Finally, use tar command to encapsulate the code base into the project for compile time use.
-
-```bash
-tar -cvf gemini-conductor-codebase.tar -C gemini-conductor-codebase .
 ```
