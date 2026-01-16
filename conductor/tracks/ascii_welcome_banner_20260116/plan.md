@@ -16,8 +16,10 @@
 
 ## Phase 3: Verification
 - [ ] Task: Verify banner appearance and timing <!-- id: 4 -->
-    - [ ] Run `conductor` and visually confirm:
+    - [~] Run `conductor` and visually confirm:
         - Banner appears first
         - Text is "CONDUCTOR 4 ALL"
         - Gradient is Green -> Blue
-    - [ ] Conductor - User Manual Verification 'Welcome ASCII Banner' (Protocol in workflow.md)
+    - [x] Refine ASCII art based on user feedback (Font choice) [8b2e934]
+    - [x] Fix line wrapping [11a702a]
+    - [x] Conductor - User Manual Verification 'Welcome ASCII Banner' (Protocol in workflow.md)
