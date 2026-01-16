@@ -1,0 +1,8 @@
+{
+  "track_id": "universal_file_resolution_20260116",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-16T18:10:00+08:00",
+  "updated_at": "2026-01-16T18:10:00+08:00",
+  "description": "gemini-cli's original conductor add a \"Universal File Resolution Protocol\", and it always use GEMINI.md as entry. But if we port it to another IDE/Agent, we must allow this protocol to be loaded before user start spec coding using conductor mode."
+}

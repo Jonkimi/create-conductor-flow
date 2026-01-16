@@ -5,4 +5,5 @@ export const opencodeConfig: AgentConfig = {
   agentDir: '.opencode',
   commandsDir: 'commands',
   displayName: 'OpenCode',
+  protocolFilename: 'AGENTS.md',
 };

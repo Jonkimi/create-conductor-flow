@@ -6,6 +6,7 @@ export const geminiConfig: AgentConfig = {
   agentDir: '.gemini',
   commandsDir: 'commands/conductor',
   displayName: 'Gemini CLI',
+  protocolFilename: 'GEMINI.md',
   extension: '.toml',
   strategy: {
     content: geminiContentStrategy,

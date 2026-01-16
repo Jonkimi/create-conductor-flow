@@ -5,4 +5,5 @@ export const antigravityConfig: AgentConfig = {
   agentDir: '.agent',
   commandsDir: 'workflows',
   displayName: 'Antigravity',
+  protocolFilename: 'GEMINI.md',
 };

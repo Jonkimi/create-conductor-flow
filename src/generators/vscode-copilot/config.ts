@@ -6,6 +6,7 @@ export const vscodeCopilotConfig: AgentConfig = {
   agentDir: '.github',
   commandsDir: 'prompts',
   displayName: 'VS Code Copilot',
+  protocolFilename: 'AGENTS.md',
   extension: '.prompt.md',
   fixedAgent: 'agent',
   strategy: {

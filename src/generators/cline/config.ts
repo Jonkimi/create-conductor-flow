@@ -6,6 +6,7 @@ export const clineConfig: AgentConfig = {
   agentDir: '.clinerules',
   commandsDir: 'workflows',
   displayName: 'Cline',
+  protocolFilename: 'AGENTS.md',
   strategy: {
     content: clineContentStrategy
   }

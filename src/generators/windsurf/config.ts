@@ -5,4 +5,5 @@ export const windsurfConfig: AgentConfig = {
   agentDir: '.windsurf',
   commandsDir: 'workflows',
   displayName: 'Windsurf',
+  protocolFilename: 'AGENTS.md',
 };

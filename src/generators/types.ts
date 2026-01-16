@@ -66,5 +66,7 @@ export interface AgentConfig {
   fixedAgent?: string;
   /** Optional strategy to override default content processing or file writing */
   strategy?: AgentGeneratorStrategy;
+  /** Optional filename for the Universal File Resolution Protocol (e.g., 'GEMINI.md', 'CLAUDE.md') */
+  protocolFilename?: string;
 }
 

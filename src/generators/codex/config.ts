@@ -5,5 +5,6 @@ export const codexConfig: AgentConfig = {
   agentDir: '.codex',
   commandsDir: 'prompts',
   displayName: 'Codex',
+  protocolFilename: 'AGENTS.md',
   extension: '.md',
 };

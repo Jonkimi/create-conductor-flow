@@ -5,4 +5,5 @@ export const cursorConfig: AgentConfig = {
   agentDir: '.cursor',
   commandsDir: 'commands',
   displayName: 'Cursor',
+  protocolFilename: 'AGENTS.md',
 };

@@ -1,4 +1,5 @@
 import { join } from 'path';
+import select from '@inquirer/select';
 import fs from 'fs-extra';
 import { parse } from 'smol-toml';
 import type { AgentGenerator, AgentConfig } from './types.js';
@@ -56,6 +57,33 @@ export class ConfigurableGenerator implements AgentGenerator {
             await copy(templateSource, templateDest);
         } catch (e) {
             console.warn('Failed to copy templates directory:', e);
+        }
+
+        const { protocolFilename } = this.config;
+        if (protocolFilename) {
+            try {
+                const protocolSource = join(templateRoot, 'GEMINI.md');
+                const protocolDest = join(targetDir, protocolFilename);
+
+                if (existsSync(protocolSource)) {
+                    let shouldCopy = true;
+                    if (existsSync(protocolDest)) {
+                         shouldCopy = await select({
+                            message: `The protocol file '${protocolFilename}' already exists. Do you want to overwrite it?`,
+                            choices: [
+                                { value: true, name: 'Overwrite' },
+                                { value: false, name: 'Skip' }
+                            ]
+                        });
+                    }
+
+                    if (shouldCopy) {
+                        await copy(protocolSource, protocolDest);
+                    }
+                }
+            } catch (e) {
+                console.warn('Failed to handle protocol file:', e);
+            }
         }
 
         const commands = ['setup', 'newTrack', 'implement', 'status', 'revert'];

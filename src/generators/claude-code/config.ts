@@ -5,4 +5,5 @@ export const claudeCodeConfig: AgentConfig = {
   agentDir: '.claude',
   commandsDir: 'commands',
   displayName: 'Claude Code',
+  protocolFilename: 'CLAUDE.md',
 };
