@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
+    "@types/gradient-string": "^1.1.6",
     "@types/node": "^25.0.3",
     "@types/yargs": "^17.0.35",
     "@vitest/coverage-v8": "^2.1.8",
@@ -41,6 +42,7 @@
   "dependencies": {
     "@inquirer/select": "^5.0.3",
     "fs-extra": "^11.3.3",
+    "gradient-string": "^3.0.0",
     "smol-toml": "^1.6.0",
     "yargs": "^18.0.0"
   }
