@@ -26,6 +26,7 @@ curl -L -o gemini-conductor-codebase/conductor.zip https://github.com/gemini-cli
 unzip gemini-conductor-codebase/conductor.zip -d gemini-conductor-codebase
 mv gemini-conductor-codebase/conductor-main/commands/conductor gemini-conductor-codebase/commands
 mv gemini-conductor-codebase/conductor-main/templates gemini-conductor-codebase/templates
+mv gemini-conductor-codebase/conductor-main/GEMINI.md gemini-conductor-codebase/GEMINI.md
 
 # clean up
 rm gemini-conductor-codebase/conductor.zip
