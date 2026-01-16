@@ -5,7 +5,11 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
+
 ## Archived Tracks
+
+- [x] **Track: Create a welcome ASCII image showing CONDUCTOR 4 ALL at the start of the cli install**
+  *Link: [./conductor/archive/ascii_welcome_banner_20260116/](./conductor/archive/ascii_welcome_banner_20260116/)* <!-- status: complete -->
 
 - [x] **Track: Modularize Agent Generators and Configs**
   *Link: [./conductor/archive/refactor_generator_modular_20260114/](./conductor/archive/refactor_generator_modular_20260114/)*
