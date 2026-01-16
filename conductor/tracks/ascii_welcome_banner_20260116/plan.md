@@ -2,10 +2,10 @@
 
 ## Phase 1: Setup and Assets
 - [x] Task: Install `gradient-string` dependency <!-- id: 1 --> [b82e208]
-- [ ] Task: Create `src/utils/banner.ts` with static ASCII art constant <!-- id: 2 -->
-    - [ ] Create file `src/utils/banner.ts`
-    - [ ] Add `CONDUCTOR_BANNER` string constant with the ASCII art
-    - [ ] Export the constant
+- [x] Task: Create `src/utils/banner.ts` with static ASCII art constant <!-- id: 2 --> [db3ac37]
+    - [x] Create file `src/utils/banner.ts`
+    - [x] Add `CONDUCTOR_BANNER` string constant with the ASCII art
+    - [x] Export the constant
 
 ## Phase 2: Implementation
 - [ ] Task: Implement banner display logic <!-- id: 3 -->
