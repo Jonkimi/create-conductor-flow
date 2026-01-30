@@ -5,7 +5,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
-- [~] **Track: Add Review Command Support to All Agent Generators**
+- [x] **Track: Add Review Command Support to All Agent Generators**
   *Link: [./conductor/tracks/review_command_20260130/](./conductor/tracks/review_command_20260130/)*
 
 ## Archived Tracks
