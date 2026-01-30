@@ -11,7 +11,7 @@
 
 ## Installation & Configuration
 - **Idempotency:** All installation commands (`conductor install`) must be idempotent. Re-running them should verify the state, repair missing components, or update outdated ones without overwriting user customizations or causing data loss.
-- **Embedded Resources:** The binary should be self-contained, including all necessary default templates and scripts to function without external runtime dependencies or network fetches during basic initialization.
+- **Dynamic Resources:** The CLI fetches templates dynamically from remote Git repositories to ensure developers always have access to the latest best practices and agent configurations without requiring a binary update.
 
 ## Documentation Style
 - **Technical & Precise:** Help messages, usage guides, and error messages should be concise, accurate, and devoid of fluff, resembling traditional `man` pages. This clarity benefits both human power-users and AI context processing.
