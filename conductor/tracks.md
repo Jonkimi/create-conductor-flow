@@ -5,10 +5,10 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
-- [x] **Track: Add Review Command Support to All Agent Generators**
-  *Link: [./conductor/tracks/review_command_20260130/](./conductor/tracks/review_command_20260130/)*
-
 ## Archived Tracks
+
+- [x] **Track: Add Review Command Support to All Agent Generators**
+  *Link: [./conductor/archive/review_command_20260130/](./conductor/archive/review_command_20260130/)* <!-- status: complete -->
 
 - [x] **Track: Implement Universal File Resolution Protocol**
   *Link: [./conductor/tracks/universal_file_resolution_20260116/](./conductor/tracks/universal_file_resolution_20260116/)* <!-- status: complete -->
