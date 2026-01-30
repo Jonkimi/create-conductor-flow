@@ -7,6 +7,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
+- [x] **Track: CLI commands should use bundled templates when no remote repo is specified**
+  *Link: [./conductor/tracks/bundled_templates_20260130/](./conductor/tracks/bundled_templates_20260130/)*
+
 
 
 ## Archived Tracks
