@@ -68,10 +68,29 @@ export function substituteVariables(
 	});
 }
 
+export function getBundledTemplateRoot(): string {
+	// Check for templates in ./templates (production bundle structure)
+	const prodDest = resolve(__dirname, "templates");
+	if (fs.existsSync(prodDest)) {
+		return prodDest;
+	}
+
+	// Fallback to ../templates (development source structure)
+	return resolve(__dirname, "../templates");
+}
+
 export async function getTemplateRoot(
 	repo?: string,
 	branch?: string,
 ): Promise<string> {
+	// If no remote args provided, use bundled logic
+	if (!repo && !branch) {
+		const bundledRoot = getBundledTemplateRoot();
+		if (await fs.pathExists(bundledRoot)) {
+			return bundledRoot;
+		}
+	}
+
 	await ensureTemplates(repo, branch);
 	return getCacheDir(repo, branch);
 }
@@ -82,9 +101,18 @@ export async function loadTemplate(
 	branch?: string,
 ): Promise<string> {
 	// Try bundled templates first (e.g. dist/templates or src/templates)
-	const bundledPath = resolve(__dirname, "../templates", templatePath);
+	const bundledPath = resolve(getBundledTemplateRoot(), templatePath);
 	if (await fs.pathExists(bundledPath)) {
 		return readFile(bundledPath, "utf-8");
+	}
+
+	// If using default/bundled mode (no repo args provided) and bundled template not found
+	if (!repo && !branch) {
+		console.log(
+			`Bundled template not found: ${templatePath}, falling back to remote repository...`,
+		);
+		// Fallback: ensure templates are downloaded
+		await ensureTemplates(repo, branch);
 	}
 
 	const rootDir = await getTemplateRoot(repo, branch);
