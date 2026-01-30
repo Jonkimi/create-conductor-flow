@@ -3,7 +3,6 @@ src/
 tests/
 scripts/
 conductor/
-gemini-conductor-codebase/
 coverage/
 
 # Configuration files
@@ -17,7 +16,6 @@ vitest.config.ts
 .agent/
 
 # Assets
-gemini-conductor-codebase.tar
 
 # Local files
 .DS_Store

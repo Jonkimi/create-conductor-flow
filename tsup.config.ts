@@ -1,5 +1,4 @@
 import { defineConfig } from 'tsup';
-import { copy } from 'fs-extra';
 
 export default defineConfig({
   entry: ['src/index.ts'],
@@ -15,8 +14,4 @@ export default defineConfig({
   shims: true,
   target: 'node18',
   platform: 'node',
-  onSuccess: async () => {
-    await copy('./gemini-conductor-codebase', 'dist/templates');
-    console.log('Templates copied to dist/templates');
-  },
 });

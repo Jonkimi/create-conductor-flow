@@ -26,6 +26,12 @@
 npx conductor-4-all install
 ```
 
+你也可以指定自定义模板仓库和分支：
+
+```bash
+npx conductor-4-all install --repo https://github.com/your-org/custom-conductor --branch v2
+```
+
 ### 2. 或者：从源码构建
 
 如果你更喜欢从源码构建：

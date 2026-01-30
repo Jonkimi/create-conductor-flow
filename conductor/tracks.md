@@ -7,13 +7,15 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [x] **Track: 将本仓库和 @gemini-conductor-codebase 目录解偶，这个目录原本是外部仓库，变成 install 参数为仓库地址加分支信息**
-*Link: [./conductor/tracks/decouple_template_fetching_20260130/](./conductor/tracks/decouple_template_fetching_20260130/)*
+
 
 ## Archived Tracks
 
 - [x] **Track: Add Review Command Support to All Agent Generators**
   *Link: [./conductor/archive/review_command_20260130/](./conductor/archive/review_command_20260130/)* <!-- status: complete -->
+
+- [x] **Track: Decouple gemini-conductor-codebase and Dynamic Template Fetching**
+  *Link: [./conductor/archive/decouple_template_fetching_20260130/](./conductor/archive/decouple_template_fetching_20260130/)* <!-- status: complete -->
 
 - [x] **Track: Implement Universal File Resolution Protocol**
   *Link: [./conductor/tracks/universal_file_resolution_20260116/](./conductor/tracks/universal_file_resolution_20260116/)* <!-- status: complete -->

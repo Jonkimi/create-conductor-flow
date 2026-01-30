@@ -34,7 +34,7 @@ describe('Project Structure Initialization', () => {
   });
 
   describe('templates/ directory', () => {
-    it('should NOT exist in source (uses gemini-conductor-codebase)', () => {
+    it('should NOT exist in source', () => {
       const templatesDir = join(testDir, 'templates');
       expect(existsSync(templatesDir)).toBe(false);
     });

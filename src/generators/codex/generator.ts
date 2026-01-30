@@ -2,7 +2,7 @@ import { homedir } from 'os';
 import { codexConfig } from './config.js';
 import { createGenerator } from '../factory.js';
 import type { AgentGenerator } from '../types.js';
-import { InstallScope } from '../../types.js';
+import type { InstallScope } from '../../types.js';
 
 /**
  * Codex agent generator.
@@ -18,10 +18,10 @@ export class CodexGenerator implements AgentGenerator {
         return this.generator.validate(targetDir, scope);
     }
 
-    generate(targetDir: string, scope?: InstallScope): Promise<void> {
+    generate(targetDir: string, scope?: InstallScope, repo?: string, branch?: string): Promise<void> {
         if (scope === 'global') {
             targetDir = homedir();
         }
-        return this.generator.generate(targetDir, scope);
+        return this.generator.generate(targetDir, scope, repo, branch);
     }
 }

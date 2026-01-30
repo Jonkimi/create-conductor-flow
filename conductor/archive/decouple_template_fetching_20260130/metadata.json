@@ -1,0 +1,8 @@
+{
+  "track_id": "decouple_template_fetching_20260130",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-30T10:00:00Z",
+  "updated_at": "2026-01-30T10:00:00Z",
+  "description": "将本仓库和 @gemini-conductor-codebase 目录解偶，这个目录原本是外部仓库，变成 install 参数为仓库地址加分支信息"
+}

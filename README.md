@@ -26,6 +26,12 @@ To initialize Conductor in your project, simply run the following command in you
 npx conductor-4-all install
 ```
 
+You can also specify a custom template repository and branch:
+
+```bash
+npx conductor-4-all install --repo https://github.com/your-org/custom-conductor --branch v2
+```
+
 ### 2. Alternative: Build from Source
 
 If you prefer to build from source:

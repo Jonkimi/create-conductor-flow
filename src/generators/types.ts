@@ -44,8 +44,10 @@ export interface AgentGenerator {
    * Creates directories, copies templates, and processes configuration files.
    * @param targetDir The directory where the agent configuration should be generated
    * @param scope The installation scope (global or project)
+   * @param repo Optional Git repository URL for templates
+   * @param branch Optional branch name for templates
    */
-  generate(targetDir: string, scope?: InstallScope): Promise<void>;
+  generate(targetDir: string, scope?: InstallScope, repo?: string, branch?: string): Promise<void>;
 }
 
 /**

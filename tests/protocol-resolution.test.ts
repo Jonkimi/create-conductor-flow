@@ -27,7 +27,7 @@ describe('ConfigurableGenerator - Protocol Resolution', () => {
         vi.resetAllMocks();
         // Setup default mocks
         vi.mocked(templateUtils.getTemplateRoot).mockResolvedValue(mockTemplateRoot);
-        vi.mocked(templateUtils.loadTemplate).mockResolvedValue('template content');
+        vi.mocked(templateUtils.loadTemplate).mockResolvedValue('description = "mock command"');
         vi.mocked(fs.ensureDir).mockResolvedValue(undefined);
         vi.mocked(fs.copy).mockResolvedValue(undefined);
         vi.mocked(fs.writeFile).mockResolvedValue(undefined);

@@ -1,48 +1,64 @@
+import { ArgumentsCamelCase } from "yargs";
+import { promptForAgent, promptForInstallScope } from "../cli/prompt.js";
+import { getGenerator } from "../generators/index.js";
+import { resolve } from "path";
 
-import { ArgumentsCamelCase } from 'yargs';
-import { promptForAgent, promptForInstallScope } from '../cli/prompt.js';
-import { getGenerator } from '../generators/index.js';
-import { resolve } from 'path';
+import { AgentType, InstallScope } from "../types.js";
 
-import { AgentType } from '../types.js';
+export async function installHandler(
+	argv: ArgumentsCamelCase<{
+		path: string;
+		agent?: string;
+		repo?: string;
+		branch?: string;
+		scope?: string;
+	}>,
+): Promise<void> {
+	// Resolve target directory to absolute path
+	const targetDir = resolve(process.cwd(), argv.path);
 
-export async function installHandler(argv: ArgumentsCamelCase<{ path: string; agent?: string }>): Promise<void> {
-  // Resolve target directory to absolute path
-  const targetDir = resolve(process.cwd(), argv.path);
-  
-  try {
-    console.log(`Initializing Conductor in: ${targetDir}`);
-    
-    // 1. Select Agent
-    let agent: AgentType;
-    if (argv.agent) {
-      agent = argv.agent as AgentType;
-      console.log(`Using provided agent: ${agent}`);
-    } else {
-      console.log('Step 1: Prompting for agent selection...');
-      agent = await promptForAgent();
-      console.log(`✔ Selected agent: ${agent}`);
-    }
+	try {
+		console.log(`Initializing Conductor in: ${targetDir}`);
 
-    // 2. Select Installation Scope
-    const scope = await promptForInstallScope(agent);
-    console.log(`✔ Selected scope: ${scope}`);
+		// 1. Select Agent
+		let agent: AgentType;
+		if (argv.agent) {
+			agent = argv.agent as AgentType;
+			console.log(`Using provided agent: ${agent}`);
+		} else {
+			console.log("Step 1: Prompting for agent selection...");
+			agent = await promptForAgent();
+			console.log(`✔ Selected agent: ${agent}`);
+		}
 
-    const generator = getGenerator(agent);
+		// 2. Select Installation Scope
+		let scope: InstallScope;
+		if (argv.scope) {
+			scope = argv.scope as InstallScope;
+			console.log(`Using provided scope: ${scope}`);
+		} else {
+			scope = await promptForInstallScope(agent);
+		}
+		console.log(`✔ Selected scope: ${scope}`);
 
-    // 3. Validate
-    console.log('\nStep 3: Validating project directory...');
-    const validatedPath = await generator.validate(targetDir, scope);
-    console.log(`✔ Validation complete: ${validatedPath}`);
-    
-    // 4. Generate
-    console.log('\nStep 4: Generating files...');
-    await generator.generate(validatedPath, scope);
-    console.log('✔ Files generated');
-    
-    console.log('\n✔ Conductor initialized successfully!');
-  } catch (err) {
-    console.error('\n✘ Installation failed:', err instanceof Error ? err.message : err);
-    process.exit(1);
-  }
+		const generator = getGenerator(agent);
+
+		// 3. Validate
+		console.log("\nStep 3: Validating project directory...");
+		const validatedPath = await generator.validate(targetDir, scope);
+		console.log(`✔ Validation complete: ${validatedPath}`);
+
+		// 4. Generate
+		console.log("\nStep 4: Generating files...");
+		await generator.generate(validatedPath, scope, argv.repo, argv.branch);
+		console.log("✔ Files generated");
+
+		console.log("\n✔ Conductor initialized successfully!");
+	} catch (err) {
+		console.error(
+			"\n✘ Installation failed:",
+			err instanceof Error ? err.message : err,
+		);
+		process.exit(1);
+	}
 }

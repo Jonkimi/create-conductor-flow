@@ -16,9 +16,9 @@ describe('Tsup Build Configuration', () => {
       expect(tsupConfig).toContain('dist');
     });
 
-    it('should bundle templates', () => {
+    it('should NOT copy gemini-conductor-codebase to dist/templates', () => {
       const tsupConfig = readFileSync(tsupConfigPath, 'utf-8');
-      expect(tsupConfig).toMatch(/entry|bundle|include/i);
+      expect(tsupConfig).not.toContain('gemini-conductor-codebase');
     });
   });
 

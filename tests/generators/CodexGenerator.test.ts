@@ -2,8 +2,10 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { CodexGenerator } from '../../src/generators/index.js';
 import fs from 'fs-extra';
 import { homedir } from 'os';
+import select from '@inquirer/select';
 
 vi.mock('fs-extra');
+vi.mock('@inquirer/select');
 vi.mock('os', () => ({
     homedir: vi.fn(),
 }));
@@ -29,6 +31,7 @@ describe('CodexGenerator', () => {
         generator = new CodexGenerator();
         (getTemplateRoot as any).mockResolvedValue('/mock/template/root');
         (fs.existsSync as any).mockReturnValue(false); 
+        (select as any).mockResolvedValue(true);
     });
 
     describe('validate', () => {
