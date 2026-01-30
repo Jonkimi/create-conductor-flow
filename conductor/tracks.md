@@ -52,3 +52,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] **Track: Enforce installation scope (Global vs Project) based on Agent type**
   *Link: [./conductor/archive/agent_installation_scope_20260109/](./conductor/archive/agent_installation_scope_20260109/)*
 
+- [x] **Track: Fix missing conductor review workflow**
+  *Link: [./conductor/tracks/fix-missing-review-workflow_20260130/](./conductor/tracks/fix-missing-review-workflow_20260130/)*
