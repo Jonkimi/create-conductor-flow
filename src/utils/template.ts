@@ -81,6 +81,12 @@ export async function loadTemplate(
 	repo?: string,
 	branch?: string,
 ): Promise<string> {
+	// Try bundled templates first (e.g. dist/templates or src/templates)
+	const bundledPath = resolve(__dirname, "../templates", templatePath);
+	if (await fs.pathExists(bundledPath)) {
+		return readFile(bundledPath, "utf-8");
+	}
+
 	const rootDir = await getTemplateRoot(repo, branch);
 	const fullPath = join(rootDir, templatePath);
 	return readFile(fullPath, "utf-8");

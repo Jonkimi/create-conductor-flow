@@ -28,6 +28,7 @@ vi.mock("fs-extra", () => {
 			existsSync: vi.fn(),
 			ensureDir: vi.fn(),
 			remove: vi.fn(),
+			pathExists: vi.fn(),
 		},
 	};
 });
@@ -151,8 +152,13 @@ describe("Template Substitution", () => {
 	});
 
 	describe("Template Loader", () => {
+		beforeEach(() => {
+			vi.resetAllMocks();
+		});
+
 		it("should load a template file", async () => {
 			vi.mocked(fs.existsSync).mockReturnValue(true);
+			vi.mocked(fs.pathExists).mockResolvedValue(false); // Bundled not found
 			vi.mocked(fsPromises.readFile).mockResolvedValue(
 				'description = "Scaffolds the project"',
 			);
@@ -161,8 +167,19 @@ describe("Template Substitution", () => {
 			expect(content).toContain('description = "Scaffolds the project');
 		});
 
+		it("should prioritize bundled template if available", async () => {
+			vi.mocked(fs.pathExists).mockResolvedValue(true); // Bundled found
+			vi.mocked(fsPromises.readFile).mockResolvedValue("bundled-content");
+
+			const content = await loadTemplate("some-template.toml");
+			expect(content).toBe("bundled-content");
+			// ensureTemplates (and thus git commands) should NOT be called if bundled is found
+			expect(child_process.execSync).not.toHaveBeenCalled();
+		});
+
 		it("should throw if file missing", async () => {
 			vi.mocked(fs.existsSync).mockReturnValue(true);
+			vi.mocked(fs.pathExists).mockResolvedValue(false);
 			vi.mocked(fsPromises.readFile).mockRejectedValue(new Error("ENOENT"));
 			await expect(loadTemplate("missing.md")).rejects.toThrow();
 		});
