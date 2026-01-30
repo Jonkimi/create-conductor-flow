@@ -12,7 +12,7 @@ A standalone command-line tool built with TypeScript and Node.js that brings the
 - **Standardization:** Create a unified interface for project orchestration that bridges the gap between human intent and AI execution.
 
 ## Key Features
-- **Project Initialization & Installation:** A robust CLI to scaffold the necessary Conductor directories, templates, and configuration files. Fetches templates dynamically from remote Git repositories with local caching.
+- **Project Initialization & Installation:** A robust CLI to scaffold the necessary Conductor directories, templates, and configuration files. Fetches templates dynamically from remote Git repositories with local caching, or uses bundled templates for offline/standalone usage.
 - **Agent Installation Scope Control**: Enforces global (e.g., `~/.codex`) or project-level installation based on agent type requirements.
 - **Smart Agent Selection**: Interactive CLI to choose your preferred AI agent.
 - **Multi-Agent Support:** Built-in support for multiple AI agents including **OpenCode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, and **Gemini CLI**, with automated generation of tailored command structures and file formats (Markdown or TOML) for each.
