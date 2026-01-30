@@ -80,6 +80,6 @@ describe("E2E Installation", () => {
 		expect(
 			fs.existsSync(join(testDir, ".gemini/commands/conductor/setup.toml")),
 		).toBe(true);
-		expect(fs.existsSync(join(testDir, "GEMINI.md"))).toBe(true);
+		expect(fs.existsSync(join(testDir, ".gemini/GEMINI.md"))).toBe(true);
 	});
 });
