@@ -1,0 +1,8 @@
+{
+    "track_id": "bundled_templates_20260130",
+    "type": "feature",
+    "status": "new",
+    "created_at": "2026-01-30T12:16:45-04:00",
+    "updated_at": "2026-01-30T12:28:22-04:00",
+    "description": "CLI commands should use bundled templates when no remote repo is specified"
+}

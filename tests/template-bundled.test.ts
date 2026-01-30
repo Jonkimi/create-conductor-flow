@@ -52,7 +52,7 @@ describe("Bundled Templates", () => {
 
 	it("should return the correct path for bundled templates", () => {
 		const bundledRoot = getBundledTemplateRoot();
-		expect(bundledRoot).toContain("templates");
+		expect(bundledRoot).toContain("conductor");
 		expect(path.isAbsolute(bundledRoot)).toBe(true);
 	});
 
@@ -60,7 +60,7 @@ describe("Bundled Templates", () => {
 		it("should return bundled root if no repo args and bundled exists", async () => {
 			vi.mocked(fs.pathExists).mockResolvedValue(true);
 			const root = await getTemplateRoot();
-			expect(root).toContain("templates");
+			expect(root).toContain("conductor");
 		});
 
 		it("should return cache dir if repo provided", async () => {

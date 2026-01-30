@@ -26,9 +26,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "prebuild": "npx tsx scripts/bundle-templates.ts",
+    "prebuild": "npx tsx scripts/bundle-conductor.ts",
     "build": "tsup",
-    "postbuild": "cp -r src/templates dist/templates",
+    "postbuild": "cp -r src/conductor dist/conductor",
     "start": "node dist/index.js"
   },
   "devDependencies": {

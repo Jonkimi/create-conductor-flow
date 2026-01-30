@@ -70,13 +70,13 @@ export function substituteVariables(
 
 export function getBundledTemplateRoot(): string {
 	// Check for templates in ./templates (production bundle structure)
-	const prodDest = resolve(__dirname, "templates");
+	const prodDest = resolve(__dirname, "conductor");
 	if (fs.existsSync(prodDest)) {
 		return prodDest;
 	}
 
 	// Fallback to ../templates (development source structure)
-	return resolve(__dirname, "../templates");
+	return resolve(__dirname, "../conductor");
 }
 
 export async function getTemplateRoot(

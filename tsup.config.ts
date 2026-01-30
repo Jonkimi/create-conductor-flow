@@ -26,11 +26,11 @@ export default defineConfig({
 	platform: "node",
 	async onSuccess() {
 		// Copy templates to dist after successful build
-		const srcTemplates = join(process.cwd(), "src/templates");
-		const distTemplates = join(process.cwd(), "dist/templates");
+		const srcTemplates = join(process.cwd(), "src/conductor");
+		const distTemplates = join(process.cwd(), "dist/conductor");
 		if (fs.existsSync(srcTemplates)) {
 			await fs.copy(srcTemplates, distTemplates);
-			console.log("✓ Templates copied to dist/templates");
+			console.log("✓ Templates copied to dist/conductor");
 		}
 	},
 });

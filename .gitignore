@@ -2,10 +2,11 @@ node_modules
 dist
 coverage
 .DS_Store
-src/templates
+src/conductor
 
 # Agent installation directories
 .claude
 .opencode
 .windsurf
+.agent
 .gemini

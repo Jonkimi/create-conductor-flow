@@ -38,7 +38,7 @@ describe("Tsup Build Configuration", () => {
 			const reviewTemplatePath = join(
 				process.cwd(),
 				"dist",
-				"templates",
+				"conductor",
 				"commands",
 				"conductor",
 				"review.toml",
@@ -50,7 +50,7 @@ describe("Tsup Build Configuration", () => {
 			const templateDir = join(
 				process.cwd(),
 				"dist",
-				"templates",
+				"conductor",
 				"commands",
 				"conductor",
 			);

@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const ROOT = join(__dirname, "..");
-const TEMPLATES_DIR = join(ROOT, "src/templates");
+const TEMPLATES_DIR = join(ROOT, "src/conductor");
 const REPO = "https://github.com/gemini-cli-extensions/conductor";
 
 async function main() {
