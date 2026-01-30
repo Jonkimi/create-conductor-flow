@@ -86,7 +86,7 @@ export class ConfigurableGenerator implements AgentGenerator {
             }
         }
 
-        const commands = ['setup', 'newTrack', 'implement', 'status', 'revert'];
+        const commands = ['setup', 'newTrack', 'implement', 'status', 'revert', 'review'];
         const extension = this.config.extension || '.md';
         const fixedAgent = this.config.fixedAgent;
 

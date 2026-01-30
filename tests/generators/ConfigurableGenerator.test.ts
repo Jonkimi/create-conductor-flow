@@ -93,5 +93,30 @@ describe('ConfigurableGenerator', () => {
                 expect.stringContaining('.test/conductor/templates')
             );
         });
+
+        it('should include review command in generated commands', async () => {
+            (loadTemplate as ReturnType<typeof vi.fn>).mockResolvedValue('prompt = "some prompt"');
+
+            await generator.generate(targetDir);
+
+            const writeFileCalls = (fs.writeFile as unknown as ReturnType<typeof vi.fn>).mock.calls;
+            const reviewCommandCall = writeFileCalls.find((call: unknown[]) => 
+                call[0] && typeof call[0] === 'string' && call[0].includes('review')
+            );
+            expect(reviewCommandCall).toBeDefined();
+        });
+    });
+
+    describe('command list', () => {
+        it('should include review command in the commands array', async () => {
+            (loadTemplate as ReturnType<typeof vi.fn>).mockResolvedValue('prompt = "some prompt"');
+
+            await generator.generate(targetDir);
+
+            const expectedCommands = ['setup', 'newTrack', 'implement', 'status', 'revert', 'review'];
+            for (const cmd of expectedCommands) {
+                expect(loadTemplate).toHaveBeenCalledWith(`commands/${cmd}.toml`);
+            }
+        });
     });
 });
