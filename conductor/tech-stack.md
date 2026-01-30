@@ -12,6 +12,7 @@
 - **Testing Framework:** `vitest` (Unit and integration testing)
 - **File System:** Built-in `fs/promises` with `fs-extra` for advanced operations
 - **TOML Parser:** `smol-toml` (For processing command templates)
+- **Template Delivery:** Git (Dynamic fetching/caching of templates from remote repositories)
 
 ## Development Tools
 - **TypeScript Compiler:** For type checking and compilation

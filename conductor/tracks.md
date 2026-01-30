@@ -5,6 +5,11 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## Active Tracks
 
+---
+
+- [x] **Track: 将本仓库和 @gemini-conductor-codebase 目录解偶，这个目录原本是外部仓库，变成 install 参数为仓库地址加分支信息**
+*Link: [./conductor/tracks/decouple_template_fetching_20260130/](./conductor/tracks/decouple_template_fetching_20260130/)*
+
 ## Archived Tracks
 
 - [x] **Track: Add Review Command Support to All Agent Generators**
