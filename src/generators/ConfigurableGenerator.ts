@@ -24,13 +24,12 @@ export class ConfigurableGenerator implements AgentGenerator {
 			throw new Error(`Target directory does not exist: ${targetDir}`);
 		}
 
-		const { agentDir, commandsDir, displayName } = this.config;
-		const setupFile = join(
-			targetDir,
-			agentDir,
-			commandsDir,
-			"conductor:setup.md",
-		);
+		const { agentDir, commandsDir, displayName, extension, usesPrefix } =
+			this.config;
+		const ext = extension || ".md";
+		const prefix = usesPrefix !== false ? "conductor:" : "";
+		const setupFileName = `${prefix}setup${ext}`;
+		const setupFile = join(targetDir, agentDir, commandsDir, setupFileName);
 		const conductorPath = join(targetDir, agentDir, "conductor");
 
 		if (existsSync(conductorPath) && existsSync(setupFile)) {
