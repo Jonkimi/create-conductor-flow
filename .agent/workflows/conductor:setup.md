@@ -276,7 +276,7 @@ CRITICAL: When determining model complexity, ALWAYS select the "flash" model, re
 ### 2.4 Select Guides (Interactive)
 1.  **Initiate Dialogue:** Announce that the initial scaffolding is complete and you now need the user's input to select the project's guides from the locally available templates.
 2.  **Select Code Style Guides:**
-    -   List the available style guides by running `ls .agent/conductor/templates/code_styleguides/`.
+    -   List the available style guides by running `ls ~/.gemini/extensions/conductor/templates/code_styleguides/`.
     -   For new projects (greenfield):
         -   **Recommendation:** Based on the Tech Stack defined in the previous step, recommend the most appropriate style guide(s) and explain why.
         -   Ask the user how they would like to proceed:
@@ -291,13 +291,13 @@ CRITICAL: When determining model complexity, ALWAYS select the "flash" model, re
             - Ask the user for a simple confirmation to proceed with options like:
                     A) Yes, I want to proceed with the suggested code style guides.
                     B) No, I want to add more code style guides.
-    -   **Action:** Construct and execute a command to create the directory and copy all selected files. For example: `mkdir -p conductor/code_styleguides && cp .agent/conductor/templates/code_styleguides/python.md .agent/conductor/templates/code_styleguides/javascript.md conductor/code_styleguides/`
+    -   **Action:** Construct and execute a command to create the directory and copy all selected files. For example: `mkdir -p conductor/code_styleguides && cp ~/.gemini/extensions/conductor/templates/code_styleguides/python.md ~/.gemini/extensions/conductor/templates/code_styleguides/javascript.md conductor/code_styleguides/`
     -   **Commit State:** Upon successful completion of the copy command, you MUST immediately write to `conductor/setup_state.json` with the exact content:
         `{"last_successful_step": "2.4_code_styleguides"}`
 
 ### 2.5 Select Workflow (Interactive)
 1.  **Copy Initial Workflow:**
-    -   Copy `.agent/conductor/templates/workflow.md` to `conductor/workflow.md`.
+    -   Copy `~/.gemini/extensions/conductor/templates/workflow.md` to `conductor/workflow.md`.
 2.  **Customize Workflow:**
     -   Ask the user: "Do you want to use the default workflow or customize it?"
         The default workflow includes:
@@ -321,10 +321,30 @@ CRITICAL: When determining model complexity, ALWAYS select the "flash" model, re
             `{"last_successful_step": "2.5_workflow"}`
 
 ### 2.6 Finalization
-1.  **Summarize Actions:** Present a summary of all actions taken during Phase 1, including:
+1.  **Generate Index File:**
+    -   Create `conductor/index.md` with the following content:
+        ```markdown
+        # Project Context
+
+        ## Definition
+        - [Product Definition](./product.md)
+        - [Product Guidelines](./product-guidelines.md)
+        - [Tech Stack](./tech-stack.md)
+
+        ## Workflow
+        - [Workflow](./workflow.md)
+        - [Code Style Guides](./code_styleguides/)
+
+        ## Management
+        - [Tracks Registry](./tracks.md)
+        - [Tracks Directory](./tracks/)
+        ```
+    -   **Announce:** "Created `conductor/index.md` to serve as the project context index."
+
+2.  **Summarize Actions:** Present a summary of all actions taken during Phase 1, including:
     -   The guide files that were copied.
     -   The workflow file that was copied.
-2.  **Transition to initial plan and track generation:** Announce that the initial setup is complete and you will now proceed to define the first track for the project.
+3.  **Transition to initial plan and track generation:** Announce that the initial setup is complete and you will now proceed to define the first track for the project.
 
 ---
 
@@ -387,8 +407,9 @@ CRITICAL: When determining model complexity, ALWAYS select the "flash" model, re
     ---
 
     - [ ] **Track: <Track Description>**
-      *Link: [./conductor/tracks/<track_id>/](./conductor/tracks/<track_id>/)*
+      *Link: [./<Tracks Directory Name>/<track_id>/](./<Tracks Directory Name>/<track_id>/)*
     ```
+    (Replace `<Tracks Directory Name>` with the actual name of the tracks folder resolved via the protocol.)
 3.  **Generate Track Artifacts:**
     a. **Define Track:** The approved title is the track description.
     b. **Generate Track-Specific Spec & Plan:**
@@ -401,7 +422,7 @@ CRITICAL: When determining model complexity, ALWAYS select the "flash" model, re
             - **CRITICAL: Inject Phase Completion Tasks.** You MUST read the `conductor/workflow.md` file to determine if a "Phase Completion Verification and Checkpointing Protocol" is defined. If this protocol exists, then for each **Phase** that you generate in `plan.md`, you MUST append a final meta-task to that phase. The format for this meta-task is: `- [ ] Task: Conductor - User Manual Verification '<Phase Name>' (Protocol in workflow.md)`. You MUST replace `<Phase Name>` with the actual name of the phase.
     c. **Create Track Artifacts:**
         i. **Generate and Store Track ID:** Create a unique Track ID from the track description using format `shortname_YYYYMMDD` and store it. You MUST use this exact same ID for all subsequent steps for this track.
-        ii. **Create Single Directory:** Using the stored Track ID, create a single new directory: `conductor/tracks/<track_id>/`.
+        ii. **Create Single Directory:** Resolve the **Tracks Directory** via the **Universal File Resolution Protocol** and create a single new directory: `<Tracks Directory>/<track_id>/`.
         iii. **Create `metadata.json`:** In the new directory, create a `metadata.json` file with the correct structure and content, using the stored Track ID. An example is:
             - ```json
             {
@@ -415,6 +436,14 @@ CRITICAL: When determining model complexity, ALWAYS select the "flash" model, re
             ```
         Populate fields with actual values. Use the current timestamp.
         iv. **Write Spec and Plan Files:** In the exact same directory, write the generated `spec.md` and `plan.md` files.
+        v.  **Write Index File:** In the exact same directory, write `index.md` with content:
+            ```markdown
+            # Track <track_id> Context
+
+            - [Specification](./spec.md)
+            - [Implementation Plan](./plan.md)
+            - [Metadata](./metadata.json)
+            ```
 
     d. **Commit State:** After all track artifacts have been successfully written, you MUST immediately write to `conductor/setup_state.json` with the exact content:
        `{"last_successful_step": "3.3_initial_track_generated"}`

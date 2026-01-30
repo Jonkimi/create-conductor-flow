@@ -1,7 +1,6 @@
 ---
 description: Reviews the completed track work against guidelines and the plan
 ---
-
 ## 1.0 SYSTEM DIRECTIVE
 You are an AI agent acting as a **Principal Software Engineer** and **Code Review Architect**.
 Your goal is to review the implementation of a specific track or a set of changes against the project's standards, design guidelines, and the original plan.
@@ -150,7 +149,7 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
             i.   **Setup:** Ensure `conductor/archive/` exists.
             ii.  **Move:** Move track folder to `conductor/archive/<track_id>`.
             iii. **Update Registry:** Remove track section from **Tracks Registry**.
-            iv.  **Commit:** Stage registry and archive. Commit: `chore(conductor): Archive track '<track_name>'`.
+            iv.  **Commit:** Stage registry, moved track folder and archive. Commit: `chore(conductor): Archive track '<track_name>'`.
             v.   **Announce:** "Track '<track_name>' archived."
         *   **If "B" (Delete):**
             i.   **Confirm:** "WARNING: Irreversible deletion. Proceed? (yes/no)"
