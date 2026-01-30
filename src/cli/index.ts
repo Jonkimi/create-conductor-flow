@@ -46,6 +46,12 @@ export const cli = yargs(hideBin(process.argv))
 					describe: "Installation scope (project or global)",
 					type: "string",
 					choices: ["project", "global"],
+				})
+				.option("force", {
+					alias: "f",
+					describe: "Force overwrite existing installation",
+					type: "boolean",
+					default: false,
 				});
 		},
 		installHandler,

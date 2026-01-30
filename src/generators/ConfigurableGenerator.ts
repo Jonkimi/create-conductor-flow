@@ -46,6 +46,7 @@ export class ConfigurableGenerator implements AgentGenerator {
 		scope?: InstallScope,
 		repo?: string,
 		branch?: string,
+		force?: boolean,
 	): Promise<void> {
 		const { agentDir, commandsDir, agentType } = this.config;
 		const agentPath = join(targetDir, agentDir);
@@ -80,7 +81,7 @@ export class ConfigurableGenerator implements AgentGenerator {
 
 				if (existsSync(protocolSource)) {
 					let shouldCopy = true;
-					if (existsSync(protocolDest)) {
+					if (existsSync(protocolDest) && !force) {
 						shouldCopy = await select({
 							message: `The protocol file '${protocolFilename}' already exists. Do you want to overwrite it?`,
 							choices: [

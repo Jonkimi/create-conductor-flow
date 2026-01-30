@@ -2,6 +2,7 @@ import { ArgumentsCamelCase } from "yargs";
 import { promptForAgent, promptForInstallScope } from "../cli/prompt.js";
 import { getGenerator } from "../generators/index.js";
 import { resolve } from "path";
+import select from "@inquirer/select";
 
 import { AgentType, InstallScope } from "../types.js";
 
@@ -12,10 +13,12 @@ export async function installHandler(
 		repo?: string;
 		branch?: string;
 		scope?: string;
+		force?: boolean;
 	}>,
 ): Promise<void> {
 	// Resolve target directory to absolute path
 	const targetDir = resolve(process.cwd(), argv.path);
+	const force = argv.force ?? false;
 
 	try {
 		console.log(`Initializing Conductor in: ${targetDir}`);
@@ -43,14 +46,48 @@ export async function installHandler(
 
 		const generator = getGenerator(agent);
 
-		// 3. Validate
+		// 3. Validate (with force option handling)
 		console.log("\nStep 3: Validating project directory...");
-		const validatedPath = await generator.validate(targetDir, scope);
+		let validatedPath: string;
+		try {
+			validatedPath = await generator.validate(targetDir, scope);
+		} catch (err) {
+			if (err instanceof Error && err.message.includes("already installed")) {
+				if (force) {
+					console.log("⚠ Force mode: Overwriting existing installation");
+					validatedPath = targetDir;
+				} else {
+					// Interactive prompt
+					const shouldOverwrite = await select({
+						message: `${err.message}\nDo you want to overwrite the existing installation?`,
+						choices: [
+							{ value: true, name: "Yes, overwrite" },
+							{ value: false, name: "No, cancel" },
+						],
+					});
+					if (shouldOverwrite) {
+						console.log("Overwriting existing installation...");
+						validatedPath = targetDir;
+					} else {
+						console.log("Installation cancelled.");
+						return;
+					}
+				}
+			} else {
+				throw err;
+			}
+		}
 		console.log(`✔ Validation complete: ${validatedPath}`);
 
 		// 4. Generate
 		console.log("\nStep 4: Generating files...");
-		await generator.generate(validatedPath, scope, argv.repo, argv.branch);
+		await generator.generate(
+			validatedPath,
+			scope,
+			argv.repo,
+			argv.branch,
+			force,
+		);
 		console.log("✔ Files generated");
 
 		console.log("\n✔ Conductor initialized successfully!");

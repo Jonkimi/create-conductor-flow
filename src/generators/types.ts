@@ -49,12 +49,14 @@ export interface AgentGenerator {
 	 * @param scope The installation scope (global or project)
 	 * @param repo Optional Git repository URL for templates
 	 * @param branch Optional branch name for templates
+	 * @param force If true, overwrite existing files without prompting
 	 */
 	generate(
 		targetDir: string,
 		scope?: InstallScope,
 		repo?: string,
 		branch?: string,
+		force?: boolean,
 	): Promise<void>;
 }
 
