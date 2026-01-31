@@ -10,7 +10,7 @@
     - [ ] Add `actions/setup-node` with `registry-url: 'https://registry.npmjs.org'`
     - [ ] Add `pnpm` setup
     - [ ] Add `pnpm install`, `pnpm build`, `pnpm test` steps
-- [ ] Task: Conductor - User Manual Verification 'CI Pipeline Configuration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'CI Pipeline Configuration' (Protocol in workflow.md) [checkpoint: 0ebab45]
 
 ## Phase 2: CD Pipeline Configuration
 - [ ] Task: Implement Publish Step
