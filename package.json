@@ -1,7 +1,7 @@
 {
-  "name": "conductor-4-all",
+  "name": "conductor-install",
   "version": "0.0.15",
-  "description": "Conductor spec-driven development CLI - TypeScript/Node.js version",
+  "description": "Conductor spec-driven development CLI - Install Conductor in any project with npx conductor-install",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
   "type": "module",
   "bin": {
     "conductor": "./dist/index.js",
-    "conductor-4-all": "./dist/index.js"
+    "conductor-4-all": "./dist/index.js",
+    "conductor-install": "./dist/conductor-install.js"
   },
   "files": [
     "dist",
