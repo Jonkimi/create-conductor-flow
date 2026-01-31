@@ -1,6 +1,6 @@
 # Conductor for All
 
-[![npm version](https://badge.fury.io/js/conductor-4-all.svg)](https://badge.fury.io/js/conductor-4-all)
+[![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
 
 <img src="./conductor_banner.png" height="400" alt="Conductor for All Banner" />
 
@@ -23,13 +23,13 @@
 要在你的项目中初始化 Conductor，只需在项目根目录下运行以下命令：
 
 ```bash
-npx conductor-4-all install
+npx conductor-install
 ```
 
 你也可以指定自定义模板仓库和分支：
 
 ```bash
-npx conductor-4-all install --repo https://github.com/your-org/custom-conductor --branch v2
+npx conductor-install --repo https://github.com/your-org/custom-conductor --branch v2
 ```
 
 ### 2. 或者：从源码构建

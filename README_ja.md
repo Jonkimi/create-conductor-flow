@@ -1,6 +1,6 @@
 # Conductor for All
 
-[![npm version](https://badge.fury.io/js/conductor-4-all.svg)](https://badge.fury.io/js/conductor-4-all)
+[![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
 
 <img src="./conductor_banner.png" height="400" alt="Conductor for All Banner" />
 
@@ -23,7 +23,7 @@
 プロジェクトで Conductor を初期化するには、プロジェクトのルートで次のコマンドを実行するだけです：
 
 ```bash
-npx conductor-4-all install
+npx conductor-install
 ```
 
 ### 2. 代替手段：ソースからビルド

@@ -1,6 +1,6 @@
 # Conductor for All
 
-[![npm version](https://badge.fury.io/js/conductor-4-all.svg)](https://badge.fury.io/js/conductor-4-all)
+[![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
 
 <img src="./conductor_banner.png" height="400" alt="Conductor for All Banner" />
 
@@ -23,13 +23,19 @@ Originally tied to the Gemini CLI extension, this project aims to decouple the m
 To initialize Conductor in your project, simply run the following command in your project root:
 
 ```bash
-npx conductor-4-all install
+npx conductor-install
 ```
 
 You can also specify a custom template repository and branch:
 
 ```bash
-npx conductor-4-all install --repo https://github.com/your-org/custom-conductor --branch v2
+npx conductor-install --repo https://github.com/your-org/custom-conductor --branch v2
+```
+
+Or specify the agent directly:
+
+```bash
+npx conductor-install --agent claude-code
 ```
 
 ### 2. Alternative: Build from Source
@@ -39,7 +45,7 @@ If you prefer to build from source:
 ```bash
 pnpm install
 pnpm build
-node dist/index.js install
+node dist/conductor-install.js
 ```
 
 You will be prompted to select your AI Coding Agent:

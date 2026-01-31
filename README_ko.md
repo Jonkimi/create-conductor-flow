@@ -1,6 +1,6 @@
 # Conductor for All
 
-[![npm version](https://badge.fury.io/js/conductor-4-all.svg)](https://badge.fury.io/js/conductor-4-all)
+[![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
 
 <img src="./conductor_banner.png" height="400" alt="Conductor for All Banner" />
 
@@ -23,7 +23,7 @@
 프로젝트에서 Conductor를 초기화하려면 프로젝트 루트에서 다음 명령을 실행하기만 하면 됩니다:
 
 ```bash
-npx conductor-4-all install
+npx conductor-install
 ```
 
 ### 2. 대안: 소스에서 빌드
