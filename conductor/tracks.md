@@ -7,15 +7,13 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
+
 - [x] **Track: Rename npm package to conductor-install and add direct install command**
 *Link: [./tracks/rename_conductor_install_20260130/](./tracks/rename_conductor_install_20260130/)*
 
 ---
 
-- [x] **Track: Create a new conductor_banner.png**
-*Link: [./tracks/new_conductor_banner_20260130/](./tracks/new_conductor_banner_20260130/)*
 
----
 
 
 
@@ -23,6 +21,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 
 ## Archived Tracks
+
+- [x] **Track: Create a new conductor_banner.png**
+  *Link: [./conductor/archive/new_conductor_banner_20260130/](./conductor/archive/new_conductor_banner_20260130/)* <!-- status: complete -->
 
 - [x] **Track: CLI commands should use bundled templates when no remote repo is specified**
   *Link: [./conductor/archive/bundled_templates_20260130/](./conductor/archive/bundled_templates_20260130/)* <!-- status: complete -->
