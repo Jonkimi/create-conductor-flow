@@ -4,31 +4,21 @@ on:
   push:
     tags:
       - "v*"
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-
       - uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: "24"
           registry-url: "https://registry.npmjs.org"
-
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build
-        run: pnpm build
-
-      - name: Test
-        run: pnpm test
-
-      - name: Publish
-        run: pnpm publish --provenance --no-git-checks
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+      - run: npm publish
