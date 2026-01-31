@@ -13,10 +13,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [x] **Track: build and publish to npmjs.com**
-*Link: [./tracks/github_ci_npm_publish_20260130/](./tracks/github_ci_npm_publish_20260130/)*
 
----
 
 
 
@@ -26,6 +23,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 
 ## Archived Tracks
+
+- [x] **Track: build and publish to npmjs.com**
+  *Link: [./conductor/archive/github_ci_npm_publish_20260130/](./conductor/archive/github_ci_npm_publish_20260130/)* <!-- status: complete -->
 
 - [x] **Track: Create a new conductor_banner.png**
   *Link: [./conductor/archive/new_conductor_banner_20260130/](./conductor/archive/new_conductor_banner_20260130/)* <!-- status: complete -->
