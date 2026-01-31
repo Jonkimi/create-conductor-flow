@@ -1,7 +1,7 @@
 {
     "track_id": "fix_stale_remote_install_20260131",
     "type": "bug",
-    "status": "new",
+    "status": "completed",
     "created_at": "2026-01-31T02:35:00-04:00",
     "updated_at": "2026-01-31T02:35:00-04:00",
     "description": "Fix bug where install command uses stale copy of remote files"

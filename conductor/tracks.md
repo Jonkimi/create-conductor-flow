@@ -13,7 +13,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Fix bug where install command uses stale copy of remote files**
+- [x] **Track: Fix bug where install command uses stale copy of remote files**
 *Link: [./tracks/fix_stale_remote_install_20260131/](./tracks/fix_stale_remote_install_20260131/)*
 
 ---
