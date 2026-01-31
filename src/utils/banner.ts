@@ -25,5 +25,5 @@ export function printBanner(): void {
 }
 
 export function printInstallBanner(): void {
-	console.log(gradient("cyan", "magenta")(CONDUCTOR_INSTALL_BANNER));
+	console.log(gradient("green", "cyan")(CONDUCTOR_INSTALL_BANNER));
 }
