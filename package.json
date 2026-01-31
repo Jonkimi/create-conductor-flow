@@ -1,13 +1,13 @@
 {
   "name": "conductor-install",
-  "version": "0.0.15",
+  "version": "0.0.1",
   "description": "Conductor spec-driven development CLI - Install Conductor in any project with npx conductor-install",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hlhr202/Conductor-for-all.git"
+    "url": "git+https://github.com/Jonkimi/conductor-install.git"
   },
-  "homepage": "https://github.com/hlhr202/Conductor-for-all",
+  "homepage": "https://github.com/Jonkimi/conductor-install",
   "packageManager": "pnpm@10.24.0",
   "engines": {
     "node": ">=18"
