@@ -6,11 +6,6 @@ import { join } from "path";
 describe("CLI Integration", () => {
 	const cliPath = join(process.cwd(), "dist", "index.js");
 
-	// Ensure the CLI is built before running integration tests
-	beforeAll(() => {
-		execSync("npm run build", { stdio: "inherit" });
-	});
-
 	it("should display version", () => {
 		const pkg = JSON.parse(
 			fs.readFileSync(join(process.cwd(), "package.json"), "utf-8"),

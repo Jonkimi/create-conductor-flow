@@ -1,6 +1,6 @@
 {
   "name": "conductor-install",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Conductor spec-driven development CLI - Install Conductor in any project with npx conductor-install",
   "license": "Apache-2.0",
   "repository": {
@@ -38,16 +38,16 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/gradient-string": "^1.1.6",
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.1.0",
     "@types/yargs": "^17.0.35",
-    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/coverage-v8": "^4.0.18",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "vitest": "^2.1.8"
+    "vitest": "^4.0.18"
   },
   "dependencies": {
-    "@inquirer/select": "^5.0.3",
+    "@inquirer/select": "^5.0.4",
     "fs-extra": "^11.3.3",
     "gradient-string": "^3.0.0",
     "smol-toml": "^1.6.0",
