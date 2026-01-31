@@ -12,6 +12,9 @@
   "engines": {
     "node": ">=18"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "bin": {
     "conductor": "./dist/index.js",
