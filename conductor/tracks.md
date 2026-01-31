@@ -12,6 +12,12 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
+- [x] **Track: Create a new conductor_banner.png**
+*Link: [./tracks/new_conductor_banner_20260130/](./tracks/new_conductor_banner_20260130/)*
+
+---
+
+
 
 
 
