@@ -64,7 +64,9 @@ async function main() {
 			default: false,
 		})
 		.help()
+		.alias("h", "help")
 		.version()
+		.alias("v", "version")
 		.parseAsync();
 
 	// Get the path from positional argument (first non-option argument)
