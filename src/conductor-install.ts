@@ -43,12 +43,12 @@ async function main() {
 		})
 		.option("repo", {
 			alias: "r",
-			describe: "Git repository URL for templates",
+			describe: "Git repository URL for conductor",
 			type: "string",
 		})
 		.option("branch", {
 			alias: "b",
-			describe: "Branch name for templates",
+			describe: "Branch name for conductor repository",
 			type: "string",
 		})
 		.option("scope", {
