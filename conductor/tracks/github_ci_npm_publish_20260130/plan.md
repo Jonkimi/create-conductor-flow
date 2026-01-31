@@ -13,7 +13,7 @@
 - [x] Task: Conductor - User Manual Verification 'CI Pipeline Configuration' (Protocol in workflow.md) [checkpoint: 0ebab45]
 
 ## Phase 2: CD Pipeline Configuration
-- [ ] Task: Implement Publish Step
-    - [ ] Add `pnpm publish` command
-    - [ ] Configure `NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}`
-- [ ] Task: Conductor - User Manual Verification 'CD Pipeline Configuration' (Protocol in workflow.md)
+- [~] Task: Implement Publish Step
+    - [ ] Add `pnpm publish --provenance --no-git-checks` command
+    - [ ] Configure `permissions: contents: read` and `id-token: write` for Trusted Publishing
+- [x] Task: Conductor - User Manual Verification 'CD Pipeline Configuration' (Protocol in workflow.md) [checkpoint: f512a55]
