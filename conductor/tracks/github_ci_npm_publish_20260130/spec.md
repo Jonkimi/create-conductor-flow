@@ -24,7 +24,7 @@ The workflow shall consist of a single job (e.g., `build-and-publish`) that exec
     -   The publish step must use the `NPM_TOKEN` secret for authentication.
 
 ## Non-Functional Requirements
--   **Security:** Use GitHub Secrets (`NPM_TOKEN`) for sensitive credentials. Do not hardcode tokens.
+-   **Security:** Use **Trusted Publishing** (OIDC) for authentication. Do NOT use long-lived secrets like `NPM_TOKEN`. Ensure `id-token: write` permission is granted.
 -   **Performance:** Use action caching for `pnpm` dependencies to speed up runs.
 -   **Reliability:** The publish step MUST fail if the build or test steps fail.
 
