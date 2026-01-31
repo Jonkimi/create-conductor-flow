@@ -5,9 +5,9 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jonkimi/conductor-install.git"
+    "url": "git+https://github.com/jonkimi/conductor-install.git"
   },
-  "homepage": "https://github.com/Jonkimi/conductor-install",
+  "homepage": "https://github.com/jonkimi/conductor-install",
   "packageManager": "pnpm@10.24.0",
   "engines": {
     "node": ">=18"
