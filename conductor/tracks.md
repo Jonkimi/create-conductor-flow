@@ -13,6 +13,11 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
+- [~] **Track: build and publish to npmjs.com**
+*Link: [./tracks/github_ci_npm_publish_20260130/](./tracks/github_ci_npm_publish_20260130/)*
+
+---
+
 
 
 
