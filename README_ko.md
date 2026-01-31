@@ -1,12 +1,12 @@
-# Conductor for All
+# Conductor Install
 
 [![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
 
-<img src="./conductor_banner.png" height="400" alt="Conductor for All Banner" />
+<img src="./conductor_banner.png" height="400" alt="Conductor Install Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor for All**은 [Conductor](https://github.com/gemini-cli-extensions/conductor) 사양 기반 개발 방법론을 *모든* 코딩 환경에 도입하기 위해 설계된 독립형 명령줄 도구입니다.
+**Conductor Install**은 [Conductor](https://github.com/gemini-cli-extensions/conductor) 사양 기반 개발 방법론을 *모든* 코딩 환경에 도입하기 위해 설계된 독립형 명령줄 도구입니다.
 
 원래 Gemini CLI 확장에 종속되어 있던 이 프로젝트는 방법론을 분리하여 개발자가 자신의 프로젝트에서 Conductor 워크플로우를 설치하고 초기화할 수 있도록 함으로써 **모든** AI 코딩 에이전트(예: Claude Code, Cursor, VS Code Copilot, Codex) 또는 IDE에서 활용할 수 있도록 하는 것을 목표로 합니다.
 
