@@ -11,6 +11,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { installHandler } from "./commands/install.js";
 import { printInstallBanner } from "./utils/banner.js";
+import { DEFAULT_REPO, DEFAULT_BRANCH } from "./utils/template.js";
 
 async function main() {
 	// Print the welcome banner
@@ -45,11 +46,13 @@ async function main() {
 			alias: "r",
 			describe: "Git repository URL for conductor",
 			type: "string",
+			default: DEFAULT_REPO,
 		})
 		.option("branch", {
 			alias: "b",
 			describe: "Branch name for conductor repository",
 			type: "string",
+			default: DEFAULT_BRANCH,
 		})
 		.option("scope", {
 			alias: "s",

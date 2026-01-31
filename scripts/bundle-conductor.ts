@@ -2,11 +2,11 @@ import { execSync } from "child_process";
 import fs from "fs-extra";
 import { join } from "path";
 import { fileURLToPath } from "url";
+import { DEFAULT_REPO, DEFAULT_BRANCH } from "../src/utils/template.js";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const ROOT = join(__dirname, "..");
 const TEMPLATES_DIR = join(ROOT, "src/conductor");
-const REPO = "https://github.com/gemini-cli-extensions/conductor";
 
 async function main() {
 	console.log("Bundling templates...");
@@ -22,9 +22,9 @@ async function main() {
 	await fs.ensureDir(TEMPLATES_DIR);
 
 	// Clone
-	console.log(`Cloning ${REPO}...`);
+	console.log(`Cloning ${DEFAULT_REPO}...`);
 	try {
-		execSync(`git clone ${REPO} --depth 1 .`, {
+		execSync(`git clone ${DEFAULT_REPO} --depth 1 -b ${DEFAULT_BRANCH} .`, {
 			cwd: TEMPLATES_DIR,
 			stdio: "inherit",
 		});
