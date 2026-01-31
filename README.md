@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
 
-<img src="./conductor_banner.png" height="400" alt="Conductor Install Banner" />
+<img src="./conductor_install_banner.png" height="400" alt="Conductor Install Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
