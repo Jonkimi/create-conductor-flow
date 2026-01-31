@@ -149,7 +149,7 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
             i.   **Setup:** Ensure `conductor/archive/` exists.
             ii.  **Move:** Move track folder to `conductor/archive/<track_id>`.
             iii. **Update Registry:** Remove track section from **Tracks Registry**.
-            iv.  **Commit:** Stage registry and archive. Commit: `chore(conductor): Archive track '<track_name>'`.
+            iv.  **Commit:** Stage registry, track folder deletion and archive. Commit: `chore(conductor): Archive track '<track_name>'`.
             v.   **Announce:** "Track '<track_name>' archived."
         *   **If "B" (Delete):**
             i.   **Confirm:** "WARNING: Irreversible deletion. Proceed? (yes/no)"

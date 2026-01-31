@@ -162,7 +162,7 @@ CRITICAL: You must validate the success of every tool call. If any tool call fai
         i.   **Create Archive Directory:** Check for the existence of `conductor/archive/`. If it does not exist, create it.
         ii.  **Archive Track Folder:** Move the track's folder from its current location (resolved via the **Tracks Directory**) to `conductor/archive/<track_id>`.
         iii. **Remove from Tracks File:** Read the content of the **Tracks Registry** file, remove the entire section for the completed track (the part that starts with `---` and contains the track description), and write the modified content back to the file.
-        iv.  **Commit Changes:** Stage the **Tracks Registry** file and `conductor/archive/`. Commit with the message `chore(conductor): Archive track '<track_description>'`.
+        iv.  **Commit Changes:** Stage the **Tracks Registry** file, track folder deletion and `conductor/archive/`. Commit with the message `chore(conductor): Archive track '<track_description>'`.
         v.   **Announce Success:** Announce: "Track '<track_description>' has been successfully archived."
     *   **If user chooses "C" (Delete):**
         i. **CRITICAL WARNING:** Before proceeding, you MUST ask for a final confirmation due to the irreversible nature of the action.
