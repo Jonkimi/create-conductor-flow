@@ -13,8 +13,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [x] **Track: Fix bug where install command uses stale copy of remote files**
-*Link: [./tracks/fix_stale_remote_install_20260131/](./tracks/fix_stale_remote_install_20260131/)*
+
 
 ---
 
@@ -27,7 +26,10 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 
 
-## Archived Tracks
+
+- [x] **Track: Fix bug where install command uses stale copy of remote files**
+*Link: [./archive/fix_stale_remote_install_20260131/](./archive/fix_stale_remote_install_20260131/)*
+
 
 - [x] **Track: build and publish to npmjs.com**
   *Link: [./conductor/archive/github_ci_npm_publish_20260130/](./conductor/archive/github_ci_npm_publish_20260130/)* <!-- status: complete -->
