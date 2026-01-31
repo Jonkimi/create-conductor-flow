@@ -8,7 +8,7 @@ describe("CLI Integration", () => {
 
 	// Ensure the CLI is built before running integration tests
 	beforeAll(() => {
-		execSync("pnpm build", { stdio: "inherit" });
+		execSync("npm run build", { stdio: "inherit" });
 	});
 
 	it("should display version", () => {
