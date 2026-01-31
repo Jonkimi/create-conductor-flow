@@ -10,11 +10,11 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { installHandler } from "./commands/install.js";
-import { printBanner } from "./utils/banner.js";
+import { printInstallBanner } from "./utils/banner.js";
 
 async function main() {
 	// Print the welcome banner
-	printBanner();
+	printInstallBanner();
 
 	// Parse CLI arguments and execute install
 	const argv = await yargs(hideBin(process.argv))
