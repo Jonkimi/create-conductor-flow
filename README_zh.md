@@ -6,15 +6,24 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** 是一个独立的命令行工具，旨在将 [Conductor](https://github.com/gemini-cli-extensions/conductor) 规范驱动的开发方法论带入 *任何* 编码代理环境。
+**Conductor Install** 是一个通用的命令行工具，它将强大的 [**Conductor**](https://github.com/gemini-cli-extensions/conductor) 规范驱动开发方法论引入 **任何** AI 编码代理环境。无缝集成 **Conductor** 与 **Claude Code**、**Codex**、**Antigravity** 以及其他主流 AI 编码助手。
 
-Conductor 方法论最初与 Gemini CLI 扩展绑定。本项目旨在解耦该方法论，允许开发人员在他们的项目中安装和配置 Conductor 工作流，以便可以被 **任何** AI 编码代理（例如 Claude Code, Cursor, VS Code Copilot, Codex）或 IDE 利用。
+**Conductor** 方法论最初是为 Gemini CLI 开发的。本项目将其解耦，**使开发人员能够维护上下文、管理任务并编排复杂功能**。它充当人类意图与 AI 执行之间的桥梁，确保在 Agentic AI 时代"上下文为王"。
 
 ## 🎯 目标
 
 -   **通用兼容性：** 在 Gemini CLI 生态系统之外启用 Conductor 方法论。
 -   **代理无关的设置：** 提供一种机制来将 Conductor 命令和模板“安装”到项目中，有效地“启用”它以供多种不同的编码代理使用。
 -   **标准化：** 创建一个统一的项目编排接口，弥合人类意图与 AI 执行之间的差距。
+
+
+## ✨ 主要特性
+
+-   **通用 AI 兼容性**: 开箱即用，支持 **Opencode**、**Claude Code**、**Antigravity**、**Cursor**、**VS Code Copilot**、**Codex**、**Windsurf**、**Cline** 以及 **Gemini**。
+-   **上下文管理**: 结构化的工件（`spec.md`、`plan.md`）让您的 AI 代理保持专注并具备上下文感知能力。
+-   **规范驱动开发**: 在询问 AI *如何*构建之前，先定义您*想要什么*。
+-   **代理无关的工作流**: 在不丢失项目上下文或进度的情况下切换代理。
+-   **轻松初始化**: 使用 `npx conductor-install` 即可完成设置。
 
 ## 🚀 使用方法
 

@@ -6,15 +6,24 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install**은 [Conductor](https://github.com/gemini-cli-extensions/conductor) 사양 기반 개발 방법론을 *모든* 코딩 에이전트 환경에 도입하기 위해 설계된 독립형 명령줄 도구입니다.
+**Conductor Install**은 강력한 [**Conductor**](https://github.com/gemini-cli-extensions/conductor) 사양 기반 개발 방법론을 **모든** AI 코딩 에이전트 환경에 도입하는 범용 명령줄 도구입니다. **Conductor**를 **Claude Code**, **Codex**, **Antigravity** 및 기타 주요 AI 코딩 어시스턴트와 원활하게 통합하십시오.
 
-Conductor 방법론은 원래 Gemini CLI 확장에 종속되어 있었습니다. 이 프로젝트는 이를 분리하여 개발자가 자신의 프로젝트에서 Conductor 워크플로우를 설치하고 구성할 수 있도록 함으로써 **모든** AI 코딩 에이전트(예: Claude Code, Cursor, VS Code Copilot, Codex) 또는 IDE에서 활용할 수 있도록 하는 것을 목표로 합니다.
+**Conductor** 방법론은 원래 Gemini CLI를 위해 개발되었습니다. 이 프로젝트는 이를 분리하여 **개발자가 컨텍스트를 유지하고, 작업을 관리하며, 복잡한 기능을 조율할 수 있도록 지원합니다**. 이는 인간의 의도와 AI 실행 사이의 가교 역할을 하며, Agentic AI 시대에 "Context is King(컨텍스트가 왕)"임을 보장합니다.
 
 ## 🎯 목표
 
 -   **범용 호환성:** Gemini CLI 생태계 외부에서 Conductor 방법론을 활성화합니다.
 -   **에이전트 불가지론적 설정:** 프로젝트에 Conductor 명령과 템플릿을 "설치"하는 메커니즘을 제공하여 여러 다른 코딩 에이전트가 사용할 수 있도록 "활성화"합니다.
 -   **표준화:** 인간의 의도와 AI 실행 사이의 격차를 좁히는 프로젝트 오케스트레이션을 위한 통합 인터페이스를 만듭니다.
+
+
+## ✨ 주요 기능
+
+-   **범용 AI 호환성**: **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline** 및 **Gemini**와 즉시 연동됩니다.
+-   **컨텍스트 관리**: 구조화된 아티팩트(`spec.md`, `plan.md`)는 AI 에이전트가 집중하고 컨텍스트를 인식하도록 유지합니다.
+-   **사양 기반 개발**: AI에게 *어떻게* 구축할지 묻기 전에 *무엇을* 원하는지 정의하십시오.
+-   **에이전트 불가지론적 워크플로우**: 프로젝트 컨텍스트나 진행 상황을 잃지 않고 에이전트 간에 전환할 수 있습니다.
+-   **간편한 초기화**: `npx conductor-install` 명령 하나로 설정할 수 있습니다.
 
 ## 🚀 사용법
 

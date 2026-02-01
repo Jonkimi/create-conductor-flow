@@ -3,6 +3,22 @@
   "version": "0.1.2",
   "description": "Conductor spec-driven development CLI - Install Conductor in any project with npx conductor-install",
   "license": "Apache-2.0",
+  "keywords": [
+    "conductor",
+    "gemini-cli-extensions",
+    "spec-driven-development",
+    "ai-agent",
+    "coding-agent",
+    "context-management",
+    "opencode",
+    "claude-code",
+    "antigravity",
+    "codex",
+    "cursor",
+    "vscode-copilot",
+    "windsurf",
+    "cline"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jonkimi/conductor-install.git"

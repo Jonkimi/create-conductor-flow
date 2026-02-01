@@ -6,15 +6,23 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** is a standalone command-line tool designed to bring the [Conductor](https://github.com/gemini-cli-extensions/conductor) spec-driven development methodology to *any* coding agent environment.
+**Conductor Install** is a universal command-line tool that brings the powerful [**Conductor**](https://github.com/gemini-cli-extensions/conductor) spec-driven development methodology to **any** AI coding agent environment. Seamlessly integrate **Conductor** with **Claude Code**, **Codex**, **Antigravity**, and other leading AI Coding Assistants.
 
-The Conductor methodology was originally tied to the Gemini CLI extension. This project decouples it, allowing developers to install and configure Conductor workflows in their projects so they can be leveraged by **any** AI Coding Agent (e.g., Claude Code, Cursor, VS Code Copilot, Codex) or IDE.
+The **Conductor** methodology was originally developed for the Gemini CLI. This project decouples it, **empowering developers to maintain context, manage tasks, and orchestrate complex features**. It serves as a bridge between human intent and AI execution, ensuring "Context is King" in the era of Agentic AI.
 
 ## 🎯 Goals
 
 -   **Universal Compatibility:** Enable the Conductor methodology outside of the Gemini CLI ecosystem.
 -   **Agent-Agnostic Setup:** Provide a mechanism to "install" Conductor commands and templates into a project, effectively "enabling" it for consumption by multiple different coding agents.
 -   **Standardization:** Create a unified interface for project orchestration that bridges the gap between human intent and AI execution.
+
+## ✨ Key Features
+
+-   **Universal AI Compatibility**: Works out-of-the-box with **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, and **Gemini**.
+-   **Context Management**: Structured artifacts (`spec.md`, `plan.md`) keep your AI agent focused and context-aware.
+-   **Spec-Driven Development**: Define *what* you want before asking the AI *how* to build it.
+-   **Agent-Agnostic Workflows**: Switch between agents without losing project context or progress.
+-   **Easy Initialization**: Single command setup with `npx conductor-install`.
 
 ## 🚀 Usage
 
