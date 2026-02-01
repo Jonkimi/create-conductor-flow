@@ -35,6 +35,7 @@ async function main() {
 
 	// Cleanup git
 	await fs.remove(join(TEMPLATES_DIR, ".git"));
+	await fs.remove(join(TEMPLATES_DIR, ".github"));
 
 	console.log("Templates bundled successfully from remote.");
 }

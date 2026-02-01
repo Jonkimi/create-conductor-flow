@@ -5,7 +5,7 @@ import { join } from "path";
 export default defineConfig({
 	entry: ["src/index.ts", "src/conductor-install.ts"],
 	outDir: "dist",
-	format: ["esm", "cjs"],
+	format: "esm",
 	dts: false,
 	clean: true,
 	sourcemap: false,
