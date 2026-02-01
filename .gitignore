@@ -4,9 +4,3 @@ coverage
 .DS_Store
 src/conductor
 
-# Agent installation directories
-.claude
-.opencode
-.windsurf
-.agent
-.gemini
