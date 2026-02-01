@@ -1,13 +1,14 @@
-import type { AgentConfig } from '../types.js';
-import { clineContentStrategy } from './strategy.js';
+import type { AgentConfig } from "../types.js";
+import { clineContentStrategy } from "./strategy.js";
 
 export const clineConfig: AgentConfig = {
-  agentType: 'cline',
-  agentDir: '.clinerules',
-  commandsDir: 'workflows',
-  displayName: 'Cline',
-  protocolFilename: 'AGENTS.md',
-  strategy: {
-    content: clineContentStrategy
-  }
+	agentType: "cline",
+	agentDir: ".clinerules",
+	commandsDir: "workflows",
+	displayName: "Cline",
+	protocolFilename: "AGENTS.md",
+	description: "Cline AI coding assistant",
+	strategy: {
+		content: clineContentStrategy,
+	},
 };

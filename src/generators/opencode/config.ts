@@ -1,9 +1,10 @@
-import type { AgentConfig } from '../types.js';
+import type { AgentConfig } from "../types.js";
 
 export const opencodeConfig: AgentConfig = {
-  agentType: 'opencode',
-  agentDir: '.opencode',
-  commandsDir: 'commands',
-  displayName: 'OpenCode',
-  protocolFilename: 'AGENTS.md',
+	agentType: "opencode",
+	agentDir: ".opencode",
+	commandsDir: "commands",
+	displayName: "OpenCode",
+	protocolFilename: "AGENTS.md",
+	description: "The open source AI coding agent",
 };

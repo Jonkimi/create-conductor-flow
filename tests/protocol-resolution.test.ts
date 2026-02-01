@@ -50,8 +50,7 @@ describe("ConfigurableGenerator - Protocol Resolution", () => {
 			if (path === mockTargetDir) return true;
 			// Source must exist
 			if (path === join(mockTemplateRoot, "GEMINI.md")) return true;
-			if (path === join(mockTargetDir, ".test-agent", "TEST_PROTOCOL.md"))
-				return false;
+			if (path === join(mockTargetDir, "TEST_PROTOCOL.md")) return false;
 			return false;
 		});
 
@@ -59,7 +58,7 @@ describe("ConfigurableGenerator - Protocol Resolution", () => {
 
 		expect(fs.copy).toHaveBeenCalledWith(
 			join(mockTemplateRoot, "GEMINI.md"),
-			join(mockTargetDir, ".test-agent", "TEST_PROTOCOL.md"),
+			join(mockTargetDir, "TEST_PROTOCOL.md"),
 		);
 	});
 
@@ -71,8 +70,7 @@ describe("ConfigurableGenerator - Protocol Resolution", () => {
 			if (path === mockTargetDir) return true;
 			if (path === join(mockTemplateRoot, "GEMINI.md")) return true;
 			// Dest exists too
-			if (path === join(mockTargetDir, ".test-agent", "EXISTING_PROTOCOL.md"))
-				return true;
+			if (path === join(mockTargetDir, "EXISTING_PROTOCOL.md")) return true;
 			return false;
 		});
 
@@ -91,7 +89,7 @@ describe("ConfigurableGenerator - Protocol Resolution", () => {
 		// Should have copied
 		expect(fs.copy).toHaveBeenCalledWith(
 			join(mockTemplateRoot, "GEMINI.md"),
-			join(mockTargetDir, ".test-agent", "EXISTING_PROTOCOL.md"),
+			join(mockTargetDir, "EXISTING_PROTOCOL.md"),
 		);
 	});
 
@@ -103,8 +101,7 @@ describe("ConfigurableGenerator - Protocol Resolution", () => {
 			if (path === mockTargetDir) return true;
 			if (path === join(mockTemplateRoot, "GEMINI.md")) return true;
 			// Dest exists
-			if (path === join(mockTargetDir, ".test-agent", "SKIPPED_PROTOCOL.md"))
-				return true;
+			if (path === join(mockTargetDir, "SKIPPED_PROTOCOL.md")) return true;
 			return false;
 		});
 
@@ -120,7 +117,7 @@ describe("ConfigurableGenerator - Protocol Resolution", () => {
 		// Note: fs.copy is still called for templates dir, so we verify specific args not called
 		expect(fs.copy).not.toHaveBeenCalledWith(
 			join(mockTemplateRoot, "GEMINI.md"),
-			join(mockTargetDir, ".test-agent", "SKIPPED_PROTOCOL.md"),
+			join(mockTargetDir, "SKIPPED_PROTOCOL.md"),
 		);
 	});
 

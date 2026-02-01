@@ -7,6 +7,7 @@ export const geminiConfig: AgentConfig = {
 	commandsDir: "commands/conductor",
 	displayName: "Gemini CLI",
 	protocolFilename: "GEMINI.md",
+	description: "Google Gemini CLI agent",
 	extension: ".toml",
 	usesPrefix: false,
 	strategy: {

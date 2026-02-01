@@ -1,9 +1,10 @@
-import type { AgentConfig } from '../types.js';
+import type { AgentConfig } from "../types.js";
 
 export const windsurfConfig: AgentConfig = {
-  agentType: 'windsurf',
-  agentDir: '.windsurf',
-  commandsDir: 'workflows',
-  displayName: 'Windsurf',
-  protocolFilename: 'AGENTS.md',
+	agentType: "windsurf",
+	agentDir: ".windsurf",
+	commandsDir: "workflows",
+	displayName: "Windsurf",
+	protocolFilename: "AGENTS.md",
+	description: "Windsurf Cascade AI Agent",
 };

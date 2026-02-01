@@ -82,4 +82,6 @@ export interface AgentConfig {
 	protocolFilename?: string;
 	/** If false, file names will NOT use the 'conductor:' prefix (default: true) */
 	usesPrefix?: boolean;
+	/** Short description of the agent for CLI prompts */
+	description?: string;
 }
