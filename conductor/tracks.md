@@ -8,6 +8,11 @@ This file tracks all major tracks for the project. Each track has its own detail
 ---
 
 
+- [x] **Track: Optimize Project SEO**
+  *Link: [./archive/optimize_seo_20260201/](./archive/optimize_seo_20260201/)* <!-- status: complete -->
+
+
+
 - [x] **Track: Rename npm package to conductor-install and add direct install command**
 *Link: [./tracks/rename_conductor_install_20260130/](./tracks/rename_conductor_install_20260130/)*
 
