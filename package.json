@@ -1,6 +1,6 @@
 {
   "name": "conductor-install",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Conductor spec-driven development CLI - Install Conductor in any project with npx conductor-install",
   "license": "Apache-2.0",
   "keywords": [
