@@ -2,13 +2,13 @@
 
 [![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
 
-<img src="./conductor_banner.png" height="400" alt="Conductor Install Banner" />
+<img src="./conductor_install_banner.png" height="400" alt="Conductor Install Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** は、[Conductor](https://github.com/gemini-cli-extensions/conductor) の仕様駆動型開発手法を *あらゆる* コーディング環境にもたらすために設計されたスタンドアロンのコマンドラインツールです。
+**Conductor Install** は、[Conductor](https://github.com/gemini-cli-extensions/conductor) の仕様駆動型開発手法を *あらゆる* コーディングエージェント環境にもたらすために設計されたスタンドアロンのコマンドラインツールです。
 
-もともと Gemini CLI 拡張機能に紐付いていたこのプロジェクトは、その手法を分離し、開発者が自分のプロジェクトに Conductor ワークフローをインストールして初期化できるようにすることで、**あらゆる** AI コーディングエージェント（Claude Code、Cursor、VS Code Copilot、Codex など）や IDE で活用できるようにすることを目指しています。
+Conductor の手法はもともと Gemini CLI 拡張機能に紐付いていました。このプロジェクトはそれを分離し、開発者がプロジェクトに Conductor ワークフローをインストールして設定できるようにすることで、**あらゆる** AI コーディングエージェント（Claude Code、Cursor、VS Code Copilot、Codex など）や IDE で活用できるようにすることを目指しています。
 
 ## 🎯 目標
 
@@ -19,6 +19,30 @@
 ## 🚀 使用方法
 
 ### 1. プロジェクトでの Conductor のセットアップ
+
+```text
+conductor-install [path] [options]
+
+Positionals:
+  path  Directory to install Conductor[string] [default: "."]
+
+Options:
+  -a, --agent    Specify the coding agent
+                [string] [choices: "opencode", "claude-code",
+          "antigravity", "cursor", "vscode-copilot", "codex",
+                               "windsurf", "cline", "gemini"]
+  -r, --repo     Git repository URL for conductor
+                                           [string] [default:
+        "https://github.com/gemini-cli-extensions/conductor"]
+  -b, --branch   Branch name for conductor repository
+                                   [string] [default: "main"]
+  -s, --scope    Installation scope (project or global)
+                      [string] [choices: "project", "global"]
+  -f, --force    Force overwrite existing installation
+                                   [boolean] [default: false]
+  -h, --help     Show help                          [boolean]
+  -v, --version  Show version number                [boolean]
+```
 
 プロジェクトで Conductor を初期化するには、プロジェクトのルートで次のコマンドを実行するだけです：
 
@@ -55,10 +79,12 @@ AI コーディングエージェントを選択するように求められま�
 
 インストールが完了すると、インストールされたコマンドを使用して Conductor タスクを実行するように AI エージェントに指示できます。例えば：
 
--   `@agent /conductor:setup` - プロジェクト構造を初期化します。
--   `@agent /conductor:newTrack` - 新しい機能またはバグ修正トラックを開始します。
--   `@agent /conductor:implement` - 選択したトラックを実装します。
--   `@agent /conductor:status` - 現在のトラックのステータスを確認します。
+-   `/conductor:setup` - プロジェクト構造を初期化します。
+-   `/conductor:newTrack` - 新しい機能またはバグ修正トラックを開始します。
+-   `/conductor:implement` - 選択したトラックを実装します。
+-   `/conductor:review` - 完了したトラックの作業をガイドラインと計画に照らしてレビューします。
+-   `/conductor:revert` - 以前の作業を元に戻します。
+-   `/conductor:status` - 現在のトラックのステータスを確認します。
 
 *注：正確な呼び出し構文は、特定のエージェントのスラッシュコマンドまたはファイルコンテキスト機能によって異なります。*
 

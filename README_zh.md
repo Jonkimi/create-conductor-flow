@@ -2,13 +2,13 @@
 
 [![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
 
-<img src="./conductor_banner.png" height="400" alt="Conductor Install Banner" />
+<img src="./conductor_install_banner.png" height="400" alt="Conductor Install Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** 是一个独立的命令行工具，旨在将 [Conductor](https://github.com/gemini-cli-extensions/conductor) 规范驱动的开发方法论带入 *任何* 编码环境。
+**Conductor Install** 是一个独立的命令行工具，旨在将 [Conductor](https://github.com/gemini-cli-extensions/conductor) 规范驱动的开发方法论带入 *任何* 编码代理环境。
 
-该项目最初与 Gemini CLI 扩展绑定，旨在解耦该方法论，允许开发人员在他们的项目中安装和初始化 Conductor 工作流，以便可以被 **任何** AI 编码代理（例如 Claude Code, Cursor, VS Code Copilot, Codex）或 IDE 利用。
+Conductor 方法论最初与 Gemini CLI 扩展绑定。本项目旨在解耦该方法论，允许开发人员在他们的项目中安装和配置 Conductor 工作流，以便可以被 **任何** AI 编码代理（例如 Claude Code, Cursor, VS Code Copilot, Codex）或 IDE 利用。
 
 ## 🎯 目标
 
@@ -19,6 +19,30 @@
 ## 🚀 使用方法
 
 ### 1. 在你的项目中设置 Conductor
+
+```text
+conductor-install [path] [options]
+
+Positionals:
+  path  Directory to install Conductor[string] [default: "."]
+
+Options:
+  -a, --agent    Specify the coding agent
+                [string] [choices: "opencode", "claude-code",
+          "antigravity", "cursor", "vscode-copilot", "codex",
+                               "windsurf", "cline", "gemini"]
+  -r, --repo     Git repository URL for conductor
+                                           [string] [default:
+        "https://github.com/gemini-cli-extensions/conductor"]
+  -b, --branch   Branch name for conductor repository
+                                   [string] [default: "main"]
+  -s, --scope    Installation scope (project or global)
+                      [string] [choices: "project", "global"]
+  -f, --force    Force overwrite existing installation
+                                   [boolean] [default: false]
+  -h, --help     Show help                          [boolean]
+  -v, --version  Show version number                [boolean]
+```
 
 要在你的项目中初始化 Conductor，只需在项目根目录下运行以下命令：
 
@@ -61,10 +85,12 @@ node dist/index.js install
 
 安装完成后，你可以指示你的 AI 代理使用安装的命令执行 Conductor 任务。例如：
 
--   `@agent /conductor:setup` - 初始化项目结构。
--   `@agent /conductor:newTrack` - 开始一个新的功能或错误修复轨道。
--   `@agent /conductor:implement` - 实现选定的轨道。
--   `@agent /conductor:status` - 检查当前轨道的状态。
+-   `/conductor:setup` - 初始化项目结构。
+-   `/conductor:newTrack` - 开始一个新的功能或错误修复轨道。
+-   `/conductor:implement` - 实现选定的轨道。
+-   `/conductor:review` - 根据指南和计划审查已完成的轨道工作。
+-   `/conductor:revert` - 恢复以前的工作。
+-   `/conductor:status` - 检查当前轨道的状态。
 
 *注意：确切的调用语法取决于你的特定代理的斜杠命令或文件上下文功能。*
 

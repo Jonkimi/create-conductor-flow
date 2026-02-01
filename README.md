@@ -6,9 +6,9 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** is a standalone command-line tool designed to bring the [Conductor](https://github.com/gemini-cli-extensions/conductor) spec-driven development methodology to *any* coding environment.
+**Conductor Install** is a standalone command-line tool designed to bring the [Conductor](https://github.com/gemini-cli-extensions/conductor) spec-driven development methodology to *any* coding agent environment.
 
-Originally tied to the Gemini CLI extension, this project aims to decouple the methodology, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by **any** AI Coding Agent (e.g., Claude Code, Cursor, VS Code Copilot, Codex) or IDE.
+The Conductor methodology was originally tied to the Gemini CLI extension. This project decouples it, allowing developers to install and configure Conductor workflows in their projects so they can be leveraged by **any** AI Coding Agent (e.g., Claude Code, Cursor, VS Code Copilot, Codex) or IDE.
 
 ## 🎯 Goals
 
@@ -19,6 +19,30 @@ Originally tied to the Gemini CLI extension, this project aims to decouple the m
 ## 🚀 Usage
 
 ### 1. Setup Conductor in Your Project
+
+```text
+conductor-install [path] [options]
+
+Positionals:
+  path  Directory to install Conductor[string] [default: "."]
+
+Options:
+  -a, --agent    Specify the coding agent
+                [string] [choices: "opencode", "claude-code",
+          "antigravity", "cursor", "vscode-copilot", "codex",
+                               "windsurf", "cline", "gemini"]
+  -r, --repo     Git repository URL for conductor
+                                           [string] [default:
+        "https://github.com/gemini-cli-extensions/conductor"]
+  -b, --branch   Branch name for conductor repository
+                                   [string] [default: "main"]
+  -s, --scope    Installation scope (project or global)
+                      [string] [choices: "project", "global"]
+  -f, --force    Force overwrite existing installation
+                                   [boolean] [default: false]
+  -h, --help     Show help                          [boolean]
+  -v, --version  Show version number                [boolean]
+```
 
 To initialize Conductor in your project, simply run the following command in your project root:
 
@@ -67,10 +91,12 @@ This will verify the environment and install the necessary Conductor files:
 
 Once installed, you can instruct your AI Agent to perform Conductor tasks using the installed commands. For example:
 
--   `@agent /conductor:setup` - Initialize the project structure.
--   `@agent /conductor:newTrack` - Start a new feature or bug fix track.
--   `@agent /conductor:implement` - Implement the selected track.
--   `@agent /conductor:status` - Check the status of current tracks.
+-   `/conductor:setup` - Initialize the project structure.
+-   `/conductor:newTrack` - Start a new feature or bug fix track.
+-   `/conductor:implement` - Implement the selected track.
+-   `/conductor:review` - Review the completed track work against guidelines and the plan.
+-   `/conductor:revert` - Revert previous work.
+-   `/conductor:status` - Check the status of current tracks.
 
 *Note: The exact invocation syntax depends on your specific agent's slash command or file context capabilities.*
 
