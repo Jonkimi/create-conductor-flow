@@ -1,0 +1,8 @@
+{
+    "track_id": "agent_paths_ui_20260201",
+    "type": "feature",
+    "status": "new",
+    "created_at": "2026-02-01T17:21:00-04:00",
+    "updated_at": "2026-02-01T17:21:00-04:00",
+    "description": "Show protocol and command paths in agent selection list"
+}

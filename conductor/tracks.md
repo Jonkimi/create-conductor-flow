@@ -86,3 +86,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Fix missing conductor review workflow**
   *Link: [./conductor/archive/fix-missing-review-workflow_20260130/](./conductor/archive/fix-missing-review-workflow_20260130/)*
+
+- [x] **Track: Show protocol and command paths in agent selection list**
+*Link: [./conductor/archive/agent_paths_ui_20260201/](./conductor/archive/agent_paths_ui_20260201/)*
