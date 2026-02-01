@@ -77,7 +77,7 @@ export class ConfigurableGenerator implements AgentGenerator {
 		if (protocolFilename) {
 			try {
 				const protocolSource = join(templateRoot, "GEMINI.md");
-				const protocolDest = join(targetDir, agentDir, protocolFilename);
+				const protocolDest = join(targetDir, protocolFilename);
 
 				if (existsSync(protocolSource)) {
 					let shouldCopy = true;
