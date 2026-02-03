@@ -18,7 +18,7 @@ The **Conductor** methodology was originally developed for the Gemini CLI. This 
 
 ## ✨ Key Features
 
--   **Universal AI Compatibility**: Works out-of-the-box with **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, and **Gemini**.
+-   **Universal AI Compatibility**: Works out-of-the-box with **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, and **Gemini CLI**.
 -   **Context Management**: Structured artifacts (`spec.md`, `plan.md`) keep your AI agent focused and context-aware.
 -   **Spec-Driven Development**: Define *what* you want before asking the AI *how* to build it.
 -   **Agent-Agnostic Workflows**: Switch between agents without losing project context or progress.

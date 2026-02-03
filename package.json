@@ -7,17 +7,18 @@
     "conductor",
     "gemini-cli-extensions",
     "spec-driven-development",
-    "ai-agent",
+    "context-driven-development",
     "coding-agent",
-    "context-management",
     "opencode",
     "claude-code",
-    "antigravity",
     "codex",
+    "antigravity",
     "cursor",
     "vscode-copilot",
     "windsurf",
-    "cline"
+    "cline",
+    "roo-code",
+    "kilo-code"
   ],
   "repository": {
     "type": "git",
