@@ -22,5 +22,6 @@ describe("Generator Registry", () => {
 		expect(agentTypes).toContain("cursor");
 		expect(agentTypes).toContain("codex");
 		expect(agentTypes).toContain("antigravity");
+		expect(agentTypes).toContain("kilocode");
 	});
 });

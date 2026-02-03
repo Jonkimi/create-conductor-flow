@@ -8,6 +8,7 @@ import { codexConfig } from "./codex/config.js";
 import { windsurfConfig } from "./windsurf/config.js";
 import { clineConfig } from "./cline/config.js";
 import { geminiConfig } from "./gemini/config.js";
+import { kilocodeConfig } from "./kilocode/config.js";
 
 export const ALL_AGENT_CONFIGS: AgentConfig[] = [
 	opencodeConfig,
@@ -18,5 +19,6 @@ export const ALL_AGENT_CONFIGS: AgentConfig[] = [
 	codexConfig,
 	windsurfConfig,
 	clineConfig,
+	kilocodeConfig,
 	geminiConfig,
 ];

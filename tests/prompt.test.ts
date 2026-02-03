@@ -59,4 +59,17 @@ describe("CLI Prompts", () => {
 		expect(geminiChoice).toBeDefined();
 		expect(geminiChoice?.name).toContain("Gemini CLI");
 	});
+
+	it("should include Kilo Code in options", async () => {
+		vi.mocked(select).mockResolvedValue("kilocode");
+
+		await promptForAgent();
+
+		const callArgs = vi.mocked(select).mock.calls[0][0];
+		const choices = callArgs.choices as Array<{ name: string; value: string }>;
+
+		const kilocodeChoice = choices.find((c) => c.value === "kilocode");
+		expect(kilocodeChoice).toBeDefined();
+		expect(kilocodeChoice?.name).toContain("Kilo Code");
+	});
 });

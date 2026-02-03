@@ -9,6 +9,7 @@ import {
 	GeminiGenerator,
 	OpenCodeGenerator,
 	VSCodeCopilotGenerator,
+	KiloCodeGenerator,
 } from "../src/generators/index.js";
 import fs from "fs-extra";
 import * as templateUtils from "../src/utils/template.js";
@@ -79,6 +80,13 @@ const agents = [
 		generator: new VSCodeCopilotGenerator(),
 		expectedDir: ".github/prompts",
 		extension: ".prompt.md",
+		usesPrefix: true,
+	},
+	{
+		name: "KiloCode",
+		generator: new KiloCodeGenerator(),
+		expectedDir: ".kilocode/workflows",
+		extension: ".md",
 		usesPrefix: true,
 	},
 ];
