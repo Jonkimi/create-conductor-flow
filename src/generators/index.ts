@@ -10,6 +10,7 @@ import { WindsurfGenerator } from "./windsurf/index.js";
 import { ClineGenerator } from "./cline/index.js";
 import { GeminiGenerator } from "./gemini/index.js";
 import { KiloCodeGenerator } from "./kilocode/generator.js";
+import { RooCodeGenerator } from "./roo-code/generator.js";
 
 export * from "./types.js";
 export * from "./opencode/index.js";
@@ -22,6 +23,7 @@ export * from "./windsurf/index.js";
 export * from "./cline/index.js";
 export * from "./gemini/index.js";
 export * from "./kilocode/index.js";
+export * from "./roo-code/index.js";
 
 export function getGenerator(agentType: AgentType): AgentGenerator {
 	switch (agentType) {
@@ -41,6 +43,8 @@ export function getGenerator(agentType: AgentType): AgentGenerator {
 			return new ClineGenerator();
 		case "kilo-code":
 			return new KiloCodeGenerator();
+		case "roo-code":
+			return new RooCodeGenerator();
 		case "gemini":
 			return new GeminiGenerator();
 		case "opencode":

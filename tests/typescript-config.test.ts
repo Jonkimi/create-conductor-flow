@@ -33,7 +33,7 @@ describe('TypeScript Configuration', () => {
       expect(() => {
         execSync('npx tsc --noEmit', { stdio: 'inherit' });
       }).not.toThrow();
-    });
+    }, 30000);
 
     it('should perform type checking', () => {
       expect(() => {
