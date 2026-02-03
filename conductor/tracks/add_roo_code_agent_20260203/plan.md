@@ -23,8 +23,8 @@ This plan outlines the steps to integrate "Roo Code" as a supported AI agent in 
 - [x] Task: Implement code to pass tests and verify.
 - [x] Task: Conductor - User Manual Verification 'Phase 3: CLI & UI Integration' (Protocol in workflow.md)
 
-## Phase 4: Documentation Update
+## Phase 4: Documentation Update [checkpoint: e6af9f2]
 
-- [ ] Task: Update multilingual README files (`README.md`, `README_zh.md`, `README_ja.md`, `README_ko.md`) with Roo Code details.
-- [ ] Task: Verify formatting and links across all updated documentation.
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Documentation Update' (Protocol in workflow.md)
+- [x] Task: Update multilingual README files (`README.md`, `README_zh.md`, `README_ja.md`, `README_ko.md`) with Roo Code details.
+- [x] Task: Verify formatting and links across all updated documentation.
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Documentation Update' (Protocol in workflow.md)
