@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { rooCodeConfig } from "../../src/generators/roo-code/config.js";
+import { rooCodeConfig } from "../../src/generators/roocode/config.js";
 
 describe("Roo Code Configuration", () => {
 	it("should have correct configuration for roo-code agent", () => {

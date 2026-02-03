@@ -95,13 +95,10 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] **Track: Show protocol and command paths in agent selection list**
 *Link: [./conductor/archive/agent_paths_ui_20260201/](./conductor/archive/agent_paths_ui_20260201/)*
 
-- [x] **Track: 新增的 Kilo Code Coding Agent 还没有列举在多语言 of the README.md 中**
-  *Link: [./archive/add_kilo_code_to_readme_20260203/](./archive/add_kilo_code_to_readme_20260203/)* <!-- status: complete -->
-
----
-
 - [x] **Track: 添加 Roo Code Agent**
-*Link: [./tracks/add_roo_code_agent_20260203/](./tracks/add_roo_code_agent_20260203/)*
+  *Link: [./archive/add_roo_code_agent_20260203/](./archive/add_roo_code_agent_20260203/)* <!-- status: complete -->
+
+- [x] **Track: 新增的 Kilo Code Coding Agent 还没有列举在多语言 of the README.md 中**
 
 
 
