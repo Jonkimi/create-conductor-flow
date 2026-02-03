@@ -85,4 +85,17 @@ describe("CLI Prompts", () => {
 		expect(roocodeChoice).toBeDefined();
 		expect(roocodeChoice?.name).toContain("Roo Code");
 	});
+
+	it("should include Qwen Code in options", async () => {
+		vi.mocked(select).mockResolvedValue("qwen-code");
+
+		await promptForAgent();
+
+		const callArgs = vi.mocked(select).mock.calls[0][0];
+		const choices = callArgs.choices as Array<{ name: string; value: string }>;
+
+		const qwencodeChoice = choices.find((c) => c.value === "qwen-code");
+		expect(qwencodeChoice).toBeDefined();
+		expect(qwencodeChoice?.name).toContain("Qwen Code");
+	});
 });

@@ -9,6 +9,7 @@ export type AgentType =
 	| "cline"
 	| "kilo-code"
 	| "roo-code"
+	| "qwen-code"
 	| "gemini";
 
 export type InstallScope = "global" | "project";
