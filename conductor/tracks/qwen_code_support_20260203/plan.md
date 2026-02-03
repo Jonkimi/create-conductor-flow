@@ -12,13 +12,13 @@ This phase focuses on updating core types and registering the new agent.
 ## Phase 2: Qwen Code Generator Implementation
 This phase implements the generator and content strategy for Qwen Code.
 
-- [ ] Task: Create `src/generators/qwen-code/` directory and files
-- [ ] Task: Implement `QwenCodeContentStrategy` in `src/generators/qwen-code/strategy.ts`
-    - [ ] Process TOML templates to Markdown
-    - [ ] Add YAML frontmatter for descriptions
-    - [ ] Handle variable substitution
-- [ ] Task: Implement `QwenCodeGenerator` in `src/generators/qwen-code/generator.ts` and `config.ts`
-- [ ] Task: Register `QwenCodeGenerator` in `src/generators/registry.ts`
+- [x] Task: Create `src/generators/qwen-code/` directory and files [af9cbae]
+- [x] Task: Implement `QwenCodeContentStrategy` in `src/generators/qwen-code/strategy.ts` [5c6a4de]
+    - [x] Process TOML templates to Markdown [5c6a4de]
+    - [x] Add YAML frontmatter for descriptions [5c6a4de]
+    - [x] Handle variable substitution [5c6a4de]
+- [x] Task: Implement `QwenCodeGenerator` in `src/generators/qwen-code/generator.ts` and `config.ts` [5c6a4de]
+- [x] Task: Register `QwenCodeGenerator` in `src/generators/registry.ts` [5c6a4de]
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Qwen Code Generator Implementation' (Protocol in workflow.md)
 
 ## Phase 3: Testing and Verification
