@@ -16,8 +16,10 @@ import { DEFAULT_REPO, DEFAULT_BRANCH } from "./utils/template.js";
 import { ALL_AGENT_CONFIGS } from "./generators/registry.js";
 
 async function main() {
-	// Print the welcome banner
-	printInstallBanner();
+	// Print the welcome banner unless suppressed
+	if (!process.env.CONDUCTOR_NO_BANNER) {
+		printInstallBanner();
+	}
 
 	// Parse CLI arguments and execute install
 	const argv = await yargs(hideBin(process.argv))
