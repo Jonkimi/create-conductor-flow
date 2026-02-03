@@ -19,7 +19,7 @@
 
 ## ✨ 主要特性
 
--   **通用 AI 兼容性**: 开箱即用，支持 **Opencode**、**Claude Code**、**Antigravity**、**Cursor**、**VS Code Copilot**、**Codex**、**Windsurf**、**Cline**、**Kilo Code**、**Roo Code** 以及 **Gemini CLI**。
+-   **通用 AI 兼容性**: 开箱即用，支持 **Opencode**、**Claude Code**、**Antigravity**、**Cursor**、**VS Code Copilot**、**Codex**、**Windsurf**、**Cline**、**Kilo Code**、**Roo Code**、**Qwen Code** 以及 **Gemini CLI**。
 -   **上下文管理**: 结构化的工件（`spec.md`、`plan.md`）让您的 AI 代理保持专注并具备上下文感知能力。
 -   **规范驱动开发**: 在询问 AI *如何*构建之前，先定义您*想要什么*。
 -   **代理无关的工作流**: 在不丢失项目上下文或进度的情况下切换代理。
@@ -83,6 +83,7 @@ node dist/index.js install
 -   **Cline**
 -   **Kilo Code**
 -   **Roo Code**
+-   **Qwen Code**
 -   **Gemini CLI**
 
 这将验证环境并安装必要的 Conductor 文件：

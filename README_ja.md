@@ -19,7 +19,7 @@
 
 ## ✨ 主な機能
 
--   **ユニバーサルな AI 互換性**: **Opencode**、**Claude Code**、**Antigravity**、**Cursor**、**VS Code Copilot**、**Codex**、**Windsurf**、**Cline**、**Kilo Code**、**Roo Code**、および **Gemini CLI** ですぐに使用できます。
+-   **ユニバーサルな AI 互換性**: **Opencode**、**Claude Code**、**Antigravity**、**Cursor**、**VS Code Copilot**、**Codex**、**Windsurf**、**Cline**、**Kilo Code**、**Roo Code**、**Qwen Code**、および **Gemini CLI** ですぐに使用できます。
 -   **コンテキスト管理**: 構造化された成果物（`spec.md`、`plan.md`）により、AI エージェントの集中力とコンテキスト認識を維持します。
 -   **仕様駆動型開発**: AI に *どのように*構築するかを尋ねる前に、*何を*したいかを定義します。
 -   **エージェントに依存しないワークフロー**: プロジェクトのコンテキストや進行状況を失うことなく、エージェントを切り替えることができます。
@@ -77,6 +77,7 @@ AI コーディングエージェントを選択するように求められま�
 -   **Cline**
 -   **Kilo Code**
 -   **Roo Code**
+-   **Qwen Code**
 -   **Gemini CLI**
 
 これにより、環境が検証され、必要な Conductor ファイルがインストールされます：
