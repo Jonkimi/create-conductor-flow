@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { qwenCodeContentStrategy } from "../../src/generators/qwen-code/strategy.js";
+import { qwenCodeContentStrategy } from "../../src/generators/qwencode/strategy.js";
 
 describe("QwenCodeContentStrategy", () => {
 	it("should convert TOML to Markdown with frontmatter description", () => {
@@ -68,7 +68,7 @@ description = "Missing prompt"
 	});
 });
 
-import { QwenCodeGenerator } from "../../src/generators/qwen-code/index.js";
+import { QwenCodeGenerator } from "../../src/generators/qwencode/index.js";
 import fs from "fs-extra";
 import { vi, beforeEach } from "vitest";
 

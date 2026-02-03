@@ -11,7 +11,7 @@ import { ClineGenerator } from "./cline/index.js";
 import { GeminiGenerator } from "./gemini/index.js";
 import { KiloCodeGenerator } from "./kilocode/generator.js";
 import { RooCodeGenerator } from "./roocode/generator.js";
-import { QwenCodeGenerator } from "./qwen-code/generator.js";
+import { QwenCodeGenerator } from "./qwencode/generator.js";
 
 export * from "./types.js";
 export * from "./opencode/index.js";
@@ -25,7 +25,7 @@ export * from "./cline/index.js";
 export * from "./gemini/index.js";
 export * from "./kilocode/index.js";
 export * from "./roocode/index.js";
-export * from "./qwen-code/index.js";
+export * from "./qwencode/index.js";
 
 export function getGenerator(agentType: AgentType): AgentGenerator {
 	switch (agentType) {
