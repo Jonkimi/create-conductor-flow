@@ -8,6 +8,7 @@ export type AgentType =
 	| "windsurf"
 	| "cline"
 	| "kilo-code"
+	| "roo-code"
 	| "gemini";
 
 export type InstallScope = "global" | "project";
