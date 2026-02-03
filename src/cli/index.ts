@@ -28,6 +28,7 @@ export const cli = yargs(hideBin(process.argv))
 						"codex",
 						"windsurf",
 						"cline",
+						"kilo-code",
 						"gemini",
 					],
 				})

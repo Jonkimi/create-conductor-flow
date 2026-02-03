@@ -39,7 +39,7 @@ export function getGenerator(agentType: AgentType): AgentGenerator {
 			return new WindsurfGenerator();
 		case "cline":
 			return new ClineGenerator();
-		case "kilocode":
+		case "kilo-code":
 			return new KiloCodeGenerator();
 		case "gemini":
 			return new GeminiGenerator();

@@ -2,7 +2,7 @@ import type { AgentConfig } from "../types.js";
 import { kilocodeContentStrategy } from "./strategy.js";
 
 export const kilocodeConfig: AgentConfig = {
-	agentType: "kilocode",
+	agentType: "kilo-code",
 	agentDir: ".kilocode",
 	commandsDir: "workflows",
 	displayName: "Kilo Code",

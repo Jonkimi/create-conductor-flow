@@ -7,7 +7,7 @@ export type AgentType =
 	| "codex"
 	| "windsurf"
 	| "cline"
-	| "kilocode"
+	| "kilo-code"
 	| "gemini";
 
 export type InstallScope = "global" | "project";
