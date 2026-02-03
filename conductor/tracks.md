@@ -105,5 +105,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: feat 实现 build 阶段将 help 命令输出直接更新到所有 README.md 中去**
+- [x] **Track: feat 实现 build 阶段将 help 命令输出直接更新到所有 README.md 中去**
 *Link: [./tracks/update_readme_help_20250522/](./tracks/update_readme_help_20250522/)*
