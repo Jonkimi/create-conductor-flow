@@ -16,7 +16,6 @@ describe("CLI Integration", () => {
 
 	it("should display help", () => {
 		const output = execSync(`node ${cliPath} --help`).toString();
-		expect(output).toContain("conductor <cmd> [args]");
-		expect(output).toContain("install [path]");
+		expect(output).toContain("conductor-install [path] [options]");
 	});
 });

@@ -38,8 +38,7 @@
   "type": "module",
   "bin": {
     "conductor": "./dist/index.js",
-    "conductor-4-all": "./dist/index.js",
-    "conductor-install": "./dist/conductor-install.js"
+    "conductor-install": "./dist/index.js"
   },
   "files": [
     "dist",

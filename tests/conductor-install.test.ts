@@ -4,11 +4,7 @@ import * as fs from "fs";
 import { join } from "path";
 
 describe("conductor-install command", () => {
-	const conductorInstallPath = join(
-		process.cwd(),
-		"dist",
-		"conductor-install.js",
-	);
+	const conductorInstallPath = join(process.cwd(), "dist", "index.js");
 
 	describe("package.json configuration", () => {
 		it("should have package name as conductor-install", () => {
@@ -30,13 +26,6 @@ describe("conductor-install command", () => {
 				fs.readFileSync(join(process.cwd(), "package.json"), "utf-8"),
 			);
 			expect(pkg.bin["conductor"]).toBeDefined();
-		});
-
-		it("should maintain backward compatibility with conductor-4-all bin", () => {
-			const pkg = JSON.parse(
-				fs.readFileSync(join(process.cwd(), "package.json"), "utf-8"),
-			);
-			expect(pkg.bin["conductor-4-all"]).toBeDefined();
 		});
 	});
 
