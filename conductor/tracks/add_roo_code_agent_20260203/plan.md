@@ -7,13 +7,13 @@ This plan outlines the steps to integrate "Roo Code" as a supported AI agent in 
 - [x] Task: Update `src/types.ts` - Add `roo-code` to `AgentType` union.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Foundation & Type System' (Protocol in workflow.md)
 
-## Phase 2: Roo Code Generator Implementation
+## Phase 2: Roo Code Generator Implementation [checkpoint: aa70bd9]
 
-- [ ] Task: Write failing tests for Roo Code configuration and generator (`tests/generators/RooCodeGenerator.test.ts`, etc.).
-- [ ] Task: Implement Roo Code generator in `src/generators/roo-code/` (including `config.ts`, `generator.ts`, `strategy.ts`, and `index.ts`).
-- [ ] Task: Register Roo Code in `src/generators/registry.ts` and `src/generators/index.ts`.
-- [ ] Task: Implement code to pass tests and verify.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Roo Code Generator Implementation' (Protocol in workflow.md)
+- [x] Task: Write failing tests for Roo Code configuration and generator (`tests/generators/RooCodeGenerator.test.ts`, etc.).
+- [x] Task: Implement Roo Code generator in `src/generators/roo-code/` (including `config.ts`, `generator.ts`, `strategy.ts`, and `index.ts`).
+- [x] Task: Register Roo Code in `src/generators/registry.ts` and `src/generators/index.ts`.
+- [x] Task: Implement code to pass tests and verify.
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Roo Code Generator Implementation' (Protocol in workflow.md)
 
 ## Phase 3: CLI & UI Integration
 
