@@ -102,8 +102,7 @@ This file tracks all major tracks for the project. Each track has its own detail
   *Link: [./archive/add_roo_code_agent_20260203/](./archive/add_roo_code_agent_20260203/)* <!-- status: complete -->
 
 - [x] **Track: 新增的 Kilo Code Coding Agent 还没有列举在多语言 of the README.md 中**
-
----
+  *Link: [./archive/update_readme_help_20250522/](./archive/update_readme_help_20250522/)* <!-- status: complete -->
 
 - [x] **Track: feat 实现 build 阶段将 help 命令输出直接更新到所有 README.md 中去**
-*Link: [./tracks/update_readme_help_20250522/](./tracks/update_readme_help_20250522/)*
+  *Link: [./archive/update_readme_help_20250522/](./archive/update_readme_help_20250522/)* <!-- status: complete -->
