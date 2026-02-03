@@ -6,7 +6,7 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** is a universal command-line tool that brings the powerful [**Conductor**](https://github.com/gemini-cli-extensions/conductor) spec-driven development methodology to **any** AI coding agent environment. Seamlessly integrate **Conductor** with **Claude Code**, **Codex**, **Antigravity**, and other leading AI Coding Assistants.
+**Conductor Install** is a universal command-line tool that brings the **Gemini CLI extension [Conductor](https://github.com/gemini-cli-extensions/conductor)** to **any** AI coding agent environment. It enables **context-driven development** (the evolution of spec-driven dev) for **Claude Code**, **OpenCode**, **Cursor**, **Kilo Code**, and other leading AI Coding Assistants.
 
 The **Conductor** methodology was originally developed for the Gemini CLI. This project decouples it, **empowering developers to maintain context, manage tasks, and orchestrate complex features**. It serves as a bridge between human intent and AI execution, ensuring "Context is King" in the era of Agentic AI.
 

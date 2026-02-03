@@ -6,7 +6,7 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** は、強力な [**Conductor**](https://github.com/gemini-cli-extensions/conductor) 仕様駆動型開発手法を**あらゆる** AI コーディングエージェント環境にもたらすユニバーサルなコマンドラインツールです。**Conductor** を **Claude Code**、**Codex**、**Antigravity**、およびその他の主要な AI コーディングアシスタントとシームレスに統合します。
+**Conductor Install** は、**Gemini CLI 拡張機能 [Conductor](https://github.com/gemini-cli-extensions/conductor)** を **あらゆる** AI コーディングエージェント環境にもたらすユニバーサルなコマンドラインツールです。**Claude Code**、**OpenCode**、**Cursor**、**Kilo Code**、およびその他の主要な AI コーディングアシスタントのために、**コンテキスト駆動開発**（仕様駆動開発の進化版）を可能にします。
 
 **Conductor** 手法はもともと Gemini CLI 用に開発されました。このプロジェクトはそれを分離し、**開発者がコンテキストを維持し、タスクを管理し、複雑な機能をオーケストレーションできるようにします**。これは、Agentic AI の時代において「コンテキストは王様」であることを保証し、人間の意図と AI の実行との間の架け橋として機能します。
 
