@@ -37,6 +37,16 @@ async function main() {
 	await fs.remove(join(TEMPLATES_DIR, ".git"));
 	await fs.remove(join(TEMPLATES_DIR, ".github"));
 
+	// Cleanup unused files
+	await fs.remove(join(TEMPLATES_DIR, "README.md"));
+	await fs.remove(join(TEMPLATES_DIR, "LICENSE"));
+	await fs.remove(join(TEMPLATES_DIR, "CONTRIBUTING.md"));
+	await fs.remove(join(TEMPLATES_DIR, "CHANGELOG.md"));
+	await fs.remove(join(TEMPLATES_DIR, ".gitignore"));
+	await fs.remove(join(TEMPLATES_DIR, ".release-please-manifest.json"));
+	await fs.remove(join(TEMPLATES_DIR, "gemini-extension.json"));
+	await fs.remove(join(TEMPLATES_DIR, "release-please-config.json"));
+
 	console.log("Templates bundled successfully from remote.");
 }
 

@@ -47,6 +47,7 @@
     "LICENSE"
   ],
   "scripts": {
+    "clean": "npx tsx scripts/clean.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
