@@ -15,13 +15,13 @@ This plan outlines the steps to integrate "Roo Code" as a supported AI agent in 
 - [x] Task: Implement code to pass tests and verify.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Roo Code Generator Implementation' (Protocol in workflow.md)
 
-## Phase 3: CLI & UI Integration
+## Phase 3: CLI & UI Integration [checkpoint: e44d076]
 
-- [ ] Task: Write failing tests for CLI agent selection and options.
-- [ ] Task: Update `src/cli/index.ts` and `src/conductor-install.ts` to include `roo-code` in CLI choices.
-- [ ] Task: Verify Roo Code appears in the interactive prompt.
-- [ ] Task: Implement code to pass tests and verify.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: CLI & UI Integration' (Protocol in workflow.md)
+- [x] Task: Write failing tests for CLI agent selection and options.
+- [x] Task: Update `src/cli/index.ts` and `src/conductor-install.ts` to include `roo-code` in CLI choices.
+- [x] Task: Verify Roo Code appears in the interactive prompt.
+- [x] Task: Implement code to pass tests and verify.
+- [x] Task: Conductor - User Manual Verification 'Phase 3: CLI & UI Integration' (Protocol in workflow.md)
 
 ## Phase 4: Documentation Update
 
