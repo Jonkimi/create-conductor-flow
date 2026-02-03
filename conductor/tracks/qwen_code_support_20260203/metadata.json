@@ -1,0 +1,8 @@
+{
+  "track_id": "qwen_code_support_20260203",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-02-03T10:00:00Z",
+  "updated_at": "2026-02-03T10:00:00Z",
+  "description": "CLI 添加 Qwen Code Coding Agent 支持"
+}
