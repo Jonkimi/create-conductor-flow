@@ -7,7 +7,7 @@ This phase focuses on updating core types and registering the new agent.
 
 - [x] Task: Update `AgentType` in `src/types.ts` to include `qwen-code` [af9cbae]
 - [x] Task: Update UI/Prompts to include Qwen Code in agent selection list [af9cbae]
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation and Types' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Foundation and Types' (Protocol in workflow.md) [checkpoint: 36e8aea]
 
 ## Phase 2: Qwen Code Generator Implementation
 This phase implements the generator and content strategy for Qwen Code.
