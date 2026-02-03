@@ -18,7 +18,7 @@ The **Conductor** methodology was originally developed for the Gemini CLI. This 
 
 ## ✨ Key Features
 
--   **Universal AI Compatibility**: Works out-of-the-box with **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, and **Gemini**.
+-   **Universal AI Compatibility**: Works out-of-the-box with **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, and **Gemini**.
 -   **Context Management**: Structured artifacts (`spec.md`, `plan.md`) keep your AI agent focused and context-aware.
 -   **Spec-Driven Development**: Define *what* you want before asking the AI *how* to build it.
 -   **Agent-Agnostic Workflows**: Switch between agents without losing project context or progress.
@@ -38,7 +38,7 @@ Options:
   -a, --agent    Specify the coding agent
                 [string] [choices: "opencode", "claude-code",
           "antigravity", "cursor", "vscode-copilot", "codex",
-                 "windsurf", "cline", "kilo-code", "gemini"]
+                 "windsurf", "cline", "kilo-code", "roo-code", "gemini"]
   -r, --repo     Git repository URL for conductor
                                            [string] [default:
         "https://github.com/gemini-cli-extensions/conductor"]
@@ -90,6 +90,7 @@ You will be prompted to select your AI Coding Agent:
 -   **Windsurf**
 -   **Cline**
 -   **Kilo Code**
+-   **Roo Code**
 -   **Gemini CLI**
 
 This will verify the environment and install the necessary Conductor files:
