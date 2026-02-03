@@ -97,7 +97,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: 新增的 Kilo Code Coding Agent 还没有列举在多语言的 README.md 中**
+- [x] **Track: 新增的 Kilo Code Coding Agent 还没有列举在多语言的 README.md 中**
 *Link: [./tracks/add_kilo_code_to_readme_20260203/](./tracks/add_kilo_code_to_readme_20260203/)*
 
 
