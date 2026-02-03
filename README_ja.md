@@ -33,24 +33,21 @@
 conductor-install [path] [options]
 
 Positionals:
-  path  Directory to install Conductor[string] [default: "."]
+  path  Directory to install Conductor                   [string] [default: "."]
 
 Options:
   -a, --agent    Specify the coding agent
-                [string] [choices: "opencode", "claude-code",
-          "antigravity", "cursor", "vscode-copilot", "codex",
-                 "windsurf", "cline", "kilo-code", "roo-code", "gemini"]
-  -r, --repo     Git repository URL for conductor
-                                           [string] [default:
-        "https://github.com/gemini-cli-extensions/conductor"]
-  -b, --branch   Branch name for conductor repository
-                                   [string] [default: "main"]
+          [string] [choices: "opencode", "claude-code", "antigravity", "cursor",
+        "vscode-copilot", "codex", "windsurf", "cline", "kilo-code", "roo-code",
+                                                                       "gemini"]
+  -r, --repo     Git repository URL for conductor. If used without value,
+                 defaults to official repository.                       [string]
+  -b, --branch   Branch name for conductor repository [string] [default: "main"]
   -s, --scope    Installation scope (project or global)
-                      [string] [choices: "project", "global"]
-  -f, --force    Force overwrite existing installation
-                                   [boolean] [default: false]
-  -h, --help     Show help                          [boolean]
-  -v, --version  Show version number                [boolean]
+                                         [string] [choices: "project", "global"]
+  -f, --force    Force overwrite existing installation[boolean] [default: false]
+  -h, --help     Show help                                             [boolean]
+  -v, --version  Show version number                                   [boolean]
 ```
 
 プロジェクトで Conductor を初期化するには、プロジェクトのルートで次のコマンドを実行するだけです：
