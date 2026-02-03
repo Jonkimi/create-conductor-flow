@@ -38,7 +38,7 @@ Options:
   -a, --agent    Specify the coding agent
           [string] [choices: "opencode", "claude-code", "antigravity", "cursor",
         "vscode-copilot", "codex", "windsurf", "cline", "kilo-code", "roo-code",
-                                                                       "gemini"]
+                                                          "qwen-code", "gemini"]
   -r, --repo     Git repository URL for conductor. If used without value,
                  defaults to official repository.                       [string]
   -b, --branch   Branch name for conductor repository [string] [default: "main"]
