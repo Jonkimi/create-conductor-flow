@@ -1,6 +1,6 @@
 # Implementation Plan: Automated README Help Update
 
-## Phase 1: Core Logic Development (TDD)
+## Phase 1: Core Logic Development (TDD) [checkpoint: 157cf7b]
 - [x] Task: Write failing tests for README update logic
     - [ ] Create `src/utils/readme-update.test.ts`
     - [ ] Define tests for identifying headers in multiple languages
@@ -11,7 +11,7 @@
     - [ ] Implement `stripAnsi` function
     - [ ] Implement `updateReadmeSection` function with multi-language header support
 - [x] Task: Verify Phase 1 tests pass
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Core Logic Development (TDD)' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Core Logic Development (TDD)' (Protocol in workflow.md)
 
 ## Phase 2: CLI Integration and Automation
 - [ ] Task: Create the main update script
