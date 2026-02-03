@@ -71,23 +71,17 @@ describe("Bundled Templates", () => {
 
 	describe("loadTemplate", () => {
 		it("should load from bundled if exists", async () => {
-			vi.mocked(fs.pathExists).mockResolvedValue(true);
 			vi.mocked(fsPromises.readFile).mockResolvedValue("content" as any);
 
-			const content = await loadTemplate("commands/foo.toml");
-			expect(content).toBe("content");
-		});
-
-		it("should fallback to remote if bundled missing and no repo args", async () => {
-			vi.mocked(fs.pathExists).mockResolvedValue(false); // bundled missing
-			vi.mocked(fsPromises.readFile).mockResolvedValue("remote-content" as any);
-
-			const content = await loadTemplate("commands/foo.toml");
-
-			expect(consoleSpy).toHaveBeenCalledWith(
-				expect.stringContaining("falling back"),
+			const content = await loadTemplate(
+				"commands/foo.toml",
+				"/mock/bundled/root",
 			);
-			expect(content).toBe("remote-content");
+			expect(content).toBe("content");
+			expect(fsPromises.readFile).toHaveBeenCalledWith(
+				"/mock/bundled/root/commands/foo.toml",
+				"utf-8",
+			);
 		});
 	});
 });

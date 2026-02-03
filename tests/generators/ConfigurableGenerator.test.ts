@@ -121,13 +121,48 @@ describe("ConfigurableGenerator", () => {
 	});
 
 	describe("command list", () => {
-		it("should include review command in the commands array", async () => {
+		it("should include discovered commands in the commands array", async () => {
 			(loadTemplate as ReturnType<typeof vi.fn>).mockResolvedValue(
 				'prompt = "some prompt"',
 			);
+			// Mock readdir to return some commands
+			vi.mocked(fs.readdir).mockImplementation(async () => [
+				"setup.toml",
+				"newTrack.toml",
+				"custom.toml",
+			]);
+			vi.mocked(fs.existsSync).mockImplementation((p) => {
+				if (typeof p === "string" && p.includes("commands/conductor"))
+					return true;
+				return false;
+			});
 
 			await generator.generate(targetDir);
 
+			const expectedCommands = ["setup", "newTrack", "custom"];
+			for (const cmd of expectedCommands) {
+				expect(loadTemplate).toHaveBeenCalledWith(
+					`commands/conductor/${cmd}.toml`,
+					"/mock/template/root",
+				);
+			}
+		});
+
+		it("should fallback to default commands if discovery returns empty", async () => {
+			(loadTemplate as ReturnType<typeof vi.fn>).mockResolvedValue(
+				'prompt = "some prompt"',
+			);
+			// Mock readdir to return empty or fail
+			vi.mocked(fs.readdir).mockImplementation(async () => []);
+			(fs.existsSync as ReturnType<typeof vi.fn>).mockImplementation((p) => {
+				if (typeof p === "string" && p.includes("commands/conductor"))
+					return true;
+				return false;
+			});
+
+			await generator.generate(targetDir);
+
+			// Defaults
 			const expectedCommands = [
 				"setup",
 				"newTrack",
@@ -139,8 +174,7 @@ describe("ConfigurableGenerator", () => {
 			for (const cmd of expectedCommands) {
 				expect(loadTemplate).toHaveBeenCalledWith(
 					`commands/conductor/${cmd}.toml`,
-					undefined,
-					undefined,
+					"/mock/template/root",
 				);
 			}
 		});

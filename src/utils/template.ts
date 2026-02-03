@@ -98,27 +98,8 @@ export async function getTemplateRoot(
 
 export async function loadTemplate(
 	templatePath: string,
-	repo?: string,
-	branch?: string,
+	rootDir: string,
 ): Promise<string> {
-	// Try bundled templates first ONLY if no remote repo is specified
-	if (!repo && !branch) {
-		const bundledPath = resolve(getBundledTemplateRoot(), templatePath);
-		if (await fs.pathExists(bundledPath)) {
-			return readFile(bundledPath, "utf-8");
-		}
-	}
-
-	// If using default/bundled mode (no repo args provided) and bundled template not found
-	if (!repo && !branch) {
-		console.log(
-			`Bundled template not found: ${templatePath}, falling back to remote repository...`,
-		);
-		// Fallback: ensure templates are downloaded
-		await ensureTemplates(repo, branch);
-	}
-
-	const rootDir = await getTemplateRoot(repo, branch);
 	const fullPath = join(rootDir, templatePath);
 	return readFile(fullPath, "utf-8");
 }

@@ -100,14 +100,35 @@ export class ConfigurableGenerator implements AgentGenerator {
 			}
 		}
 
-		const commands = [
-			"setup",
-			"newTrack",
-			"implement",
-			"status",
-			"revert",
-			"review",
-		];
+		// Dynamically discover commands from template root
+		let commands: string[] = [];
+		try {
+			const commandsPath = join(templateRoot, "commands/conductor");
+			if (existsSync(commandsPath)) {
+				const files = await fs.readdir(commandsPath);
+				commands = files
+					.filter((file) => file.endsWith(".toml"))
+					.map((file) => file.replace(/\.toml$/, ""));
+			}
+		} catch (e) {
+			console.warn("Failed to discover commands:", e);
+		}
+
+		// Fallback to default commands if discovery failed or found nothing (e.g. empty dir)
+		if (commands.length === 0) {
+			console.log("No commands discovered, using default commands");
+			commands = [
+				"setup",
+				"newTrack",
+				"implement",
+				"status",
+				"revert",
+				"review",
+			];
+		} else {
+			console.log(`Discovered commands: ${commands.join(", ")}`);
+		}
+
 		const extension = this.config.extension || ".md";
 		const fixedAgent = this.config.fixedAgent;
 
@@ -115,8 +136,7 @@ export class ConfigurableGenerator implements AgentGenerator {
 			try {
 				const tomlContent = await loadTemplate(
 					`commands/conductor/${cmd}.toml`,
-					repo,
-					branch,
+					templateRoot,
 				);
 
 				const contentStrategy =
