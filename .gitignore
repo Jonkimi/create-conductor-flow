@@ -7,4 +7,5 @@ src/conductor
 # Generated agent configuration directories (test artifacts)
 .kilocode/
 .agent/
+.gemini
 
