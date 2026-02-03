@@ -24,9 +24,9 @@ This phase implements the generator and content strategy for Qwen Code.
 ## Phase 3: Testing and Verification
 This phase ensures the new generator works correctly and meets coverage requirements.
 
-- [ ] Task: Write unit tests for `QwenCodeContentStrategy`
-- [ ] Task: Write unit tests for `QwenCodeGenerator`
-- [ ] Run full test suite and verify >80% coverage for new files
+- [x] Task: Write unit tests for `QwenCodeContentStrategy` [d2b0b9f]
+- [x] Task: Write unit tests for `QwenCodeGenerator` [d2b0b9f]
+- [x] Run full test suite and verify >80% coverage for new files [d2b0b9f]
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Testing and Verification' (Protocol in workflow.md)
 
 ## Phase 4: Documentation
