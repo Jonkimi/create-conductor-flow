@@ -1,14 +1,12 @@
 {
   "name": "conductor-install",
   "version": "0.3.3",
-  "description": "Universal CLI to bring the Gemini extension 'Conductor' to any AI coding agent. Enables context-first evolution of spec-driven development for OpenCode, Claude Code, Kilo Code, Cursor & more.",
+  "description": "Conductor context-first evolution of spec-driven development setup CLI - Install Gemini CLI extension Conductor to any AI coding agent with npx conductor-install",
   "license": "Apache-2.0",
   "keywords": [
     "conductor",
-    "gemini-cli-extensions",
-    "spec-driven-development",
     "context-driven-development",
-    "coding-agent",
+    "spec-driven-development",
     "opencode",
     "claude-code",
     "codex",
@@ -18,7 +16,9 @@
     "windsurf",
     "cline",
     "roo-code",
-    "kilo-code"
+    "kilo-code",
+    "gemini-cli-extensions",
+    "coding-agent"
   ],
   "repository": {
     "type": "git",
