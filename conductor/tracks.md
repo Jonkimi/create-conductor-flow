@@ -8,6 +8,9 @@ This file tracks all major tracks for the project. Each track has its own detail
 ---
 
 
+- [x] **Track: CLI 添加 Qwen Code Coding Agent 支持**
+  *Link: [./archive/qwen_code_support_20260203/](./archive/qwen_code_support_20260203/)* <!-- status: complete -->
+
 - [x] **Track: Optimize Project SEO**
   *Link: [./archive/optimize_seo_20260201/](./archive/optimize_seo_20260201/)* <!-- status: complete -->
 
@@ -99,8 +102,3 @@ This file tracks all major tracks for the project. Each track has its own detail
   *Link: [./archive/add_roo_code_agent_20260203/](./archive/add_roo_code_agent_20260203/)* <!-- status: complete -->
 
 - [x] **Track: 新增的 Kilo Code Coding Agent 还没有列举在多语言 of the README.md 中**
-
----
-
-- [x] **Track: CLI 添加 Qwen Code Coding Agent 支持**
-*Link: [./tracks/qwen_code_support_20260203/](./tracks/qwen_code_support_20260203/)*
