@@ -32,8 +32,8 @@ This phase ensures the new generator works correctly and meets coverage requirem
 ## Phase 4: Documentation
 This phase ensures all project documentation is up to date with the new agent support.
 
-- [ ] Task: Update `README.md` to include `qwen-code`
-- [ ] Task: Update `README_ja.md` to include `qwen-code`
-- [ ] Task: Update `README_ko.md` to include `qwen-code`
-- [ ] Task: Update `README_zh.md` to include `qwen-code`
+- [x] Task: Update `README.md` to include `qwen-code` [30faf53]
+- [x] Task: Update `README_ja.md` to include `qwen-code` [30faf53]
+- [x] Task: Update `README_ko.md` to include `qwen-code` [30faf53]
+- [x] Task: Update `README_zh.md` to include `qwen-code` [30faf53]
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Documentation' (Protocol in workflow.md)
