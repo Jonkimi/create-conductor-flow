@@ -40,6 +40,7 @@ async function main() {
 				"windsurf",
 				"cline",
 				"kilo-code",
+				"roo-code",
 				"gemini",
 			],
 		})

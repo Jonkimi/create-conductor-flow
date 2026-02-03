@@ -72,4 +72,17 @@ describe("CLI Prompts", () => {
 		expect(kilocodeChoice).toBeDefined();
 		expect(kilocodeChoice?.name).toContain("Kilo Code");
 	});
+
+	it("should include Roo Code in options", async () => {
+		vi.mocked(select).mockResolvedValue("roo-code");
+
+		await promptForAgent();
+
+		const callArgs = vi.mocked(select).mock.calls[0][0];
+		const choices = callArgs.choices as Array<{ name: string; value: string }>;
+
+		const roocodeChoice = choices.find((c) => c.value === "roo-code");
+		expect(roocodeChoice).toBeDefined();
+		expect(roocodeChoice?.name).toContain("Roo Code");
+	});
 });
