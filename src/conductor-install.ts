@@ -46,9 +46,15 @@ async function main() {
 		})
 		.option("repo", {
 			alias: "r",
-			describe: "Git repository URL for conductor",
+			describe:
+				"Git repository URL for conductor. If used without value, defaults to official repository.",
 			type: "string",
-			default: DEFAULT_REPO,
+		})
+		.coerce("repo", (arg) => {
+			if (arg === "") {
+				return DEFAULT_REPO;
+			}
+			return arg;
 		})
 		.option("branch", {
 			alias: "b",

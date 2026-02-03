@@ -83,10 +83,11 @@ export async function getTemplateRoot(
 	repo?: string,
 	branch?: string,
 ): Promise<string> {
-	// If no remote args provided, use bundled logic
-	if (!repo && !branch) {
+	// If no remote repo provided, use bundled logic
+	if (!repo) {
 		const bundledRoot = getBundledTemplateRoot();
 		if (await fs.pathExists(bundledRoot)) {
+			console.log("use bundled Conductor templates");
 			return bundledRoot;
 		}
 	}

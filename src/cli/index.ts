@@ -32,28 +32,6 @@ export const cli = yargs(hideBin(process.argv))
 						"roo-code",
 						"gemini",
 					],
-				})
-				.option("repo", {
-					alias: "r",
-					describe: "Git repository URL for templates",
-					type: "string",
-				})
-				.option("branch", {
-					alias: "b",
-					describe: "Branch name for templates",
-					type: "string",
-				})
-				.option("scope", {
-					alias: "s",
-					describe: "Installation scope (project or global)",
-					type: "string",
-					choices: ["project", "global"],
-				})
-				.option("force", {
-					alias: "f",
-					describe: "Force overwrite existing installation",
-					type: "boolean",
-					default: false,
 				});
 		},
 		installHandler,
