@@ -102,5 +102,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: CLI 添加 Qwen Code Coding Agent 支持**
+- [x] **Track: CLI 添加 Qwen Code Coding Agent 支持**
 *Link: [./tracks/qwen_code_support_20260203/](./tracks/qwen_code_support_20260203/)*
