@@ -2,6 +2,8 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { installHandler } from "../commands/install.js";
 
+import { ALL_AGENT_CONFIGS } from "../generators/registry.js";
+
 export const cli = yargs(hideBin(process.argv))
 	.scriptName("conductor")
 	.usage("$0 <cmd> [args]")
@@ -19,19 +21,7 @@ export const cli = yargs(hideBin(process.argv))
 					alias: "a",
 					describe: "Specify the coding agent",
 					type: "string",
-					choices: [
-						"opencode",
-						"claude-code",
-						"antigravity",
-						"cursor",
-						"vscode-copilot",
-						"codex",
-						"windsurf",
-						"cline",
-						"kilo-code",
-						"roo-code",
-						"gemini",
-					],
+					choices: ALL_AGENT_CONFIGS.map((c) => c.agentType),
 				});
 		},
 		installHandler,

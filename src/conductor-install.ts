@@ -13,6 +13,8 @@ import { installHandler } from "./commands/install.js";
 import { printInstallBanner } from "./utils/banner.js";
 import { DEFAULT_REPO, DEFAULT_BRANCH } from "./utils/template.js";
 
+import { ALL_AGENT_CONFIGS } from "./generators/registry.js";
+
 async function main() {
 	// Print the welcome banner
 	printInstallBanner();
@@ -30,19 +32,7 @@ async function main() {
 			alias: "a",
 			describe: "Specify the coding agent",
 			type: "string",
-			choices: [
-				"opencode",
-				"claude-code",
-				"antigravity",
-				"cursor",
-				"vscode-copilot",
-				"codex",
-				"windsurf",
-				"cline",
-				"kilo-code",
-				"roo-code",
-				"gemini",
-			],
+			choices: ALL_AGENT_CONFIGS.map((c) => c.agentType),
 		})
 		.option("repo", {
 			alias: "r",
