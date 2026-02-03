@@ -61,14 +61,14 @@ describe("CLI Prompts", () => {
 	});
 
 	it("should include Kilo Code in options", async () => {
-		vi.mocked(select).mockResolvedValue("kilocode");
+		vi.mocked(select).mockResolvedValue("kilo-code");
 
 		await promptForAgent();
 
 		const callArgs = vi.mocked(select).mock.calls[0][0];
 		const choices = callArgs.choices as Array<{ name: string; value: string }>;
 
-		const kilocodeChoice = choices.find((c) => c.value === "kilocode");
+		const kilocodeChoice = choices.find((c) => c.value === "kilo-code");
 		expect(kilocodeChoice).toBeDefined();
 		expect(kilocodeChoice?.name).toContain("Kilo Code");
 	});

@@ -30,7 +30,7 @@ describe("getGenerator", () => {
 		expect(getGenerator("cline")).toBeInstanceOf(ClineGenerator);
 	});
 
-	it('should return KiloCodeGenerator for "kilocode"', () => {
-		expect(getGenerator("kilocode")).toBeInstanceOf(KiloCodeGenerator);
+	it('should return KiloCodeGenerator for "kilo-code"', () => {
+		expect(getGenerator("kilo-code")).toBeInstanceOf(KiloCodeGenerator);
 	});
 });

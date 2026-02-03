@@ -80,7 +80,7 @@ describe("AgentConfig", () => {
 		it("should have correct configuration for kilocode agent", () => {
 			const config = kilocodeConfig;
 			expect(config).toBeDefined();
-			expect(config.agentType).toBe("kilocode");
+			expect(config.agentType).toBe("kilo-code");
 			expect(config.agentDir).toBe(".kilocode");
 			expect(config.commandsDir).toBe("workflows");
 			expect(config.displayName).toBe("Kilo Code");
