@@ -49,7 +49,7 @@
 
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Scope Validation and Warning' (Protocol in workflow.md)
 
-## Phase 4: Interactive Prompt
+## Phase 4: Interactive Prompt [checkpoint: fbd25a1]
 
 - [x] Task: Write tests for interactive git ignore prompt 233f77b
     - [x] Test: Prompt appears after scope selection when scope is `project`
@@ -63,11 +63,11 @@
     - [x] Add condition to skip prompt when `--git-ignore` flag is present
     - [x] Add condition to skip prompt when scope is `global`
 
-- [~] Task: Conductor - User Manual Verification 'Phase 4: Interactive Prompt' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Interactive Prompt' (Protocol in workflow.md)
 
 ## Phase 5: Git Ignore Action Execution
 
-- [ ] Task: Write tests for git ignore action execution
+- [~] Task: Write tests for git ignore action execution
     - [ ] Test: `gitignore` method appends entries to `.gitignore`
     - [ ] Test: `exclude` method appends entries to `.git/info/exclude`
     - [ ] Test: `none` method removes entries from both files
