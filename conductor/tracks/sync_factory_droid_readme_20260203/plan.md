@@ -10,7 +10,7 @@
 - [x] Task: Update `README_ja.md` (Japanese) [80cb88f]
     - [ ] Add "Factory Droid" to Key Features list.
     - [ ] Add "Factory Droid" to Agent Selection list.
-- [ ] Task: Update `README_ko.md` (Korean)
+- [x] Task: Update `README_ko.md` (Korean) [9f29146]
     - [ ] Add "Factory Droid" to Key Features list.
     - [ ] Add "Factory Droid" to Agent Selection list.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Update README Files' (Protocol in workflow.md)
