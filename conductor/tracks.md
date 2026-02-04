@@ -8,7 +8,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 ---
 
 - [x] **Track: 同步 facotry dorid 到多语言的 README**
-*Link: [./tracks/sync_factory_droid_readme_20260203/](./tracks/sync_factory_droid_readme_20260203/)* <!-- status: complete -->
+*Link: [./archive/sync_factory_droid_readme_20260203/](./archive/sync_factory_droid_readme_20260203/)* <!-- status: complete -->
 
 - [x] **Track: 添加 Factory Droid Coding Agent Type**
   *Link: [./archive/add_factory_droid_agent_20260203/](./archive/add_factory_droid_agent_20260203/)* <!-- status: complete -->
