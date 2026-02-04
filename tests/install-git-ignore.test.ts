@@ -140,4 +140,52 @@ describe("Install Command with --git-ignore flag", () => {
 			expect(mockGenerator.generate).toHaveBeenCalled();
 		});
 	});
+
+	describe("Interactive prompt", () => {
+		it("should call promptForGitIgnore when no --git-ignore flag and scope is project", async () => {
+			vi.mocked(promptModule.promptForGitIgnore).mockResolvedValue("gitignore");
+
+			const mockArgv = {
+				path: ".",
+				agent: "opencode",
+				// No gitIgnore flag
+				_: [],
+				$0: "conductor",
+			};
+
+			await installHandler(mockArgv as any);
+
+			expect(promptModule.promptForGitIgnore).toHaveBeenCalled();
+		});
+
+		it("should NOT call promptForGitIgnore when --git-ignore flag is provided", async () => {
+			const mockArgv = {
+				path: ".",
+				agent: "opencode",
+				gitIgnore: "gitignore",
+				_: [],
+				$0: "conductor",
+			};
+
+			await installHandler(mockArgv as any);
+
+			expect(promptModule.promptForGitIgnore).not.toHaveBeenCalled();
+		});
+
+		it("should NOT call promptForGitIgnore when scope is global", async () => {
+			vi.mocked(promptModule.promptForInstallScope).mockResolvedValue("global");
+
+			const mockArgv = {
+				path: ".",
+				agent: "codex",
+				scope: "global",
+				_: [],
+				$0: "conductor",
+			};
+
+			await installHandler(mockArgv as any);
+
+			expect(promptModule.promptForGitIgnore).not.toHaveBeenCalled();
+		});
+	});
 });
