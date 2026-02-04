@@ -37,8 +37,8 @@
   },
   "type": "module",
   "bin": {
-    "conductor": "./dist/index.js",
-    "conductor-install": "./dist/index.js"
+    "conductor": "dist/index.js",
+    "conductor-install": "dist/index.js"
   },
   "files": [
     "dist",
