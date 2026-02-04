@@ -36,18 +36,32 @@ Positionals:
   path  Directory to install Conductor                   [string] [default: "."]
 
 Options:
-  -a, --agent    Specify the coding agent
+  -a, --agent       Specify the coding agent
           [string] [choices: "opencode", "claude-code", "antigravity", "cursor",
         "vscode-copilot", "codex", "windsurf", "cline", "kilo-code", "roo-code",
                                          "qwen-code", "factory-droid", "gemini"]
-  -r, --repo     Git repository URL for conductor. If used without value,
-                 defaults to official repository.                       [string]
-  -b, --branch   Branch name for conductor repository [string] [default: "main"]
-  -s, --scope    Installation scope (project or global)
+  -r, --repo        Git repository URL for conductor. If used without value,
+                    defaults to official repository.                    [string]
+  -b, --branch      Branch name for conductor repository
+                                                      [string] [default: "main"]
+  -s, --scope       Installation scope (project or global)
                                          [string] [choices: "project", "global"]
-  -f, --force    Force overwrite existing installation[boolean] [default: false]
-  -h, --help     Show help                                             [boolean]
-  -v, --version  Show version number                                   [boolean]
+  -g, --git-ignore  Configure git ignore for Conductor files (gitignore: add to
+                    .gitignore, exclude: add to .git/info/exclude, none: remove
+                    entries)  [string] [choices: "gitignore", "exclude", "none"]
+  -f, --force       Force overwrite existing installation
+                                                      [boolean] [default: false]
+  -h, --help        Show help                                          [boolean]
+  -v, --version     Show version number                                [boolean]
+
+Examples:
+  conductor-install                         Install with interactive prompts
+  conductor-install --agent claude-code     Install for Claude Code agent
+  conductor-install --git-ignore gitignore  Add Conductor files to .gitignore
+  conductor-install --git-ignore exclude    Add Conductor files to
+                                            .git/info/exclude
+  conductor-install --git-ignore none       Remove Conductor entries from git
+                                            ignore
 ```
 
 プロジェクトで Conductor を初期化するには、プロジェクトのルートで次のコマンドを実行するだけです：
