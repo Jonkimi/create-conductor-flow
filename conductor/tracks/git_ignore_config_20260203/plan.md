@@ -35,7 +35,7 @@
 
 - [x] Task: Conductor - User Manual Verification 'Phase 2: CLI Flag Integration' (Protocol in workflow.md)
 
-## Phase 3: Scope Validation and Warning
+## Phase 3: Scope Validation and Warning [checkpoint: c299ca5]
 
 - [x] Task: Write tests for scope validation logic 0ba2640
     - [x] Test: `--git-ignore` is processed when scope is `project`
@@ -47,11 +47,11 @@
     - [x] Implement warning message display for global scope with `--git-ignore`
     - [x] Ensure flag is skipped silently after warning
 
-- [~] Task: Conductor - User Manual Verification 'Phase 3: Scope Validation and Warning' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Scope Validation and Warning' (Protocol in workflow.md)
 
 ## Phase 4: Interactive Prompt
 
-- [ ] Task: Write tests for interactive git ignore prompt
+- [~] Task: Write tests for interactive git ignore prompt
     - [ ] Test: Prompt appears after scope selection when scope is `project`
     - [ ] Test: Prompt does not appear when scope is `global`
     - [ ] Test: Prompt does not appear when `--git-ignore` flag is provided
