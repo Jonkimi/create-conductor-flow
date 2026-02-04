@@ -23,6 +23,7 @@ Originally developed for the Gemini CLI, the **Conductor** is now decoupled by t
 -   **Spec-Driven Development**: Define *what* you want before asking the AI *how* to build it.
 -   **Agent-Agnostic Workflows**: Switch between agents without losing project context or progress.
 -   **Easy Initialization**: Single command setup with `npx conductor-install`.
+-   **Git Ignore Configuration**: Automatically configure `.gitignore` or `.git/info/exclude` to exclude agent configuration files from version control.
 
 ## 🚀 Usage
 
