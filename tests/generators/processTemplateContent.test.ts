@@ -4,10 +4,44 @@ import { clineContentStrategy } from "../../src/generators/cline/index.js";
 import { vscodeCopilotContentStrategy } from "../../src/generators/vscode-copilot/index.js";
 import { geminiContentStrategy } from "../../src/generators/gemini/index.js";
 import { kilocodeContentStrategy } from "../../src/generators/kilocode/index.js";
+import { factoryDroidContentStrategy } from "../../src/generators/factorydroid/index.js";
 
 describe("Agent Content Strategies", () => {
 	const basicToml =
 		'description = "Test description"\nprompt = "Test prompt content"';
+
+	describe("FactoryDroidContentStrategy", () => {
+		it("should add frontmatter with description", () => {
+			const result = factoryDroidContentStrategy.process(basicToml, {
+				installPath: ".factory/conductor",
+				agentType: "factory-droid",
+			});
+
+			expect(result).not.toBeNull();
+			expect(result).toMatch(/^---\ndescription: "Test description"\n---\n/);
+			expect(result).toContain("Test prompt content");
+		});
+
+		it("should substitute variables", () => {
+			const tomlWithVar = 'prompt = "Use {agent_type}"';
+			const result = factoryDroidContentStrategy.process(tomlWithVar, {
+				installPath: ".factory/conductor",
+				agentType: "factory-droid",
+			});
+
+			expect(result).toContain("Use factory-droid");
+		});
+
+		it("should replace install path", () => {
+			const tomlWithPath = 'prompt = "Path: __$$CODE_AGENT_INSTALL_PATH$$__"';
+			const result = factoryDroidContentStrategy.process(tomlWithPath, {
+				installPath: ".factory/conductor",
+				agentType: "factory-droid",
+			});
+
+			expect(result).toContain("Path: .factory/conductor");
+		});
+	});
 
 	describe("ClineContentStrategy", () => {
 		it("should generate plain markdown with title for cline agent", () => {

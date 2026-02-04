@@ -23,5 +23,6 @@ describe("Generator Registry", () => {
 		expect(agentTypes).toContain("codex");
 		expect(agentTypes).toContain("antigravity");
 		expect(agentTypes).toContain("kilo-code");
+		expect(agentTypes).toContain("factory-droid");
 	});
 });
