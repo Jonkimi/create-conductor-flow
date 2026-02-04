@@ -6,7 +6,7 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** は、`npx` を介して**あらゆる** AI コーディングエージェント向けに、仕様駆動型でポータブルな **[Conductor](https://github.com/gemini-cli-extensions/conductor)** ワークフローを生成する **Conductor スキャフォールディング CLI** です。これは、**Claude Code**、**OpenCode**、**Cursor**、**Kilo Code**、その他の主要な AI コーディングアシスタントのための**[コンテキストファーストな仕様駆動型開発の進化](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**を実現します。
+**Conductor Install** は、`npx` を介して**あらゆる** AI コーディングエージェント向けに、仕様駆動型でポータブルな **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** ワークフローを生成する **Conductor スキャフォールディング CLI** です。これは、**Claude Code**、**OpenCode**、**Cursor**、**Kilo Code**、その他の主要な AI コーディングアシスタントのための**[コンテキストファーストな仕様駆動型開発の進化](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**を実現します。
 
 もともと Gemini CLI 用に開発された **Conductor** は、このプロジェクトによって分離され、**開発者がコンテキストを維持し、タスクを管理し、複雑な機能をオーケストレーションできるようにします**。これは、Agentic AI の時代において「コンテキストは王様」であることを保証し、人間の意図と AI の実行との間の架け橋として機能します。
 

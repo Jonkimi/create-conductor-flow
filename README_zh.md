@@ -6,7 +6,7 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** 是一个 **Conductor 脚手架 CLI**，它通过 `npx` 为**任何** AI 编码代理生成规范驱动的、可移植的 **[Conductor](https://github.com/gemini-cli-extensions/conductor)** 工作流。它为 **Claude Code**、**OpenCode**、**Cursor**、**Kilo Code** 以及其他主流 AI 编码助手启用了**[首选上下文进化的规范驱动开发](https://blog.jonkimi.com/2026/02/01/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**（context-first evolution of spec-driven development）。
+**Conductor Install** 是一个 **Conductor 脚手架 CLI**，它通过 `npx` 为**任何** AI 编码代理生成规范驱动的、可移植的 **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** 工作流。它为 **Claude Code**、**OpenCode**、**Cursor**、**Kilo Code** 以及其他主流 AI 编码助手启用了**[首选上下文进化的规范驱动开发](https://blog.jonkimi.com/2026/02/01/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**（context-first evolution of spec-driven development）。
 
 **Conductor** 最初是为 Gemini CLI 开发的，现在由本项目将其解耦，**使开发人员能够维护上下文、管理任务并编排复杂功能**。它充当人类意图与 AI 执行之间的桥梁，确保在 Agentic AI 时代"上下文为王"。
 
