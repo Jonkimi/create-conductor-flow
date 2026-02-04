@@ -109,5 +109,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: 添加 Factory Droid Coding Agent Type**
-*Link: [./tracks/add_factory_droid_agent_20260203/](./tracks/add_factory_droid_agent_20260203/)*
+- [x] **Track: 添加 Factory Droid Coding Agent Type**
+*Link: [./tracks/add_factory_droid_agent_20260203/](./tracks/add_factory_droid_agent_20260203/)* <!-- status: complete -->
