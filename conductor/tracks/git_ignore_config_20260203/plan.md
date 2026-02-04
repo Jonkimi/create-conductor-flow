@@ -1,6 +1,6 @@
 # Implementation Plan: CLI Git Ignore Configuration Option
 
-## Phase 1: Core Git Ignore Utility Module
+## Phase 1: Core Git Ignore Utility Module [checkpoint: 65ce0f2]
 
 - [x] Task: Write tests for git ignore entry management utilities 026d7b5
     - [x] Test: `getGitIgnoreEntries()` returns correct list of agent directories and protocol files from registry
@@ -16,7 +16,7 @@
     - [x] Implement `removeEntries()` to remove Conductor-related entries from file
     - [x] Implement helper to resolve `.gitignore` and `.git/info/exclude` paths
 
-- [~] Task: Conductor - User Manual Verification 'Phase 1: Core Git Ignore Utility Module' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Core Git Ignore Utility Module' (Protocol in workflow.md)
 
 ## Phase 2: CLI Flag Integration
 
