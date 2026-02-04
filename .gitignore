@@ -10,4 +10,6 @@ src/conductor
 .gemini
 .roo
 .qwen
+.factory
+tmp-*
 
