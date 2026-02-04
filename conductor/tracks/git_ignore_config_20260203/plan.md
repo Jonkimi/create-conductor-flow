@@ -9,14 +9,14 @@
     - [x] Test: `removeEntries()` removes matching entries from a file
     - [x] Test: Handle edge cases (file doesn't exist, empty file, entries with trailing slashes)
 
-- [~] Task: Implement git ignore utility module (`src/utils/gitIgnore.ts`)
-    - [ ] Implement `getGitIgnoreEntries()` to collect entries from agent registry
-    - [ ] Implement `checkEntriesExist()` to scan file for existing entries
-    - [ ] Implement `appendEntries()` to add missing entries with deduplication
-    - [ ] Implement `removeEntries()` to remove Conductor-related entries from file
-    - [ ] Implement helper to resolve `.gitignore` and `.git/info/exclude` paths
+- [x] Task: Implement git ignore utility module (`src/utils/gitIgnore.ts`) 717ae3e
+    - [x] Implement `getGitIgnoreEntries()` to collect entries from agent registry
+    - [x] Implement `checkEntriesExist()` to scan file for existing entries
+    - [x] Implement `appendEntries()` to add missing entries with deduplication
+    - [x] Implement `removeEntries()` to remove Conductor-related entries from file
+    - [x] Implement helper to resolve `.gitignore` and `.git/info/exclude` paths
 
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Core Git Ignore Utility Module' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 1: Core Git Ignore Utility Module' (Protocol in workflow.md)
 
 ## Phase 2: CLI Flag Integration
 
