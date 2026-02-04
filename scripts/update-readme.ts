@@ -7,8 +7,8 @@ async function main() {
 	try {
 		console.log("Capturing help output...");
 		// Run the command and capture output
-		// We use npx tsx src/conductor-install.ts --help
-		const helpOutputRaw = execSync("npx tsx src/conductor-install.ts --help", {
+		// We use npx tsx src/index.ts --help
+		const helpOutputRaw = execSync("npx tsx src/index.ts --help", {
 			encoding: "utf8",
 			env: {
 				...process.env,
