@@ -11,6 +11,7 @@ import { geminiConfig } from "./gemini/config.js";
 import { kilocodeConfig } from "./kilocode/config.js";
 import { rooCodeConfig } from "./roocode/config.js";
 import { qwenCodeConfig } from "./qwencode/config.js";
+import { factoryDroidConfig } from "./factorydroid/config.js";
 
 export const ALL_AGENT_CONFIGS: AgentConfig[] = [
 	opencodeConfig,
@@ -25,4 +26,5 @@ export const ALL_AGENT_CONFIGS: AgentConfig[] = [
 	rooCodeConfig,
 	qwenCodeConfig,
 	geminiConfig,
+	factoryDroidConfig,
 ];

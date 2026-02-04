@@ -106,3 +106,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: feat 实现 build 阶段将 help 命令输出直接更新到所有 README.md 中去**
   *Link: [./archive/update_readme_help_20250522/](./archive/update_readme_help_20250522/)* <!-- status: complete -->
+
+---
+
+- [~] **Track: 添加 Factory Droid Coding Agent Type**
+*Link: [./tracks/add_factory_droid_agent_20260203/](./tracks/add_factory_droid_agent_20260203/)*

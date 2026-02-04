@@ -3,7 +3,7 @@
 ## Phase 1: Foundation & Registry
 - [x] Task: Create `src/generators/factorydroid/` directory structure. [a4cd0c3]
 - [x] Task: Define Factory Droid configuration in `src/generators/factorydroid/config.ts`. [a4cd0c3]
-- [ ] Task: Register `factoryDroidConfig` in `src/generators/registry.ts`.
+- [~] Task: Register `factoryDroidConfig` in `src/generators/registry.ts`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Foundation & Registry' (Protocol in workflow.md)
 
 ## Phase 2: Generator Implementation (TDD)
