@@ -100,7 +100,44 @@ AI コーディングエージェントを選択するように求められま�
 -   **Commands:** エージェントが実行できるエージェント固有のプロンプトまたはコマンドファイル（例：`.opencode/commands/conductor:setup.md` または `.gemini/commands/conductor:setup.toml`）。
 -   **Templates:** ワークフローガイドとスタイルガイド（例：`.opencode/conductor/templates/`）。
 
-### 3. エージェントでの Conductor の使用
+-   **Templates:** ワークフローガイドとスタイルガイド（例：`.opencode/conductor/templates/`）。
+
+### 3. シェル補完 (Shell Completion)
+
+特定のシェル (Bash, Zsh) のタブ補完を有効にして、`conductor-install` をより簡単に使用できるようにします。
+
+#### Zsh (推奨)
+
+**オプション 1: ファイルから読み込む (パフォーマンス最適)**
+
+スクリプトをファイルに生成し、`.zshrc` で source します：
+
+```zsh
+mkdir -p ~/.config/conductor
+conductor-install completion > ~/.config/conductor/completion.zsh
+echo 'source ~/.config/conductor/completion.zsh' >> ~/.zshrc
+source ~/.zshrc
+```
+
+**オプション 2: ワンライナー**
+
+`.zshrc` に直接追加します (最も簡単な設定)：
+
+```zsh
+echo 'source <(conductor-install completion)' >> ~/.zshrc
+source ~/.zshrc
+```
+
+#### Bash
+
+補完スクリプトを `.bashrc` に追加します：
+
+```bash
+conductor-install completion >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 4. エージェントでの Conductor の使用
 
 インストールが完了すると、インストールされたコマンドを使用して Conductor タスクを実行するように AI エージェントに指示できます。例えば：
 

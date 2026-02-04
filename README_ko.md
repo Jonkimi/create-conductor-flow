@@ -100,7 +100,44 @@ AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
 -   **Commands:** 에이전트가 실행할 수 있는 에이전트별 프롬프트 또는 명령 파일 (예: `.opencode/commands/conductor:setup.md` 또는 `.gemini/commands/conductor:setup.toml`).
 -   **Templates:** 워크플로우 가이드 및 스타일 가이드 (예: `.opencode/conductor/templates/`).
 
-### 3. 에이전트와 함께 Conductor 사용
+-   **Templates:** 워크플로우 가이드 및 스타일 가이드 (예: `.opencode/conductor/templates/`).
+
+### 3. 셸 자동 완성 (Shell Completion)
+
+특정 셸(Bash, Zsh)에 대한 탭 자동 완성을 활성화하여 `conductor-install`을(를) 더 쉽게 사용할 수 있습니다.
+
+#### Zsh (권장)
+
+**옵션 1: 파일에서 소싱 (성능 최적)**
+
+스크립트를 파일로 생성하고 `.zshrc`에서 소싱합니다:
+
+```zsh
+mkdir -p ~/.config/conductor
+conductor-install completion > ~/.config/conductor/completion.zsh
+echo 'source ~/.config/conductor/completion.zsh' >> ~/.zshrc
+source ~/.zshrc
+```
+
+**옵션 2: 한 줄 명령 (One-liner)**
+
+`.zshrc`에 직접 추가합니다 (가장 쉬운 설정):
+
+```zsh
+echo 'source <(conductor-install completion)' >> ~/.zshrc
+source ~/.zshrc
+```
+
+#### Bash
+
+완성 스크립트를 `.bashrc`에 추가합니다:
+
+```bash
+conductor-install completion >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 4. 에이전트와 함께 Conductor 사용
 
 설치가 완료되면 설치된 명령을 사용하여 AI 에이전트에게 Conductor 작업을 수행하도록 지시할 수 있습니다. 예를 들어:
 

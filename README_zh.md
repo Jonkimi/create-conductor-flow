@@ -106,7 +106,44 @@ node dist/index.js install
 -   **Commands:** 代理特定的提示或命令文件（例如 `.opencode/commands/conductor:setup.md` 或 `.gemini/commands/conductor:setup.toml`），你的代理可以执行这些文件。
 -   **Templates:** 工作流指南和风格指南（例如 `.opencode/conductor/templates/`）。
 
-### 3. 与你的代理一起使用 Conductor
+-   **Templates:** 工作流指南和风格指南（例如 `.opencode/conductor/templates/`）。
+
+### 3. Shell 补全 (Shell Completion)
+
+启用特定 Shell (Bash, Zsh) 的 Tab 补全功能，让使用 `conductor-install` 更加轻松。
+
+#### Zsh (推荐)
+
+**选项 1: 从文件加载 (性能最佳)**
+
+生成脚本到文件并在你的 `.zshrc` 中 source 它：
+
+```zsh
+mkdir -p ~/.config/conductor
+conductor-install completion > ~/.config/conductor/completion.zsh
+echo 'source ~/.config/conductor/completion.zsh' >> ~/.zshrc
+source ~/.zshrc
+```
+
+**选项 2: 单行命令 (One-liner)**
+
+直接添加到你的 `.zshrc` (设置最简单)：
+
+```zsh
+echo 'source <(conductor-install completion)' >> ~/.zshrc
+source ~/.zshrc
+```
+
+#### Bash
+
+将补全脚本添加到你的 `.bashrc`：
+
+```bash
+conductor-install completion >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 4. 与你的代理一起使用 Conductor
 
 安装完成后，你可以指示你的 AI 代理使用安装的命令执行 Conductor 任务。例如：
 

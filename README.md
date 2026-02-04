@@ -111,7 +111,42 @@ This will verify the environment and install the necessary Conductor files:
 -   **Commands:** Agent-specific prompt or command files (e.g., `.opencode/commands/conductor:setup.md` or `.gemini/commands/conductor:setup.toml`) that your agent can execute.
 -   **Templates:** Workflow guides and style guides (e.g., `.opencode/conductor/templates/`).
 
-### 3. Using Conductor with Your Agent
+### 3. Shell Completion
+
+Enable tab completion for specific shells (Bash, Zsh) to make using `conductor-install` easier.
+
+#### Zsh (Recommended)
+
+**Option 1: Source from file (Best for performance)**
+
+Generate the script to a file and source it in your `.zshrc`:
+
+```zsh
+mkdir -p ~/.config/conductor
+conductor-install completion > ~/.config/conductor/completion.zsh
+echo 'source ~/.config/conductor/completion.zsh' >> ~/.zshrc
+source ~/.zshrc
+```
+
+**Option 2: One-liner**
+
+Add this directly to your `.zshrc` (easiest setup):
+
+```zsh
+echo 'source <(conductor-install completion)' >> ~/.zshrc
+source ~/.zshrc
+```
+
+#### Bash
+
+Add the completion script to your `.bashrc`:
+
+```bash
+conductor-install completion >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 4. Using Conductor with Your Agent
 
 Once installed, you can instruct your AI Agent to perform Conductor tasks using the installed commands. For example:
 
