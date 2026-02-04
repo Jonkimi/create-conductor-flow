@@ -10,6 +10,7 @@ export type AgentType =
 	| "kilo-code"
 	| "roo-code"
 	| "qwen-code"
+	| "factory-droid"
 	| "gemini";
 
 export type InstallScope = "global" | "project";

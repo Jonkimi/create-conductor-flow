@@ -12,6 +12,7 @@ import { GeminiGenerator } from "./gemini/index.js";
 import { KiloCodeGenerator } from "./kilocode/generator.js";
 import { RooCodeGenerator } from "./roocode/generator.js";
 import { QwenCodeGenerator } from "./qwencode/generator.js";
+import { FactoryDroidGenerator } from "./factorydroid/generator.js";
 
 export * from "./types.js";
 export * from "./opencode/index.js";
@@ -26,6 +27,7 @@ export * from "./gemini/index.js";
 export * from "./kilocode/index.js";
 export * from "./roocode/index.js";
 export * from "./qwencode/index.js";
+export * from "./factorydroid/index.js";
 
 export function getGenerator(agentType: AgentType): AgentGenerator {
 	switch (agentType) {
@@ -49,6 +51,8 @@ export function getGenerator(agentType: AgentType): AgentGenerator {
 			return new RooCodeGenerator();
 		case "qwen-code":
 			return new QwenCodeGenerator();
+		case "factory-droid":
+			return new FactoryDroidGenerator();
 		case "gemini":
 			return new GeminiGenerator();
 		case "opencode":
