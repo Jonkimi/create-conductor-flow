@@ -33,6 +33,7 @@ describe("ConfigurableGenerator", () => {
 			"/mock/template/root",
 		);
 		(fs.existsSync as ReturnType<typeof vi.fn>).mockReturnValue(false);
+		(fs.readdir as any).mockResolvedValue([]);
 	});
 
 	describe("validate", () => {

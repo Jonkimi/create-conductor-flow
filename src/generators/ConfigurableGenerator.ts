@@ -106,9 +106,11 @@ export class ConfigurableGenerator implements AgentGenerator {
 			const commandsPath = join(templateRoot, "commands/conductor");
 			if (existsSync(commandsPath)) {
 				const files = await fs.readdir(commandsPath);
-				commands = files
-					.filter((file) => file.endsWith(".toml"))
-					.map((file) => file.replace(/\.toml$/, ""));
+				if (Array.isArray(files)) {
+					commands = files
+						.filter((file) => file.endsWith(".toml"))
+						.map((file) => file.replace(/\.toml$/, ""));
+				}
 			}
 		} catch (e) {
 			console.warn("Failed to discover commands:", e);

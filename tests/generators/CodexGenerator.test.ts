@@ -31,6 +31,7 @@ describe('CodexGenerator', () => {
         generator = new CodexGenerator();
         (getTemplateRoot as any).mockResolvedValue('/mock/template/root');
         (fs.existsSync as any).mockReturnValue(false); 
+        (fs.readdir as any).mockResolvedValue([]);
         (select as any).mockResolvedValue(true);
     });
 

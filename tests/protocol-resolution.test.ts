@@ -34,6 +34,7 @@ describe("ConfigurableGenerator - Protocol Resolution", () => {
 		vi.mocked(fs.ensureDir).mockResolvedValue(undefined);
 		vi.mocked(fs.copy).mockResolvedValue(undefined);
 		vi.mocked(fs.writeFile).mockResolvedValue(undefined);
+		vi.mocked(fs.readdir).mockResolvedValue([] as any);
 		// Default to file not existing (no overwrite prompt needed usually)
 		vi.mocked(fs.existsSync).mockReturnValue(false);
 	});

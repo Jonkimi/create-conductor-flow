@@ -28,6 +28,7 @@ describe('GeminiGenerator', () => {
         generator = new GeminiGenerator();
         (getTemplateRoot as ReturnType<typeof vi.fn>).mockResolvedValue('/mock/template/root');
         (fs.existsSync as ReturnType<typeof vi.fn>).mockReturnValue(false);
+        (fs.readdir as any).mockResolvedValue([]);
         (select as any).mockResolvedValue(true);
     });
 
