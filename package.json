@@ -1,6 +1,6 @@
 {
   "name": "conductor-install",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Conductor spec-driven development setup CLI - Install Gemini Conductor to any coding agent with npx conductor-install",
   "license": "Apache-2.0",
   "keywords": [
