@@ -37,17 +37,17 @@
 
 ## Phase 3: Scope Validation and Warning
 
-- [ ] Task: Write tests for scope validation logic
-    - [ ] Test: `--git-ignore` is processed when scope is `project`
-    - [ ] Test: `--git-ignore` displays warning and is ignored when scope is `global`
-    - [ ] Test: Warning message content is correct
+- [x] Task: Write tests for scope validation logic 0ba2640
+    - [x] Test: `--git-ignore` is processed when scope is `project`
+    - [x] Test: `--git-ignore` displays warning and is ignored when scope is `global`
+    - [x] Test: Warning message content is correct
 
-- [ ] Task: Implement scope validation for git ignore flag
-    - [ ] Add check in install flow to validate scope before processing `--git-ignore`
-    - [ ] Implement warning message display for global scope with `--git-ignore`
-    - [ ] Ensure flag is skipped silently after warning
+- [x] Task: Implement scope validation for git ignore flag a068f38
+    - [x] Add check in install flow to validate scope before processing `--git-ignore`
+    - [x] Implement warning message display for global scope with `--git-ignore`
+    - [x] Ensure flag is skipped silently after warning
 
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Scope Validation and Warning' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 3: Scope Validation and Warning' (Protocol in workflow.md)
 
 ## Phase 4: Interactive Prompt
 
