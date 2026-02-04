@@ -10,6 +10,7 @@ import select from "@inquirer/select";
 
 import { AgentType, InstallScope } from "../types.js";
 import type { GitIgnoreMethod } from "../utils/gitIgnore.js";
+import { executeGitIgnoreAction } from "../utils/gitIgnoreAction.js";
 
 export async function installHandler(
 	argv: ArgumentsCamelCase<{
@@ -107,6 +108,17 @@ export async function installHandler(
 			force,
 		);
 		console.log("✔ Files generated");
+
+		// 5. Configure git ignore (if requested)
+		if (effectiveGitIgnore) {
+			console.log("\nStep 5: Configuring git ignore...");
+			const gitIgnoreResult = await executeGitIgnoreAction(
+				validatedPath,
+				effectiveGitIgnore,
+				agent,
+			);
+			console.log(`✔ ${gitIgnoreResult.message}`);
+		}
 
 		console.log("\n✔ Conductor initialized successfully!");
 	} catch (err) {
