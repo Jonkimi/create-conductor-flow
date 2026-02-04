@@ -1,5 +1,6 @@
 import select from "@inquirer/select";
 import { AgentType, InstallScope } from "../types.js";
+import type { GitIgnoreMethod } from "../utils/gitIgnore.js";
 
 export async function promptForInstallScope(
 	agent: AgentType,
@@ -52,6 +53,47 @@ export async function promptForAgent(): Promise<AgentType> {
 		choices: choices,
 		default: "opencode",
 		loop: true,
+	});
+
+	return answer;
+}
+
+/**
+ * Prompt user to configure git ignore settings.
+ * Returns the selected method or undefined to skip.
+ */
+export async function promptForGitIgnore(): Promise<
+	GitIgnoreMethod | undefined
+> {
+	const choices = [
+		{
+			name: "Add to .gitignore",
+			value: "gitignore" as const,
+			description: "Add Conductor entries to the project's .gitignore file",
+		},
+		{
+			name: "Add to .git/info/exclude",
+			value: "exclude" as const,
+			description:
+				"Add Conductor entries to .git/info/exclude (local only, not shared)",
+		},
+		{
+			name: "Remove existing entries",
+			value: "none" as const,
+			description:
+				"Remove Conductor entries from both .gitignore and .git/info/exclude",
+		},
+		{
+			name: "Don't configure git ignore",
+			value: undefined,
+			description: "Skip git ignore configuration",
+		},
+	];
+
+	const answer = await select<GitIgnoreMethod | undefined>({
+		message: "Configure git ignore for Conductor files?",
+		choices: choices,
+		default: undefined,
 	});
 
 	return answer;

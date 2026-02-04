@@ -1,5 +1,9 @@
 import { ArgumentsCamelCase } from "yargs";
-import { promptForAgent, promptForInstallScope } from "../cli/prompt.js";
+import {
+	promptForAgent,
+	promptForInstallScope,
+	promptForGitIgnore,
+} from "../cli/prompt.js";
 import { getGenerator } from "../generators/index.js";
 import { resolve } from "path";
 import select from "@inquirer/select";
@@ -46,13 +50,16 @@ export async function installHandler(
 		}
 		console.log(`✔ Selected scope: ${scope}`);
 
-		// 2.5. Validate git ignore flag with scope
-		let effectiveGitIgnore = argv.gitIgnore;
+		// 2.5. Determine git ignore method
+		let effectiveGitIgnore: GitIgnoreMethod | undefined = argv.gitIgnore;
 		if (argv.gitIgnore && scope === "global") {
 			console.warn(
 				"⚠ --git-ignore flag is only supported for project scope. Skipping git ignore configuration.",
 			);
 			effectiveGitIgnore = undefined;
+		} else if (!argv.gitIgnore && scope === "project") {
+			// Interactive prompt: ask user about git ignore when no flag and scope is project
+			effectiveGitIgnore = await promptForGitIgnore();
 		}
 
 		const generator = getGenerator(agent);
