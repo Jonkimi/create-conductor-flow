@@ -15,3 +15,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: CLI 添加 Qwen Code Coding Agent 支持**
   *Link: [./archive/qwen_code_support_20260203/](./archive/qwen_code_support_20260203/)* <!-- status: complete -->
+
+---
+
+- [~] **Track: CLI Git Ignore Configuration Option**
+*Link: [./tracks/git_ignore_config_20260203/](./tracks/git_ignore_config_20260203/)*
