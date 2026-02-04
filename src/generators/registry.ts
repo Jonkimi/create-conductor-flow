@@ -25,6 +25,6 @@ export const ALL_AGENT_CONFIGS: AgentConfig[] = [
 	kilocodeConfig,
 	rooCodeConfig,
 	qwenCodeConfig,
-	geminiConfig,
 	factoryDroidConfig,
+	geminiConfig,
 ];
