@@ -5,6 +5,7 @@ import { resolve } from "path";
 import select from "@inquirer/select";
 
 import { AgentType, InstallScope } from "../types.js";
+import type { GitIgnoreMethod } from "../utils/gitIgnore.js";
 
 export async function installHandler(
 	argv: ArgumentsCamelCase<{
@@ -13,6 +14,7 @@ export async function installHandler(
 		repo?: string;
 		branch?: string;
 		scope?: string;
+		gitIgnore?: GitIgnoreMethod;
 		force?: boolean;
 	}>,
 ): Promise<void> {
