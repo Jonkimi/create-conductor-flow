@@ -18,7 +18,7 @@ Originally developed for the Gemini CLI, the **Conductor** is now decoupled by t
 
 ## ✨ Key Features
 
--   **Universal AI Compatibility**: Works out-of-the-box with **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, **Qwen Code**, and **Gemini CLI**.
+-   **Universal AI Compatibility**: Works out-of-the-box with **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, **Qwen Code**, **Factory Droid**, and **Gemini CLI**.
 -   **Context Management**: Structured artifacts (`spec.md`, `plan.md`) keep your AI agent focused and context-aware.
 -   **Spec-Driven Development**: Define *what* you want before asking the AI *how* to build it.
 -   **Agent-Agnostic Workflows**: Switch between agents without losing project context or progress.
@@ -89,6 +89,7 @@ You will be prompted to select your AI Coding Agent:
 -   **Kilo Code**
 -   **Roo Code**
 -   **Qwen Code**
+-   **Factory Droid**
 -   **Gemini CLI**
 
 This will verify the environment and install the necessary Conductor files:
