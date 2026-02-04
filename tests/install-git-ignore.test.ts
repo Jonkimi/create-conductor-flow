@@ -18,6 +18,7 @@ describe("Install Command with --git-ignore flag", () => {
 		vi.resetAllMocks();
 		vi.spyOn(process, "exit").mockImplementation((() => {}) as any);
 		vi.spyOn(console, "log").mockImplementation(() => {});
+		vi.spyOn(console, "warn").mockImplementation(() => {});
 		vi.spyOn(console, "error").mockImplementation(() => {});
 		(generatorFactory.getGenerator as any).mockReturnValue(mockGenerator);
 		mockGenerator.validate.mockResolvedValue("/abs/path");
@@ -80,5 +81,63 @@ describe("Install Command with --git-ignore flag", () => {
 		await installHandler(mockArgv as any);
 
 		expect(mockGenerator.generate).toHaveBeenCalled();
+	});
+
+	describe("Scope validation", () => {
+		it("should display warning when --git-ignore is used with global scope", async () => {
+			vi.mocked(promptModule.promptForInstallScope).mockResolvedValue("global");
+
+			const mockArgv = {
+				path: ".",
+				agent: "codex", // Codex uses global scope
+				gitIgnore: "gitignore",
+				scope: "global",
+				_: [],
+				$0: "conductor",
+			};
+
+			await installHandler(mockArgv as any);
+
+			// Should display a warning about git ignore being ignored for global scope
+			expect(console.warn).toHaveBeenCalledWith(
+				expect.stringContaining("--git-ignore"),
+			);
+		});
+
+		it("should not display warning when --git-ignore is used with project scope", async () => {
+			const mockArgv = {
+				path: ".",
+				agent: "opencode",
+				gitIgnore: "gitignore",
+				scope: "project",
+				_: [],
+				$0: "conductor",
+			};
+
+			await installHandler(mockArgv as any);
+
+			// Should NOT display a warning for project scope
+			expect(console.warn).not.toHaveBeenCalledWith(
+				expect.stringContaining("--git-ignore"),
+			);
+		});
+
+		it("should continue installation even when git ignore is skipped for global scope", async () => {
+			vi.mocked(promptModule.promptForInstallScope).mockResolvedValue("global");
+
+			const mockArgv = {
+				path: ".",
+				agent: "codex",
+				gitIgnore: "exclude",
+				scope: "global",
+				_: [],
+				$0: "conductor",
+			};
+
+			await installHandler(mockArgv as any);
+
+			// Installation should still complete
+			expect(mockGenerator.generate).toHaveBeenCalled();
+		});
 	});
 });
