@@ -6,7 +6,7 @@
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install**은 **Gemini CLI 확장 프로그램 [Conductor](https://github.com/gemini-cli-extensions/conductor)**를 **모든** AI 코딩 에이전트 환경에 도입하는 범용 명령줄 도구입니다. **Claude Code**, **OpenCode**, **Cursor**, **Kilo Code** 및 기타 주요 AI 코딩 어시스턴트를 위해 **컨텍스트 우선의 진화된 사양 주도 개발**(context-first evolution of spec-driven development)을 활성화하십시오.
+**Conductor Install**은 `npx`를 통해 **모든** AI 코딩 에이전트를 위한 사양 주도형(spec-driven) 휴대용 **[Conductor](https://github.com/gemini-cli-extensions/conductor)** 워크플로우를 생성하는 **Conductor 스캐폴딩 CLI**입니다. 이는 **Claude Code**, **OpenCode**, **Cursor**, **Kilo Code** 및 기타 주요 AI 코딩 도우미를 위한 **[컨텍스트 우선의 사양 주도형 개발의 진화](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**를 가능하게 합니다.
 
 원래 Gemini CLI를 위해 개발된 **Conductor**는 이 프로젝트를 통해 분리되어 **개발자가 컨텍스트를 유지하고, 작업을 관리하며, 복잡한 기능을 조율할 수 있도록 지원합니다**. 이는 인간의 의도와 AI 실행 사이의 가교 역할을 하며, Agentic AI 시대에 "Context is King(컨텍스트가 왕)"임을 보장합니다.
 

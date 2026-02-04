@@ -1,7 +1,7 @@
 {
   "name": "conductor-install",
   "version": "0.6.4",
-  "description": "Conductor Scaffolding CLI - Generate spec-driven, portable Gemini Conductor workflows for any coding agent via npx.",
+  "description": "Conductor Scaffolding CLI - Generate spec-driven, portable Gemini Conductor workflows for any coding agent via npx",
   "license": "Apache-2.0",
   "keywords": [
     "conductor",
