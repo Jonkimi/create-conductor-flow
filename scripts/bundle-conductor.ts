@@ -16,8 +16,10 @@ async function main() {
 
 	// Check if src/templates exists
 	if (fs.existsSync(TEMPLATES_DIR)) {
-		console.log("Cleaning existing templates...");
-		await fs.remove(TEMPLATES_DIR);
+		// console.log("Cleaning existing templates...");
+		// await fs.remove(TEMPLATES_DIR);
+		console.log("dir src/conductor already exists, skip cloning.");
+		return;
 	}
 	await fs.ensureDir(TEMPLATES_DIR);
 

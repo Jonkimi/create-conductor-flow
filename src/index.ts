@@ -10,8 +10,12 @@ import { ALL_AGENT_CONFIGS } from "./generators/registry.js";
 import type { GitIgnoreMethod } from "./utils/gitIgnore.js";
 
 async function main() {
-	// Print the welcome banner unless suppressed
-	if (!process.env.CONDUCTOR_NO_BANNER) {
+	// Print the welcome banner unless suppressed or running completion command
+	if (
+		!process.env.CONDUCTOR_NO_BANNER &&
+		!process.argv.includes("completion") &&
+		!process.argv.includes("--get-yargs-completions")
+	) {
 		printInstallBanner();
 	}
 
@@ -76,10 +80,7 @@ async function main() {
 		})
 		.example("$0", "Install with interactive prompts")
 		.example("$0 --agent claude-code", "Install for Claude Code agent")
-		.example(
-			"$0 --git-ignore gitignore",
-			"Add Conductor files to .gitignore",
-		)
+		.example("$0 --git-ignore gitignore", "Add Conductor files to .gitignore")
 		.example(
 			"$0 --git-ignore exclude",
 			"Add Conductor files to .git/info/exclude",
@@ -89,10 +90,19 @@ async function main() {
 		.alias("h", "help")
 		.version()
 		.alias("v", "version")
+		.completion("completion", false)
 		.parseAsync();
 
 	// Get the path from positional argument (first non-option argument)
 	const pathArg = argv._[0] as string | undefined;
+
+	// Stop execution if we are just generating completion script or getting completions
+	if (
+		process.argv.includes("completion") ||
+		process.argv.includes("--get-yargs-completions")
+	) {
+		return;
+	}
 
 	// Execute the install handler with parsed arguments
 	await installHandler({
