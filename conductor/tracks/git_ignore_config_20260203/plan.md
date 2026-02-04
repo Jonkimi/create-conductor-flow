@@ -51,19 +51,19 @@
 
 ## Phase 4: Interactive Prompt
 
-- [~] Task: Write tests for interactive git ignore prompt
-    - [ ] Test: Prompt appears after scope selection when scope is `project`
-    - [ ] Test: Prompt does not appear when scope is `global`
-    - [ ] Test: Prompt does not appear when `--git-ignore` flag is provided
-    - [ ] Test: Each prompt option maps to correct action
+- [x] Task: Write tests for interactive git ignore prompt 233f77b
+    - [x] Test: Prompt appears after scope selection when scope is `project`
+    - [x] Test: Prompt does not appear when scope is `global`
+    - [x] Test: Prompt does not appear when `--git-ignore` flag is provided
+    - [x] Test: Each prompt option maps to correct action
 
-- [ ] Task: Implement interactive git ignore prompt
-    - [ ] Create prompt with options: `.gitignore`, `.git/info/exclude`, Remove existing, Don't configure
-    - [ ] Integrate prompt into install flow after scope selection
-    - [ ] Add condition to skip prompt when `--git-ignore` flag is present
-    - [ ] Add condition to skip prompt when scope is `global`
+- [x] Task: Implement interactive git ignore prompt de3b82b
+    - [x] Create prompt with options: `.gitignore`, `.git/info/exclude`, Remove existing, Don't configure
+    - [x] Integrate prompt into install flow after scope selection
+    - [x] Add condition to skip prompt when `--git-ignore` flag is present
+    - [x] Add condition to skip prompt when scope is `global`
 
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Interactive Prompt' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 4: Interactive Prompt' (Protocol in workflow.md)
 
 ## Phase 5: Git Ignore Action Execution
 
