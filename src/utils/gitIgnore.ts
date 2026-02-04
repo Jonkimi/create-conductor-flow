@@ -2,6 +2,7 @@ import { join } from "path";
 import { readFile, writeFile, access, mkdir } from "fs/promises";
 import { constants } from "fs";
 import { ALL_AGENT_CONFIGS } from "../generators/registry.js";
+import type { AgentType } from "../types.js";
 
 /**
  * Type for git ignore method
@@ -37,8 +38,34 @@ export interface RemoveEntriesResult {
 const CONDUCTOR_HEADER = "# Conductor";
 
 /**
+ * Get git ignore entries for a specific agent type.
+ * Returns the agent's directory and protocol filename.
+ */
+export function getGitIgnoreEntriesForAgent(agentType: AgentType): string[] {
+	const config = ALL_AGENT_CONFIGS.find((c) => c.agentType === agentType);
+	if (!config) {
+		return [];
+	}
+
+	const entries: string[] = [];
+
+	// Add agent directory
+	if (config.agentDir) {
+		entries.push(config.agentDir);
+	}
+
+	// Add protocol filename
+	if (config.protocolFilename) {
+		entries.push(config.protocolFilename);
+	}
+
+	return entries;
+}
+
+/**
  * Get all git ignore entries from the agent registry.
  * Returns a deduplicated list of agent directories and protocol files.
+ * @deprecated Use getGitIgnoreEntriesForAgent() for agent-specific entries
  */
 export function getGitIgnoreEntries(): string[] {
 	const entries = new Set<string>();

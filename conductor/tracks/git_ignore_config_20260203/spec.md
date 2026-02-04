@@ -33,23 +33,13 @@ Add a git ignore configuration feature to the `conductor-install` CLI that allow
 
 ### FR-3: Git Ignore Entries
 
-The following entries should be added to (or removed from) the selected git ignore file:
+Entries are determined by the **selected agent type**. Only the selected agent's configuration directory and protocol file will be added or removed. For example:
 
-**Agent-specific directories:**
-- `.kilocode/`
-- `.gemini`
-- `.roo`
-- `.qwen`
-- `.factory`
-- `.claude`
-- `.agent`
-- (and any other agent config directories defined in the registry)
+- Agent `claude-code` → entries: `.claude`, `CLAUDE.md`
+- Agent `gemini` → entries: `.gemini`, `GEMINI.md`
+- Agent `opencode` → entries: `.opencode`, `AGENTS.md`
 
-**Protocol files:**
-- `CLAUDE.md`
-- `GEMINI.md`
-- `AGENTS.md`
-- (and any other protocol files defined in the registry)
+The entries are derived from the agent's `agentDir` and `protocolFilename` properties in the registry.
 
 ### FR-4: Duplicate Entry Handling (for add operations)
 
@@ -78,16 +68,16 @@ The following entries should be added to (or removed from) the selected git igno
 
 ## Acceptance Criteria
 
-- [ ] `conductor-install --git-ignore gitignore` appends entries to `.gitignore` for project-scope installs
-- [ ] `conductor-install --git-ignore exclude` appends entries to `.git/info/exclude` for project-scope installs
-- [ ] `conductor-install --git-ignore none` removes Conductor entries from both `.gitignore` and `.git/info/exclude`
+- [ ] `conductor-install --git-ignore gitignore` appends selected agent's entries to `.gitignore` for project-scope installs
+- [ ] `conductor-install --git-ignore exclude` appends selected agent's entries to `.git/info/exclude` for project-scope installs
+- [ ] `conductor-install --git-ignore none` removes selected agent's entries from both `.gitignore` and `.git/info/exclude`
 - [ ] `conductor-install --git-ignore` (no value) defaults to `exclude`
 - [ ] `conductor-install` without `--git-ignore` takes no git ignore action
 - [ ] `--git-ignore` with global scope displays a warning and is ignored
 - [ ] Interactive prompt appears after scope selection for project-scope installs
 - [ ] Duplicate entries are detected and skipped with an informative message
 - [ ] Entry removal reports which entries were removed from which file
-- [ ] All agent directories and protocol files from the registry are included
+- [ ] Only the selected agent's `agentDir` and `protocolFilename` are used as entries
 
 ## Out of Scope
 

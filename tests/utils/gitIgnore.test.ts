@@ -4,6 +4,7 @@ import { mkdtemp, writeFile, readFile, mkdir, rm } from "fs/promises";
 import { tmpdir } from "os";
 import {
 	getGitIgnoreEntries,
+	getGitIgnoreEntriesForAgent,
 	checkEntriesExist,
 	appendEntries,
 	removeEntries,
@@ -21,7 +22,39 @@ describe("Git Ignore Utilities", () => {
 		await rm(tempDir, { recursive: true, force: true });
 	});
 
-	describe("getGitIgnoreEntries", () => {
+	describe("getGitIgnoreEntriesForAgent", () => {
+		it("should return agent directory and protocol file for claude-code", () => {
+			const entries = getGitIgnoreEntriesForAgent("claude-code");
+
+			expect(entries).toContain(".claude");
+			expect(entries).toContain("CLAUDE.md");
+			expect(entries).toHaveLength(2);
+		});
+
+		it("should return agent directory and protocol file for opencode", () => {
+			const entries = getGitIgnoreEntriesForAgent("opencode");
+
+			expect(entries).toContain(".opencode");
+			expect(entries).toContain("AGENTS.md");
+			expect(entries).toHaveLength(2);
+		});
+
+		it("should return agent directory and protocol file for gemini", () => {
+			const entries = getGitIgnoreEntriesForAgent("gemini");
+
+			expect(entries).toContain(".gemini");
+			expect(entries).toContain("GEMINI.md");
+			expect(entries).toHaveLength(2);
+		});
+
+		it("should return empty array for unknown agent type", () => {
+			const entries = getGitIgnoreEntriesForAgent("unknown-agent" as any);
+
+			expect(entries).toEqual([]);
+		});
+	});
+
+	describe("getGitIgnoreEntries (deprecated)", () => {
 		it("should return a list of agent directories and protocol files from the registry", () => {
 			const entries = getGitIgnoreEntries();
 
