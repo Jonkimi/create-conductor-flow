@@ -1,12 +1,5 @@
 #!/usr/bin/env node
-/**
- * conductor-install - Direct install command for Conductor
- *
- * This entry point allows users to run `npx conductor-install` directly
- * without needing to specify the `install` subcommand.
- *
- * It accepts all the same arguments as `conductor install`.
- */
+
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { installHandler } from "./commands/install.js";

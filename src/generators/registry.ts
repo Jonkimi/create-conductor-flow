@@ -14,6 +14,7 @@ import { qwenCodeConfig } from "./qwencode/config.js";
 import { factoryDroidConfig } from "./factorydroid/config.js";
 
 export const ALL_AGENT_CONFIGS: AgentConfig[] = [
+	// help command output agent order
 	opencodeConfig,
 	claudeCodeConfig,
 	antigravityConfig,
