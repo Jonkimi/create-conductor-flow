@@ -28,12 +28,12 @@
     - [x] Test: No `--git-ignore` flag results in no action
     - [x] Test: Invalid value shows error message
 
-- [~] Task: Implement `--git-ignore` flag in yargs configuration
-    - [ ] Add `--git-ignore` option with choices: `gitignore`, `exclude`, `none`
-    - [ ] Configure default value as `exclude` when flag is present without value
-    - [ ] Add flag description for help output
+- [x] Task: Implement `--git-ignore` flag in yargs configuration 01d2960
+    - [x] Add `--git-ignore` option with choices: `gitignore`, `exclude`, `none`
+    - [x] Configure default value as `exclude` when flag is present without value
+    - [x] Add flag description for help output
 
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: CLI Flag Integration' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 2: CLI Flag Integration' (Protocol in workflow.md)
 
 ## Phase 3: Scope Validation and Warning
 
