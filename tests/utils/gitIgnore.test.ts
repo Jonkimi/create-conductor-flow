@@ -3,7 +3,6 @@ import { join } from "path";
 import { mkdtemp, writeFile, readFile, mkdir, rm } from "fs/promises";
 import { tmpdir } from "os";
 import {
-	getGitIgnoreEntries,
 	getGitIgnoreEntriesForAgent,
 	checkEntriesExist,
 	appendEntries,
@@ -48,39 +47,10 @@ describe("Git Ignore Utilities", () => {
 		});
 
 		it("should return empty array for unknown agent type", () => {
-			const entries = getGitIgnoreEntriesForAgent("unknown-agent" as any);
+			// @ts-expect-error Testing invalid agent type
+			const entries = getGitIgnoreEntriesForAgent("unknown-agent");
 
 			expect(entries).toEqual([]);
-		});
-	});
-
-	describe("getGitIgnoreEntries (deprecated)", () => {
-		it("should return a list of agent directories and protocol files from the registry", () => {
-			const entries = getGitIgnoreEntries();
-
-			// Should include known agent directories
-			expect(entries).toContain(".claude");
-			expect(entries).toContain(".gemini");
-			expect(entries).toContain(".roo");
-			expect(entries).toContain(".qwen");
-			expect(entries).toContain(".factory");
-			expect(entries).toContain(".agent");
-
-			// Should include known protocol files
-			expect(entries).toContain("CLAUDE.md");
-			expect(entries).toContain("GEMINI.md");
-			expect(entries).toContain("AGENTS.md");
-
-			// Should not have duplicates
-			const uniqueEntries = [...new Set(entries)];
-			expect(entries.length).toBe(uniqueEntries.length);
-		});
-
-		it("should include entries for all registered agents", () => {
-			const entries = getGitIgnoreEntries();
-
-			// Should have entries (at least agent dirs + protocol files)
-			expect(entries.length).toBeGreaterThan(0);
 		});
 	});
 

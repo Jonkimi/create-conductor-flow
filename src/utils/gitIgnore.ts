@@ -63,29 +63,6 @@ export function getGitIgnoreEntriesForAgent(agentType: AgentType): string[] {
 }
 
 /**
- * Get all git ignore entries from the agent registry.
- * Returns a deduplicated list of agent directories and protocol files.
- * @deprecated Use getGitIgnoreEntriesForAgent() for agent-specific entries
- */
-export function getGitIgnoreEntries(): string[] {
-	const entries = new Set<string>();
-
-	for (const config of ALL_AGENT_CONFIGS) {
-		// Add agent directory
-		if (config.agentDir) {
-			entries.add(config.agentDir);
-		}
-
-		// Add protocol filename
-		if (config.protocolFilename) {
-			entries.add(config.protocolFilename);
-		}
-	}
-
-	return Array.from(entries);
-}
-
-/**
  * Normalize an entry for comparison (remove trailing slashes)
  */
 function normalizeEntry(entry: string): string {

@@ -74,6 +74,17 @@ async function main() {
 			type: "boolean",
 			default: false,
 		})
+		.example("$0", "Install with interactive prompts")
+		.example("$0 --agent claude-code", "Install for Claude Code agent")
+		.example(
+			"$0 --git-ignore gitignore",
+			"Add Conductor files to .gitignore",
+		)
+		.example(
+			"$0 --git-ignore exclude",
+			"Add Conductor files to .git/info/exclude",
+		)
+		.example("$0 --git-ignore none", "Remove Conductor entries from git ignore")
 		.help()
 		.alias("h", "help")
 		.version()

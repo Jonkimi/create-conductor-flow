@@ -92,7 +92,7 @@ export async function promptForGitIgnore(): Promise<
 
 	const answer = await select<GitIgnoreMethod | undefined>({
 		message: "Configure git ignore for Conductor files?",
-		choices: choices,
+		choices,
 		default: undefined,
 	});
 

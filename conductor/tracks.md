@@ -18,5 +18,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: CLI Git Ignore Configuration Option**
-*Link: [./tracks/git_ignore_config_20260203/](./tracks/git_ignore_config_20260203/)*
+- [x] **Track: CLI Git Ignore Configuration Option**
+*Link: [./tracks/git_ignore_config_20260203/](./tracks/git_ignore_config_20260203/)* <!-- status: complete -->
