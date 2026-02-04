@@ -46,6 +46,15 @@ export async function installHandler(
 		}
 		console.log(`✔ Selected scope: ${scope}`);
 
+		// 2.5. Validate git ignore flag with scope
+		let effectiveGitIgnore = argv.gitIgnore;
+		if (argv.gitIgnore && scope === "global") {
+			console.warn(
+				"⚠ --git-ignore flag is only supported for project scope. Skipping git ignore configuration.",
+			);
+			effectiveGitIgnore = undefined;
+		}
+
 		const generator = getGenerator(agent);
 
 		// 3. Validate (with force option handling)
