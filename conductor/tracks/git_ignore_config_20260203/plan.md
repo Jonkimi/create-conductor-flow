@@ -20,15 +20,15 @@
 
 ## Phase 2: CLI Flag Integration
 
-- [ ] Task: Write tests for `--git-ignore` flag parsing
-    - [ ] Test: `--git-ignore gitignore` sets method to `gitignore`
-    - [ ] Test: `--git-ignore exclude` sets method to `exclude`
-    - [ ] Test: `--git-ignore none` sets method to `none`
-    - [ ] Test: `--git-ignore` without value defaults to `exclude`
-    - [ ] Test: No `--git-ignore` flag results in no action
-    - [ ] Test: Invalid value shows error message
+- [x] Task: Write tests for `--git-ignore` flag parsing 267892b
+    - [x] Test: `--git-ignore gitignore` sets method to `gitignore`
+    - [x] Test: `--git-ignore exclude` sets method to `exclude`
+    - [x] Test: `--git-ignore none` sets method to `none`
+    - [x] Test: `--git-ignore` without value defaults to `exclude`
+    - [x] Test: No `--git-ignore` flag results in no action
+    - [x] Test: Invalid value shows error message
 
-- [ ] Task: Implement `--git-ignore` flag in yargs configuration
+- [~] Task: Implement `--git-ignore` flag in yargs configuration
     - [ ] Add `--git-ignore` option with choices: `gitignore`, `exclude`, `none`
     - [ ] Configure default value as `exclude` when flag is present without value
     - [ ] Add flag description for help output
