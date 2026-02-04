@@ -20,3 +20,14 @@
 - **Single Static Binary:** The product will be distributed as a statically compiled Rust binary to ensure it works immediately in any environment without dependency hell (no Python venvs, no Node_modules).
 - **Fast Startup:** Execution must be near-instantaneous. High latency is unacceptable as it compounds when called repeatedly inside agent loops.
 - **Small Footprint:** The tool should minimize its impact on the target system's disk space and file clutter.
+
+## CLI Testing
+- **Isolated Test Directories:** Use temporary directories (`mkdtemp` or `tmp-<test-case>`) for each test to ensure isolation. Clean up after tests complete.
+- **Suppress Banner Output:** Set `CONDUCTOR_NO_BANNER=1` environment variable to suppress ASCII art banner for cleaner test output and parsing.
+- **Non-Interactive Mode:** Use `--force` flag and explicit CLI arguments to bypass interactive prompts in automated tests.
+- **Git Repository Setup:** Initialize git repos (`git init`) in test directories when testing features that require a git context (e.g., `.git/info/exclude`).
+- **Test Command Pattern:**
+  ```bash
+  CONDUCTOR_NO_BANNER=1 node dist/index.js <test-dir> --agent <agent> --scope project --force
+  ```
+- **Cleanup:** Always remove temporary test directories after tests, even on failure (`rm -rf` or `rmSync` with `force: true`).
