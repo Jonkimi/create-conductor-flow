@@ -1,10 +1,12 @@
 {
   "name": "conductor-install",
   "version": "0.6.1",
-  "description": "Conductor spec-driven development setup CLI - Install Gemini Conductor to any coding agent with npx conductor-install",
+  "description": "Gemini Conductor Scaffolding CLI - Generate spec-driven workflows for any coding agent via npx.",
   "license": "Apache-2.0",
   "keywords": [
     "conductor",
+    "gemini-conductor",
+    "gemini",
     "context-driven-development",
     "spec-driven-development",
     "slash-commands",
@@ -21,7 +23,9 @@
     "kilo-code",
     "qwen-code",
     "gemini-cli-extensions",
-    "coding-agent"
+    "coding-agent",
+    "sdd",
+    "cdd"
   ],
   "repository": {
     "type": "git",
