@@ -18,7 +18,7 @@
 
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Core Git Ignore Utility Module' (Protocol in workflow.md)
 
-## Phase 2: CLI Flag Integration
+## Phase 2: CLI Flag Integration [checkpoint: bc1f0e8]
 
 - [x] Task: Write tests for `--git-ignore` flag parsing 267892b
     - [x] Test: `--git-ignore gitignore` sets method to `gitignore`
@@ -33,7 +33,7 @@
     - [x] Configure default value as `exclude` when flag is present without value
     - [x] Add flag description for help output
 
-- [~] Task: Conductor - User Manual Verification 'Phase 2: CLI Flag Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: CLI Flag Integration' (Protocol in workflow.md)
 
 ## Phase 3: Scope Validation and Warning
 
