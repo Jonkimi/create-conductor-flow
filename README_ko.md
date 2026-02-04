@@ -19,7 +19,7 @@
 
 ## ✨ 주요 기능
 
--   **범용 AI 호환성**: **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, **Qwen Code** 및 **Gemini CLI**와 즉시 연동됩니다.
+-   **범용 AI 호환성**: **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, **Qwen Code**, **Factory Droid** 및 **Gemini CLI**와 즉시 연동됩니다.
 -   **컨텍스트 관리**: 구조화된 아티팩트(`spec.md`, `plan.md`)는 AI 에이전트가 집중하고 컨텍스트를 인식하도록 유지합니다.
 -   **사양 기반 개발**: AI에게 *어떻게* 구축할지 묻기 전에 *무엇을* 원하는지 정의하십시오.
 -   **에이전트 불가지론적 워크플로우**: 프로젝트 컨텍스트나 진행 상황을 잃지 않고 에이전트 간에 전환할 수 있습니다.
@@ -78,6 +78,7 @@ AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
 -   **Kilo Code**
 -   **Roo Code**
 -   **Qwen Code**
+-   **Factory Droid**
 -   **Gemini CLI**
 
 이 작업은 환경을 확인하고 필요한 Conductor 파일을 설치합니다:
