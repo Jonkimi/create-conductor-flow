@@ -134,7 +134,7 @@ describe("ConfigurableGenerator", () => {
 				"custom.toml",
 			]);
 			vi.mocked(fs.existsSync).mockImplementation((p) => {
-				if (typeof p === "string" && p.includes("commands/conductor"))
+				if (typeof p === "string" && p.includes(join("commands", "conductor")))
 					return true;
 				return false;
 			});
@@ -144,7 +144,7 @@ describe("ConfigurableGenerator", () => {
 			const expectedCommands = ["setup", "newTrack", "custom"];
 			for (const cmd of expectedCommands) {
 				expect(loadTemplate).toHaveBeenCalledWith(
-					`commands/conductor/${cmd}.toml`,
+					join("commands", "conductor", `${cmd}.toml`),
 					"/mock/template/root",
 				);
 			}
@@ -157,7 +157,7 @@ describe("ConfigurableGenerator", () => {
 			// Mock readdir to return empty or fail
 			vi.mocked(fs.readdir).mockImplementation(async () => []);
 			(fs.existsSync as ReturnType<typeof vi.fn>).mockImplementation((p) => {
-				if (typeof p === "string" && p.includes("commands/conductor"))
+				if (typeof p === "string" && p.includes(join("commands", "conductor")))
 					return true;
 				return false;
 			});
@@ -175,7 +175,7 @@ describe("ConfigurableGenerator", () => {
 			];
 			for (const cmd of expectedCommands) {
 				expect(loadTemplate).toHaveBeenCalledWith(
-					`commands/conductor/${cmd}.toml`,
+					join("commands", "conductor", `${cmd}.toml`),
 					"/mock/template/root",
 				);
 			}

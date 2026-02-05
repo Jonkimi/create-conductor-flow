@@ -147,12 +147,12 @@ source ~/.bashrc
 
 安装完成后，你可以指示你的 AI 代理使用安装的命令执行 Conductor 任务。例如：
 
--   `/conductor:setup` - 初始化项目结构。
--   `/conductor:newTrack` - 开始一个新的功能或错误修复轨道。
--   `/conductor:implement` - 实现选定的轨道。
--   `/conductor:review` - 根据指南和计划审查已完成的轨道工作。
--   `/conductor:revert` - 恢复以前的工作。
--   `/conductor:status` - 检查当前轨道的状态。
+-   `/conductor-setup` - 初始化项目结构。
+-   `/conductor-newTrack` - 开始一个新的功能或错误修复轨道。
+-   `/conductor-implement` - 实现选定的轨道。
+-   `/conductor-review` - 根据指南和计划审查已完成的轨道工作。
+-   `/conductor-revert` - 恢复以前的工作。
+-   `/conductor-status` - 检查当前轨道的状态。
 
 *注意：确切的调用语法取决于你的特定代理的斜杠命令或文件上下文功能。*
 

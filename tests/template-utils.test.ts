@@ -171,7 +171,12 @@ describe("Template Substitution", () => {
 			);
 			expect(content).toContain('description = "Scaffolds the project');
 			expect(fsPromises.readFile).toHaveBeenCalledWith(
-				"/mock/root/commands/conductor/setup.toml",
+				require("path").join(
+					"/mock/root",
+					"commands",
+					"conductor",
+					"setup.toml",
+				),
 				"utf-8",
 			);
 		});

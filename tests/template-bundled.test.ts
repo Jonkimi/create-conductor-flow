@@ -79,7 +79,7 @@ describe("Bundled Templates", () => {
 			);
 			expect(content).toBe("content");
 			expect(fsPromises.readFile).toHaveBeenCalledWith(
-				"/mock/bundled/root/commands/foo.toml",
+				path.join("/mock/bundled/root", "commands", "foo.toml"),
 				"utf-8",
 			);
 		});

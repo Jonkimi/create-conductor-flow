@@ -139,7 +139,7 @@ export class ConfigurableGenerator implements AgentGenerator {
 		for (const cmd of commands) {
 			try {
 				const tomlContent = await loadTemplate(
-					`commands/conductor/${cmd}.toml`,
+					join("commands", "conductor", `${cmd}.toml`),
 					templateRoot,
 				);
 

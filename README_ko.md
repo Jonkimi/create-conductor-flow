@@ -141,12 +141,12 @@ source ~/.bashrc
 
 설치가 완료되면 설치된 명령을 사용하여 AI 에이전트에게 Conductor 작업을 수행하도록 지시할 수 있습니다. 예를 들어:
 
--   `/conductor:setup` - 프로젝트 구조를 초기화합니다.
--   `/conductor:newTrack` - 새로운 기능 또는 버그 수정 트랙을 시작합니다.
--   `/conductor:implement` - 선택한 트랙을 구현합니다.
--   `/conductor:review` - 지침 및 계획에 대해 완료된 트랙 작업을 검토합니다.
--   `/conductor:revert` - 이전 작업을 되돌립니다.
--   `/conductor:status` - 현재 트랙의 상태를 확인합니다.
+-   `/conductor-setup` - 프로젝트 구조를 초기화합니다.
+-   `/conductor-newTrack` - 새로운 기능 또는 버그 수정 트랙을 시작합니다.
+-   `/conductor-implement` - 선택한 트랙을 구현합니다.
+-   `/conductor-review` - 지침 및 계획에 대해 완료된 트랙 작업을 검토합니다.
+-   `/conductor-revert` - 이전 작업을 되돌립니다.
+-   `/conductor-status` - 현재 트랙의 상태를 확인합니다.
 
 *참고: 정확한 호출 구문은 특정 에이전트의 슬래시 명령 또는 파일 컨텍스트 기능에 따라 다릅니다.*
 

@@ -141,12 +141,12 @@ source ~/.bashrc
 
 インストールが完了すると、インストールされたコマンドを使用して Conductor タスクを実行するように AI エージェントに指示できます。例えば：
 
--   `/conductor:setup` - プロジェクト構造を初期化します。
--   `/conductor:newTrack` - 新しい機能またはバグ修正トラックを開始します。
--   `/conductor:implement` - 選択したトラックを実装します。
--   `/conductor:review` - 完了したトラックの作業をガイドラインと計画に照らしてレビューします。
--   `/conductor:revert` - 以前の作業を元に戻します。
--   `/conductor:status` - 現在のトラックのステータスを確認します。
+-   `/conductor-setup` - プロジェクト構造を初期化します。
+-   `/conductor-newTrack` - 新しい機能またはバグ修正トラックを開始します。
+-   `/conductor-implement` - 選択したトラックを実装します。
+-   `/conductor-review` - 完了したトラックの作業をガイドラインと計画に照らしてレビューします。
+-   `/conductor-revert` - 以前の作業を元に戻します。
+-   `/conductor-status` - 現在のトラックのステータスを確認します。
 
 *注：正確な呼び出し構文は、特定のエージェントのスラッシュコマンドまたはファイルコンテキスト機能によって異なります。*
 
