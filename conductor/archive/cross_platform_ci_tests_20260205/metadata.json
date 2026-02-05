@@ -1,0 +1,8 @@
+{
+    "track_id": "cross_platform_ci_tests_20260205",
+    "type": "chore",
+    "status": "new",
+    "created_at": "2026-02-05T00:28:12-04:00",
+    "updated_at": "2026-02-05T00:28:12-04:00",
+    "description": "github ci needs to execute cross-platform unit tests"
+}

@@ -24,7 +24,4 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] **Track: Workflow File Overwrite Check**
 *Link: [./archive/workflow_overwrite_20260204/](./archive/workflow_overwrite_20260204/)* <!-- status: complete -->
 
----
 
-- [x] **Track: github ci needs to execute cross-platform unit tests**
-*Link: [./tracks/cross_platform_ci_tests_20260205/](./tracks/cross_platform_ci_tests_20260205/)*
