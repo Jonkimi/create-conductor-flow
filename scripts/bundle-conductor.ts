@@ -3,6 +3,7 @@ import fs from "fs-extra";
 import { join } from "path";
 import { fileURLToPath } from "url";
 import { DEFAULT_REPO, DEFAULT_BRANCH } from "../src/utils/template.js";
+import { CONDUCTOR_FILE_PREFIX } from "../src/generators/constants.js";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -68,7 +69,7 @@ export async function processConductorFiles(dir: string) {
 			// 1. Rename file if it contains colon
 			let currentPath = fullPath;
 			if (item.includes("conductor:")) {
-				const newItem = item.replace(/conductor:/g, "conductor-");
+				const newItem = item.replace(/conductor:/g, CONDUCTOR_FILE_PREFIX);
 				const newPath = join(dir, newItem);
 				await fs.move(currentPath, newPath);
 				currentPath = newPath;
@@ -79,7 +80,10 @@ export async function processConductorFiles(dir: string) {
 			try {
 				const content = await fs.readFile(currentPath, "utf-8");
 				if (content.includes("/conductor:")) {
-					const newContent = content.replace(/\/conductor:/g, "/conductor-");
+					const newContent = content.replace(
+						/\/conductor:/g,
+						`/${CONDUCTOR_FILE_PREFIX}`,
+					);
 					await fs.writeFile(currentPath, newContent, "utf-8");
 				}
 			} catch (error) {

@@ -10,6 +10,8 @@ import type {
 	FileStrategyOptions,
 } from "../types.js";
 
+import { CONDUCTOR_FILE_PREFIX } from "../constants.js";
+
 export class DefaultContentStrategy implements ContentStrategy {
 	process(
 		templateContent: string,
@@ -48,7 +50,7 @@ export class DefaultFileStrategy implements FileStrategy {
 			extension,
 			content,
 		} = options;
-		const fileName = `conductor-${commandName}${extension}`;
+		const fileName = `${CONDUCTOR_FILE_PREFIX}${commandName}${extension}`;
 		await writeFile(join(targetDir, agentDir, commandsDir, fileName), content);
 	}
 }

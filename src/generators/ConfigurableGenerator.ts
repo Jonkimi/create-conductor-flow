@@ -10,6 +10,8 @@ import {
 	defaultFileStrategy,
 } from "./default/index.js";
 
+import { CONDUCTOR_FILE_PREFIX } from "./constants.js";
+
 const { existsSync, ensureDir, copy } = fs;
 
 /**
@@ -27,7 +29,7 @@ export class ConfigurableGenerator implements AgentGenerator {
 		const { agentDir, commandsDir, displayName, extension, usesPrefix } =
 			this.config;
 		const ext = extension || ".md";
-		const prefix = usesPrefix !== false ? "conductor-" : "";
+		const prefix = usesPrefix !== false ? CONDUCTOR_FILE_PREFIX : "";
 		const setupFileName = `${prefix}setup${ext}`;
 		const setupFile = join(targetDir, agentDir, commandsDir, setupFileName);
 		const conductorPath = join(targetDir, agentDir, "conductor");

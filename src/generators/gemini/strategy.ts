@@ -42,7 +42,7 @@ export class GeminiFileStrategy implements FileStrategy {
 			extension,
 			content,
 		} = options;
-		// For Gemini, we remove the 'conductor-' prefix as per new spec
+		// For Gemini, we remove the prefix (default 'conductor-') as per new spec
 		const fileName = `${commandName}${extension}`;
 		await writeFile(join(targetDir, agentDir, commandsDir, fileName), content);
 	}
