@@ -20,3 +20,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 *Link: [./archive/git_ignore_config_20260203/](./archive/git_ignore_config_20260203/)* <!-- status: complete -->
 
 ---
+
+- [x] **Track: Workflow File Overwrite Check**
+*Link: [./tracks/workflow_overwrite_20260204/](./tracks/workflow_overwrite_20260204/)*
