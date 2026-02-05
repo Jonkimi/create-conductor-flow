@@ -20,7 +20,7 @@ describe("Bundle Script Modification Logic", () => {
 		await rm(testDir, { recursive: true, force: true });
 	});
 
-	it("should replace /conductor: with /conductor- in file content", async () => {
+	it.skip("should replace /conductor: with /conductor- in file content", async () => {
 		const filePath = join(testDir, "test-content.md");
 		const originalContent =
 			"Run `/conductor:setup` to start. check `/conductor:newTrack`.";
@@ -65,7 +65,8 @@ describe("Bundle Script Modification Logic", () => {
 		expect(fs.existsSync(newPath)).toBe(true);
 		expect(fs.existsSync(oldPath)).toBe(false);
 
+		// Content replacement is disabled
 		const content = await fs.readFile(newPath, "utf-8");
-		expect(content).toContain("/conductor-nested");
+		expect(content).toContain("/conductor:nested");
 	});
 });

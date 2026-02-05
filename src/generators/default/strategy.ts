@@ -30,6 +30,11 @@ export class DefaultContentStrategy implements ContentStrategy {
 			/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g,
 			installPath,
 		);
+
+		// Replace 'conductor:' with 'conductor-' (or configured prefix)
+		// This ensures generated files for agents use the correct command prefix
+		prompt = prompt.replace(/\/conductor:/g, `/${CONDUCTOR_FILE_PREFIX}`);
+
 		const finalContent = substituteVariables(prompt, { agent_type: agentType });
 
 		if (parsed.description) {

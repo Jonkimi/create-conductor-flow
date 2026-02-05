@@ -76,20 +76,20 @@ export async function processConductorFiles(dir: string) {
 			}
 
 			// 2. Replace content
-			// Skip binary files if necessary, but for now assume text or acceptable files
+			// Skip content replacement for now to preserve 'conductor:' in Gemini TOML files.
+			// Replacement will be handled dynamically in generators if needed.
+			/*
 			try {
 				const content = await fs.readFile(currentPath, "utf-8");
 				if (content.includes("/conductor:")) {
-					const newContent = content.replace(
-						/\/conductor:/g,
-						`/${CONDUCTOR_FILE_PREFIX}`,
-					);
+					const newContent = content.replace(/\/conductor:/g, `/${CONDUCTOR_FILE_PREFIX}`);
 					await fs.writeFile(currentPath, newContent, "utf-8");
 				}
 			} catch (error) {
 				// Ignore errors for non-text files or read errors
 				// console.warn(`Could not process content of ${currentPath}:`, error);
 			}
+			*/
 		}
 	}
 }
