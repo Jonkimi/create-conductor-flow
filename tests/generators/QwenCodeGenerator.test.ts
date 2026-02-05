@@ -71,6 +71,7 @@ description = "Missing prompt"
 import { QwenCodeGenerator } from "../../src/generators/qwencode/index.js";
 import fs from "fs-extra";
 import { vi, beforeEach } from "vitest";
+import { join } from "path";
 
 vi.mock("fs-extra");
 
@@ -132,7 +133,7 @@ describe("QwenCodeGenerator", () => {
 			await generator.generate(targetDir);
 
 			expect(fs.ensureDir).toHaveBeenCalledWith(
-				expect.stringContaining(".qwen/commands"),
+				expect.stringContaining(join(".qwen", "commands")),
 			);
 			expect(fs.writeFile).toHaveBeenCalled();
 		});

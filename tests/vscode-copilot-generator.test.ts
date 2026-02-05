@@ -35,22 +35,24 @@ describe("VSCodeCopilotGenerator", () => {
 
 		// Verify directories created
 		expect(fs.ensureDir).toHaveBeenCalledWith(
-			join(targetDir, ".github/prompts"),
+			join(targetDir, ".github", "prompts"),
 		);
 		expect(fs.ensureDir).toHaveBeenCalledWith(
-			join(targetDir, ".github/conductor"),
+			join(targetDir, ".github", "conductor"),
 		);
 
 		// Verify templates copied
 		expect(fs.copy).toHaveBeenCalledWith(
 			join("/mock/templates", "templates"),
-			join(targetDir, ".github/conductor/templates"),
+			join(targetDir, ".github", "conductor", "templates"),
 		);
 
 		// Verify file written with correct extension and content
 		const expectedFile = join(
 			targetDir,
-			".github/prompts/conductor-setup.prompt.md",
+			".github",
+			"prompts",
+			"conductor-setup.prompt.md",
 		);
 		expect(fs.writeFile).toHaveBeenCalledWith(
 			expectedFile,

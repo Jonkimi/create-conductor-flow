@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { RooCodeGenerator } from "../../src/generators/roocode/index.js";
 import fs from "fs-extra";
+import { join } from "path";
 
 vi.mock("fs-extra");
 
@@ -62,7 +63,7 @@ describe("RooCodeGenerator", () => {
 			await generator.generate(targetDir);
 
 			expect(fs.ensureDir).toHaveBeenCalledWith(
-				expect.stringContaining(".roo/commands"),
+				expect.stringContaining(join(".roo", "commands")),
 			);
 			expect(fs.writeFile).toHaveBeenCalled();
 		});

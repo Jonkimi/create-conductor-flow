@@ -55,6 +55,7 @@ prompt = "Agent type is {agent_type}"
 
 import { FactoryDroidGenerator } from "../../src/generators/factorydroid/index.js";
 import fs from "fs-extra";
+import { join } from "path";
 
 vi.mock("fs-extra");
 
@@ -108,7 +109,7 @@ describe("FactoryDroidGenerator", () => {
 			await generator.generate(targetDir);
 
 			expect(fs.ensureDir).toHaveBeenCalledWith(
-				expect.stringContaining(".factory/commands"),
+				expect.stringContaining(join(".factory", "commands")),
 			);
 			expect(fs.writeFile).toHaveBeenCalled();
 		});

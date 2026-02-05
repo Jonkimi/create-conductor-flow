@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { KiloCodeGenerator } from "../../src/generators/index.js";
 import fs from "fs-extra";
+import { join } from "path";
 
 vi.mock("fs-extra");
 
@@ -62,7 +63,7 @@ describe("KiloCodeGenerator", () => {
 			await generator.generate(targetDir);
 
 			expect(fs.ensureDir).toHaveBeenCalledWith(
-				expect.stringContaining(".kilocode/workflows"),
+				expect.stringContaining(join(".kilocode", "workflows")),
 			);
 			expect(fs.writeFile).toHaveBeenCalled();
 		});

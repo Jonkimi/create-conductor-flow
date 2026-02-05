@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { ClineGenerator } from "../../src/generators/index.js";
 import fs from "fs-extra";
+import { join } from "path";
 
 vi.mock("fs-extra");
 
@@ -58,7 +59,7 @@ describe("ClineGenerator", () => {
 			await generator.generate(targetDir);
 
 			expect(fs.ensureDir).toHaveBeenCalledWith(
-				expect.stringContaining(".clinerules/workflows"),
+				expect.stringContaining(join(".clinerules", "workflows")),
 			);
 			expect(fs.writeFile).toHaveBeenCalled();
 		});

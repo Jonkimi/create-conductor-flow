@@ -65,7 +65,7 @@ describe("Bundled Templates", () => {
 
 		it("should return cache dir if repo provided", async () => {
 			const root = await getTemplateRoot("https://repo.com", "dev");
-			expect(root).toContain(".gemini/cache/conductor");
+			expect(root).toContain(path.join(".gemini", "cache", "conductor"));
 		});
 	});
 

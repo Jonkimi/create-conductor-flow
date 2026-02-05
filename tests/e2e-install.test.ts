@@ -75,10 +75,12 @@ describe("E2E Installation", () => {
 
 		await installHandler({ path: testDir, _: [], $0: "conductor" } as any);
 
-		expect(fs.existsSync(join(testDir, ".gemini/conductor"))).toBe(true);
+		expect(fs.existsSync(join(testDir, ".gemini", "conductor"))).toBe(true);
 		// Gemini commands extension is .toml
 		expect(
-			fs.existsSync(join(testDir, ".gemini/commands/conductor/setup.toml")),
+			fs.existsSync(
+				join(testDir, ".gemini", "commands", "conductor", "setup.toml"),
+			),
 		).toBe(true);
 		expect(fs.existsSync(join(testDir, "GEMINI.md"))).toBe(true);
 	});

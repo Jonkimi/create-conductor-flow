@@ -1,75 +1,81 @@
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { CursorGenerator } from "../../src/generators/index.js";
+import fs from "fs-extra";
+import { join } from "path";
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { CursorGenerator } from '../../src/generators/index.js';
-import fs from 'fs-extra';
+vi.mock("fs-extra");
 
-vi.mock('fs-extra');
-
-vi.mock('../../src/utils/template.js', async (importOriginal) => {
-    const actual = await importOriginal() as Record<string, unknown>;
-    return {
-        ...actual,
-        loadTemplate: vi.fn(),
-        getTemplateRoot: vi.fn(),
-    };
+vi.mock("../../src/utils/template.js", async (importOriginal) => {
+	const actual = (await importOriginal()) as Record<string, unknown>;
+	return {
+		...actual,
+		loadTemplate: vi.fn(),
+		getTemplateRoot: vi.fn(),
+	};
 });
 
-import { loadTemplate, getTemplateRoot } from '../../src/utils/template.js';
+import { loadTemplate, getTemplateRoot } from "../../src/utils/template.js";
 
-describe('CursorGenerator', () => {
-    let generator: CursorGenerator;
-    const targetDir = '/mock/target';
+describe("CursorGenerator", () => {
+	let generator: CursorGenerator;
+	const targetDir = "/mock/target";
 
-    beforeEach(() => {
-        vi.resetAllMocks();
-        generator = new CursorGenerator();
-        (getTemplateRoot as ReturnType<typeof vi.fn>).mockResolvedValue('/mock/template/root');
-        (fs.existsSync as ReturnType<typeof vi.fn>).mockReturnValue(false);
-    });
+	beforeEach(() => {
+		vi.resetAllMocks();
+		generator = new CursorGenerator();
+		(getTemplateRoot as ReturnType<typeof vi.fn>).mockResolvedValue(
+			"/mock/template/root",
+		);
+		(fs.existsSync as ReturnType<typeof vi.fn>).mockReturnValue(false);
+	});
 
-    describe('validate', () => {
-        it('should return targetDir if valid', async () => {
-            (fs.existsSync as ReturnType<typeof vi.fn>).mockImplementation(
-                (path: string) => path === targetDir
-            );
-            await expect(generator.validate(targetDir)).resolves.toBe(targetDir);
-        });
+	describe("validate", () => {
+		it("should return targetDir if valid", async () => {
+			(fs.existsSync as ReturnType<typeof vi.fn>).mockImplementation(
+				(path: string) => path === targetDir,
+			);
+			await expect(generator.validate(targetDir)).resolves.toBe(targetDir);
+		});
 
-        it('should throw if target directory does not exist', async () => {
-            (fs.existsSync as ReturnType<typeof vi.fn>).mockReturnValue(false);
-            await expect(generator.validate('/nonexistent')).rejects.toThrow(
-                'Target directory does not exist'
-            );
-        });
+		it("should throw if target directory does not exist", async () => {
+			(fs.existsSync as ReturnType<typeof vi.fn>).mockReturnValue(false);
+			await expect(generator.validate("/nonexistent")).rejects.toThrow(
+				"Target directory does not exist",
+			);
+		});
 
-        it('should throw if conductor is already installed', async () => {
-            (fs.existsSync as ReturnType<typeof vi.fn>).mockReturnValue(true);
-            await expect(generator.validate(targetDir)).rejects.toThrow(
-                'Conductor (Cursor) is already installed'
-            );
-        });
-    });
+		it("should throw if conductor is already installed", async () => {
+			(fs.existsSync as ReturnType<typeof vi.fn>).mockReturnValue(true);
+			await expect(generator.validate(targetDir)).rejects.toThrow(
+				"Conductor (Cursor) is already installed",
+			);
+		});
+	});
 
-    describe('generate', () => {
-        it('should create directories with .cursor path', async () => {
-            (loadTemplate as ReturnType<typeof vi.fn>).mockResolvedValue('prompt = "some prompt"');
+	describe("generate", () => {
+		it("should create directories with .cursor path", async () => {
+			(loadTemplate as ReturnType<typeof vi.fn>).mockResolvedValue(
+				'prompt = "some prompt"',
+			);
 
-            await generator.generate(targetDir);
+			await generator.generate(targetDir);
 
-            expect(fs.ensureDir).toHaveBeenCalledWith(
-                expect.stringContaining('.cursor/commands')
-            );
-            expect(fs.ensureDir).toHaveBeenCalledWith(
-                expect.stringContaining('.cursor/conductor')
-            );
-        });
+			expect(fs.ensureDir).toHaveBeenCalledWith(
+				expect.stringContaining(join(".cursor", "commands")),
+			);
+			expect(fs.ensureDir).toHaveBeenCalledWith(
+				expect.stringContaining(join(".cursor", "conductor")),
+			);
+		});
 
-        it('should write command files', async () => {
-            (loadTemplate as ReturnType<typeof vi.fn>).mockResolvedValue('prompt = "some prompt"');
+		it("should write command files", async () => {
+			(loadTemplate as ReturnType<typeof vi.fn>).mockResolvedValue(
+				'prompt = "some prompt"',
+			);
 
-            await generator.generate(targetDir);
+			await generator.generate(targetDir);
 
-            expect(fs.writeFile).toHaveBeenCalled();
-        });
-    });
+			expect(fs.writeFile).toHaveBeenCalled();
+		});
+	});
 });

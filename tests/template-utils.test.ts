@@ -51,7 +51,9 @@ describe("Constants", () => {
 describe("Cache Directory", () => {
 	it("should resolve cache directory", () => {
 		const cacheDir = getCacheDir();
-		expect(cacheDir).toContain(".gemini/cache/conductor");
+		expect(cacheDir).toContain(
+			require("path").join(".gemini", "cache", "conductor"),
+		);
 	});
 
 	it("should return different paths for different repo/branch", () => {
@@ -116,7 +118,9 @@ describe("Template Root Resolution", () => {
 
 		const root = await getTemplateRoot("https://custom.com/repo", "dev");
 
-		expect(root).toContain(".gemini/cache/conductor");
+		expect(root).toContain(
+			require("path").join(".gemini", "cache", "conductor"),
+		);
 	});
 });
 

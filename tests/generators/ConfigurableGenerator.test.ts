@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { ConfigurableGenerator } from "../../src/generators/ConfigurableGenerator.js";
 import type { AgentConfig } from "../../src/generators/types.js";
 import fs from "fs-extra";
+import { join } from "path";
 
 vi.mock("fs-extra");
 
@@ -73,10 +74,10 @@ describe("ConfigurableGenerator", () => {
 			await generator.generate(targetDir);
 
 			expect(fs.ensureDir).toHaveBeenCalledWith(
-				expect.stringContaining(".test/commands"),
+				expect.stringContaining(join(".test", "commands")),
 			);
 			expect(fs.ensureDir).toHaveBeenCalledWith(
-				expect.stringContaining(".test/conductor"),
+				expect.stringContaining(join(".test", "conductor")),
 			);
 		});
 
@@ -99,7 +100,7 @@ describe("ConfigurableGenerator", () => {
 
 			expect(fs.copy).toHaveBeenCalledWith(
 				expect.stringContaining("templates"),
-				expect.stringContaining(".test/conductor/templates"),
+				expect.stringContaining(join(".test", "conductor", "templates")),
 			);
 		});
 
