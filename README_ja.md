@@ -154,4 +154,4 @@ source ~/.bashrc
 
 ## 🙏 謝辞
 
-このプロジェクトは、**Gemini CLI** のために最初に開発された [Conductor](https://github.com/gemini-cli-extensions/conductor) 手法に触発され、それに基づいています。私たちはその利点をより広い開発者エコシステムに拡大することを目指しています。
+このプロジェクトは、[Conductor](https://github.com/gemini-cli-extensions/conductor) および [Conductor-for-all](https://github.com/hlhr202/Conductor-for-all) に触発され、それに基づいています。

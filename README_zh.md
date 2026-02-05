@@ -160,4 +160,4 @@ source ~/.bashrc
 
 ## 🙏 致谢
 
-本项目受到最初为 **Gemini CLI** 开发的 [Conductor](https://github.com/gemini-cli-extensions/conductor) 方法论的启发并基于此构建。我们旨在将其优势扩展到更广泛的开发者生态系统。
+本项目受到 [Conductor](https://github.com/gemini-cli-extensions/conductor) 和 [Conductor-for-all](https://github.com/hlhr202/Conductor-for-all) 的启发并基于此构建。

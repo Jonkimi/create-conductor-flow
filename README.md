@@ -163,4 +163,4 @@ Once installed, you can instruct your AI Agent to perform Conductor tasks using 
 
 ## 🙏 Acknowledgements
 
-This project is inspired by and based on the [Conductor](https://github.com/gemini-cli-extensions/conductor) methodology originally developed for the **Gemini CLI**. We aim to extend its benefits to the broader developer ecosystem.
+This project is inspired by and based on the [Conductor](https://github.com/gemini-cli-extensions/conductor) and [Conductor-for-all](https://github.com/hlhr202/Conductor-for-all).

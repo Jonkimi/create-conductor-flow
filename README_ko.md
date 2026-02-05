@@ -154,4 +154,4 @@ source ~/.bashrc
 
 ## 🙏 감사의 말
 
-이 프로젝트는 원래 **Gemini CLI**를 위해 개발된 [Conductor](https://github.com/gemini-cli-extensions/conductor) 방법론에서 영감을 받아 그 위에 구축되었습니다. 우리는 그 혜택을 더 넓은 개발자 생태계로 확장하는 것을 목표로 합니다.
+이 프로젝트는 [Conductor](https://github.com/gemini-cli-extensions/conductor) 및 [Conductor-for-all](https://github.com/hlhr202/Conductor-for-all)에서 영감을 받아 그 위에 구축되었습니다。
