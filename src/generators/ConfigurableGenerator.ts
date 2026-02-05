@@ -100,45 +100,6 @@ export class ConfigurableGenerator implements AgentGenerator {
 			}
 		}
 
-		// Handle workflow file copy
-		const workflowSource = join(templateRoot, "conductor/workflow.md");
-		const workflowDest = join(targetDir, "conductor/workflow.md");
-		if (existsSync(workflowSource)) {
-			try {
-				// Ensure conductor directory exists in target
-				await ensureDir(join(targetDir, "conductor"));
-
-				let shouldCopyWorkflow = true;
-				if (existsSync(workflowDest)) {
-					if (force) {
-						console.log("⚠ Force mode: Overwriting workflow file");
-					} else {
-						shouldCopyWorkflow = await select({
-							message: `The file 'conductor/workflow.md' already exists. Do you want to overwrite it?`,
-							choices: [
-								{ value: true, name: "Overwrite" },
-								{ value: false, name: "Skip" },
-							],
-						});
-						if (!shouldCopyWorkflow) {
-							console.log("⚠ Skipping workflow file (already exists)");
-						}
-					}
-				}
-
-				if (shouldCopyWorkflow) {
-					await copy(workflowSource, workflowDest);
-					if (!force || !existsSync(workflowDest)) {
-						console.log("✔ Workflow file copied");
-					}
-				}
-			} catch (e) {
-				console.warn("Failed to handle workflow file:", e);
-			}
-		} else {
-			console.warn("Workflow template not found, skipping workflow file copy");
-		}
-
 		// Dynamically discover commands from template root
 		let commands: string[] = [];
 		try {
@@ -155,8 +116,8 @@ export class ConfigurableGenerator implements AgentGenerator {
 			console.warn("Failed to discover commands:", e);
 		}
 
-		// Fallback to default commands if discovery failed or found nothing (e.g. empty dir)
 		if (commands.length === 0) {
+			// Fallback to default commands if discovery failed or found nothing (e.g. empty dir)
 			console.log("No commands discovered, using default commands");
 			commands = [
 				"setup",
@@ -204,6 +165,20 @@ export class ConfigurableGenerator implements AgentGenerator {
 			} catch (e) {
 				console.warn(`Failed to process ${cmd}:`, e);
 			}
+		}
+
+		// Handle workflow file update if exists
+		const workflowSource = join(templateRoot, "templates/workflow.md");
+		const workflowDest = join(targetDir, "conductor/workflow.md");
+		if (existsSync(workflowDest) && existsSync(workflowSource)) {
+			try {
+				await copy(workflowSource, workflowDest);
+				console.log("✔ conductor/workflow.md synced");
+			} catch (e) {
+				console.warn("Failed to handle workflow file:", e);
+			}
+		} else {
+			console.warn("Workflow template not found, skipping workflow file sync");
 		}
 	}
 }

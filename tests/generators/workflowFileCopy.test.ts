@@ -30,7 +30,7 @@ describe("Workflow File Copy Logic", () => {
 		displayName: "Test Agent",
 	};
 	const targetDir = "/mock/target";
-	const templateRoot = "/mock/template/root";
+	const templateRoot = "/mock/template/conductor";
 	let generator: ConfigurableGenerator;
 	let consoleWarnSpy: ReturnType<typeof vi.spyOn>;
 	let consoleLogSpy: ReturnType<typeof vi.spyOn>;
@@ -55,7 +55,7 @@ describe("Workflow File Copy Logic", () => {
 	});
 
 	describe("when workflow source file exists", () => {
-		const workflowSourcePath = join(templateRoot, "conductor/workflow.md");
+		const workflowSourcePath = join(templateRoot, "templates/workflow.md");
 		const workflowDestPath = join(targetDir, "conductor/workflow.md");
 
 		beforeEach(() => {
@@ -66,7 +66,7 @@ describe("Workflow File Copy Logic", () => {
 			});
 		});
 
-		it("should copy workflow file when destination does not exist", async () => {
+		it("should not copy workflow file when destination does not exist", async () => {
 			vi.mocked(fs.existsSync).mockImplementation((p) => {
 				if (p === workflowSourcePath) return true;
 				if (p === workflowDestPath) return false;
@@ -75,97 +75,12 @@ describe("Workflow File Copy Logic", () => {
 
 			await generator.generate(targetDir);
 
-			expect(fs.copy).toHaveBeenCalledWith(
-				workflowSourcePath,
-				workflowDestPath,
-			);
-			expect(consoleLogSpy).toHaveBeenCalledWith("✔ Workflow file copied");
-		});
-
-		it("should prompt user when workflow file exists and force is false", async () => {
-			vi.mocked(fs.existsSync).mockImplementation((p) => {
-				if (p === workflowSourcePath) return true;
-				if (p === workflowDestPath) return true;
-				return false;
-			});
-			(select as ReturnType<typeof vi.fn>).mockResolvedValue(false);
-
-			await generator.generate(
-				targetDir,
-				undefined,
-				undefined,
-				undefined,
-				false,
-			);
-
-			expect(select).toHaveBeenCalledWith({
-				message: expect.stringContaining("conductor/workflow.md"),
-				choices: expect.arrayContaining([
-					expect.objectContaining({ value: true, name: "Overwrite" }),
-					expect.objectContaining({ value: false, name: "Skip" }),
-				]),
-			});
-		});
-
-		it("should skip copy when user selects 'Skip'", async () => {
-			vi.mocked(fs.existsSync).mockImplementation((p) => {
-				if (p === workflowSourcePath) return true;
-				if (p === workflowDestPath) return true;
-				return false;
-			});
-			(select as ReturnType<typeof vi.fn>).mockResolvedValue(false);
-
-			await generator.generate(targetDir);
-
-			// Should not copy when user selects Skip
 			expect(fs.copy).not.toHaveBeenCalledWith(
 				workflowSourcePath,
 				workflowDestPath,
 			);
-			expect(consoleLogSpy).toHaveBeenCalledWith(
-				"⚠ Skipping workflow file (already exists)",
-			);
-		});
-
-		it("should overwrite when user selects 'Overwrite'", async () => {
-			vi.mocked(fs.existsSync).mockImplementation((p) => {
-				if (p === workflowSourcePath) return true;
-				if (p === workflowDestPath) return true;
-				return false;
-			});
-			(select as ReturnType<typeof vi.fn>).mockResolvedValue(true);
-
-			await generator.generate(targetDir);
-
-			expect(fs.copy).toHaveBeenCalledWith(
-				workflowSourcePath,
-				workflowDestPath,
-			);
-			expect(consoleLogSpy).toHaveBeenCalledWith("✔ Workflow file copied");
-		});
-
-		it("should overwrite without prompt when force is true", async () => {
-			vi.mocked(fs.existsSync).mockImplementation((p) => {
-				if (p === workflowSourcePath) return true;
-				if (p === workflowDestPath) return true;
-				return false;
-			});
-
-			await generator.generate(
-				targetDir,
-				undefined,
-				undefined,
-				undefined,
-				true,
-			);
-
-			expect(select).not.toHaveBeenCalled();
-			expect(fs.copy).toHaveBeenCalledWith(
-				workflowSourcePath,
-				workflowDestPath,
-			);
-			expect(consoleLogSpy).toHaveBeenCalledWith(
-				"⚠ Force mode: Overwriting workflow file",
+			expect(consoleLogSpy).not.toHaveBeenCalledWith(
+				"✔ conductor/workflow.md synced",
 			);
 		});
 	});
@@ -185,7 +100,7 @@ describe("Workflow File Copy Logic", () => {
 				expect.any(String),
 			);
 			expect(consoleWarnSpy).toHaveBeenCalledWith(
-				"Workflow template not found, skipping workflow file copy",
+				"Workflow template not found, skipping workflow file sync",
 			);
 		});
 	});
