@@ -50,7 +50,7 @@ describe("VSCodeCopilotGenerator", () => {
 		// Verify file written with correct extension and content
 		const expectedFile = join(
 			targetDir,
-			".github/prompts/conductor:setup.prompt.md",
+			".github/prompts/conductor-setup.prompt.md",
 		);
 		expect(fs.writeFile).toHaveBeenCalledWith(
 			expectedFile,

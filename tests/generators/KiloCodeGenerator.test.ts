@@ -79,7 +79,7 @@ describe("KiloCodeGenerator", () => {
 			const writeCalls = (fs.writeFile as any).mock.calls;
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			const setupCall = writeCalls.find((call: any) =>
-				call[0].includes("conductor:setup.md"),
+				call[0].includes("conductor-setup.md"),
 			);
 
 			expect(setupCall).toBeDefined();

@@ -49,7 +49,45 @@ async function main() {
 	await fs.remove(join(TEMPLATES_DIR, "gemini-extension.json"));
 	await fs.remove(join(TEMPLATES_DIR, "release-please-config.json"));
 
+	console.log("Processing templates (renaming and replacing content)...");
+	await processConductorFiles(TEMPLATES_DIR);
+
 	console.log("Templates bundled successfully from remote.");
+}
+
+export async function processConductorFiles(dir: string) {
+	const items = await fs.readdir(dir);
+
+	for (const item of items) {
+		const fullPath = join(dir, item);
+		const stat = await fs.stat(fullPath);
+
+		if (stat.isDirectory()) {
+			await processConductorFiles(fullPath);
+		} else if (stat.isFile()) {
+			// 1. Rename file if it contains colon
+			let currentPath = fullPath;
+			if (item.includes("conductor:")) {
+				const newItem = item.replace(/conductor:/g, "conductor-");
+				const newPath = join(dir, newItem);
+				await fs.move(currentPath, newPath);
+				currentPath = newPath;
+			}
+
+			// 2. Replace content
+			// Skip binary files if necessary, but for now assume text or acceptable files
+			try {
+				const content = await fs.readFile(currentPath, "utf-8");
+				if (content.includes("/conductor:")) {
+					const newContent = content.replace(/\/conductor:/g, "/conductor-");
+					await fs.writeFile(currentPath, newContent, "utf-8");
+				}
+			} catch (error) {
+				// Ignore errors for non-text files or read errors
+				// console.warn(`Could not process content of ${currentPath}:`, error);
+			}
+		}
+	}
 }
 
 main().catch(console.error);

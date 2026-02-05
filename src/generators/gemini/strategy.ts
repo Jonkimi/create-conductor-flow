@@ -1,38 +1,51 @@
-import { join } from 'path';
-import fs from 'fs-extra';
+import { join } from "path";
+import fs from "fs-extra";
 const { writeFile } = fs;
-import { parse } from 'smol-toml';
-import { substituteVariables } from '../../utils/template.js';
-import type { 
-  ContentStrategy, 
-  FileStrategy, 
-  ContentStrategyOptions, 
-  FileStrategyOptions 
-} from '../types.js';
+import { parse } from "smol-toml";
+import { substituteVariables } from "../../utils/template.js";
+import type {
+	ContentStrategy,
+	FileStrategy,
+	ContentStrategyOptions,
+	FileStrategyOptions,
+} from "../types.js";
 
 export class GeminiContentStrategy implements ContentStrategy {
-  process(templateContent: string, options: ContentStrategyOptions): string | null {
-    const { installPath, agentType } = options;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const parsed = parse(templateContent) as any;
+	process(
+		templateContent: string,
+		options: ContentStrategyOptions,
+	): string | null {
+		const { installPath, agentType } = options;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const parsed = parse(templateContent) as any;
 
-    if (!parsed.prompt) {
-      return null;
-    }
+		if (!parsed.prompt) {
+			return null;
+		}
 
-    // Gemini preserves the TOML structure
-    const content = templateContent.replace(/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g, installPath);
-    return substituteVariables(content, { agent_type: agentType });
-  }
+		// Gemini preserves the TOML structure
+		const content = templateContent.replace(
+			/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g,
+			installPath,
+		);
+		return substituteVariables(content, { agent_type: agentType });
+	}
 }
 
 export class GeminiFileStrategy implements FileStrategy {
-  async write(options: FileStrategyOptions): Promise<void> {
-    const { targetDir, agentDir, commandsDir, commandName, extension, content } = options;
-    // For Gemini, we remove the 'conductor:' prefix as per new spec
-    const fileName = `${commandName}${extension}`;
-    await writeFile(join(targetDir, agentDir, commandsDir, fileName), content);
-  }
+	async write(options: FileStrategyOptions): Promise<void> {
+		const {
+			targetDir,
+			agentDir,
+			commandsDir,
+			commandName,
+			extension,
+			content,
+		} = options;
+		// For Gemini, we remove the 'conductor-' prefix as per new spec
+		const fileName = `${commandName}${extension}`;
+		await writeFile(join(targetDir, agentDir, commandsDir, fileName), content);
+	}
 }
 
 export const geminiContentStrategy = new GeminiContentStrategy();

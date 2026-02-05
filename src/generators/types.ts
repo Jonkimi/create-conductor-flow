@@ -80,7 +80,7 @@ export interface AgentConfig {
 	strategy?: AgentGeneratorStrategy;
 	/** Optional filename for the Universal File Resolution Protocol (e.g., 'GEMINI.md', 'CLAUDE.md') */
 	protocolFilename?: string;
-	/** If false, file names will NOT use the 'conductor:' prefix (default: true) */
+	/** If false, file names will NOT use the 'conductor-' prefix (default: true) */
 	usesPrefix?: boolean;
 	/** Short description of the agent for CLI prompts */
 	description?: string;

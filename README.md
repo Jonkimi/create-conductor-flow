@@ -108,7 +108,7 @@ You will be prompted to select your AI Coding Agent:
 -   **Gemini CLI**
 
 This will verify the environment and install the necessary Conductor files:
--   **Commands:** Agent-specific prompt or command files (e.g., `.opencode/commands/conductor:setup.md` or `.gemini/commands/conductor:setup.toml`) that your agent can execute.
+-   **Commands:** Agent-specific prompt or command files (e.g., `.opencode/commands/conductor-setup.md` or `.gemini/commands/setup.toml`) that your agent can execute.
 -   **Templates:** Workflow guides and style guides (e.g., `.opencode/conductor/templates/`).
 
 ### 3. Shell Completion
@@ -150,12 +150,12 @@ source ~/.bashrc
 
 Once installed, you can instruct your AI Agent to perform Conductor tasks using the installed commands. For example:
 
--   `/conductor:setup` - Initialize the project structure.
--   `/conductor:newTrack` - Start a new feature or bug fix track.
--   `/conductor:implement` - Implement the selected track.
--   `/conductor:review` - Review the completed track work against guidelines and the plan.
--   `/conductor:revert` - Revert previous work.
--   `/conductor:status` - Check the status of current tracks.
+-   `/conductor-setup` - Initialize the project structure.
+-   `/conductor-newTrack` - Start a new feature or bug fix track.
+-   `/conductor-implement` - Implement the selected track.
+-   `/conductor-review` - Review the completed track work against guidelines and the plan.
+-   `/conductor-revert` - Revert previous work.
+-   `/conductor-status` - Check the status of current tracks.
 
 *Note: The exact invocation syntax depends on your specific agent's slash command or file context capabilities.*
 

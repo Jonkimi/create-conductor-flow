@@ -137,7 +137,7 @@ describe("Generator Workflow Files Coverage", () => {
 			];
 
 			for (const cmd of baseCommands) {
-				const fileName = usesPrefix ? `conductor:${cmd}` : cmd;
+				const fileName = usesPrefix ? `conductor-${cmd}` : cmd;
 				const expectedPath = join(
 					targetDir,
 					expectedDir,

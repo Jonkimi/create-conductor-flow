@@ -27,7 +27,7 @@ export class ConfigurableGenerator implements AgentGenerator {
 		const { agentDir, commandsDir, displayName, extension, usesPrefix } =
 			this.config;
 		const ext = extension || ".md";
-		const prefix = usesPrefix !== false ? "conductor:" : "";
+		const prefix = usesPrefix !== false ? "conductor-" : "";
 		const setupFileName = `${prefix}setup${ext}`;
 		const setupFile = join(targetDir, agentDir, commandsDir, setupFileName);
 		const conductorPath = join(targetDir, agentDir, "conductor");
