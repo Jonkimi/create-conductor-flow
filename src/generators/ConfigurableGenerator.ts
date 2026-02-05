@@ -1,7 +1,7 @@
 import { join } from "path";
 import select from "@inquirer/select";
 import fs from "fs-extra";
-import { parse } from "smol-toml";
+
 import type { AgentGenerator, AgentConfig } from "./types.js";
 import type { InstallScope } from "../types.js";
 import { getTemplateRoot, loadTemplate } from "../utils/template.js";
@@ -10,7 +10,7 @@ import {
 	defaultFileStrategy,
 } from "./default/index.js";
 
-const { existsSync, ensureDir, writeFile, copy } = fs;
+const { existsSync, ensureDir, copy } = fs;
 
 /**
  * A generator that uses configuration to produce agent-specific output.
@@ -98,6 +98,45 @@ export class ConfigurableGenerator implements AgentGenerator {
 			} catch (e) {
 				console.warn("Failed to handle protocol file:", e);
 			}
+		}
+
+		// Handle workflow file copy
+		const workflowSource = join(templateRoot, "conductor/workflow.md");
+		const workflowDest = join(targetDir, "conductor/workflow.md");
+		if (existsSync(workflowSource)) {
+			try {
+				// Ensure conductor directory exists in target
+				await ensureDir(join(targetDir, "conductor"));
+
+				let shouldCopyWorkflow = true;
+				if (existsSync(workflowDest)) {
+					if (force) {
+						console.log("⚠ Force mode: Overwriting workflow file");
+					} else {
+						shouldCopyWorkflow = await select({
+							message: `The file 'conductor/workflow.md' already exists. Do you want to overwrite it?`,
+							choices: [
+								{ value: true, name: "Overwrite" },
+								{ value: false, name: "Skip" },
+							],
+						});
+						if (!shouldCopyWorkflow) {
+							console.log("⚠ Skipping workflow file (already exists)");
+						}
+					}
+				}
+
+				if (shouldCopyWorkflow) {
+					await copy(workflowSource, workflowDest);
+					if (!force || !existsSync(workflowDest)) {
+						console.log("✔ Workflow file copied");
+					}
+				}
+			} catch (e) {
+				console.warn("Failed to handle workflow file:", e);
+			}
+		} else {
+			console.warn("Workflow template not found, skipping workflow file copy");
 		}
 
 		// Dynamically discover commands from template root
