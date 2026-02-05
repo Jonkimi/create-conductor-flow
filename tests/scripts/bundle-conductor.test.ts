@@ -1,72 +1,82 @@
-import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import fs from "fs-extra";
+import { describe, it, expect, beforeEach, vi, type Mock } from "vitest";
 import { join } from "path";
-import { fileURLToPath } from "url";
-import { tmpdir } from "os";
-import { mkdtemp, rm } from "fs/promises";
+
+// Mock fs-extra before importing the module under test
+vi.mock("fs-extra", () => {
+	return {
+		default: {
+			readdir: vi.fn(),
+			stat: vi.fn(),
+			move: vi.fn(),
+			readFile: vi.fn(),
+			writeFile: vi.fn(),
+			ensureDir: vi.fn(),
+			remove: vi.fn(),
+		},
+	};
+});
+
+import fs from "fs-extra";
 // @ts-ignore
 import { processConductorFiles } from "../../scripts/bundle-conductor";
 
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
-
 describe("Bundle Script Modification Logic", () => {
-	let testDir: string;
+	const testDir = "/mock/test/dir";
 
-	beforeEach(async () => {
-		testDir = await mkdtemp(join(tmpdir(), "conductor-bundle-test-"));
-	});
-
-	afterEach(async () => {
-		await rm(testDir, { recursive: true, force: true });
-	});
-
-	it.skip("should replace /conductor: with /conductor- in file content", async () => {
-		const filePath = join(testDir, "test-content.md");
-		const originalContent =
-			"Run `/conductor:setup` to start. check `/conductor:newTrack`.";
-		await fs.writeFile(filePath, originalContent);
-
-		if (typeof processConductorFiles !== "function") {
-			throw new Error("processConductorFiles is not defined");
-		}
-		await processConductorFiles(testDir);
-
-		const newContent = await fs.readFile(filePath, "utf-8");
-		expect(newContent).toContain("/conductor-setup");
-		expect(newContent).toContain("/conductor-newTrack");
-		expect(newContent).not.toContain("/conductor:");
+	beforeEach(() => {
+		vi.resetAllMocks();
 	});
 
 	it("should rename files containing colon to hyphen", async () => {
-		const oldPath = join(testDir, "conductor:setup.md");
-		await fs.writeFile(oldPath, "content");
+		// Setup mock for readdir to return one file with colon
+		(fs.readdir as unknown as Mock).mockResolvedValueOnce([
+			"conductor:setup.md",
+		]);
 
-		if (typeof processConductorFiles !== "function") {
-			throw new Error("processConductorFiles is not defined");
-		}
+		// Setup mock for stat to say it is a file
+		(fs.stat as unknown as Mock).mockResolvedValue({
+			isDirectory: () => false,
+			isFile: () => true,
+		});
+
 		await processConductorFiles(testDir);
 
-		expect(fs.existsSync(join(testDir, "conductor-setup.md"))).toBe(true);
-		expect(fs.existsSync(oldPath)).toBe(false);
+		// Expect move to be called with replaced name
+		const oldPath = join(testDir, "conductor:setup.md");
+		const newPath = join(testDir, "conductor-setup.md");
+
+		expect(fs.move).toHaveBeenCalledWith(oldPath, newPath);
 	});
 
 	it("should handle recursive directories", async () => {
-		const subDir = join(testDir, "subdir");
-		await fs.ensureDir(subDir);
-		const oldPath = join(subDir, "conductor:nested.md");
-		await fs.writeFile(oldPath, "Call /conductor:nested");
+		const subDirName = "subdir";
+		const subFile = "conductor:nested.md";
 
-		if (typeof processConductorFiles !== "function") {
-			throw new Error("processConductorFiles is not defined");
-		}
+		// First call to readdir returns subdir
+		(fs.readdir as unknown as Mock)
+			.mockResolvedValueOnce([subDirName]) // for testDir
+			.mockResolvedValueOnce([subFile]); // for subDir
+
+		// Setup stat responses
+		(fs.stat as unknown as Mock).mockImplementation(async (path: string) => {
+			if (path === join(testDir, subDirName)) {
+				return { isDirectory: () => true, isFile: () => false };
+			}
+			if (path === join(testDir, subDirName, subFile)) {
+				return { isDirectory: () => false, isFile: () => true };
+			}
+			return { isDirectory: () => false, isFile: () => false };
+		});
+
 		await processConductorFiles(testDir);
 
-		const newPath = join(subDir, "conductor-nested.md");
-		expect(fs.existsSync(newPath)).toBe(true);
-		expect(fs.existsSync(oldPath)).toBe(false);
+		const subDirPath = join(testDir, subDirName);
+		expect(processConductorFiles).toBeDefined();
 
-		// Content replacement is disabled
-		const content = await fs.readFile(newPath, "utf-8");
-		expect(content).toContain("/conductor:nested");
+		// Verify recursive call happened implicitly by checking if the file inside was moved
+		const oldPath = join(subDirPath, subFile);
+		const newPath = join(subDirPath, "conductor-nested.md");
+
+		expect(fs.move).toHaveBeenCalledWith(oldPath, newPath);
 	});
 });

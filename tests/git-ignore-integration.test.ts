@@ -24,8 +24,11 @@ describe("Git Ignore Integration", () => {
 	describe("--git-ignore gitignore flag", () => {
 		it("should add entries to .gitignore when flag is gitignore", () => {
 			execSync(
-				`CONDUCTOR_NO_BANNER=1 node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore gitignore --force`,
-				{ stdio: "pipe" },
+				`node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore gitignore --force`,
+				{
+					stdio: "pipe",
+					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+				},
 			);
 
 			const gitignorePath = join(testDir, ".gitignore");
@@ -39,8 +42,11 @@ describe("Git Ignore Integration", () => {
 
 		it("should add agent-specific entries for opencode", () => {
 			execSync(
-				`CONDUCTOR_NO_BANNER=1 node ${cliPath} ${testDir} --agent opencode --scope project --git-ignore gitignore --force`,
-				{ stdio: "pipe" },
+				`node ${cliPath} ${testDir} --agent opencode --scope project --git-ignore gitignore --force`,
+				{
+					stdio: "pipe",
+					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+				},
 			);
 
 			const gitignorePath = join(testDir, ".gitignore");
@@ -56,8 +62,11 @@ describe("Git Ignore Integration", () => {
 	describe("--git-ignore exclude flag", () => {
 		it("should add entries to .git/info/exclude when flag is exclude", () => {
 			execSync(
-				`CONDUCTOR_NO_BANNER=1 node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore exclude --force`,
-				{ stdio: "pipe" },
+				`node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore exclude --force`,
+				{
+					stdio: "pipe",
+					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+				},
 			);
 
 			const excludePath = join(testDir, ".git", "info", "exclude");
@@ -81,8 +90,11 @@ describe("Git Ignore Integration", () => {
 
 			// Run with none to remove
 			execSync(
-				`CONDUCTOR_NO_BANNER=1 node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore none --force`,
-				{ stdio: "pipe" },
+				`node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore none --force`,
+				{
+					stdio: "pipe",
+					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+				},
 			);
 
 			const content = fs.readFileSync(gitignorePath, "utf-8");
@@ -97,16 +109,16 @@ describe("Git Ignore Integration", () => {
 			const gitignorePath = join(testDir, ".gitignore");
 			const excludePath = join(testDir, ".git", "info", "exclude");
 
-			fs.writeFileSync(
-				gitignorePath,
-				"# Conductor\n.claude\nCLAUDE.md\n",
-			);
+			fs.writeFileSync(gitignorePath, "# Conductor\n.claude\nCLAUDE.md\n");
 			fs.appendFileSync(excludePath, "\n# Conductor\n.claude\nCLAUDE.md\n");
 
 			// Run with none to remove
 			execSync(
-				`CONDUCTOR_NO_BANNER=1 node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore none --force`,
-				{ stdio: "pipe" },
+				`node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore none --force`,
+				{
+					stdio: "pipe",
+					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+				},
 			);
 
 			const gitignoreContent = fs.readFileSync(gitignorePath, "utf-8");
@@ -128,8 +140,11 @@ describe("Git Ignore Integration", () => {
 			// This test verifies that without the flag, no automatic action is taken.
 			try {
 				execSync(
-					`echo "3" | CONDUCTOR_NO_BANNER=1 node ${cliPath} ${testDir} --agent claude-code --scope project --force`,
-					{ stdio: "pipe" },
+					`echo "3" | node ${cliPath} ${testDir} --agent claude-code --scope project --force`,
+					{
+						stdio: "pipe",
+						env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+					},
 				);
 			} catch {
 				// May fail due to interactive prompt
@@ -146,12 +161,17 @@ describe("Git Ignore Integration", () => {
 	describe("--git-ignore with global scope", () => {
 		it("should skip git ignore configuration with warning for global scope", () => {
 			const output = execSync(
-				`CONDUCTOR_NO_BANNER=1 node ${cliPath} ${testDir} --agent claude-code --scope global --git-ignore gitignore --force 2>&1`,
-				{ encoding: "utf-8" },
+				`node ${cliPath} ${testDir} --agent claude-code --scope global --git-ignore gitignore --force 2>&1`,
+				{
+					encoding: "utf-8",
+					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+				},
 			);
 
 			// Should show warning about global scope
-			expect(output).toContain("--git-ignore flag is only supported for project scope");
+			expect(output).toContain(
+				"--git-ignore flag is only supported for project scope",
+			);
 
 			// Should not create .gitignore with conductor entries
 			const gitignorePath = join(testDir, ".gitignore");
