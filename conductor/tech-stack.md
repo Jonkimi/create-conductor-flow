@@ -7,7 +7,7 @@
 
 ## Libraries & Dependencies
 - **CLI Framework:** `yargs` (Command Line Argument Parser)
-- **Interactive Prompts:** `@inquirer/select` (For user input and selections)
+- **Interactive Prompts:** `@inquirer/select`, `@inquirer/input` (For user input, selections, and text entry)
 - **Bundler:** `tsup` (TypeScript bundler for building distribution files)
 - **Testing Framework:** `vitest` (Unit and integration testing)
 - **File System:** Built-in `fs/promises` with `fs-extra` for advanced operations
