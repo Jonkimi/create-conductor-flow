@@ -20,7 +20,7 @@ export default defineConfig({
 		"gradient-string",
 	],
 	bundle: true,
-	splitting: false,
+	splitting: true,
 	minify: true,
 	shims: true,
 	target: "node18",
