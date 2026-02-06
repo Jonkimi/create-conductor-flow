@@ -43,3 +43,15 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm publish --access public
+
+      # -------------------------------------------------------
+      # 发布副包：conductor-init
+      # -------------------------------------------------------
+      - name: Modify and Publish Alias Package
+        run: |
+          npm pkg set name="conductor-init"
+          npm pkg set bin.conductor-init="./index.js"
+          npm pkg delete bin.create-conductor-flow
+
+          # 必须加上 --provenance，这样 npm 知道这是同一个仓库来的
+          npm publish --access public --provenance
