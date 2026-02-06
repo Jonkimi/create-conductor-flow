@@ -8,6 +8,7 @@
     ]
   },
   "git": {
+    "changelog": "git log --pretty=format:'* %s (%h)' ${from}...${to}",
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
     "tagAnnotation": "Release ${version}\n\n${changelog}"
