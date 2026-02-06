@@ -30,3 +30,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Rename conductor files from using colon to hyphen separator**
 *Link: [./tracks/rename_colon_to_hyphen_20260205/](./tracks/rename_colon_to_hyphen_20260205/)* <!-- status: complete -->
+
+---
+
+- [ ] **Track: Interactive Template Source Selection**
+*Link: [./tracks/interactive_template_source_20260206/](./tracks/interactive_template_source_20260206/)*

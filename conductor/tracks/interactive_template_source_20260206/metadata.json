@@ -1,0 +1,8 @@
+{
+    "track_id": "interactive_template_source_20260206",
+    "type": "feature",
+    "status": "new",
+    "created_at": "2026-02-06T23:33:30Z",
+    "updated_at": "2026-02-06T23:33:30Z",
+    "description": "远程仓库和分支的参数增加交互式设置，设置选项默认 bundle内置官方模版，第二个是官方远程仓库和main分支，第三是自定义仓库与分支"
+}
