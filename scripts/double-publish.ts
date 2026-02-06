@@ -74,7 +74,7 @@ function main() {
 		// ---------------------------------------------------------
 		log(`🚀 Publishing Alias Package: ${ALIAS_PACKAGE_NAME}...`, colors.cyan);
 
-		execSync("npm publish --provenance", { stdio: "inherit" });
+		execSync("npm publish", { stdio: "inherit" });
 		log(`✅ ${ALIAS_PACKAGE_NAME} published successfully!`, colors.green);
 	} catch (error) {
 		log(`\n❌ Publish Failed:`, colors.red);
