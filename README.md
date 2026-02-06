@@ -16,18 +16,15 @@
       <img src="https://img.shields.io/npm/dm/create-conductor-flow?color=orange" alt="Downloads">
     </a>
   </p>
-
   <p>
     <strong>English</strong> | <a href="./README.zh-CN.md">简体中文</a> | <a href="./README.ja.md">日本語</a> | <a href="./README_ko.md">한국어</a>
   </p>
-
   <br>
   <blockquote>
     <strong>The scaffolding tool to generate spec-driven, portable <a href="https://github.com/gemini-cli-extensions/conductor">Gemini Conductor</a> workflows for any AI coding agent.</strong>
   </blockquote>
   <br>
 </div>
-
 Get started immediately with:
 
 ```bash

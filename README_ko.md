@@ -16,18 +16,15 @@
       <img src="https://img.shields.io/npm/dm/create-conductor-flow?color=orange" alt="Downloads">
     </a>
   </p>
-
   <p>
     <a href="./README.md">English</a> | <a href="./README_zh.md">简体中文</a> | <a href="./README_ja.md">日本語</a> | <strong>한국어</strong>
   </p>
-
   <br>
   <blockquote>
     <strong>모든 AI 코딩 에이전트를 위한 사양 주도형(spec-driven), 휴대용 <a href="https://github.com/gemini-cli-extensions/conductor">Gemini Conductor</a> 워크플로우를 생성하는 스캐폴딩 도구입니다.</strong>
   </blockquote>
   <br>
 </div>
-
 즉시 시작하기:
 
 ```bash

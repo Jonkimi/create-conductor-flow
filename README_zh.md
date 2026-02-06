@@ -16,18 +16,15 @@
       <img src="https://img.shields.io/npm/dm/create-conductor-flow?color=orange" alt="Downloads">
     </a>
   </p>
-
   <p>
     <a href="./README.md">English</a> | <strong>简体中文</strong> | <a href="./README_ja.md">日本語</a> | <a href="./README_ko.md">한국어</a>
   </p>
-
   <br>
   <blockquote>
     <strong>为任何 AI 编码代理生成规范驱动、可移植的 <a href="https://github.com/gemini-cli-extensions/conductor">Gemini Conductor</a> 工作流的脚手架工具。</strong>
   </blockquote>
   <br>
 </div>
-
 立即开始：
 
 ```bash
