@@ -3,33 +3,26 @@ import { execSync } from "child_process";
 import * as fs from "fs";
 import { join } from "path";
 
-describe("conductor-install command", () => {
+describe("conductor-init command", () => {
 	const conductorInstallPath = join(process.cwd(), "dist", "index.js");
 
 	describe("package.json configuration", () => {
-		it("should have package name as conductor-install", () => {
+		it("should have package name as conductor-init", () => {
 			const pkg = JSON.parse(
 				fs.readFileSync(join(process.cwd(), "package.json"), "utf-8"),
 			);
-			expect(pkg.name).toBe("conductor-install");
+			expect(pkg.name).toBe("create-conductor-flow");
 		});
 
-		it("should have conductor-install bin entry", () => {
+		it("should have conductor-init bin entry", () => {
 			const pkg = JSON.parse(
 				fs.readFileSync(join(process.cwd(), "package.json"), "utf-8"),
 			);
-			expect(pkg.bin["conductor-install"]).toBeDefined();
-		});
-
-		it("should maintain backward compatibility with conductor bin", () => {
-			const pkg = JSON.parse(
-				fs.readFileSync(join(process.cwd(), "package.json"), "utf-8"),
-			);
-			expect(pkg.bin["conductor"]).toBeDefined();
+			expect(pkg.bin["conductor-init"]).toBeDefined();
 		});
 	});
 
-	describe("conductor-install CLI", () => {
+	describe("conductor-init CLI", () => {
 		it("should display help text", () => {
 			const output = execSync(`node ${conductorInstallPath} --help`).toString();
 			expect(output).toContain("--help");

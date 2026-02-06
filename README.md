@@ -1,12 +1,12 @@
-# Conductor Install
+# Conductor Init
 
-[![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
+[![npm version](https://badge.fury.io/js/conductor-init.svg)](https://badge.fury.io/js/conductor-init)
 
-<img src="./conductor_install_banner.png" height="400" alt="Conductor Install Banner" />
+<img src="./conductor_init_banner.png" height="400" alt="Conductor Init Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** is a **Conductor Scaffolding CLI** that generates spec-driven, portable **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** workflows for **any** AI coding agent via `npx`. It enables the **[context-first evolution of spec-driven development](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)** for **Claude Code**, **OpenCode**, **Cursor**, **Kilo Code**, and other leading AI Coding Assistants.
+**Conductor Init** is a **Conductor Scaffolding CLI** that generates spec-driven, portable **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** workflows for **any** AI coding agent via `npx`. It enables the **[context-first evolution of spec-driven development](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)** for **Claude Code**, **OpenCode**, **Cursor**, **Kilo Code**, and other leading AI Coding Assistants.
 
 Originally developed for the Gemini CLI, the **Conductor** is now decoupled by this project, **empowering developers to maintain context, manage tasks, and orchestrate complex features**. It serves as a bridge between human intent and AI execution, ensuring "Context is King" in the era of Agentic AI.
 
@@ -22,7 +22,7 @@ Originally developed for the Gemini CLI, the **Conductor** is now decoupled by t
 -   **Context Management**: Structured artifacts (`spec.md`, `plan.md`) keep your AI agent focused and context-aware.
 -   **Spec-Driven Development**: Define *what* you want before asking the AI *how* to build it.
 -   **Agent-Agnostic Workflows**: Switch between agents without losing project context or progress.
--   **Easy Initialization**: Single command setup with `npx conductor-install`.
+-   **Easy Initialization**: Single command setup with `npx conductor-init`.
 -   **Git Ignore Configuration**: Automatically configure `.gitignore` or `.git/info/exclude` to exclude agent configuration files from version control.
 
 ## 🚀 Usage
@@ -30,7 +30,7 @@ Originally developed for the Gemini CLI, the **Conductor** is now decoupled by t
 ### 1. Setup Conductor in Your Project
 
 ```text
-conductor-install [path] [options]
+conductor-init [path] [options]
 
 Positionals:
   path  Directory to install Conductor                   [string] [default: "."]
@@ -55,31 +55,31 @@ Options:
   -v, --version     Show version number                                [boolean]
 
 Examples:
-  conductor-install                         Install with interactive prompts
-  conductor-install --agent claude-code     Install for Claude Code agent
-  conductor-install --git-ignore gitignore  Add Conductor files to .gitignore
-  conductor-install --git-ignore exclude    Add Conductor files to
-                                            .git/info/exclude
-  conductor-install --git-ignore none       Remove Conductor entries from git
-                                            ignore
+  conductor-init                         Install with interactive prompts
+  conductor-init --agent claude-code     Install for Claude Code agent
+  conductor-init --git-ignore gitignore  Add Conductor files to .gitignore
+  conductor-init --git-ignore exclude    Add Conductor files to
+                                         .git/info/exclude
+  conductor-init --git-ignore none       Remove Conductor entries from git
+                                         ignore
 ```
 
 To initialize Conductor in your project, simply run the following command in your project root:
 
 ```bash
-npx conductor-install
+npx conductor-init
 ```
 
 You can also specify a custom template repository and branch:
 
 ```bash
-npx conductor-install --repo https://github.com/your-org/custom-conductor --branch v2
+npx conductor-init --repo https://github.com/your-org/custom-conductor --branch v2
 ```
 
 Or specify the agent directly:
 
 ```bash
-npx conductor-install --agent claude-code
+npx conductor-init --agent claude-code
 ```
 
 ### 2. Alternative: Build from Source
@@ -89,7 +89,7 @@ If you prefer to build from source:
 ```bash
 pnpm install
 pnpm build
-node dist/conductor-install.js
+node dist/index.js
 ```
 
 You will be prompted to select your AI Coding Agent:
@@ -113,7 +113,7 @@ This will verify the environment and install the necessary Conductor files:
 
 ### 3. Shell Completion
 
-Enable tab completion for specific shells (Bash, Zsh) to make using `conductor-install` easier.
+Enable tab completion for specific shells (Bash, Zsh) to make using `conductor-init` easier.
 
 #### Zsh (Recommended)
 
@@ -123,7 +123,7 @@ Generate the script to a file and source it in your `.zshrc`:
 
 ```zsh
 mkdir -p ~/.config/conductor
-conductor-install completion > ~/.config/conductor/completion.zsh
+conductor-init completion > ~/.config/conductor/completion.zsh
 echo 'source ~/.config/conductor/completion.zsh' >> ~/.zshrc
 source ~/.zshrc
 ```
@@ -133,7 +133,7 @@ source ~/.zshrc
 Add this directly to your `.zshrc` (easiest setup):
 
 ```zsh
-echo 'source <(conductor-install completion)' >> ~/.zshrc
+echo 'source <(conductor-init completion)' >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -142,7 +142,7 @@ source ~/.zshrc
 Add the completion script to your `.bashrc`:
 
 ```bash
-conductor-install completion >> ~/.bashrc
+conductor-init completion >> ~/.bashrc
 source ~/.bashrc
 ```
 

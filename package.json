@@ -1,7 +1,7 @@
 {
-  "name": "conductor-install",
-  "version": "0.7.5",
-  "description": "Conductor Scaffolding CLI - Generate spec-driven, portable Gemini Conductor workflows for any coding agent via npx",
+  "name": "create-conductor-flow",
+  "version": "0.0.0",
+  "description": "Conductor Scaffolding CLI - Generate spec-driven, portable Gemini Conductor workflows for any coding agent",
   "license": "Apache-2.0",
   "keywords": [
     "conductor",
@@ -27,11 +27,15 @@
     "sdd",
     "cdd"
   ],
+  "author": {
+    "name": "Jonkimi",
+    "url": "https://blog.jonkimi.com"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jonkimi/conductor-install.git"
+    "url": "git+https://github.com/Jonkimi/create-conductor-flow.git"
   },
-  "homepage": "https://github.com/Jonkimi/conductor-install",
+  "homepage": "https://github.com/Jonkimi/create-conductor-flow",
   "packageManager": "pnpm@10.24.0",
   "engines": {
     "node": ">=18"
@@ -41,8 +45,7 @@
   },
   "type": "module",
   "bin": {
-    "conductor": "dist/index.js",
-    "conductor-install": "dist/index.js"
+    "conductor-init": "dist/index.js"
   },
   "files": [
     "dist",
@@ -50,14 +53,15 @@
     "LICENSE"
   ],
   "scripts": {
-    "clean": "npx tsx scripts/clean.ts",
+    "clean": "tsx scripts/clean.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "prebuild": "npx tsx scripts/bundle-conductor.ts",
-    "update-readme": "npx tsx scripts/update-readme.ts",
+    "prebuild": "tsx scripts/bundle-conductor.ts",
+    "update-readme": "tsx scripts/update-readme.ts",
     "build": "tsup",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "release": "tsx scripts/double-publish.ts"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",

@@ -11,4 +11,4 @@ src/conductor
 .qwen
 .factory
 tmp-*
-
+.github/*

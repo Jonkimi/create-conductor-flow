@@ -1,12 +1,12 @@
-# Conductor Install
+# Conductor Init
 
-[![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
+[![npm version](https://badge.fury.io/js/conductor-init.svg)](https://badge.fury.io/js/conductor-init)
 
-<img src="./conductor_install_banner.png" height="400" alt="Conductor Install Banner" />
+<img src="./conductor_init_banner.png" height="400" alt="Conductor Init Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install**은 `npx`를 통해 **모든** AI 코딩 에이전트를 위한 사양 주도형(spec-driven) 휴대용 **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** 워크플로우를 생성하는 **Conductor 스캐폴딩 CLI**입니다. 이는 **Claude Code**, **OpenCode**, **Cursor**, **Kilo Code** 및 기타 주요 AI 코딩 도우미를 위한 **[컨텍스트 우선의 사양 주도형 개발의 진화](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**를 가능하게 합니다.
+**Conductor Init**은 `npx`를 통해 **모든** AI 코딩 에이전트를 위한 사양 주도형(spec-driven) 휴대용 **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** 워크플로우를 생성하는 **Conductor 스캐폴딩 CLI**입니다. 이는 **Claude Code**, **OpenCode**, **Cursor**, **Kilo Code** 및 기타 주요 AI 코딩 도우미를 위한 **[컨텍스트 우선의 사양 주도형 개발의 진화](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**를 가능하게 합니다.
 
 원래 Gemini CLI를 위해 개발된 **Conductor**는 이 프로젝트를 통해 분리되어 **개발자가 컨텍스트를 유지하고, 작업을 관리하며, 복잡한 기능을 조율할 수 있도록 지원합니다**. 이는 인간의 의도와 AI 실행 사이의 가교 역할을 하며, Agentic AI 시대에 "Context is King(컨텍스트가 왕)"임을 보장합니다.
 
@@ -23,7 +23,7 @@
 -   **컨텍스트 관리**: 구조화된 아티팩트(`spec.md`, `plan.md`)는 AI 에이전트가 집중하고 컨텍스트를 인식하도록 유지합니다.
 -   **사양 기반 개발**: AI에게 *어떻게* 구축할지 묻기 전에 *무엇을* 원하는지 정의하십시오.
 -   **에이전트 불가지론적 워크플로우**: 프로젝트 컨텍스트나 진행 상황을 잃지 않고 에이전트 간에 전환할 수 있습니다.
--   **간편한 초기화**: `npx conductor-install` 명령 하나로 설정할 수 있습니다.
+-   **간편한 초기화**: `npx conductor-init` 명령 하나로 설정할 수 있습니다.
 -   **Git 무시 설정**: 에이전트 설정 파일을 버전 관리에서 제외하도록 `.gitignore` 또는 `.git/info/exclude`를 자동으로 구성합니다.
 
 ## 🚀 사용법
@@ -31,7 +31,7 @@
 ### 1. 프로젝트에서 Conductor 설정
 
 ```text
-conductor-install [path] [options]
+conductor-init [path] [options]
 
 Positionals:
   path  Directory to install Conductor                   [string] [default: "."]
@@ -56,19 +56,19 @@ Options:
   -v, --version     Show version number                                [boolean]
 
 Examples:
-  conductor-install                         Install with interactive prompts
-  conductor-install --agent claude-code     Install for Claude Code agent
-  conductor-install --git-ignore gitignore  Add Conductor files to .gitignore
-  conductor-install --git-ignore exclude    Add Conductor files to
-                                            .git/info/exclude
-  conductor-install --git-ignore none       Remove Conductor entries from git
-                                            ignore
+  conductor-init                         Install with interactive prompts
+  conductor-init --agent claude-code     Install for Claude Code agent
+  conductor-init --git-ignore gitignore  Add Conductor files to .gitignore
+  conductor-init --git-ignore exclude    Add Conductor files to
+                                         .git/info/exclude
+  conductor-init --git-ignore none       Remove Conductor entries from git
+                                         ignore
 ```
 
 프로젝트에서 Conductor를 초기화하려면 프로젝트 루트에서 다음 명령을 실행하기만 하면 됩니다:
 
 ```bash
-npx conductor-install
+npx conductor-init
 ```
 
 ### 2. 대안: 소스에서 빌드
@@ -104,7 +104,7 @@ AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
 
 ### 3. 셸 자동 완성 (Shell Completion)
 
-특정 셸(Bash, Zsh)에 대한 탭 자동 완성을 활성화하여 `conductor-install`을(를) 더 쉽게 사용할 수 있습니다.
+특정 셸(Bash, Zsh)에 대한 탭 자동 완성을 활성화하여 `conductor-init`을(를) 더 쉽게 사용할 수 있습니다.
 
 #### Zsh (권장)
 
@@ -114,7 +114,7 @@ AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
 
 ```zsh
 mkdir -p ~/.config/conductor
-conductor-install completion > ~/.config/conductor/completion.zsh
+conductor-init completion > ~/.config/conductor/completion.zsh
 echo 'source ~/.config/conductor/completion.zsh' >> ~/.zshrc
 source ~/.zshrc
 ```
@@ -124,7 +124,7 @@ source ~/.zshrc
 `.zshrc`에 직접 추가합니다 (가장 쉬운 설정):
 
 ```zsh
-echo 'source <(conductor-install completion)' >> ~/.zshrc
+echo 'source <(conductor-init completion)' >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -133,7 +133,7 @@ source ~/.zshrc
 완성 스크립트를 `.bashrc`에 추가합니다:
 
 ```bash
-conductor-install completion >> ~/.bashrc
+conductor-init completion >> ~/.bashrc
 source ~/.bashrc
 ```
 

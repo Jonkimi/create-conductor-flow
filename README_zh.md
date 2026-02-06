@@ -1,12 +1,12 @@
-# Conductor Install
+# Conductor Init
 
-[![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
+[![npm version](https://badge.fury.io/js/conductor-init.svg)](https://badge.fury.io/js/conductor-init)
 
-<img src="./conductor_install_banner.png" height="400" alt="Conductor Install Banner" />
+<img src="./conductor_init_banner.png" height="400" alt="Conductor Init Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** 是一个 **Conductor 脚手架 CLI**，它通过 `npx` 为**任何** AI 编码代理生成规范驱动的、可移植的 **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** 工作流。它为 **Claude Code**、**OpenCode**、**Cursor**、**Kilo Code** 以及其他主流 AI 编码助手启用了**[首选上下文进化的规范驱动开发](https://blog.jonkimi.com/2026/02/01/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**（context-first evolution of spec-driven development）。
+**Conductor Init** 是一个 **Conductor 脚手架 CLI**，它通过 `npx` 为**任何** AI 编码代理生成规范驱动的、可移植的 **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** 工作流。它为 **Claude Code**、**OpenCode**、**Cursor**、**Kilo Code** 以及其他主流 AI 编码助手启用了**[首选上下文进化的规范驱动开发](https://blog.jonkimi.com/2026/02/01/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**（context-first evolution of spec-driven development）。
 
 **Conductor** 最初是为 Gemini CLI 开发的，现在由本项目将其解耦，**使开发人员能够维护上下文、管理任务并编排复杂功能**。它充当人类意图与 AI 执行之间的桥梁，确保在 Agentic AI 时代"上下文为王"。
 
@@ -23,7 +23,7 @@
 -   **上下文管理**: 结构化的工件（`spec.md`、`plan.md`）让您的 AI 代理保持专注并具备上下文感知能力。
 -   **规范驱动开发**: 在询问 AI *如何*构建之前，先定义您*想要什么*。
 -   **代理无关的工作流**: 在不丢失项目上下文或进度的情况下切换代理。
--   **轻松初始化**: 使用 `npx conductor-install` 即可完成设置。
+-   **轻松初始化**: 使用 `npx conductor-init` 即可完成设置。
 -   **Git 忽略配置**: 自动配置 `.gitignore` 或 `.git/info/exclude`，将 AI 代理配置文件排除在版本控制之外。
 
 ## 🚀 使用方法
@@ -31,7 +31,7 @@
 ### 1. 在你的项目中设置 Conductor
 
 ```text
-conductor-install [path] [options]
+conductor-init [path] [options]
 
 Positionals:
   path  Directory to install Conductor                   [string] [default: "."]
@@ -56,25 +56,25 @@ Options:
   -v, --version     Show version number                                [boolean]
 
 Examples:
-  conductor-install                         Install with interactive prompts
-  conductor-install --agent claude-code     Install for Claude Code agent
-  conductor-install --git-ignore gitignore  Add Conductor files to .gitignore
-  conductor-install --git-ignore exclude    Add Conductor files to
-                                            .git/info/exclude
-  conductor-install --git-ignore none       Remove Conductor entries from git
-                                            ignore
+  conductor-init                         Install with interactive prompts
+  conductor-init --agent claude-code     Install for Claude Code agent
+  conductor-init --git-ignore gitignore  Add Conductor files to .gitignore
+  conductor-init --git-ignore exclude    Add Conductor files to
+                                         .git/info/exclude
+  conductor-init --git-ignore none       Remove Conductor entries from git
+                                         ignore
 ```
 
 要在你的项目中初始化 Conductor，只需在项目根目录下运行以下命令：
 
 ```bash
-npx conductor-install
+npx conductor-init
 ```
 
 你也可以指定自定义模板仓库和分支：
 
 ```bash
-npx conductor-install --repo https://github.com/your-org/custom-conductor --branch v2
+npx conductor-init --repo https://github.com/your-org/custom-conductor --branch v2
 ```
 
 ### 2. 或者：从源码构建
@@ -110,7 +110,7 @@ node dist/index.js install
 
 ### 3. Shell 补全 (Shell Completion)
 
-启用特定 Shell (Bash, Zsh) 的 Tab 补全功能，让使用 `conductor-install` 更加轻松。
+启用特定 Shell (Bash, Zsh) 的 Tab 补全功能，让使用 `conductor-init` 更加轻松。
 
 #### Zsh (推荐)
 
@@ -120,7 +120,7 @@ node dist/index.js install
 
 ```zsh
 mkdir -p ~/.config/conductor
-conductor-install completion > ~/.config/conductor/completion.zsh
+conductor-init completion > ~/.config/conductor/completion.zsh
 echo 'source ~/.config/conductor/completion.zsh' >> ~/.zshrc
 source ~/.zshrc
 ```
@@ -130,7 +130,7 @@ source ~/.zshrc
 直接添加到你的 `.zshrc` (设置最简单)：
 
 ```zsh
-echo 'source <(conductor-install completion)' >> ~/.zshrc
+echo 'source <(conductor-init completion)' >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -139,7 +139,7 @@ source ~/.zshrc
 将补全脚本添加到你的 `.bashrc`：
 
 ```bash
-conductor-install completion >> ~/.bashrc
+conductor-init completion >> ~/.bashrc
 source ~/.bashrc
 ```
 

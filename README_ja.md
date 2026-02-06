@@ -1,12 +1,12 @@
-# Conductor Install
+# Conductor Init
 
-[![npm version](https://badge.fury.io/js/conductor-install.svg)](https://badge.fury.io/js/conductor-install)
+[![npm version](https://badge.fury.io/js/conductor-init.svg)](https://badge.fury.io/js/conductor-init)
 
-<img src="./conductor_install_banner.png" height="400" alt="Conductor Install Banner" />
+<img src="./conductor_init_banner.png" height="400" alt="Conductor Init Banner" />
 
 [English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
 
-**Conductor Install** は、`npx` を介して**あらゆる** AI コーディングエージェント向けに、仕様駆動型でポータブルな **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** ワークフローを生成する **Conductor スキャフォールディング CLI** です。これは、**Claude Code**、**OpenCode**、**Cursor**、**Kilo Code**、その他の主要な AI コーディングアシスタントのための**[コンテキストファーストな仕様駆動型開発の進化](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**を実現します。
+**Conductor Init** は、`npx` を介して**あらゆる** AI コーディングエージェント向けに、仕様駆動型でポータブルな **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** ワークフローを生成する **Conductor スキャフォールディング CLI** です。これは、**Claude Code**、**OpenCode**、**Cursor**、**Kilo Code**、その他の主要な AI コーディングアシスタントのための**[コンテキストファーストな仕様駆動型開発の進化](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**を実現します。
 
 もともと Gemini CLI 用に開発された **Conductor** は、このプロジェクトによって分離され、**開発者がコンテキストを維持し、タスクを管理し、複雑な機能をオーケストレーションできるようにします**。これは、Agentic AI の時代において「コンテキストは王様」であることを保証し、人間の意図と AI の実行との間の架け橋として機能します。
 
@@ -23,7 +23,7 @@
 -   **コンテキスト管理**: 構造化された成果物（`spec.md`、`plan.md`）により、AI エージェントの集中力とコンテキスト認識を維持します。
 -   **仕様駆動型開発**: AI に *どのように*構築するかを尋ねる前に、*何を*したいかを定義します。
 -   **エージェントに依存しないワークフロー**: プロジェクトのコンテキストや進行状況を失うことなく、エージェントを切り替えることができます。
--   **簡単な初期化**: `npx conductor-install` を使用した単一コマンドのセットアップ。
+-   **簡単な初期化**: `npx conductor-init` を使用した単一コマンドのセットアップ。
 -   **Git 除外設定**: エージェント設定ファイルをバージョン管理から除外するために `.gitignore` または `.git/info/exclude` を自動設定します。
 
 ## 🚀 使用方法
@@ -31,7 +31,7 @@
 ### 1. プロジェクトでの Conductor のセットアップ
 
 ```text
-conductor-install [path] [options]
+conductor-init [path] [options]
 
 Positionals:
   path  Directory to install Conductor                   [string] [default: "."]
@@ -56,19 +56,19 @@ Options:
   -v, --version     Show version number                                [boolean]
 
 Examples:
-  conductor-install                         Install with interactive prompts
-  conductor-install --agent claude-code     Install for Claude Code agent
-  conductor-install --git-ignore gitignore  Add Conductor files to .gitignore
-  conductor-install --git-ignore exclude    Add Conductor files to
-                                            .git/info/exclude
-  conductor-install --git-ignore none       Remove Conductor entries from git
-                                            ignore
+  conductor-init                         Install with interactive prompts
+  conductor-init --agent claude-code     Install for Claude Code agent
+  conductor-init --git-ignore gitignore  Add Conductor files to .gitignore
+  conductor-init --git-ignore exclude    Add Conductor files to
+                                         .git/info/exclude
+  conductor-init --git-ignore none       Remove Conductor entries from git
+                                         ignore
 ```
 
 プロジェクトで Conductor を初期化するには、プロジェクトのルートで次のコマンドを実行するだけです：
 
 ```bash
-npx conductor-install
+npx conductor-init
 ```
 
 ### 2. 代替手段：ソースからビルド
@@ -104,7 +104,7 @@ AI コーディングエージェントを選択するように求められま�
 
 ### 3. シェル補完 (Shell Completion)
 
-特定のシェル (Bash, Zsh) のタブ補完を有効にして、`conductor-install` をより簡単に使用できるようにします。
+特定のシェル (Bash, Zsh) のタブ補完を有効にして、`conductor-init` をより簡単に使用できるようにします。
 
 #### Zsh (推奨)
 
@@ -114,7 +114,7 @@ AI コーディングエージェントを選択するように求められま�
 
 ```zsh
 mkdir -p ~/.config/conductor
-conductor-install completion > ~/.config/conductor/completion.zsh
+conductor-init completion > ~/.config/conductor/completion.zsh
 echo 'source ~/.config/conductor/completion.zsh' >> ~/.zshrc
 source ~/.zshrc
 ```
@@ -124,7 +124,7 @@ source ~/.zshrc
 `.zshrc` に直接追加します (最も簡単な設定)：
 
 ```zsh
-echo 'source <(conductor-install completion)' >> ~/.zshrc
+echo 'source <(conductor-init completion)' >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -133,7 +133,7 @@ source ~/.zshrc
 補完スクリプトを `.bashrc` に追加します：
 
 ```bash
-conductor-install completion >> ~/.bashrc
+conductor-init completion >> ~/.bashrc
 source ~/.bashrc
 ```
 
