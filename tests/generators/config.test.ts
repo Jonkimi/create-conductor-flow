@@ -4,7 +4,7 @@ import { opencodeConfig } from "../../src/generators/opencode/index.js";
 import { claudeCodeConfig } from "../../src/generators/claude-code/index.js";
 import { antigravityConfig } from "../../src/generators/antigravity/index.js";
 import { cursorConfig } from "../../src/generators/cursor/index.js";
-import { vscodeCopilotConfig } from "../../src/generators/vscode-copilot/index.js";
+import { githubCopilotConfig } from "../../src/generators/github-copilot/index.js";
 import { codexConfig } from "../../src/generators/codex/index.js";
 import { windsurfConfig } from "../../src/generators/windsurf/index.js";
 import { clineConfig } from "../../src/generators/cline/index.js";
@@ -92,7 +92,7 @@ describe("AgentConfig", () => {
 				claudeCodeConfig,
 				antigravityConfig,
 				cursorConfig,
-				vscodeCopilotConfig,
+				githubCopilotConfig,
 				codexConfig,
 				windsurfConfig,
 				clineConfig,

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { defaultContentStrategy } from "../../src/generators/default/index.js";
 import { clineContentStrategy } from "../../src/generators/cline/index.js";
-import { vscodeCopilotContentStrategy } from "../../src/generators/vscode-copilot/index.js";
+import { githubCopilotContentStrategy } from "../../src/generators/github-copilot/index.js";
 import { geminiContentStrategy } from "../../src/generators/gemini/index.js";
 import { kilocodeContentStrategy } from "../../src/generators/kilocode/index.js";
 import { factoryDroidContentStrategy } from "../../src/generators/factorydroid/index.js";
@@ -141,9 +141,9 @@ describe("Agent Content Strategies", () => {
 		});
 	});
 
-	describe("VsCodeCopilotContentStrategy", () => {
+	describe("GithubCopilotContentStrategy", () => {
 		it("should add frontmatter with agent for fixedAgent", () => {
-			const result = vscodeCopilotContentStrategy.process(basicToml, {
+			const result = githubCopilotContentStrategy.process(basicToml, {
 				installPath: "~/.codex/conductor",
 				agentType: "codex",
 				fixedAgent: "agent",

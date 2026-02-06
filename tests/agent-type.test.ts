@@ -8,8 +8,8 @@ describe("AgentType Definition", () => {
 		expectTypeOf(agent).toMatchTypeOf<AgentType>();
 	});
 
-	it("should include vscode-copilot as a valid agent type", () => {
-		const agent: AgentType = "vscode-copilot";
+	it("should include github-copilot as a valid agent type", () => {
+		const agent: AgentType = "github-copilot";
 		expectTypeOf(agent).toMatchTypeOf<AgentType>();
 	});
 

@@ -83,7 +83,7 @@ npx conductor-init
   Claude Code (CLAUDE.md, .claude/commands)
   Antigravity (GEMINI.md, .agent/workflows)
   Cursor (AGENTS.md, .cursor/commands)
-  VS Code Copilot (AGENTS.md, .github/prompts)
+  Github Copilot (AGENTS.md, .github/prompts)
   Codex (AGENTS.md, .codex/prompts)
   Windsurf (AGENTS.md, .windsurf/workflows)
 ? Select installation method:
@@ -116,7 +116,7 @@ Positionals:
 Options:
   -a, --agent       Specify the coding agent
           [string] [choices: "opencode", "claude-code", "antigravity", "cursor",
-        "vscode-copilot", "codex", "windsurf", "cline", "kilo-code", "roo-code",
+        "github-copilot", "codex", "windsurf", "cline", "kilo-code", "roo-code",
                                          "qwen-code", "factory-droid", "gemini"]
   -r, --repo        Git repository URL for conductor. If used without value,
                     defaults to official repository.                    [string]

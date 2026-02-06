@@ -3,7 +3,7 @@ import { opencodeConfig } from "./opencode/config.js";
 import { claudeCodeConfig } from "./claude-code/config.js";
 import { antigravityConfig } from "./antigravity/config.js";
 import { cursorConfig } from "./cursor/config.js";
-import { vscodeCopilotConfig } from "./vscode-copilot/config.js";
+import { githubCopilotConfig } from "./github-copilot/config.js";
 import { codexConfig } from "./codex/config.js";
 import { windsurfConfig } from "./windsurf/config.js";
 import { clineConfig } from "./cline/config.js";
@@ -19,7 +19,7 @@ export const ALL_AGENT_CONFIGS: AgentConfig[] = [
 	claudeCodeConfig,
 	antigravityConfig,
 	cursorConfig,
-	vscodeCopilotConfig,
+	githubCopilotConfig,
 	codexConfig,
 	windsurfConfig,
 	clineConfig,

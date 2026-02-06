@@ -1,5 +1,5 @@
 # Initial Concept
-A standalone command-line tool built with TypeScript and Node.js that brings the Conductor methodology to *any* coding environment. This project, `conductor-init`, decouples the Conductor methodology from the Gemini CLI extension, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by any AI Coding Agent (e.g., Claude Code, Cursor, VS Code Copilot) or IDE.
+A standalone command-line tool built with TypeScript and Node.js that brings the Conductor methodology to *any* coding environment. This project, `conductor-init`, decouples the Conductor methodology from the Gemini CLI extension, allowing developers to install and initialize Conductor workflows in their projects so they can be leveraged by any AI Coding Agent (e.g., Claude Code, Cursor, Github Copilot) or IDE.
 
 ## Target Audience
 - **Software Developers:** Who want to bring structured, agent-friendly workflows to their projects regardless of the tools they use.
@@ -15,6 +15,6 @@ A standalone command-line tool built with TypeScript and Node.js that brings the
 - **Project Initialization & Installation:** A robust CLI to scaffold the necessary Conductor directories, templates, and configuration files. Fetches templates dynamically from remote Git repositories with local caching, or uses bundled templates for offline/standalone usage.
 - **Agent Installation Scope Control**: Enforces global (e.g., `~/.codex`) or project-level installation based on agent type requirements.
 - **Smart Agent Selection**: Interactive CLI to choose your preferred AI agent.
-- **Multi-Agent Support:** Built-in support for multiple AI agents including **OpenCode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, **Qwen Code**, **Factory Droid**, and **Gemini CLI**, with automated generation of tailored command structures and file formats (Markdown or TOML) for each.
+- **Multi-Agent Support:** Built-in support for multiple AI agents including **OpenCode**, **Claude Code**, **Antigravity**, **Cursor**, **Github Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, **Qwen Code**, **Factory Droid**, and **Gemini CLI**, with automated generation of tailored command structures and file formats (Markdown or TOML) for each.
 - **Universal Command Interface:** A set of standardized commands (implemented via `yargs`) to manage the lifecycle of tasks and tracks, designed to be easily invoked by both humans and agents.
 - **Cross-Platform Support:** Cross-platform execution provided by Node.js.

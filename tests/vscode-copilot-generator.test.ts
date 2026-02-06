@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { VSCodeCopilotGenerator } from "../src/generators/index.js";
+import { GithubCopilotGenerator } from "../src/generators/index.js";
 import fs from "fs-extra";
 import * as templateUtils from "../src/utils/template.js";
 import { join } from "path";
@@ -7,8 +7,8 @@ import { join } from "path";
 vi.mock("fs-extra");
 vi.mock("../src/utils/template.js");
 
-describe("VSCodeCopilotGenerator", () => {
-	const generator = new VSCodeCopilotGenerator();
+describe("GithubCopilotGenerator", () => {
+	const generator = new GithubCopilotGenerator();
 	const targetDir = "/mock/project";
 
 	beforeEach(() => {
@@ -18,7 +18,7 @@ describe("VSCodeCopilotGenerator", () => {
 		);
 	});
 
-	it("should generate VS Code Copilot specific files", async () => {
+	it("should generate Github Copilot specific files", async () => {
 		// Mock template loading
 		vi.mocked(templateUtils.loadTemplate).mockImplementation(async (path) => {
 			if (path === "commands/conductor/setup.toml") {

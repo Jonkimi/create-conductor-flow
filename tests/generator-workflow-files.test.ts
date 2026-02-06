@@ -8,7 +8,7 @@ import {
 	CodexGenerator,
 	GeminiGenerator,
 	OpenCodeGenerator,
-	VSCodeCopilotGenerator,
+	GithubCopilotGenerator,
 	KiloCodeGenerator,
 } from "../src/generators/index.js";
 import fs from "fs-extra";
@@ -76,8 +76,8 @@ const agents = [
 		usesPrefix: true,
 	},
 	{
-		name: "VSCodeCopilot",
-		generator: new VSCodeCopilotGenerator(),
+		name: "GithubCopilot",
+		generator: new GithubCopilotGenerator(),
 		expectedDir: join(".github", "prompts"),
 		extension: ".prompt.md",
 		usesPrefix: true,

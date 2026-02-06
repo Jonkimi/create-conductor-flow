@@ -3,7 +3,7 @@ export type AgentType =
 	| "claude-code"
 	| "antigravity"
 	| "cursor"
-	| "vscode-copilot"
+	| "github-copilot"
 	| "codex"
 	| "windsurf"
 	| "cline"
