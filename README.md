@@ -49,7 +49,7 @@ npm create conductor-flow
 - **Roo Code**
 - **Qwen Code**
 - **Factory Droid**
-- **Gemini CLI**.
+- **Gemini CLI**
 
 Originally developed for the Gemini CLI, the **Conductor** is now decoupled by this project, **empowering developers to maintain context, manage tasks, and orchestrate complex features**. It serves as a bridge between human intent and AI execution, ensuring "Context is King" in the era of Agentic AI.
 
