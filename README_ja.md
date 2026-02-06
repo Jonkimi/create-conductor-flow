@@ -93,13 +93,37 @@ npx conductor-init
   Add to .git/info/exclude
   Remove existing entries
 ❯ Don't configure git ignore
+? Select template source:
+❯ Bundled Templates (Offline) - Use built-in templates, no network required
+  Official Repository (Latest) - Fetch latest from official repository
+  Custom Repository - Specify your own repository and branch
 ```
+
+### テンプレートソースのオプション
+
+CLI は3つのテンプレートソースを提供しています：
+
+| オプション | 説明 | 適用シーン |
+|--------|-------------|----------|
+| **バンドルテンプレート** | CLI に同梱されている組み込みテンプレートを使用します。ネットワーク不要。 | オフライン使用、クイックセットアップ、安定したテンプレート |
+| **公式リポジトリ** | [公式 Conductor リポジトリ](https://github.com/gemini-cli-extensions/conductor) から最新のテンプレートをダウンロードします。 | 最新機能とアップデートの取得 |
+| **カスタムリポジトリ** | テンプレートソースとして独自の Git リポジトリとブランチを指定します。 | カスタムワークフロー、エンタープライズテンプレート |
+
+**非インタラクティブモード（CI/CD）**
+
+CI/CD 環境または stdin が TTY でない場合、CLI はプロンプトを表示せずに自動的にバンドルテンプレートを使用します：
+- `CI=true` 環境変数が設定されている場合
+- 非インタラクティブシェルで実行されている場合（パイプ入力）
+
 ### 引数とフラグ
 
 パワーユーザー向けに、引数を直接渡してプロンプトをスキップできます：
 
 ```bash
 npm create conductor-flow -a claude-code
+
+# 公式リポジトリを明示的に使用
+npm create conductor-flow --repo
 
 # カスタムテンプレートリポジトリとブランチを指定
 npm create conductor-flow --repo https://github.com/your-org/custom-conductor --branch v2

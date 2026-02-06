@@ -93,13 +93,37 @@ npx conductor-init
   Add to .git/info/exclude
   Remove existing entries
 ❯ Don't configure git ignore
+? Select template source:
+❯ Bundled Templates (Offline) - Use built-in templates, no network required
+  Official Repository (Latest) - Fetch latest from official repository
+  Custom Repository - Specify your own repository and branch
 ```
+
+### 模板来源选项
+
+CLI 提供三种模板来源供选择：
+
+| 选项 | 描述 | 适用场景 |
+|--------|-------------|----------|
+| **内置模板** | 使用 CLI 自带的内置模板，无需网络连接。 | 离线使用、快速设置、稳定模板 |
+| **官方仓库** | 从 [官方 Conductor 仓库](https://github.com/gemini-cli-extensions/conductor) 下载最新模板。 | 获取最新功能和更新 |
+| **自定义仓库** | 指定您自己的 Git 仓库和分支作为模板来源。 | 自定义工作流、企业模板 |
+
+**非交互模式（CI/CD）**
+
+在 CI/CD 环境中或当 stdin 不是 TTY 时，CLI 会自动使用内置模板而不显示提示：
+- 当设置了 `CI=true` 环境变量时
+- 当在非交互式 Shell 中运行时（管道输入）
+
 ### 参数与标志
 
 对于高级用户，您可以直接传递参数以跳过提示：
 
 ```bash
 npm create conductor-flow -a claude-code
+
+# 显式使用官方仓库
+npm create conductor-flow --repo
 
 # 指定自定义模板仓库和分支
 npm create conductor-flow --repo https://github.com/your-org/custom-conductor --branch v2

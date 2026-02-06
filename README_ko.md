@@ -93,13 +93,37 @@ npx conductor-init
   Add to .git/info/exclude
   Remove existing entries
 ❯ Don't configure git ignore
+? Select template source:
+❯ Bundled Templates (Offline) - Use built-in templates, no network required
+  Official Repository (Latest) - Fetch latest from official repository
+  Custom Repository - Specify your own repository and branch
 ```
+
+### 템플릿 소스 옵션
+
+CLI는 세 가지 템플릿 소스를 제공합니다:
+
+| 옵션 | 설명 | 적합한 사용 사례 |
+|--------|-------------|----------|
+| **번들 템플릿** | CLI에 포함된 내장 템플릿을 사용합니다. 네트워크가 필요 없습니다. | 오프라인 사용, 빠른 설정, 안정적인 템플릿 |
+| **공식 저장소** | [공식 Conductor 저장소](https://github.com/gemini-cli-extensions/conductor)에서 최신 템플릿을 다운로드합니다. | 최신 기능 및 업데이트 가져오기 |
+| **커스텀 저장소** | 템플릿 소스로 사용할 자체 Git 저장소와 브랜치를 지정합니다. | 맞춤형 워크플로우, 기업용 템플릿 |
+
+**비대화형 모드 (CI/CD)**
+
+CI/CD 환경이나 stdin이 TTY가 아닌 경우, CLI는 프롬프트 없이 자동으로 번들 템플릿을 사용합니다:
+- `CI=true` 환경 변수가 설정된 경우
+- 비대화형 셸에서 실행되는 경우 (파이프 입력)
+
 ### 인수 및 플래그
 
 고급 사용자의 경우, 프롬프트를 건너뛰기 위해 인수를 직접 전달할 수 있습니다:
 
 ```bash
 npm create conductor-flow -a claude-code
+
+# 공식 저장소를 명시적으로 사용
+npm create conductor-flow --repo
 
 # 사용자 정의 템플릿 저장소 및 브랜치 지정
 npm create conductor-flow --repo https://github.com/your-org/custom-conductor --branch v2

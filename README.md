@@ -94,7 +94,28 @@ You will be prompted to select your target environment:
   Add to .git/info/exclude
   Remove existing entries
 ❯ Don't configure git ignore
+? Select template source:
+❯ Bundled Templates (Offline) - Use built-in templates, no network required
+  Official Repository (Latest) - Fetch latest from official repository
+  Custom Repository - Specify your own repository and branch
 ```
+
+### Template Source Options
+
+The CLI provides three template sources to choose from:
+
+| Option | Description | Best For |
+|--------|-------------|----------|
+| **Bundled Templates** | Use built-in templates that are packaged with the CLI. No network required. | Offline usage, quick setup, stable templates |
+| **Official Repository** | Download the latest templates from the [official Conductor repository](https://github.com/gemini-cli-extensions/conductor). | Getting the latest features and updates |
+| **Custom Repository** | Specify your own Git repository and branch for templates. | Custom workflows, enterprise templates |
+
+**Non-Interactive Mode (CI/CD)**
+
+In CI/CD environments or when stdin is not a TTY, the CLI automatically uses bundled templates without prompting:
+- When `CI=true` environment variable is set
+- When running in a non-interactive shell (piped input)
+
 ### Arguments & Flags
 
 For power users, you can pass arguments directly to skip prompts:
@@ -102,7 +123,10 @@ For power users, you can pass arguments directly to skip prompts:
 ```bash
 npm create conductor-flow -a claude-code
 
-#specify a custom template repository and branch
+# Use official repository explicitly
+npm create conductor-flow --repo
+
+# Specify a custom template repository and branch
 npm create conductor-flow --repo https://github.com/your-org/custom-conductor --branch v2
 ```
 
