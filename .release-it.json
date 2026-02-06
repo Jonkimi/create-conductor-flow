@@ -9,9 +9,18 @@
   },
   "git": {
     "commitMessage": "chore: release v${version}",
-    "tagName": "v${version}"
+    "tagName": "v${version}",
+    "tagAnnotation": "Release ${version}\n\n${changelog}"
   },
   "npm": {
     "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md",
+      "header": "# Changelog",
+      "ignoreRecommendedBump": true
+    }
   }
 }

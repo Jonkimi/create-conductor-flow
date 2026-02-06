@@ -65,6 +65,7 @@
     "release": "tsx scripts/double-publish.ts"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^10.0.5",
     "@types/fs-extra": "^11.0.4",
     "@types/gradient-string": "^1.1.6",
     "@types/node": "^25.1.0",
