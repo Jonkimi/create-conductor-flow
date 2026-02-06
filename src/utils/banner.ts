@@ -14,11 +14,14 @@ export const CONDUCTOR_INIT_BANNER = `
                                                                                     
 `;
 
-function printVersion(): void {
+export function printVersion(): void {
 	// 1. 获取 package.json 的路径 (兼容 ESM)
 	const __dirname = path.dirname(fileURLToPath(import.meta.url));
-	// 注意：如果你的代码在 dist/ 目录，可能需要 ../package.json，根据实际层级调整
-	const pkgPath = path.join(__dirname, "../package.json");
+	// Try to find package.json in typical locations
+	let pkgPath = path.join(__dirname, "../package.json");
+	if (!fs.existsSync(pkgPath)) {
+		pkgPath = path.join(__dirname, "../../package.json");
+	}
 	// 2. 读取版本号
 	const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
 	const version = pkg.version;
@@ -28,7 +31,4 @@ function printVersion(): void {
 export function printBanner(): void {
 	// console.clear();
 	console.log(gradient("cyan", "green")(CONDUCTOR_INIT_BANNER));
-	// B. 版本号 (居中或右对齐，用暗色调，不要喧宾夺主)
-	// 这里的 console.log 直接接在 Banner 下面
-	printVersion();
 }

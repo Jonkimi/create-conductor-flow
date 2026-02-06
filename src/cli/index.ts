@@ -1,7 +1,7 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { installHandler } from "../commands/install.js";
-import { printBanner } from "../utils/banner.js";
+import { printBanner, printVersion } from "../utils/banner.js";
 import { DEFAULT_REPO, DEFAULT_BRANCH } from "../utils/template.js";
 
 import { ALL_AGENT_CONFIGS } from "../generators/registry.js";
@@ -91,6 +91,7 @@ export async function main(scriptName: string) {
 		!process.argv.includes("--get-yargs-completions")
 	) {
 		printBanner();
+		printVersion();
 	}
 
 	const argv = await parseArgs(scriptName);

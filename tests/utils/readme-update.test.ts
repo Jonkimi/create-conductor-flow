@@ -1,5 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { stripAnsi, updateReadmeSection } from "../../src/utils/readme-update.js";
+import {
+	stripAnsi,
+	updateReadmeSection,
+} from "../../src/utils/readme-update.js";
 
 describe("readme-update utility", () => {
 	describe("stripAnsi", () => {
@@ -15,35 +18,38 @@ describe("readme-update utility", () => {
 	});
 
 	describe("updateReadmeSection", () => {
-		const originalReadme = '# Conductor Install\n\n## 🚀 Usage\n\n### 1. Setup Conductor in Your Project\n\n```text\nold help output\n```\n\nTo initialize Conductor in your project...';
-
 		const newHelpOutput = "new help output";
 
 		it("should update the help section in English README", () => {
-			const result = updateReadmeSection(originalReadme, newHelpOutput);
-			expect(result).toContain("### 1. Setup Conductor in Your Project");
+			const enReadme =
+				"# Conductor Install\n\n### Common Options\n\n```text\nold help output\n```\n\nFooter...";
+			const result = updateReadmeSection(enReadme, newHelpOutput);
+			expect(result).toContain("### Common Options");
 			expect(result).toContain("```text\nnew help output\n```");
 			expect(result).not.toContain("old help output");
 		});
 
 		it("should update the help section in Chinese README", () => {
-			const zhReadme = '# Conductor Install\n\n## 🚀 使用方法\n\n### 1. 在你的项目中设置 Conductor\n\n```text\nold help output\n```\n\n要在你的项目中初始化 Conductor...';
+			const zhReadme =
+				"# Conductor Install\n\n### 常用选项\n\n```text\nold help output\n```\n\nFooter...";
 			const result = updateReadmeSection(zhReadme, newHelpOutput);
-			expect(result).toContain("### 1. 在你的项目中设置 Conductor");
+			expect(result).toContain("### 常用选项");
 			expect(result).toContain("```text\nnew help output\n```");
 		});
 
 		it("should update the help section in Japanese README", () => {
-			const jaReadme = '# Conductor Install\n\n## 🚀 使用方法\n\n### 1. プロジェクトでの Conductor のセットアップ\n\n```text\nold help output\n```\n\nプロジェクトで Conductor を初期化するには...';
+			const jaReadme =
+				"# Conductor Install\n\n### 一般的なオプション\n\n```text\nold help output\n```\n\nFooter...";
 			const result = updateReadmeSection(jaReadme, newHelpOutput);
-			expect(result).toContain("### 1. プロジェクトでの Conductor のセットアップ");
+			expect(result).toContain("### 一般的なオプション");
 			expect(result).toContain("```text\nnew help output\n```");
 		});
 
 		it("should update the help section in Korean README", () => {
-			const koReadme = '# Conductor Install\n\n## 🚀 사용법\n\n### 1. 프로젝트에서 Conductor 설정\n\n```text\nold help output\n```\n\n프로젝트에서 Conductor를 초기화하려면...';
+			const koReadme =
+				"# Conductor Install\n\n### 일반적인 옵션\n\n```text\nold help output\n```\n\nFooter...";
 			const result = updateReadmeSection(koReadme, newHelpOutput);
-			expect(result).toContain("### 1. 프로젝트에서 Conductor 설정");
+			expect(result).toContain("### 일반적인 옵션");
 			expect(result).toContain("```text\nnew help output\n```");
 		});
 	});

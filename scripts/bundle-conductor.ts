@@ -94,4 +94,6 @@ export async function processConductorFiles(dir: string) {
 	}
 }
 
-main().catch(console.error);
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+	main().catch(console.error);
+}

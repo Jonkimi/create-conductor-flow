@@ -12,7 +12,14 @@ vi.mock("fs-extra", () => {
 			writeFile: vi.fn(),
 			ensureDir: vi.fn(),
 			remove: vi.fn(),
+			existsSync: vi.fn(),
 		},
+	};
+});
+
+vi.mock("child_process", () => {
+	return {
+		execSync: vi.fn(),
 	};
 });
 

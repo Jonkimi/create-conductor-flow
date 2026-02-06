@@ -16,6 +16,6 @@ describe("CLI Integration", () => {
 
 	it("should display help", () => {
 		const output = execSync(`node ${cliPath} --help`).toString();
-		expect(output).toContain("conductor-init [path] [options]");
+		expect(output).toContain("conductor-flow [path] [options]");
 	});
 });
