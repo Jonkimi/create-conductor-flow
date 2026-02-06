@@ -42,7 +42,38 @@ jobs:
       - run: npm install -g npm@latest # Update npm to latest version for OIDC support
       - run: npm ci
       - run: npm run build --if-present
-      - run: npm publish --access public
+      # - run: npm publish --access public
+      - name: Check version and Publish
+        run: |
+          # 1. 获取当前 package.json 的版本号
+          VERSION=$(node -p "require('./package.json').version")
+          echo "Current Version: $VERSION"
+
+          # 2. 判断逻辑
+          if [[ "$VERSION" == *"-"* ]]; then
+            # ---------------------------------------------------
+            # 情况一：预发布版本 (包含连字符，如 1.0.0-beta.1)
+            # ---------------------------------------------------
+            
+            # 提取 tag 名字 (例如从 1.0.0-beta.1 提取出 "beta")
+            # 逻辑：取第一个连字符后的单词，如果提取失败默认用 "next"
+            TAG=$(echo "$VERSION" | sed -r 's/^[0-9]+\.[0-9]+\.[0-9]+-([a-z]+)(\..*)?$/\1/')
+            
+            # 如果 TAG 为空或者提取出来还是数字，强制降级为 next
+            if [[ -z "$TAG" ]] || [[ "$TAG" =~ ^[0-9]+$ ]]; then
+              TAG="next"
+            fi
+            
+            echo "⚠️ Prerelease detected. Publishing with tag: $TAG"
+            npm publish --tag "$TAG"
+            
+          else
+            # ---------------------------------------------------
+            # 情况二：正式版本 (如 1.0.0)
+            # ---------------------------------------------------
+            echo "✅ Stable release detected. Publishing to latest."
+            npm publish
+          fi
 
       # -------------------------------------------------------
       # 发布副包：conductor-init
@@ -54,4 +85,36 @@ jobs:
           npm pkg delete bin.create-conductor-flow
 
           # 必须加上 --provenance，这样 npm 知道这是同一个仓库来的
-          npm publish --access public --provenance
+          # npm publish --access public --provenance
+
+      - name: Check version and Publish
+        run: |
+          # 1. 获取当前 package.json 的版本号
+          VERSION=$(node -p "require('./package.json').version")
+          echo "Current Version: $VERSION"
+
+          # 2. 判断逻辑
+          if [[ "$VERSION" == *"-"* ]]; then
+            # ---------------------------------------------------
+            # 情况一：预发布版本 (包含连字符，如 1.0.0-beta.1)
+            # ---------------------------------------------------
+            
+            # 提取 tag 名字 (例如从 1.0.0-beta.1 提取出 "beta")
+            # 逻辑：取第一个连字符后的单词，如果提取失败默认用 "next"
+            TAG=$(echo "$VERSION" | sed -r 's/^[0-9]+\.[0-9]+\.[0-9]+-([a-z]+)(\..*)?$/\1/')
+            
+            # 如果 TAG 为空或者提取出来还是数字，强制降级为 next
+            if [[ -z "$TAG" ]] || [[ "$TAG" =~ ^[0-9]+$ ]]; then
+              TAG="next"
+            fi
+            
+            echo "⚠️ Prerelease detected. Publishing with tag: $TAG"
+            npm publish --tag "$TAG"
+            
+          else
+            # ---------------------------------------------------
+            # 情况二：正式版本 (如 1.0.0)
+            # ---------------------------------------------------
+            echo "✅ Stable release detected. Publishing to latest."
+            npm publish
+          fi
