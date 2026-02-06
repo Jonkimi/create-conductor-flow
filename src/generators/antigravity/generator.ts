@@ -14,7 +14,7 @@ export class AntigravityGenerator implements AgentGenerator {
         return this.generator.validate(targetDir, scope);
     }
 
-    generate(targetDir: string, scope?: InstallScope, repo?: string, branch?: string): Promise<void> {
-        return this.generator.generate(targetDir, scope, repo, branch);
+    generate(targetDir: string, scope?: InstallScope, repo?: string, branch?: string, force?: boolean): Promise<void> {
+        return this.generator.generate(targetDir, scope, repo, branch, force);
     }
 }

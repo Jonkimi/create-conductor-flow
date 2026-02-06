@@ -18,10 +18,10 @@ export class CodexGenerator implements AgentGenerator {
         return this.generator.validate(targetDir, scope);
     }
 
-    generate(targetDir: string, scope?: InstallScope, repo?: string, branch?: string): Promise<void> {
+    generate(targetDir: string, scope?: InstallScope, repo?: string, branch?: string, force?: boolean): Promise<void> {
         if (scope === 'global') {
             targetDir = homedir();
         }
-        return this.generator.generate(targetDir, scope, repo, branch);
+        return this.generator.generate(targetDir, scope, repo, branch, force);
     }
 }

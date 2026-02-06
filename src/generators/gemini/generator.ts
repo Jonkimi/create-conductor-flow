@@ -17,10 +17,10 @@ export class GeminiGenerator implements AgentGenerator {
         return this.generator.validate(targetDir, scope);
     }
 
-    async generate(targetDir: string, scope?: InstallScope, repo?: string, branch?: string): Promise<void> {
+    async generate(targetDir: string, scope?: InstallScope, repo?: string, branch?: string, force?: boolean): Promise<void> {
         if (scope === 'global') {
             throw new Error('Gemini CLI agent only supports project-level installation');
         }
-        return this.generator.generate(targetDir, scope, repo, branch);
+        return this.generator.generate(targetDir, scope, repo, branch, force);
     }
 }

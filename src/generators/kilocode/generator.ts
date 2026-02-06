@@ -19,7 +19,8 @@ export class KiloCodeGenerator implements AgentGenerator {
 		scope?: InstallScope,
 		repo?: string,
 		branch?: string,
+		force?: boolean,
 	): Promise<void> {
-		return this.generator.generate(targetDir, scope, repo, branch);
+		return this.generator.generate(targetDir, scope, repo, branch, force);
 	}
 }
