@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { existsSync, readFileSync } from "fs";
 import { join } from "path";
-import { execSync } from "child_process";
 
 describe("Tsup Build Configuration", () => {
 	const tsupConfigPath = join(process.cwd(), "tsup.config.ts");
@@ -23,13 +22,11 @@ describe("Tsup Build Configuration", () => {
 	});
 
 	describe("Build output", () => {
-		it("should build to js/dist/", () => {
-			expect(() => {
-				execSync("npx tsup", { stdio: "inherit" });
-			}).not.toThrow();
-		});
+		// Note: Build is executed by `npm run build` before tests, not during tests.
+		// Executing `npx tsup` here would cause race conditions with parallel tests
+		// because tsup's clean:true deletes the dist/ directory.
 
-		it("should create output files", () => {
+		it("should have dist directory created by build", () => {
 			const distDir = join(process.cwd(), "dist");
 			expect(existsSync(distDir)).toBe(true);
 		});
