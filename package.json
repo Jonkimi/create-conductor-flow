@@ -78,6 +78,7 @@
     "vitest": "^4.0.18"
   },
   "dependencies": {
+    "@inquirer/input": "^5.0.4",
     "@inquirer/select": "^5.0.4",
     "fs-extra": "^11.3.3",
     "gradient-string": "^3.0.0",
