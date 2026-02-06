@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/你的用户名/create-conductor-flow">
-    <img src="./conductor_init_banner.png" alt="Conductor Scaffolding CLI Logo" width="1024" height="768">
+    <img src="./conductor_init_banner.png" alt="Conductor Scaffolding CLI Logo" width="512" height="384">
   </a>
 
   <h1>Conductor Scaffolding CLI</h1>
