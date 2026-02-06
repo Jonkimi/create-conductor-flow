@@ -79,7 +79,7 @@ jobs:
       # -------------------------------------------------------
       # 发布副包：conductor-init
       # -------------------------------------------------------
-      - name: Modify and Publish Alias Package
+      - name: Modify Alias Package
         run: |
           npm pkg set name="conductor-init"
           npm pkg set bin.conductor-init="./index.js"
