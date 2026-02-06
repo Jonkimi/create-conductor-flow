@@ -38,10 +38,10 @@ npm create conductor-flow
 - **Claude Code**
 - **Antigravity**
 - **Cursor**
-- **Github Copilot**,
+- **Github Copilot**
 - **Codex**
 - **Windsurf**
--  **Cline**, 
+-  **Cline** 
 - **Kilo Code**
 - **Roo Code**
 - **Qwen Code**
