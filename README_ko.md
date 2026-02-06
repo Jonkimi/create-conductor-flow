@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/Jonkimi/create-conductor-flow">
-    <img src="./conductor_init_banner.png" alt="Conductor Scaffolding CLI Logo" width="512" height="384">
+    <img src="./conductor_flow_banner.png" alt="Conductor Scaffolding CLI Logo" width="512" height="384">
   </a>
 
   <h1>Conductor Scaffolding CLI</h1>
