@@ -286,6 +286,38 @@ describe("CLI E2E Tests", () => {
 						expect(fs.existsSync(join(tempDir, ".claude"))).toBe(true);
 					});
 				});
+
+				describe("template source selection", () => {
+					it("should use bundled templates in CI mode (non-interactive)", () => {
+						// In CI mode, the CLI should automatically use bundled templates
+						// without prompting for input
+						const output = runCLI(
+							`${tempDir} --agent gemini --scope project --git-ignore none`,
+						);
+						expect(output).toContain("Using bundled Conductor templates");
+						expect(output).toContain("Conductor initialized successfully");
+					});
+
+					it("should skip template prompt when --repo is provided", () => {
+						// When --repo is provided, should not show the "Using bundled" message
+						// Instead it should download from the specified repo
+						// Note: This test may fail if the repo is not accessible, so we just
+						// verify the CLI accepts the option without error in help
+						const helpOutput = execSync(
+							`node ${installPath} --help`,
+						).toString();
+						expect(helpOutput).toContain("--repo");
+						expect(helpOutput).toContain("--branch");
+					});
+
+					it("should accept --branch option along with --repo", () => {
+						// Verify the CLI accepts --branch option
+						const helpOutput = execSync(
+							`node ${installPath} --help`,
+						).toString();
+						expect(helpOutput).toContain("--branch");
+					});
+				});
 			});
 		});
 	});

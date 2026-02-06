@@ -11,6 +11,12 @@ import select from "@inquirer/select";
 import { AgentType, InstallScope } from "../types.js";
 import type { GitIgnoreMethod } from "../utils/gitIgnore.js";
 import { executeGitIgnoreAction } from "../utils/gitIgnoreAction.js";
+import {
+	promptTemplateSource,
+	resolveTemplateSource,
+	TemplateSource,
+	LOG_MESSAGES,
+} from "../utils/templatePrompt.js";
 
 export async function installHandler(
 	argv: ArgumentsCamelCase<{
@@ -63,6 +69,33 @@ export async function installHandler(
 			effectiveGitIgnore = await promptForGitIgnore();
 		}
 
+		// 2.6. Determine template source (repo and branch)
+		let effectiveRepo: string | undefined = argv.repo;
+		let effectiveBranch: string | undefined = argv.branch;
+
+		if (!argv.repo) {
+			// No --repo flag provided, prompt for template source
+			const templateSourceResult = await promptTemplateSource();
+			const resolved = resolveTemplateSource(templateSourceResult);
+			effectiveRepo = resolved.repo;
+			effectiveBranch = resolved.branch;
+
+			// Log the selection result
+			if (templateSourceResult.source === TemplateSource.BUNDLED) {
+				console.log(`✔ ${LOG_MESSAGES.USING_BUNDLED}`);
+			} else if (effectiveRepo) {
+				console.log(
+					`✔ ${LOG_MESSAGES.DOWNLOADING_FROM(effectiveRepo, effectiveBranch || "main")}`,
+				);
+			}
+		} else {
+			// --repo was provided via CLI
+			console.log(`Using provided repository: ${argv.repo}`);
+			if (argv.branch) {
+				console.log(`Using provided branch: ${argv.branch}`);
+			}
+		}
+
 		const generator = getGenerator(agent);
 
 		// 3. Validate (with force option handling)
@@ -103,8 +136,8 @@ export async function installHandler(
 		await generator.generate(
 			validatedPath,
 			scope,
-			argv.repo,
-			argv.branch,
+			effectiveRepo,
+			effectiveBranch,
 			force,
 		);
 		console.log("✔ Files generated");

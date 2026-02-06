@@ -26,7 +26,7 @@ async function parseArgs(scriptName: string) {
 		.option("repo", {
 			alias: "r",
 			describe:
-				"Git repository URL for conductor. If used without value, defaults to official repository.",
+				"Git repository URL for templates. Without this flag, interactive template source selection is shown.",
 			type: "string",
 		})
 		.coerce("repo", (arg) => {
@@ -37,7 +37,7 @@ async function parseArgs(scriptName: string) {
 		})
 		.option("branch", {
 			alias: "b",
-			describe: "Branch name for conductor repository",
+			describe: "Branch name for template repository",
 			type: "string",
 			default: DEFAULT_BRANCH,
 		})
@@ -67,8 +67,15 @@ async function parseArgs(scriptName: string) {
 			type: "boolean",
 			default: false,
 		})
-		.example("$0", "Install with interactive prompts")
+		.example(
+			"$0",
+			"Install with interactive prompts (template source selection)",
+		)
 		.example("$0 --agent claude-code", "Install for Claude Code agent")
+		.example(
+			"$0 --repo https://github.com/user/templates",
+			"Use custom template repository",
+		)
 		.example("$0 --git-ignore gitignore", "Add Conductor files to .gitignore")
 		.example(
 			"$0 --git-ignore exclude",
