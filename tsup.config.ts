@@ -3,7 +3,7 @@ import fs from "fs-extra";
 import { join } from "path";
 
 export default defineConfig({
-	entry: ["src/index.ts"],
+	entry: ["src/index.ts", "src/conductor-init.ts"],
 	outDir: "dist",
 	format: "esm",
 	dts: false,

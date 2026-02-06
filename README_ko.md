@@ -1,37 +1,117 @@
-# Conductor Init
+<div align="center">
+  <a href="https://github.com/Jonkimi/create-conductor-flow">
+    <img src="./conductor_init_banner.png" alt="Conductor Scaffolding CLI Logo" width="1024" height="768">
+  </a>
 
-[![npm version](https://badge.fury.io/js/conductor-init.svg)](https://badge.fury.io/js/conductor-init)
+  <h1>Conductor Scaffolding CLI</h1>
 
-<img src="./conductor_init_banner.png" height="400" alt="Conductor Init Banner" />
+  <p>
+    <a href="https://www.npmjs.com/package/create-conductor-flow">
+      <img src="https://img.shields.io/npm/v/create-conductor-flow?color=0470f2&label=npm+version" alt="NPM Version">
+    </a>
+    <a href="https://github.com/Jonkimi/create-conductor-flow/blob/main/LICENSE">
+      <img src="https://img.shields.io/npm/l/create-conductor-flow?color=blue" alt="License">
+    </a>
+    <a href="https://npmcharts.com/compare/create-conductor-flow?minimal=true">
+      <img src="https://img.shields.io/npm/dm/create-conductor-flow?color=orange" alt="Downloads">
+    </a>
+  </p>
 
-[English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
+  <p>
+    <a href="./README.md">English</a> | <a href="./README_zh.md">简体中文</a> | <a href="./README_ja.md">日本語</a> | <strong>한국어</strong>
+  </p>
 
-**Conductor Init**은 `npx`를 통해 **모든** AI 코딩 에이전트를 위한 사양 주도형(spec-driven) 휴대용 **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** 워크플로우를 생성하는 **Conductor 스캐폴딩 CLI**입니다. 이는 **Claude Code**, **OpenCode**, **Cursor**, **Kilo Code** 및 기타 주요 AI 코딩 도우미를 위한 **[컨텍스트 우선의 사양 주도형 개발의 진화](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**를 가능하게 합니다.
+  <br>
+  <blockquote>
+    <strong>모든 AI 코딩 에이전트를 위한 사양 주도형(spec-driven), 휴대용 <a href="https://github.com/gemini-cli-extensions/conductor">Gemini Conductor</a> 워크플로우를 생성하는 스캐폴딩 도구입니다.</strong>
+  </blockquote>
+  <br>
+</div>
 
-원래 Gemini CLI를 위해 개발된 **Conductor**는 이 프로젝트를 통해 분리되어 **개발자가 컨텍스트를 유지하고, 작업을 관리하며, 복잡한 기능을 조율할 수 있도록 지원합니다**. 이는 인간의 의도와 AI 실행 사이의 가교 역할을 하며, Agentic AI 시대에 "Context is King(컨텍스트가 왕)"임을 보장합니다.
+즉시 시작하기:
 
-## 🎯 목표
+```bash
+npm create conductor-flow
+```
 
--   **범용 호환성:** Gemini CLI 생태계 외부에서 Conductor 방법론을 활성화합니다.
--   **에이전트 불가지론적 설정:** 프로젝트에 Conductor 명령과 템플릿을 "설치"하는 메커니즘을 제공하여 여러 다른 코딩 에이전트가 사용할 수 있도록 "활성화"합니다.
--   **표준화:** 인간의 의도와 AI 실행 사이의 격차를 좁히는 프로젝트 오케스트레이션을 위한 통합 인터페이스를 만듭니다.
+---
 
+**Conductor 스캐폴딩 CLI**는 주요 AI 코딩 도우미와 호환되는 휴대용 워크플로우를 즉시 설정하여 **[컨텍스트 우선의 사양 주도형 개발의 진화](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**를 가능하게 합니다. 지원되는 AI 도우미는 다음과 같습니다:
+
+- **Opencode**
+- **Claude Code**
+- **Antigravity**
+- **Cursor**
+- **Github Copilot**
+- **Codex**
+- **Windsurf**
+- **Cline**
+- **Kilo Code**
+- **Roo Code**
+- **Qwen Code**
+- **Factory Droid**
+- **Gemini CLI**
+
+원래 Gemini CLI를 위해 개발된 **Conductor**는 이 프로젝트를 통해 분리되어, **개발자가 컨텍스트를 유지하고, 작업을 관리하며, 복잡한 기능을 조율할 수 있도록 지원합니다**. 이는 인간의 의도와 AI 실행 사이의 가교 역할을 하며, Agentic AI 시대에 "컨텍스트가 왕(Context is King)"임을 보장합니다.
 
 ## ✨ 주요 기능
 
--   **범용 AI 호환성**: **Opencode**, **Claude Code**, **Antigravity**, **Cursor**, **VS Code Copilot**, **Codex**, **Windsurf**, **Cline**, **Kilo Code**, **Roo Code**, **Qwen Code**, **Factory Droid** 및 **Gemini CLI**와 즉시 연동됩니다.
--   **컨텍스트 관리**: 구조화된 아티팩트(`spec.md`, `plan.md`)는 AI 에이전트가 집중하고 컨텍스트를 인식하도록 유지합니다.
--   **사양 기반 개발**: AI에게 *어떻게* 구축할지 묻기 전에 *무엇을* 원하는지 정의하십시오.
+-   **에이전트 불가지론적 설정:** 프로젝트에 Conductor 명령과 템플릿을 "설치"하는 메커니즘을 제공하여 사실상 여러 다른 코딩 에이전트가 사용할 수 있도록 "활성화"합니다.
 -   **에이전트 불가지론적 워크플로우**: 프로젝트 컨텍스트나 진행 상황을 잃지 않고 에이전트 간에 전환할 수 있습니다.
--   **간편한 초기화**: `npx conductor-init` 명령 하나로 설정할 수 있습니다.
+-   **컨텍스트 관리**: 구조화된 아티팩트(`product.md`, `tech-stack.md`, `spec.md`, `plan.md`)는 AI 에이전트가 집중하고 컨텍스트를 인식하도록 유지합니다.
+-   **사양 주도형 개발**: AI에게 *어떻게* 구축할지 묻기 전에 *무엇을* 원하는지 정의하십시오.
 -   **Git 무시 설정**: 에이전트 설정 파일을 버전 관리에서 제외하도록 `.gitignore` 또는 `.git/info/exclude`를 자동으로 구성합니다.
+-   **간편한 초기화**: `npm create conductor-flow` 명령 하나로 설정할 수 있습니다.
 
 ## 🚀 사용법
 
-### 1. 프로젝트에서 Conductor 설정
+### 대화형 모드 (권장)
+
+가장 쉬운 시작 방법은 대화형 설정을 실행하는 것입니다. 워크플로우 사양 구성, AI 에이전트 선택 및 설정을 안내합니다.
+
+```bash
+npm create conductor-flow
+```
+또는 짧은 별칭을 선호하는 경우:
+
+```bash
+npx conductor-init
+```
+
+대상 환경을 선택하라는 메시지가 표시됩니다:
 
 ```text
-conductor-init [path] [options]
+? Select your coding agent:
+❯ OpenCode (AGENTS.md, .opencode/commands)
+  Claude Code (CLAUDE.md, .claude/commands)
+  Antigravity (GEMINI.md, .agent/workflows)
+  Cursor (AGENTS.md, .cursor/commands)
+  VS Code Copilot (AGENTS.md, .github/prompts)
+  Codex (AGENTS.md, .codex/prompts)
+  Windsurf (AGENTS.md, .windsurf/workflows)
+? Select installation method:
+❯ Project (Current Directory)
+? Configure git ignore for Conductor files?
+  Add to .gitignore
+  Add to .git/info/exclude
+  Remove existing entries
+❯ Don't configure git ignore
+```
+### 인수 및 플래그
+
+고급 사용자의 경우, 프롬프트를 건너뛰기 위해 인수를 직접 전달할 수 있습니다:
+
+```bash
+npm create conductor-flow -a claude-code
+
+# 사용자 정의 템플릿 저장소 및 브랜치 지정
+npm create conductor-flow --repo https://github.com/your-org/custom-conductor --branch v2
+```
+
+### 일반적인 옵션
+
+```text
+npm create conductor-flow [path] [options]
 
 Positionals:
   path  Directory to install Conductor                   [string] [default: "."]
@@ -56,55 +136,35 @@ Options:
   -v, --version     Show version number                                [boolean]
 
 Examples:
-  conductor-init                         Install with interactive prompts
-  conductor-init --agent claude-code     Install for Claude Code agent
-  conductor-init --git-ignore gitignore  Add Conductor files to .gitignore
-  conductor-init --git-ignore exclude    Add Conductor files to
-                                         .git/info/exclude
-  conductor-init --git-ignore none       Remove Conductor entries from git
-                                         ignore
+  npm create conductor-flow                 Install with interactive prompts
+  npm create conductor-flow --agent         Install for Claude Code agent
+  claude-code
+  npm create conductor-flow --git-ignore    Add Conductor files to .gitignore
+  gitignore
+  npm create conductor-flow --git-ignore    Add Conductor files to
+  exclude                                   .git/info/exclude
+  npm create conductor-flow --git-ignore    Remove Conductor entries from git
+  none                                      ignore
 ```
 
-프로젝트에서 Conductor를 초기화하려면 프로젝트 루트에서 다음 명령을 실행하기만 하면 됩니다:
+
+### 3. 셸 완성 (글로벌 설치/고급 설정)
+
+`conductor-init`을(를) 더 쉽게 사용할 수 있도록 특정 셸(Bash, Zsh)에 대한 탭 완성 기능을 활성화합니다.
+
+#### 글로벌 설치
 
 ```bash
-npx conductor-init
+npm install -g create-conductor-flow
 ```
 
-### 2. 대안: 소스에서 빌드
-
-소스에서 빌드하려는 경우:
+또는 짧은 별칭을 선호하는 경우:
 
 ```bash
-pnpm install
-pnpm build
-node dist/index.js install
+npm install -g conductor-init
 ```
 
-AI 코딩 에이전트를 선택하라는 메시지가 표시됩니다:
--   **Opencode**
--   **Claude Code**
--   **Antigravity**
--   **Cursor**
--   **VS Code Copilot**
--   **Codex**
--   **Windsurf**
--   **Cline**
--   **Kilo Code**
--   **Roo Code**
--   **Qwen Code**
--   **Factory Droid**
--   **Gemini CLI**
-
-이 작업은 환경을 확인하고 필요한 Conductor 파일을 설치합니다:
--   **Commands:** 에이전트가 실행할 수 있는 에이전트별 프롬프트 또는 명령 파일 (예: `.opencode/commands/conductor:setup.md` 또는 `.gemini/commands/conductor:setup.toml`).
--   **Templates:** 워크플로우 가이드 및 스타일 가이드 (예: `.opencode/conductor/templates/`).
-
--   **Templates:** 워크플로우 가이드 및 스타일 가이드 (예: `.opencode/conductor/templates/`).
-
-### 3. 셸 자동 완성 (Shell Completion)
-
-특정 셸(Bash, Zsh)에 대한 탭 자동 완성을 활성화하여 `conductor-init`을(를) 더 쉽게 사용할 수 있습니다.
+설치 후 `conductor-init completion` 명령을 사용하여 완성 스크립트를 생성할 수 있습니다.
 
 #### Zsh (권장)
 
@@ -150,8 +210,6 @@ source ~/.bashrc
 
 *참고: 정확한 호출 구문은 특정 에이전트의 슬래시 명령 또는 파일 컨텍스트 기능에 따라 다릅니다.*
 
-
-
 ## 🙏 감사의 말
 
-이 프로젝트는 [Conductor](https://github.com/gemini-cli-extensions/conductor) 및 [Conductor-for-all](https://github.com/hlhr202/Conductor-for-all)에서 영감을 받아 그 위에 구축되었습니다。
+이 프로젝트는 [Conductor](https://github.com/gemini-cli-extensions/conductor) 및 [Conductor-for-all](https://github.com/hlhr202/Conductor-for-all)에서 영감을 받아 그 위에 구축되었습니다.

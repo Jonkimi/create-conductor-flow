@@ -1,37 +1,117 @@
-# Conductor Init
+<div align="center">
+  <a href="https://github.com/Jonkimi/create-conductor-flow">
+    <img src="./conductor_init_banner.png" alt="Conductor 脚手架 CLI Logo" width="1024" height="768">
+  </a>
 
-[![npm version](https://badge.fury.io/js/conductor-init.svg)](https://badge.fury.io/js/conductor-init)
+  <h1>Conductor 脚手架 CLI</h1>
 
-<img src="./conductor_init_banner.png" height="400" alt="Conductor Init Banner" />
+  <p>
+    <a href="https://www.npmjs.com/package/create-conductor-flow">
+      <img src="https://img.shields.io/npm/v/create-conductor-flow?color=0470f2&label=npm+version" alt="NPM Version">
+    </a>
+    <a href="https://github.com/Jonkimi/create-conductor-flow/blob/main/LICENSE">
+      <img src="https://img.shields.io/npm/l/create-conductor-flow?color=blue" alt="License">
+    </a>
+    <a href="https://npmcharts.com/compare/create-conductor-flow?minimal=true">
+      <img src="https://img.shields.io/npm/dm/create-conductor-flow?color=orange" alt="Downloads">
+    </a>
+  </p>
 
-[English](./README.md) | [中文](./README_zh.md) | [日本語](./README_ja.md) | [한국어](./README_ko.md)
+  <p>
+    <a href="./README.md">English</a> | <strong>简体中文</strong> | <a href="./README_ja.md">日本語</a> | <a href="./README_ko.md">한국어</a>
+  </p>
 
-**Conductor Init** 是一个 **Conductor 脚手架 CLI**，它通过 `npx` 为**任何** AI 编码代理生成规范驱动的、可移植的 **Gemini [Conductor](https://github.com/gemini-cli-extensions/conductor)** 工作流。它为 **Claude Code**、**OpenCode**、**Cursor**、**Kilo Code** 以及其他主流 AI 编码助手启用了**[首选上下文进化的规范驱动开发](https://blog.jonkimi.com/2026/02/01/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**（context-first evolution of spec-driven development）。
+  <br>
+  <blockquote>
+    <strong>为任何 AI 编码代理生成规范驱动、可移植的 <a href="https://github.com/gemini-cli-extensions/conductor">Gemini Conductor</a> 工作流的脚手架工具。</strong>
+  </blockquote>
+  <br>
+</div>
 
-**Conductor** 最初是为 Gemini CLI 开发的，现在由本项目将其解耦，**使开发人员能够维护上下文、管理任务并编排复杂功能**。它充当人类意图与 AI 执行之间的桥梁，确保在 Agentic AI 时代"上下文为王"。
+立即开始：
 
-## 🎯 目标
+```bash
+npm create conductor-flow
+```
 
--   **通用兼容性：** 在 Gemini CLI 生态系统之外启用 Conductor 方法论。
--   **代理无关的设置：** 提供一种机制来将 Conductor 命令和模板“安装”到项目中，有效地“启用”它以供多种不同的编码代理使用。
--   **标准化：** 创建一个统一的项目编排接口，弥合人类意图与 AI 执行之间的差距。
+---
 
+**Conductor 脚手架 CLI** 通过即时设置与主流 AI 编码助手兼容的可移植工作流，实现了 **[上下文优先的规范驱动开发演进](https://blog.jonkimi.com/2026/02/01/en/Vibe-Coding-with-context-driven-development-using-Conductor-for-Gemini-CLI/)**。支持的 AI 助手包括：
+
+- **Opencode**
+- **Claude Code**
+- **Antigravity**
+- **Cursor**
+- **Github Copilot**
+- **Codex**
+- **Windsurf**
+- **Cline**
+- **Kilo Code**
+- **Roo Code**
+- **Qwen Code**
+- **Factory Droid**
+- **Gemini CLI**
+
+**Conductor** 最初是为 Gemini CLI 开发的，现在通过本项目解耦，**赋予开发者维护上下文、管理任务和编排复杂功能的能力**。它是人类意图与 AI 执行之间的桥梁，确保在 Agentic AI 时代"上下文为王"。
 
 ## ✨ 主要特性
 
--   **通用 AI 兼容性**: 开箱即用，支持 **Opencode**、**Claude Code**、**Antigravity**、**Cursor**、**VS Code Copilot**、**Codex**、**Windsurf**、**Cline**、**Kilo Code**、**Roo Code**、**Qwen Code**、**Factory Droid** 以及 **Gemini CLI**。
--   **上下文管理**: 结构化的工件（`spec.md`、`plan.md`）让您的 AI 代理保持专注并具备上下文感知能力。
--   **规范驱动开发**: 在询问 AI *如何*构建之前，先定义您*想要什么*。
--   **代理无关的工作流**: 在不丢失项目上下文或进度的情况下切换代理。
--   **轻松初始化**: 使用 `npx conductor-init` 即可完成设置。
--   **Git 忽略配置**: 自动配置 `.gitignore` 或 `.git/info/exclude`，将 AI 代理配置文件排除在版本控制之外。
+-   **代理无关的设置：** 提供一种机制将 Conductor 命令和模板"安装"到项目中，有效地"启用"它以供多种不同的编码代理使用。
+-   **代理无关的工作流**：在不丢失项目上下文或进度的情况下切换代理。
+-   **上下文管理**：结构化的工件（`product.md`, `tech-stack.md`, `spec.md`, `plan.md`）让您的 AI 代理保持专注并具备上下文感知能力。
+-   **规范驱动开发**：在询问 AI *如何*构建之前，先定义您*想要什么*。
+-   **Git 忽略配置**：自动配置 `.gitignore` 或 `.git/info/exclude`，将代理配置文件排除在版本控制之外。
+-   **轻松初始化**：使用 `npm create conductor-flow` 单条命令完成设置。
 
 ## 🚀 使用方法
 
-### 1. 在你的项目中设置 Conductor
+### 交互模式（推荐）
+
+最简单的开始方式是运行交互式设置。它将引导您配置工作流规范，选择您的 AI 代理和设置。
+
+```bash
+npm create conductor-flow
+```
+或者如果您喜欢简写别名：
+
+```bash
+npx conductor-init
+```
+
+系统将提示您选择目标环境：
 
 ```text
-conductor-init [path] [options]
+? Select your coding agent:
+❯ OpenCode (AGENTS.md, .opencode/commands)
+  Claude Code (CLAUDE.md, .claude/commands)
+  Antigravity (GEMINI.md, .agent/workflows)
+  Cursor (AGENTS.md, .cursor/commands)
+  VS Code Copilot (AGENTS.md, .github/prompts)
+  Codex (AGENTS.md, .codex/prompts)
+  Windsurf (AGENTS.md, .windsurf/workflows)
+? Select installation method:
+❯ Project (Current Directory)
+? Configure git ignore for Conductor files?
+  Add to .gitignore
+  Add to .git/info/exclude
+  Remove existing entries
+❯ Don't configure git ignore
+```
+### 参数与标志
+
+对于高级用户，您可以直接传递参数以跳过提示：
+
+```bash
+npm create conductor-flow -a claude-code
+
+# 指定自定义模板仓库和分支
+npm create conductor-flow --repo https://github.com/your-org/custom-conductor --branch v2
+```
+
+### 常用选项
+
+```text
+npm create conductor-flow [path] [options]
 
 Positionals:
   path  Directory to install Conductor                   [string] [default: "."]
@@ -56,61 +136,35 @@ Options:
   -v, --version     Show version number                                [boolean]
 
 Examples:
-  conductor-init                         Install with interactive prompts
-  conductor-init --agent claude-code     Install for Claude Code agent
-  conductor-init --git-ignore gitignore  Add Conductor files to .gitignore
-  conductor-init --git-ignore exclude    Add Conductor files to
-                                         .git/info/exclude
-  conductor-init --git-ignore none       Remove Conductor entries from git
-                                         ignore
+  npm create conductor-flow                 Install with interactive prompts
+  npm create conductor-flow --agent         Install for Claude Code agent
+  claude-code
+  npm create conductor-flow --git-ignore    Add Conductor files to .gitignore
+  gitignore
+  npm create conductor-flow --git-ignore    Add Conductor files to
+  exclude                                   .git/info/exclude
+  npm create conductor-flow --git-ignore    Remove Conductor entries from git
+  none                                      ignore
 ```
 
-要在你的项目中初始化 Conductor，只需在项目根目录下运行以下命令：
 
-```bash
-npx conductor-init
-```
-
-你也可以指定自定义模板仓库和分支：
-
-```bash
-npx conductor-init --repo https://github.com/your-org/custom-conductor --branch v2
-```
-
-### 2. 或者：从源码构建
-
-如果你更喜欢从源码构建：
-
-```bash
-pnpm install
-pnpm build
-node dist/index.js install
-```
-
-你将被提示选择你的 AI 编码代理：
--   **Opencode**
--   **Claude Code**
--   **Antigravity**
--   **Cursor**
--   **VS Code Copilot**
--   **Codex**
--   **Windsurf**
--   **Cline**
--   **Kilo Code**
--   **Roo Code**
--   **Qwen Code**
--   **Factory Droid**
--   **Gemini CLI**
-
-这将验证环境并安装必要的 Conductor 文件：
--   **Commands:** 代理特定的提示或命令文件（例如 `.opencode/commands/conductor:setup.md` 或 `.gemini/commands/conductor:setup.toml`），你的代理可以执行这些文件。
--   **Templates:** 工作流指南和风格指南（例如 `.opencode/conductor/templates/`）。
-
--   **Templates:** 工作流指南和风格指南（例如 `.opencode/conductor/templates/`）。
-
-### 3. Shell 补全 (Shell Completion)
+### 3. Shell 补全（全局安装/高级设置）
 
 启用特定 Shell (Bash, Zsh) 的 Tab 补全功能，让使用 `conductor-init` 更加轻松。
+
+#### 全局安装
+
+```bash
+npm install -g create-conductor-flow
+```
+
+或者，如果您喜欢简写别名：
+
+```bash
+npm install -g conductor-init
+```
+
+安装完成后，您可以使用 `conductor-init completion` 命令生成补全脚本。
 
 #### Zsh (推荐)
 
@@ -145,7 +199,7 @@ source ~/.bashrc
 
 ### 4. 与你的代理一起使用 Conductor
 
-安装完成后，你可以指示你的 AI 代理使用安装的命令执行 Conductor 任务。例如：
+安装完成后，你可以指示你的 AI 代理(Agent)使用安装的命令执行 Conductor 任务。例如：
 
 -   `/conductor-setup` - 初始化项目结构。
 -   `/conductor-newTrack` - 开始一个新的功能或错误修复轨道。
@@ -155,8 +209,6 @@ source ~/.bashrc
 -   `/conductor-status` - 检查当前轨道的状态。
 
 *注意：确切的调用语法取决于你的特定代理的斜杠命令或文件上下文功能。*
-
-
 
 ## 🙏 致谢
 

@@ -46,7 +46,7 @@
   "type": "module",
   "bin": {
     "create-conductor-flow": "dist/index.js",
-    "conductor-init": "dist/index.js"
+    "conductor-init": "dist/conductor-init.js"
   },
   "files": [
     "dist",

@@ -7,19 +7,10 @@ import { DEFAULT_REPO, DEFAULT_BRANCH } from "../utils/template.js";
 import { ALL_AGENT_CONFIGS } from "../generators/registry.js";
 import type { GitIgnoreMethod } from "../utils/gitIgnore.js";
 
-export async function main() {
-	// Print the welcome banner unless suppressed or running completion command
-	if (
-		!process.env.CONDUCTOR_NO_BANNER &&
-		!process.argv.includes("completion") &&
-		!process.argv.includes("--get-yargs-completions")
-	) {
-		printBanner();
-	}
-
+async function parseArgs(scriptName: string) {
 	// Parse CLI arguments and execute install
-	const argv = await yargs(hideBin(process.argv))
-		.scriptName("conductor-init")
+	return await yargs(hideBin(process.argv))
+		.scriptName(scriptName)
 		.usage("$0 [path] [options]")
 		.positional("path", {
 			describe: "Directory to install Conductor",
@@ -90,7 +81,19 @@ export async function main() {
 		.alias("v", "version")
 		.completion("completion", false)
 		.parseAsync();
+}
 
+export async function main(scriptName: string) {
+	// Print the welcome banner unless suppressed or running completion command
+	if (
+		!process.env.CONDUCTOR_NO_BANNER &&
+		!process.argv.includes("completion") &&
+		!process.argv.includes("--get-yargs-completions")
+	) {
+		printBanner();
+	}
+
+	const argv = await parseArgs(scriptName);
 	// Get the path from positional argument (first non-option argument)
 	const pathArg = argv._[0] as string | undefined;
 
