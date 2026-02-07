@@ -135,30 +135,85 @@ npm create conductor-flow --repo https://github.com/your-org/custom-conductor --
 npm create conductor-flow [path] [options]
 
 Positionals:
-  path  Directory to install Conductor                                                                          [string] [default: "."]
+  path  Directory to install Conductor                   [string] [default: "."]
 
 Options:
   -a, --agent       Specify the coding agent
-    [string] [choices: "opencode", "claude-code", "antigravity", "cursor", "github-copilot", "codex", "windsurf", "cline", "kilo-code",
-                                                                                    "roo-code", "qwen-code", "factory-droid", "gemini"]
-  -r, --repo        Git repository URL for templates. Without this flag, interactive template source selection is shown.       [string]
-  -b, --branch      Branch name for template repository                                                      [string] [default: "main"]
-  -s, --scope       Installation scope (project or global)                                      [string] [choices: "project", "global"]
-  -g, --git-ignore  Configure git ignore for Conductor files (gitignore: add to .gitignore, exclude: add to .git/info/exclude, none:
-                    remove entries)                                                  [string] [choices: "gitignore", "exclude", "none"]
-  -f, --force       Force overwrite existing installation                                                    [boolean] [default: false]
-      --reset       Clear saved preferences and show all prompts                                             [boolean] [default: false]
-  -h, --help        Show help                                                                                                 [boolean]
-  -v, --version     Show version number                                                                                       [boolean]
+          [string] [choices: "opencode", "claude-code", "antigravity", "cursor",
+        "github-copilot", "codex", "windsurf", "cline", "kilo-code", "roo-code",
+                                         "qwen-code", "factory-droid", "gemini"]
+  -r, --repo        Git repository URL for templates. Without this flag,
+                    interactive template source selection is shown.     [string]
+  -b, --branch      Branch name for template repository
+                                                      [string] [default: "main"]
+  -s, --scope       Installation scope (project or global)
+                                         [string] [choices: "project", "global"]
+  -g, --git-ignore  Configure git ignore for Conductor files (gitignore: add to
+                    .gitignore, exclude: add to .git/info/exclude, none: remove
+                    entries)  [string] [choices: "gitignore", "exclude", "none"]
+  -f, --force       Force overwrite existing installation
+                                                      [boolean] [default: false]
+      --reset       Clear saved preferences and show all prompts
+                                                      [boolean] [default: false]
+  -h, --help        Show help                                          [boolean]
+  -v, --version     Show version number                                [boolean]
 
 Examples:
-  npm create conductor-flow                                           Install with interactive prompts
-  npm create conductor-flow --agent claude-code                       Install for Claude Code agent
-  npm create conductor-flow --repo https://github.com/user/templates  Use custom template repository
-  npm create conductor-flow --git-ignore gitignore                    Add Conductor files to .gitignore
-  npm create conductor-flow --git-ignore exclude                      Add Conductor files to .git/info/exclude
-  npm create conductor-flow --git-ignore none                         Remove Conductor entries from git ignore
-  npm create conductor-flow --reset                                   Clear saved preferences and show all prompts
+  npm create conductor-flow                 Install with interactive prompts
+  npm create conductor-flow --agent         Install for Claude Code agent
+  claude-code
+  npm create conductor-flow --repo          Use custom template repository
+  https://github.com/user/templates
+  npm create conductor-flow --git-ignore    Add Conductor files to .gitignore
+  gitignore
+  npm create conductor-flow --git-ignore    Add Conductor files to
+  exclude                                   .git/info/exclude
+  npm create conductor-flow --git-ignore    Remove Conductor entries from git
+  none                                      ignore
+  npm create conductor-flow --reset         Clear saved preferences and show all
+                                            prompts
+```
+
+### 구성 지속성
+
+CLI는 실행 간에 기본 설정을 기억하므로 매번 동일한 옵션을 지정할 필요가 없습니다.
+
+**저장되는 내용:**
+- 에이전트 선택 (`--agent`)
+- 템플릿 소스 (`--repo`, `--branch`)
+- Git 무시 기본 설정 (`--git-ignore`)
+
+**작동 방식:**
+1. 첫 실행 시, 대화형 또는 플래그를 통해 기본 설정을 선택합니다.
+2. 이후 실행 시, 저장된 기본 설정이 자동으로 적용됩니다.
+3. CLI 플래그는 항상 저장된 기본 설정보다 우선합니다.
+
+**예시:**
+
+```bash
+# 첫 실행 - 기본 설정 지정
+npm create conductor-flow --agent claude-code --git-ignore exclude
+
+# 향후 실행 - 자동으로 claude-code 및 exclude 사용
+npm create conductor-flow
+# 출력: [Config] Using saved agent: claude-code
+# 출력: [Config] Using saved git-ignore: exclude
+```
+
+**기본 설정 재설정:**
+
+저장된 기본 설정을 지우고 모든 프롬프트와 함께 새로 시작하려면:
+
+```bash
+npm create conductor-flow --reset
+```
+
+**구성 위치:**
+
+기본 설정은 XDG Base Directory Specification에 따라 저장됩니다:
+- **macOS**: `~/Library/Application Support/create-conductor-flow/config.json`
+- **Linux**: `~/.config/create-conductor-flow/config.json`
+- **Windows**: `%APPDATA%\create-conductor-flow\config.json`
 ```
 
 
