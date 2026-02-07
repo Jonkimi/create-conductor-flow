@@ -11,7 +11,14 @@ import type { GitIgnoreMethod } from "../utils/gitIgnore.js";
 
 async function parseArgs(scriptName: string) {
 	// Parse CLI arguments and execute install
-	return await yargs(hideBin(process.argv))
+	// Parse CLI arguments and execute install
+	const parser = yargs(hideBin(process.argv));
+
+	if (process.env.COLUMNS) {
+		parser.wrap(parseInt(process.env.COLUMNS));
+	}
+
+	return await parser
 		.scriptName(scriptName)
 		.usage("$0 [path] [options]")
 		.positional("path", {

@@ -14,6 +14,7 @@ async function main() {
 				...process.env,
 				FORCE_COLOR: "0",
 				CONDUCTOR_NO_BANNER: "1",
+				COLUMNS: "220",
 			}, // Try to disable color and suppress banner
 		});
 
