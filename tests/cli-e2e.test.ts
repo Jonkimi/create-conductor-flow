@@ -318,6 +318,127 @@ describe("CLI E2E Tests", () => {
 						expect(helpOutput).toContain("--branch");
 					});
 				});
+
+				describe("configuration persistence", () => {
+					let tempConfigDir: string;
+
+					// Helper to run CLI with custom config directory
+					const runCLIWithConfig = (args: string = ""): string => {
+						const cmd = `node ${installPath} ${args} 2>&1`;
+						return execSync(cmd, {
+							encoding: "utf-8",
+							env: {
+								...process.env,
+								CONDUCTOR_NO_BANNER: "1",
+								CONDUCTOR_CONFIG_DIR: tempConfigDir,
+								CONDUCTOR_CACHE_DIR: join(tempDir, "cache"),
+							},
+							shell: true,
+						});
+					};
+
+					beforeEach(() => {
+						// Create a separate config directory for each test
+						tempConfigDir = fs.mkdtempSync(
+							join(os.tmpdir(), "conductor-config-"),
+						);
+					});
+
+					afterEach(() => {
+						// Clean up config directory
+						if (tempConfigDir && fs.existsSync(tempConfigDir)) {
+							fs.rmSync(tempConfigDir, { recursive: true, force: true });
+						}
+					});
+
+					it("should save preferences after successful installation", () => {
+						const output = runCLIWithConfig(
+							`${tempDir} --agent claude-code --scope project --git-ignore exclude`,
+						);
+						expect(output).toContain("Conductor initialized successfully");
+						expect(output).toContain("Preferences saved");
+
+						// Verify config.json was created
+						const configPath = join(tempConfigDir, "config.json");
+						expect(fs.existsSync(configPath)).toBe(true);
+
+						// Verify config content
+						const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+						expect(config.agent).toBe("claude-code");
+						expect(config.gitIgnore).toBe("exclude");
+					});
+
+					it("should use saved preferences on subsequent runs", () => {
+						// Create a pre-existing config
+						fs.writeFileSync(
+							join(tempConfigDir, "config.json"),
+							JSON.stringify({ agent: "cursor", gitIgnore: "gitignore" }),
+						);
+
+						// Create a new temp dir for second installation
+						const tempDir2 = fs.mkdtempSync(
+							join(os.tmpdir(), "conductor-e2e2-"),
+						);
+						try {
+							const output = runCLIWithConfig(`${tempDir2} --scope project`);
+							expect(output).toContain("[Config] Using saved agent: cursor");
+							expect(output).toContain(
+								"[Config] Using saved git-ignore: gitignore",
+							);
+							expect(output).toContain("Conductor initialized successfully");
+						} finally {
+							fs.rmSync(tempDir2, { recursive: true, force: true });
+						}
+					});
+
+					it("should clear config with --reset flag", () => {
+						// Create a config file
+						const configPath = join(tempConfigDir, "config.json");
+						fs.writeFileSync(configPath, JSON.stringify({ agent: "opencode" }));
+
+						// Run with --reset
+						const output = runCLIWithConfig(
+							`${tempDir} --agent gemini --scope project --git-ignore none --reset`,
+						);
+						expect(output).toContain("[Config] Clearing saved preferences");
+						expect(output).toContain("Using provided agent: gemini");
+						expect(output).toContain("Conductor initialized successfully");
+
+						// Config should be recreated with new values
+						const newConfig = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+						expect(newConfig.agent).toBe("gemini");
+					});
+
+					it("should override config with CLI flags", () => {
+						// Create a config with cursor agent
+						fs.writeFileSync(
+							join(tempConfigDir, "config.json"),
+							JSON.stringify({ agent: "cursor" }),
+						);
+
+						// Run with explicit --agent flag
+						const output = runCLIWithConfig(
+							`${tempDir} --agent gemini --scope project --git-ignore none`,
+						);
+						// Should use the provided flag, not config
+						expect(output).toContain("Using provided agent: gemini");
+						expect(output).not.toContain("Using saved agent");
+						expect(output).toContain("Conductor initialized successfully");
+
+						// Config should be updated with new agent
+						const configPath = join(tempConfigDir, "config.json");
+						const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+						expect(config.agent).toBe("gemini");
+					});
+
+					it("should show --reset in help text", () => {
+						const helpOutput = execSync(
+							`node ${installPath} --help`,
+						).toString();
+						expect(helpOutput).toContain("--reset");
+						expect(helpOutput).toContain("Clear saved preferences");
+					});
+				});
 			});
 		});
 	});

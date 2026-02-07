@@ -16,20 +16,20 @@
 - [ ] Task: Conductor - User Manual Verification 'Configuration Infrastructure & XDG Setup' (Protocol in workflow.md)
 
 ## Phase 2: CLI Integration & Logic Updates
-- [~] Task: Update `src/cli/index.ts` to load config on startup.
-    - [ ] Modify `parseArgs` or `main` to merge Config values as defaults for Yargs.
-    - [ ] Ensure CLI flags take precedence over Config values.
-- [~] Task: Update `src/commands/install.ts` (Install Handler).
-    - [ ] Refactor `promptTemplateSource`, `promptForAgent`, etc., to skip prompts if valid config exists AND flag was not explicitly provided.
-    - [ ] Logic: `effectiveValue = flag || config || prompt()`.
-    - [ ] **Crucial:** After a successful installation, call `saveConfig()` with the final used values (Repo, Branch, Agent, Scope, GitIgnore).
-- [ ] Task: Implement `--reset` flag in `src/cli/index.ts` and `src/commands/install.ts`.
-    - [ ] If `--reset` is present, clear config before processing args/prompts.
+- [x] Task: Update `src/cli/index.ts` to load config on startup. `4a0e919`
+    - [x] Modify `parseArgs` or `main` to merge Config values as defaults for Yargs.
+    - [x] Ensure CLI flags take precedence over Config values.
+- [x] Task: Update `src/commands/install.ts` (Install Handler). `4a0e919`
+    - [x] Refactor `promptTemplateSource`, `promptForAgent`, etc., to skip prompts if valid config exists AND flag was not explicitly provided.
+    - [x] Logic: `effectiveValue = flag || config || prompt()`.
+    - [x] **Crucial:** After a successful installation, call `saveConfig()` with the final used values (Repo, Branch, Agent, Scope, GitIgnore).
+- [x] Task: Implement `--reset` flag in `src/cli/index.ts` and `src/commands/install.ts`. `4a0e919`
+    - [x] If `--reset` is present, clear config before processing args/prompts.
 - [ ] Task: Conductor - User Manual Verification 'CLI Integration & Logic Updates' (Protocol in workflow.md)
 
 ## Phase 3: Testing & Documentation
-- [ ] Task: Add Unit Tests for `src/utils/config.ts` (Mocking fs/paths).
-- [ ] Task: **Update E2E Tests (`tests/cli-e2e.test.ts`)**
+- [x] Task: Add Unit Tests for `src/utils/config.ts` (Mocking fs/paths). `1ba03a1`
+- [~] Task: **Update E2E Tests (`tests/cli-e2e.test.ts`)**
     - [ ] Configure tests to set `CONDUCTOR_CONFIG_DIR` to a temporary directory in `beforeEach`.
     - [ ] Test Case: **Persistence Verification**
         1. Run `conductor-init` with specific flags (e.g., `--agent claude-code`).
@@ -42,3 +42,4 @@
         3. Verify config is cleared/ignored (simulated by checking output or prompt behavior if possible, or checking file deletion).
 - [ ] Task: Update `README.md` to explain Configuration persistence and the `--reset` flag.
 - [ ] Task: Conductor - User Manual Verification 'Testing & Documentation' (Protocol in workflow.md)
+
