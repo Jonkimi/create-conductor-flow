@@ -8,10 +8,14 @@ import { tmpdir } from "os";
 describe("Git Ignore Integration", () => {
 	const cliPath = join(process.cwd(), "dist", "index.js");
 	let testDir: string;
+	let configDir: string;
 
 	beforeEach(() => {
 		// Create a temp directory for each test
 		testDir = mkdtempSync(join(tmpdir(), "conductor-git-ignore-"));
+		// Create a separate config directory to isolate tests from user config
+		configDir = mkdtempSync(join(tmpdir(), "conductor-config-"));
+
 		// Initialize git repo
 		execSync("git init", { cwd: testDir, stdio: "ignore" });
 	});
@@ -19,6 +23,8 @@ describe("Git Ignore Integration", () => {
 	afterEach(() => {
 		// Clean up test directory
 		rmSync(testDir, { recursive: true, force: true });
+		// Clean up config directory
+		rmSync(configDir, { recursive: true, force: true });
 	});
 
 	describe("--git-ignore gitignore flag", () => {
@@ -27,7 +33,11 @@ describe("Git Ignore Integration", () => {
 				`node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore gitignore --force`,
 				{
 					stdio: "pipe",
-					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+					env: {
+						...process.env,
+						CONDUCTOR_NO_BANNER: "1",
+						CONDUCTOR_CONFIG_DIR: configDir,
+					},
 				},
 			);
 
@@ -45,7 +55,11 @@ describe("Git Ignore Integration", () => {
 				`node ${cliPath} ${testDir} --agent opencode --scope project --git-ignore gitignore --force`,
 				{
 					stdio: "pipe",
-					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+					env: {
+						...process.env,
+						CONDUCTOR_NO_BANNER: "1",
+						CONDUCTOR_CONFIG_DIR: configDir,
+					},
 				},
 			);
 
@@ -65,7 +79,11 @@ describe("Git Ignore Integration", () => {
 				`node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore exclude --force`,
 				{
 					stdio: "pipe",
-					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+					env: {
+						...process.env,
+						CONDUCTOR_NO_BANNER: "1",
+						CONDUCTOR_CONFIG_DIR: configDir,
+					},
 				},
 			);
 
@@ -93,7 +111,11 @@ describe("Git Ignore Integration", () => {
 				`node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore none --force`,
 				{
 					stdio: "pipe",
-					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+					env: {
+						...process.env,
+						CONDUCTOR_NO_BANNER: "1",
+						CONDUCTOR_CONFIG_DIR: configDir,
+					},
 				},
 			);
 
@@ -117,7 +139,11 @@ describe("Git Ignore Integration", () => {
 				`node ${cliPath} ${testDir} --agent claude-code --scope project --git-ignore none --force`,
 				{
 					stdio: "pipe",
-					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+					env: {
+						...process.env,
+						CONDUCTOR_NO_BANNER: "1",
+						CONDUCTOR_CONFIG_DIR: configDir,
+					},
 				},
 			);
 
@@ -143,7 +169,11 @@ describe("Git Ignore Integration", () => {
 					`echo "3" | node ${cliPath} ${testDir} --agent claude-code --scope project --force`,
 					{
 						stdio: "pipe",
-						env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+						env: {
+							...process.env,
+							CONDUCTOR_NO_BANNER: "1",
+							CONDUCTOR_CONFIG_DIR: configDir,
+						},
 					},
 				);
 			} catch {
@@ -164,7 +194,11 @@ describe("Git Ignore Integration", () => {
 				`node ${cliPath} ${testDir} --agent claude-code --scope global --git-ignore gitignore --force 2>&1`,
 				{
 					encoding: "utf-8",
-					env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+					env: {
+						...process.env,
+						CONDUCTOR_NO_BANNER: "1",
+						CONDUCTOR_CONFIG_DIR: configDir,
+					},
 				},
 			);
 

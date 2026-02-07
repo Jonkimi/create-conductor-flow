@@ -2,10 +2,14 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { installHandler } from "../src/commands/install.js";
 import * as promptModule from "../src/cli/prompt.js";
 import * as generatorFactory from "../src/generators/index.js";
+import { isGitAvailable } from "../src/utils/gitDetect.js";
 
 vi.mock("../src/cli/prompt.js");
 vi.mock("../src/generators/index.js", () => ({
 	getGenerator: vi.fn(),
+}));
+vi.mock("../src/utils/gitDetect.js", () => ({
+	isGitAvailable: vi.fn().mockReturnValue(true),
 }));
 
 describe("Install Command", () => {
@@ -19,7 +23,10 @@ describe("Install Command", () => {
 		vi.spyOn(process, "exit").mockImplementation((() => {}) as any);
 		vi.spyOn(console, "log").mockImplementation(() => {});
 		vi.spyOn(console, "error").mockImplementation(() => {});
+		vi.spyOn(console, "warn").mockImplementation(() => {});
 		(generatorFactory.getGenerator as any).mockReturnValue(mockGenerator);
+		// Default: git is available
+		vi.mocked(isGitAvailable).mockReturnValue(true);
 	});
 
 	it("should run successful installation flow using generator", async () => {
@@ -144,6 +151,93 @@ describe("Install Command", () => {
 		);
 		expect(console.log).toHaveBeenCalledWith(
 			expect.stringContaining("initialized successfully"),
+		);
+	});
+
+	it("should fallback to bundled when --repo is set and git is unavailable", async () => {
+		vi.mocked(isGitAvailable).mockReturnValue(false);
+
+		const mockArgv = {
+			path: ".",
+			agent: "opencode",
+			repo: "https://github.com/custom/repo",
+			branch: "main",
+			_: [],
+			$0: "conductor",
+		};
+		mockGenerator.validate.mockResolvedValue("/abs/path");
+		vi.mocked(promptModule.promptForInstallScope).mockResolvedValue("project");
+
+		await installHandler(mockArgv as any);
+
+		expect(console.warn).toHaveBeenCalledWith(
+			expect.stringContaining("git not found"),
+		);
+		// Should fall back to bundled (undefined repo/branch)
+		expect(mockGenerator.generate).toHaveBeenCalledWith(
+			"/abs/path",
+			"project",
+			undefined,
+			undefined,
+			false,
+		);
+	});
+
+	it("should fallback to bundled when saved config has repo and git is unavailable", async () => {
+		vi.mocked(isGitAvailable).mockReturnValue(false);
+
+		const mockArgv = {
+			path: ".",
+			agent: "opencode",
+			config: {
+				repo: "https://github.com/saved/repo",
+				branch: "main",
+			},
+			_: [],
+			$0: "conductor",
+		};
+		mockGenerator.validate.mockResolvedValue("/abs/path");
+		vi.mocked(promptModule.promptForInstallScope).mockResolvedValue("project");
+
+		await installHandler(mockArgv as any);
+
+		expect(console.warn).toHaveBeenCalledWith(
+			expect.stringContaining("git not found"),
+		);
+		expect(mockGenerator.generate).toHaveBeenCalledWith(
+			"/abs/path",
+			"project",
+			undefined,
+			undefined,
+			false,
+		);
+	});
+
+	it("should use repo normally when git is available", async () => {
+		vi.mocked(isGitAvailable).mockReturnValue(true);
+
+		const mockArgv = {
+			path: ".",
+			agent: "opencode",
+			repo: "https://github.com/custom/repo",
+			branch: "custom-branch",
+			_: [],
+			$0: "conductor",
+		};
+		mockGenerator.validate.mockResolvedValue("/abs/path");
+		vi.mocked(promptModule.promptForInstallScope).mockResolvedValue("project");
+
+		await installHandler(mockArgv as any);
+
+		expect(console.warn).not.toHaveBeenCalledWith(
+			expect.stringContaining("git not found"),
+		);
+		expect(mockGenerator.generate).toHaveBeenCalledWith(
+			"/abs/path",
+			"project",
+			"https://github.com/custom/repo",
+			"custom-branch",
+			false,
 		);
 	});
 });

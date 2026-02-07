@@ -14,6 +14,7 @@ import {
 	DEFAULT_REPO,
 	DEFAULT_BRANCH,
 } from "./template.js";
+import { isGitAvailable } from "./gitDetect.js";
 
 /**
  * Template source types available for selection.
@@ -76,6 +77,12 @@ export const LOG_MESSAGES = {
 	/** Message when in non-interactive mode */
 	NON_INTERACTIVE_BUNDLED:
 		"Non-interactive mode detected. Using bundled templates.",
+	/** Message when git is not found on the system */
+	GIT_NOT_FOUND_INFO:
+		"ℹ Remote templates require git. Install git to enable remote options.",
+	/** Warning when falling back to bundled templates because git is unavailable */
+	GIT_NOT_FOUND_FALLBACK:
+		"⚠ git not found, falling back to bundled templates",
 } as const;
 
 /**
@@ -158,26 +165,38 @@ export async function promptTemplateSource(): Promise<TemplateSourceResult> {
 		};
 	}
 
+	// Check git availability and build choices accordingly
+	const gitAvailable = isGitAvailable();
+	if (!gitAvailable) {
+		console.log(LOG_MESSAGES.GIT_NOT_FOUND_INFO);
+	}
+
+	const choices = [
+		{
+			name: PROMPT_TEXTS.BUNDLED_LABEL,
+			value: TemplateSource.BUNDLED,
+			description: PROMPT_TEXTS.BUNDLED_DESCRIPTION,
+		},
+		...(gitAvailable
+			? [
+					{
+						name: PROMPT_TEXTS.OFFICIAL_LABEL,
+						value: TemplateSource.OFFICIAL,
+						description: PROMPT_TEXTS.OFFICIAL_DESCRIPTION,
+					},
+					{
+						name: PROMPT_TEXTS.CUSTOM_LABEL,
+						value: TemplateSource.CUSTOM,
+						description: PROMPT_TEXTS.CUSTOM_DESCRIPTION,
+					},
+				]
+			: []),
+	];
+
 	// Show interactive selection prompt
 	const sourceChoice = await select<TemplateSource>({
 		message: PROMPT_TEXTS.SELECT_SOURCE_MESSAGE,
-		choices: [
-			{
-				name: PROMPT_TEXTS.BUNDLED_LABEL,
-				value: TemplateSource.BUNDLED,
-				description: PROMPT_TEXTS.BUNDLED_DESCRIPTION,
-			},
-			{
-				name: PROMPT_TEXTS.OFFICIAL_LABEL,
-				value: TemplateSource.OFFICIAL,
-				description: PROMPT_TEXTS.OFFICIAL_DESCRIPTION,
-			},
-			{
-				name: PROMPT_TEXTS.CUSTOM_LABEL,
-				value: TemplateSource.CUSTOM,
-				description: PROMPT_TEXTS.CUSTOM_DESCRIPTION,
-			},
-		],
+		choices,
 		default: TemplateSource.BUNDLED,
 	});
 

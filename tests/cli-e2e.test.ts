@@ -62,6 +62,7 @@ describe("CLI E2E Tests", () => {
 
 			describe("e2e installation tests", () => {
 				let tempDir: string;
+				let tempConfigDir: string;
 
 				// Helper to create a unique temp directory for each test
 				const createTempDir = (): string => {
@@ -80,17 +81,23 @@ describe("CLI E2E Tests", () => {
 					const cmd = `node ${installPath} ${args} 2>&1`;
 					return execSync(cmd, {
 						encoding: "utf-8",
-						env: { ...process.env, CONDUCTOR_NO_BANNER: "1" },
+						env: {
+							...process.env,
+							CONDUCTOR_NO_BANNER: "1",
+							CONDUCTOR_CONFIG_DIR: tempConfigDir,
+						},
 						shell: true, // Use shell to handle redirection
 					});
 				};
 
 				beforeEach(() => {
 					tempDir = createTempDir();
+					tempConfigDir = createTempDir(); // Reuse createTempDir for config too
 				});
 
 				afterEach(() => {
 					cleanupTempDir(tempDir);
+					cleanupTempDir(tempConfigDir);
 				});
 
 				describe("installation with --agent option", () => {

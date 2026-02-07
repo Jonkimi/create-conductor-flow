@@ -17,6 +17,7 @@ import {
 	TemplateSource,
 	LOG_MESSAGES,
 } from "../utils/templatePrompt.js";
+import { isGitAvailable } from "../utils/gitDetect.js";
 import { saveConfig, type Config } from "../utils/config.js";
 
 export async function installHandler(
@@ -116,6 +117,13 @@ export async function installHandler(
 			if (argv.branch) {
 				console.log(`Using provided branch: ${argv.branch}`);
 			}
+		}
+
+		// Fallback: if a remote repo is set but git is not available, use bundled
+		if (effectiveRepo && !isGitAvailable()) {
+			console.warn(LOG_MESSAGES.GIT_NOT_FOUND_FALLBACK);
+			effectiveRepo = undefined;
+			effectiveBranch = undefined;
 		}
 
 		const generator = getGenerator(agent);

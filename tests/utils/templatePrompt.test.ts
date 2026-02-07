@@ -12,6 +12,7 @@ import {
 import { DEFAULT_REPO, DEFAULT_BRANCH } from "../../src/utils/template.js";
 import select from "@inquirer/select";
 import input from "@inquirer/input";
+import { isGitAvailable } from "../../src/utils/gitDetect.js";
 
 // Mock the @inquirer modules
 vi.mock("@inquirer/select", () => ({
@@ -20,6 +21,10 @@ vi.mock("@inquirer/select", () => ({
 
 vi.mock("@inquirer/input", () => ({
 	default: vi.fn(),
+}));
+
+vi.mock("../../src/utils/gitDetect.js", () => ({
+	isGitAvailable: vi.fn(),
 }));
 
 describe("templatePrompt", () => {
@@ -156,6 +161,8 @@ describe("templatePrompt", () => {
 
 		beforeEach(() => {
 			vi.clearAllMocks();
+			// Default: git is available
+			vi.mocked(isGitAvailable).mockReturnValue(true);
 		});
 
 		afterEach(() => {
@@ -257,12 +264,13 @@ describe("templatePrompt", () => {
 			expect(result.branch).toBe(DEFAULT_BRANCH);
 		});
 
-		it("should display correct choices for source selection", async () => {
+		it("should display 3 choices when git is available", async () => {
 			delete process.env.CI;
 			Object.defineProperty(process.stdin, "isTTY", {
 				value: true,
 				configurable: true,
 			});
+			vi.mocked(isGitAvailable).mockReturnValue(true);
 
 			vi.mocked(select).mockResolvedValue(TemplateSource.BUNDLED);
 
@@ -292,6 +300,51 @@ describe("templatePrompt", () => {
 				(c) => c.value === TemplateSource.CUSTOM,
 			);
 			expect(customChoice?.name).toBe(PROMPT_TEXTS.CUSTOM_LABEL);
+		});
+
+		it("should display only 1 choice (BUNDLED) when git is unavailable", async () => {
+			delete process.env.CI;
+			Object.defineProperty(process.stdin, "isTTY", {
+				value: true,
+				configurable: true,
+			});
+			vi.mocked(isGitAvailable).mockReturnValue(false);
+
+			const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+			vi.mocked(select).mockResolvedValue(TemplateSource.BUNDLED);
+
+			await promptTemplateSource();
+
+			const callArgs = vi.mocked(select).mock.calls[0][0];
+			const choices = callArgs.choices as Array<{
+				name: string;
+				value: string;
+				description?: string;
+			}>;
+			expect(choices).toHaveLength(1);
+			expect(choices[0].value).toBe(TemplateSource.BUNDLED);
+
+			consoleSpy.mockRestore();
+		});
+
+		it("should log info message when git is unavailable", async () => {
+			delete process.env.CI;
+			Object.defineProperty(process.stdin, "isTTY", {
+				value: true,
+				configurable: true,
+			});
+			vi.mocked(isGitAvailable).mockReturnValue(false);
+
+			const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+			vi.mocked(select).mockResolvedValue(TemplateSource.BUNDLED);
+
+			await promptTemplateSource();
+
+			expect(consoleSpy).toHaveBeenCalledWith(
+				LOG_MESSAGES.GIT_NOT_FOUND_INFO,
+			);
+
+			consoleSpy.mockRestore();
 		});
 	});
 
