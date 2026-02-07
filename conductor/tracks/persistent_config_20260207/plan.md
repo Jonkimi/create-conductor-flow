@@ -1,8 +1,8 @@
 # Implementation Plan - Track: Persistent Configuration
 
 ## Phase 1: Configuration Infrastructure & XDG Setup
-- [ ] Task: Install `env-paths` dependency (or implement simple XDG logic if preferred to avoid deps).
-- [ ] Task: Create `src/utils/config.ts` module.
+- [~] Task: Install `env-paths` dependency (or implement simple XDG logic if preferred to avoid deps).
+- [~] Task: Create `src/utils/config.ts` module.
     - [ ] Implement `getConfigDir()` and `getCacheDir()` following XDG standards (Platform-aware).
         - [ ] **Critical:** Support `process.env.CONDUCTOR_CONFIG_DIR` and `process.env.CONDUCTOR_CACHE_DIR` overrides to allow safe E2E testing without touching real user files.
     - [ ] Implement `loadConfig()`: Read/Parse `config.json`.

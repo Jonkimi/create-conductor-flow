@@ -38,5 +38,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Persistent Configuration & XDG Standard Adoption**
+- [~] **Track: Persistent Configuration & XDG Standard Adoption**
 *Link: [./tracks/persistent_config_20260207/](./tracks/persistent_config_20260207/)*
