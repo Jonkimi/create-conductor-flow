@@ -8,18 +8,18 @@
     - [x] Implement `loadConfig()`: Read/Parse `config.json`.
     - [x] Implement `saveConfig(config)`: Write `config.json` (ensure dir exists).
     - [x] Define `Config` interface (repo, branch, agent, gitIgnore).
-- [~] Task: Implement Cache Migration Logic in `src/utils/migrate.ts`.
-    - [ ] Check for existence of old `~/.gemini/cache/conductor`.
-    - [ ] If found and new cache is empty, move/copy to new XDG location.
-    - [ ] Log migration status.
-- [ ] Task: Update `src/utils/template.ts` to use new `getCacheDir()`.
+- [x] Task: Implement Cache Migration Logic in `src/utils/migrate.ts`. `28e2731`
+    - [x] Check for existence of old `~/.gemini/cache/conductor`.
+    - [x] If found and new cache is empty, move/copy to new XDG location.
+    - [x] Log migration status.
+- [x] Task: Update `src/utils/template.ts` to use new `getCacheDir()`. `28e2731`
 - [ ] Task: Conductor - User Manual Verification 'Configuration Infrastructure & XDG Setup' (Protocol in workflow.md)
 
 ## Phase 2: CLI Integration & Logic Updates
-- [ ] Task: Update `src/cli/index.ts` to load config on startup.
+- [~] Task: Update `src/cli/index.ts` to load config on startup.
     - [ ] Modify `parseArgs` or `main` to merge Config values as defaults for Yargs.
     - [ ] Ensure CLI flags take precedence over Config values.
-- [ ] Task: Update `src/commands/install.ts` (Install Handler).
+- [~] Task: Update `src/commands/install.ts` (Install Handler).
     - [ ] Refactor `promptTemplateSource`, `promptForAgent`, etc., to skip prompts if valid config exists AND flag was not explicitly provided.
     - [ ] Logic: `effectiveValue = flag || config || prompt()`.
     - [ ] **Crucial:** After a successful installation, call `saveConfig()` with the final used values (Repo, Branch, Agent, Scope, GitIgnore).

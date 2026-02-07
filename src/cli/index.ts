@@ -3,6 +3,8 @@ import { hideBin } from "yargs/helpers";
 import { installHandler } from "../commands/install.js";
 import { printBanner, printVersion } from "../utils/banner.js";
 import { DEFAULT_REPO, DEFAULT_BRANCH } from "../utils/template.js";
+import { loadConfig, clearConfig, type Config } from "../utils/config.js";
+import { migrateCache } from "../utils/migrate.js";
 
 import { ALL_AGENT_CONFIGS } from "../generators/registry.js";
 import type { GitIgnoreMethod } from "../utils/gitIgnore.js";
@@ -67,6 +69,11 @@ async function parseArgs(scriptName: string) {
 			type: "boolean",
 			default: false,
 		})
+		.option("reset", {
+			describe: "Clear saved preferences and show all prompts",
+			type: "boolean",
+			default: false,
+		})
 		.example(
 			"$0",
 			"Install with interactive prompts (template source selection)",
@@ -82,6 +89,7 @@ async function parseArgs(scriptName: string) {
 			"Add Conductor files to .git/info/exclude",
 		)
 		.example("$0 --git-ignore none", "Remove Conductor entries from git ignore")
+		.example("$0 --reset", "Clear saved preferences and show all prompts")
 		.help()
 		.alias("h", "help")
 		.version()
@@ -113,12 +121,30 @@ export async function main(scriptName: string) {
 		return;
 	}
 
-	// Execute the install handler with parsed arguments
+	// Handle --reset flag: clear config before proceeding
+	let config: Config = {};
+	if (argv.reset) {
+		console.log("[Config] Clearing saved preferences...");
+		await clearConfig();
+	} else {
+		// Load saved configuration
+		config = await loadConfig();
+		if (Object.keys(config).length > 0) {
+			console.log("[Config] Loaded saved preferences");
+		}
+	}
+
+	// Run cache migration (non-blocking, only on first run to new location)
+	await migrateCache();
+
+	// Execute the install handler with parsed arguments and config
 	await installHandler({
 		...argv,
 		path: pathArg || argv.path || ".",
 		gitIgnore: argv["git-ignore"] as GitIgnoreMethod | undefined,
 		$0: "conductor-init",
 		_: argv._,
+		// Pass config for use in install handler
+		config,
 	});
 }
