@@ -1,5 +1,14 @@
 # Changelog
 
+# [1.2.0](https://github.com/Jonkimi/create-conductor-flow/compare/v1.1.0...v1.2.0) (2026-02-07)
+
+
+### Features
+
+* **cache:** Migrate to XDG-compliant cache directory ([28e2731](https://github.com/Jonkimi/create-conductor-flow/commit/28e2731e045afe21f53845747f12c297aef427da))
+* **cli:** Integrate persistent configuration into CLI ([4a0e919](https://github.com/Jonkimi/create-conductor-flow/commit/4a0e919c4531954ee07a5ec2630080881195fcf5))
+* **config:** Add XDG-compliant persistent configuration module ([1ba03a1](https://github.com/Jonkimi/create-conductor-flow/commit/1ba03a16cf36f83fae66fc8833e3c958820dc692))
+
 # [1.1.0](https://github.com/Jonkimi/create-conductor-flow/compare/v1.0.0...v1.1.0) (2026-02-07)
 
 
