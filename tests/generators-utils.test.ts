@@ -5,7 +5,7 @@ import { githubCopilotContentStrategy } from "../src/generators/github-copilot/i
 describe("Content Strategies Utilities", () => {
 	it("should process TOML content and substitute variables", () => {
 		const tomlContent =
-			'prompt = "Hello {agent_type}, install at __$$CODE_AGENT_INSTALL_PATH$$__"';
+			'prompt = "Hello {agent_type}, install at ~/.gemini/extensions/conductor"';
 		const installPath = "/path/to/install";
 		const agentType = "opencode";
 

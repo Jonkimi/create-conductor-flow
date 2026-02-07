@@ -10,7 +10,10 @@ import type {
 	FileStrategyOptions,
 } from "../types.js";
 
-import { CONDUCTOR_FILE_PREFIX } from "../constants.js";
+import {
+	CONDUCTOR_FILE_PREFIX,
+	GEMINI_DEFAULT_INSTALL_PATH,
+} from "../constants.js";
 
 export class DefaultContentStrategy implements ContentStrategy {
 	process(
@@ -26,10 +29,8 @@ export class DefaultContentStrategy implements ContentStrategy {
 		}
 
 		let prompt = parsed.prompt;
-		prompt = prompt.replace(
-			/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g,
-			installPath,
-		);
+		console.log(GEMINI_DEFAULT_INSTALL_PATH, installPath);
+		prompt = prompt.replaceAll(GEMINI_DEFAULT_INSTALL_PATH, installPath);
 
 		// Replace 'conductor:' with 'conductor-' (or configured prefix)
 		// This ensures generated files for agents use the correct command prefix

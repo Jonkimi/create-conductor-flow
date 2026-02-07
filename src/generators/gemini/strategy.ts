@@ -9,6 +9,7 @@ import type {
 	ContentStrategyOptions,
 	FileStrategyOptions,
 } from "../types.js";
+import { GEMINI_DEFAULT_INSTALL_PATH } from "../constants.js";
 
 export class GeminiContentStrategy implements ContentStrategy {
 	process(
@@ -24,8 +25,8 @@ export class GeminiContentStrategy implements ContentStrategy {
 		}
 
 		// Gemini preserves the TOML structure
-		const content = templateContent.replace(
-			/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g,
+		const content = templateContent.replaceAll(
+			GEMINI_DEFAULT_INSTALL_PATH,
 			installPath,
 		);
 		return substituteVariables(content, { agent_type: agentType });

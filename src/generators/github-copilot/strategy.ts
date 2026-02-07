@@ -1,6 +1,7 @@
 import { parse } from "smol-toml";
 import { substituteVariables } from "../../utils/template.js";
 import type { ContentStrategy, ContentStrategyOptions } from "../types.js";
+import { GEMINI_DEFAULT_INSTALL_PATH } from "../constants.js";
 
 export class GithubCopilotContentStrategy implements ContentStrategy {
 	process(
@@ -16,10 +17,7 @@ export class GithubCopilotContentStrategy implements ContentStrategy {
 		}
 
 		let prompt = parsed.prompt;
-		prompt = prompt.replace(
-			/__\$\$CODE_AGENT_INSTALL_PATH\$\$__/g,
-			installPath,
-		);
+		prompt = prompt.replaceAll(GEMINI_DEFAULT_INSTALL_PATH, installPath);
 		const finalContent = substituteVariables(prompt, { agent_type: agentType });
 
 		return `---\ndescription: ${parsed.description || ""}\nagent: ${fixedAgent}\n---\n${finalContent}`;

@@ -5,7 +5,7 @@ describe("QwenCodeContentStrategy", () => {
 	it("should convert TOML to Markdown with frontmatter description", () => {
 		const toml = `
 description = "Setup project"
-prompt = "This is the setup prompt for __$$CODE_AGENT_INSTALL_PATH$$__"
+prompt = "This is the setup prompt for ~/.gemini/extensions/conductor"
 `;
 		const options = {
 			installPath: ".qwen",

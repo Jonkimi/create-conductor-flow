@@ -33,7 +33,7 @@ describe("Agent Content Strategies", () => {
 		});
 
 		it("should replace install path", () => {
-			const tomlWithPath = 'prompt = "Path: __$$CODE_AGENT_INSTALL_PATH$$__"';
+			const tomlWithPath = 'prompt = "Path: ~/.gemini/extensions/conductor"';
 			const result = factoryDroidContentStrategy.process(tomlWithPath, {
 				installPath: ".factory/conductor",
 				agentType: "factory-droid",
@@ -130,7 +130,7 @@ describe("Agent Content Strategies", () => {
 
 		it("should replace install path placeholder", () => {
 			const tomlWithPath =
-				'description = "Test"\nprompt = "Path: __$$CODE_AGENT_INSTALL_PATH$$__"';
+				'description = "Test"\nprompt = "Path: ~/.gemini/extensions/conductor"';
 			const result = defaultContentStrategy.process(tomlWithPath, {
 				installPath: ".cline/conductor",
 				agentType: "cline",
@@ -160,7 +160,7 @@ describe("Agent Content Strategies", () => {
 	describe("GeminiContentStrategy", () => {
 		it("should preserve original TOML structure for gemini agent", () => {
 			const fullToml =
-				'description = "Test Description"\nprompt = "Use {agent_type} in __$$CODE_AGENT_INSTALL_PATH$$__"\nversion = "1.0"';
+				'description = "Test Description"\nprompt = "Use {agent_type} in ~/.gemini/extensions/conductor"\nversion = "1.0"';
 			const result = geminiContentStrategy.process(fullToml, {
 				installPath: ".gemini/conductor",
 				agentType: "gemini",
@@ -214,7 +214,7 @@ describe("Agent Content Strategies", () => {
 
 		it("should replace install path placeholder", () => {
 			const tomlWithPath =
-				'description = "Test"\nprompt = "Path: __$$CODE_AGENT_INSTALL_PATH$$__"';
+				'description = "Test"\nprompt = "Path: ~/.gemini/extensions/conductor"';
 			const result = kilocodeContentStrategy.process(tomlWithPath, {
 				installPath: ".kilocode/conductor",
 				agentType: "kilocode",
