@@ -154,6 +154,8 @@ Options:
                     entries)  [string] [choices: "gitignore", "exclude", "none"]
   -f, --force       Force overwrite existing installation
                                                       [boolean] [default: false]
+      --reset       Clear saved preferences and show all prompts
+                                                      [boolean] [default: false]
   -h, --help        Show help                                          [boolean]
   -v, --version     Show version number                                [boolean]
 
@@ -170,10 +172,54 @@ Examples:
   exclude                                   .git/info/exclude
   npm create conductor-flow --git-ignore    Remove Conductor entries from git
   none                                      ignore
+  npm create conductor-flow --reset         Clear saved preferences and show 
+                                            all prompts
 ```
 
 
+### Configuration Persistence
+
+The CLI remembers your preferences between runs, so you don't have to specify the same options every time.
+
+**What's Saved:**
+- Agent selection (`--agent`)
+- Template source (`--repo`, `--branch`)
+- Git ignore preference (`--git-ignore`)
+
+**How It Works:**
+1. On first run, select your preferences interactively or via flags
+2. On subsequent runs, saved preferences are automatically applied
+3. CLI flags always override saved preferences
+
+**Example:**
+
+```bash
+# First run - specify your preferences
+npm create conductor-flow --agent claude-code --git-ignore exclude
+
+# Future runs - automatically uses claude-code and exclude
+npm create conductor-flow
+# Output: [Config] Using saved agent: claude-code
+# Output: [Config] Using saved git-ignore: exclude
+```
+
+**Reset Preferences:**
+
+To clear saved preferences and start fresh with all prompts:
+
+```bash
+npm create conductor-flow --reset
+```
+
+**Configuration Location:**
+
+Preferences are stored following the XDG Base Directory Specification:
+- **macOS**: `~/Library/Application Support/create-conductor-flow/config.json`
+- **Linux**: `~/.config/create-conductor-flow/config.json`
+- **Windows**: `%APPDATA%\create-conductor-flow\config.json`
+
 ### 3. Shell Completion for Global Installation(Advanced Setup)
+
 
 Enable tab completion for specific shells (Bash, Zsh) to make using `conductor-init` easier.
 
