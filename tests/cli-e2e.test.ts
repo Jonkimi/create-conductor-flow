@@ -369,17 +369,17 @@ describe("CLI E2E Tests", () => {
 						const configPath = join(tempConfigDir, "config.json");
 						expect(fs.existsSync(configPath)).toBe(true);
 
-						// Verify config content
+						// Verify config content (agent should NOT be saved)
 						const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
-						expect(config.agent).toBe("claude-code");
+						expect(config.agent).toBeUndefined();
 						expect(config.gitIgnore).toBe("exclude");
 					});
 
 					it("should use saved preferences on subsequent runs", () => {
-						// Create a pre-existing config
+						// Create a pre-existing config (no agent — must be provided explicitly)
 						fs.writeFileSync(
 							join(tempConfigDir, "config.json"),
-							JSON.stringify({ agent: "cursor", gitIgnore: "gitignore" }),
+							JSON.stringify({ gitIgnore: "gitignore" }),
 						);
 
 						// Create a new temp dir for second installation
@@ -387,8 +387,10 @@ describe("CLI E2E Tests", () => {
 							join(os.tmpdir(), "conductor-e2e2-"),
 						);
 						try {
-							const output = runCLIWithConfig(`${tempDir2} --scope project`);
-							expect(output).toContain("[Config] Using saved agent: cursor");
+							const output = runCLIWithConfig(
+								`${tempDir2} --agent cursor --scope project`,
+							);
+							expect(output).not.toContain("Using saved agent");
 							expect(output).toContain(
 								"[Config] Using saved git-ignore: gitignore",
 							);
@@ -401,7 +403,10 @@ describe("CLI E2E Tests", () => {
 					it("should clear config with --reset flag", () => {
 						// Create a config file
 						const configPath = join(tempConfigDir, "config.json");
-						fs.writeFileSync(configPath, JSON.stringify({ agent: "opencode" }));
+						fs.writeFileSync(
+							configPath,
+							JSON.stringify({ gitIgnore: "gitignore" }),
+						);
 
 						// Run with --reset
 						const output = runCLIWithConfig(
@@ -411,31 +416,32 @@ describe("CLI E2E Tests", () => {
 						expect(output).toContain("Using provided agent: gemini");
 						expect(output).toContain("Conductor initialized successfully");
 
-						// Config should be recreated with new values
+						// Config should be recreated without agent
 						const newConfig = JSON.parse(fs.readFileSync(configPath, "utf-8"));
-						expect(newConfig.agent).toBe("gemini");
+						expect(newConfig.agent).toBeUndefined();
+						expect(newConfig.gitIgnore).toBe("none");
 					});
 
 					it("should override config with CLI flags", () => {
-						// Create a config with cursor agent
+						// Create a config with gitIgnore preference
 						fs.writeFileSync(
 							join(tempConfigDir, "config.json"),
-							JSON.stringify({ agent: "cursor" }),
+							JSON.stringify({ gitIgnore: "gitignore" }),
 						);
 
-						// Run with explicit --agent flag
+						// Run with explicit flags
 						const output = runCLIWithConfig(
 							`${tempDir} --agent gemini --scope project --git-ignore none`,
 						);
-						// Should use the provided flag, not config
 						expect(output).toContain("Using provided agent: gemini");
 						expect(output).not.toContain("Using saved agent");
 						expect(output).toContain("Conductor initialized successfully");
 
-						// Config should be updated with new agent
+						// Config should be updated, still no agent
 						const configPath = join(tempConfigDir, "config.json");
 						const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
-						expect(config.agent).toBe("gemini");
+						expect(config.agent).toBeUndefined();
+						expect(config.gitIgnore).toBe("none");
 					});
 
 					it("should show --reset in help text", () => {

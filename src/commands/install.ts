@@ -41,14 +41,11 @@ export async function installHandler(
 	try {
 		console.log(`Initializing Conductor in: ${targetDir}`);
 
-		// 1. Select Agent (CLI flag > config > prompt)
+		// 1. Select Agent (CLI flag > prompt)
 		let agent: AgentType;
 		if (argv.agent) {
 			agent = argv.agent as AgentType;
 			console.log(`Using provided agent: ${agent}`);
-		} else if (config.agent) {
-			agent = config.agent as AgentType;
-			console.log(`[Config] Using saved agent: ${agent}`);
 		} else {
 			console.log("Step 1: Prompting for agent selection...");
 			agent = await promptForAgent();
@@ -191,7 +188,6 @@ export async function installHandler(
 		// 6. Save configuration for future runs
 		console.log("\nSaving preferences...");
 		await saveConfig({
-			agent,
 			repo: effectiveRepo,
 			branch: effectiveBranch,
 			gitIgnore: effectiveGitIgnore,

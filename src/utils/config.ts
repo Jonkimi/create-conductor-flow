@@ -36,8 +36,6 @@ export interface Config {
 	repo?: string;
 	/** The branch name */
 	branch?: string;
-	/** The last selected agent type */
-	agent?: string;
 	/** The chosen git ignore strategy */
 	gitIgnore?: GitIgnoreMethod;
 }

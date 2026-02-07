@@ -138,14 +138,14 @@ describe("Config Module", () => {
 			const { saveConfig, loadConfig } = await import("../src/utils/config.js");
 
 			// Save initial config
-			await saveConfig({ agent: "cursor", branch: "dev" });
+			await saveConfig({ repo: "https://example.com/repo", branch: "dev" });
 
 			// Update with partial config
-			await saveConfig({ agent: "claude-code" });
+			await saveConfig({ repo: "https://example.com/repo2" });
 
 			// Verify merge
 			const config = await loadConfig();
-			expect(config.agent).toBe("claude-code");
+			expect(config.repo).toBe("https://example.com/repo2");
 			expect(config.branch).toBe("dev"); // Should be preserved
 		});
 	});
@@ -157,7 +157,7 @@ describe("Config Module", () => {
 			);
 
 			// Create config
-			await saveConfig({ agent: "test-agent" });
+			await saveConfig({ repo: "https://example.com/repo" });
 
 			// Clear it
 			await clearConfig();
