@@ -143,9 +143,9 @@ Options:
           [string] [choices: "opencode", "claude-code", "antigravity", "cursor",
         "github-copilot", "codex", "windsurf", "cline", "kilo-code", "roo-code",
                                          "qwen-code", "factory-droid", "gemini"]
-  -r, --repo        Git repository URL for conductor. If used without value,
-                    defaults to official repository.                    [string]
-  -b, --branch      Branch name for conductor repository
+  -r, --repo        Git repository URL for templates. Without this flag,
+                    interactive template source selection is shown.     [string]
+  -b, --branch      Branch name for template repository
                                                       [string] [default: "main"]
   -s, --scope       Installation scope (project or global)
                                          [string] [choices: "project", "global"]
@@ -159,8 +159,11 @@ Options:
 
 Examples:
   npm create conductor-flow                 Install with interactive prompts
+                                            (template source selection)
   npm create conductor-flow --agent         Install for Claude Code agent
   claude-code
+  npm create conductor-flow --repo          Use custom template repository
+  https://github.com/user/templates
   npm create conductor-flow --git-ignore    Add Conductor files to .gitignore
   gitignore
   npm create conductor-flow --git-ignore    Add Conductor files to
