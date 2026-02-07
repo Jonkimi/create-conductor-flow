@@ -1,11 +1,11 @@
 <div align="center">
-  <a href="https://github.com/你的用户名/create-conductor-flow">
+  <a href="https://github.com/Jonkimi/create-conductor-flow">
     <img src="./conductor_flow_banner.png" alt="Conductor Scaffolding CLI Logo" width="512" height="384">
   </a>
 
   <h1>Conductor Scaffolding CLI</h1>
 
-  <p>
+  <p align="center">
     <a href="https://www.npmjs.com/package/create-conductor-flow">
       <img src="https://img.shields.io/npm/v/create-conductor-flow?color=0470f2&label=npm+version" alt="NPM Version">
     </a>
@@ -16,7 +16,7 @@
       <img src="https://img.shields.io/npm/dm/create-conductor-flow?color=orange" alt="Downloads">
     </a>
   </p>
-  <p>
+  <p align="center">
     <strong>English</strong> | <a href="./README_zh.md">简体中文</a> | <a href="./README_ja.md">日本語</a> | <a href="./README_ko.md">한국어</a>
   </p>
   <br>
@@ -25,6 +25,7 @@
   </blockquote>
   <br>
 </div>
+
 Get started immediately with:
 
 ```bash
