@@ -1,14 +1,14 @@
 # Implementation Plan - Track: Persistent Configuration
 
 ## Phase 1: Configuration Infrastructure & XDG Setup
-- [~] Task: Install `env-paths` dependency (or implement simple XDG logic if preferred to avoid deps).
-- [~] Task: Create `src/utils/config.ts` module.
-    - [ ] Implement `getConfigDir()` and `getCacheDir()` following XDG standards (Platform-aware).
-        - [ ] **Critical:** Support `process.env.CONDUCTOR_CONFIG_DIR` and `process.env.CONDUCTOR_CACHE_DIR` overrides to allow safe E2E testing without touching real user files.
-    - [ ] Implement `loadConfig()`: Read/Parse `config.json`.
-    - [ ] Implement `saveConfig(config)`: Write `config.json` (ensure dir exists).
-    - [ ] Define `Config` interface (repo, branch, agent, gitIgnore).
-- [ ] Task: Implement Cache Migration Logic in `src/utils/migrate.ts`.
+- [x] Task: Install `env-paths` dependency (or implement simple XDG logic if preferred to avoid deps). `1ba03a1`
+- [x] Task: Create `src/utils/config.ts` module. `1ba03a1`
+    - [x] Implement `getConfigDir()` and `getCacheDir()` following XDG standards (Platform-aware).
+        - [x] **Critical:** Support `process.env.CONDUCTOR_CONFIG_DIR` and `process.env.CONDUCTOR_CACHE_DIR` overrides to allow safe E2E testing without touching real user files.
+    - [x] Implement `loadConfig()`: Read/Parse `config.json`.
+    - [x] Implement `saveConfig(config)`: Write `config.json` (ensure dir exists).
+    - [x] Define `Config` interface (repo, branch, agent, gitIgnore).
+- [~] Task: Implement Cache Migration Logic in `src/utils/migrate.ts`.
     - [ ] Check for existence of old `~/.gemini/cache/conductor`.
     - [ ] If found and new cache is empty, move/copy to new XDG location.
     - [ ] Log migration status.

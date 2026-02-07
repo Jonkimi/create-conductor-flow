@@ -1,10 +1,10 @@
-import { readFile, stat } from "fs/promises";
+import { readFile } from "fs/promises";
 import { join, resolve } from "path";
 import { fileURLToPath } from "url";
-import { homedir } from "os";
 import { execSync } from "child_process";
 import { createHash } from "crypto";
 import fs from "fs-extra";
+import { getTemplatesCacheDir } from "./migrate.js";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
@@ -12,12 +12,30 @@ export const DEFAULT_REPO =
 	"https://github.com/gemini-cli-extensions/conductor";
 export const DEFAULT_BRANCH = "main";
 
-export function getCacheDir(
+/**
+ * Gets the cache directory for a specific repo/branch combination.
+ * Uses XDG-compliant base path from config module.
+ *
+ * @param repo - Git repository URL
+ * @param branch - Branch name
+ * @returns Cache directory path for this repo/branch
+ */
+export function getRepoCacheDir(
 	repo: string = DEFAULT_REPO,
 	branch: string = DEFAULT_BRANCH,
 ): string {
 	const hash = createHash("md5").update(`${repo}#${branch}`).digest("hex");
-	return join(homedir(), ".gemini/cache/conductor", hash);
+	return join(getTemplatesCacheDir(), hash);
+}
+
+/**
+ * @deprecated Use getRepoCacheDir instead. This is kept for backward compatibility.
+ */
+export function getCacheDir(
+	repo: string = DEFAULT_REPO,
+	branch: string = DEFAULT_BRANCH,
+): string {
+	return getRepoCacheDir(repo, branch);
 }
 
 export async function ensureTemplates(

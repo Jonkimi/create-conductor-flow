@@ -51,8 +51,9 @@ describe("Constants", () => {
 describe("Cache Directory", () => {
 	it("should resolve cache directory", () => {
 		const cacheDir = getCacheDir();
+		// New XDG-compliant path structure
 		expect(cacheDir).toContain(
-			require("path").join(".gemini", "cache", "conductor"),
+			require("path").join("create-conductor-flow", "templates"),
 		);
 	});
 
@@ -118,8 +119,9 @@ describe("Template Root Resolution", () => {
 
 		const root = await getTemplateRoot("https://custom.com/repo", "dev");
 
+		// New XDG-compliant path structure
 		expect(root).toContain(
-			require("path").join(".gemini", "cache", "conductor"),
+			require("path").join("create-conductor-flow", "templates"),
 		);
 	});
 });
