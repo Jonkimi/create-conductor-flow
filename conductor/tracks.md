@@ -35,3 +35,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Interactive Template Source Selection**
 *Link: [./archive/interactive_template_source_20260206/](./archive/interactive_template_source_20260206/)* <!-- status: complete -->
+
+---
+
+- [ ] **Track: Persistent Configuration & XDG Standard Adoption**
+*Link: [./tracks/persistent_config_20260207/](./tracks/persistent_config_20260207/)*
