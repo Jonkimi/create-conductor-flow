@@ -83,6 +83,9 @@ export async function migrateCache(): Promise<boolean> {
 		// Check if new cache already has content (don't overwrite)
 		if (!(await isDirectoryEmpty(newDir))) {
 			console.log("[Migration] New cache already exists, skipping migration");
+			console.log(
+				`[Migration] You can safely remove the old cache at: ${legacyDir}`,
+			);
 			return false;
 		}
 
