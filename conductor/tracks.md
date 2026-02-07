@@ -34,4 +34,4 @@ This file tracks all major tracks for the project. Each track has its own detail
 ---
 
 - [x] **Track: Interactive Template Source Selection**
-*Link: [./tracks/interactive_template_source_20260206/](./tracks/interactive_template_source_20260206/)*
+*Link: [./archive/interactive_template_source_20260206/](./archive/interactive_template_source_20260206/)* <!-- status: complete -->
