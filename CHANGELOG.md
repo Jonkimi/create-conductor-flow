@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.3.0](https://github.com/Jonkimi/create-conductor-flow/compare/v1.2.0...v1.3.0) (2026-02-07)
+
+
+### Features
+
+* add git availability detection with graceful fallback ([e9a2fd4](https://github.com/Jonkimi/create-conductor-flow/commit/e9a2fd4723560156436e80b526e554c21bb5d701))
+* skip git-ignore configuration when git is unavailable ([0329648](https://github.com/Jonkimi/create-conductor-flow/commit/0329648a37ceae8803bd2ccd5299bdf11e9220b5))
+
 # [1.2.0](https://github.com/Jonkimi/create-conductor-flow/compare/v1.1.0...v1.2.0) (2026-02-07)
 
 

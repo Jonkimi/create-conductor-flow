@@ -1,6 +1,6 @@
 {
   "name": "create-conductor-flow",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Conductor Scaffolding CLI - Generate spec-driven, portable Gemini Conductor workflows for any coding agent",
   "license": "Apache-2.0",
   "keywords": [
