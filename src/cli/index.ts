@@ -81,10 +81,7 @@ async function parseArgs(scriptName: string) {
 			type: "boolean",
 			default: false,
 		})
-		.example(
-			"$0",
-			"Install with interactive prompts (template source selection)",
-		)
+		.example("$0", "Install with interactive prompts")
 		.example("$0 --agent claude-code", "Install for Claude Code agent")
 		.example(
 			"$0 --repo https://github.com/user/templates",
