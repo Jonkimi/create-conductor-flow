@@ -83,6 +83,9 @@ export const LOG_MESSAGES = {
 	/** Warning when falling back to bundled templates because git is unavailable */
 	GIT_NOT_FOUND_FALLBACK:
 		"⚠ git not found, falling back to bundled templates",
+	/** Warning when --git-ignore is skipped because git is unavailable */
+	GIT_NOT_FOUND_SKIP_GITIGNORE:
+		"⚠ git not found, skipping git ignore configuration",
 } as const;
 
 /**

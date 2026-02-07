@@ -66,13 +66,18 @@ export async function installHandler(
 		console.log(`✔ Selected scope: ${scope}`);
 
 		// 2.5. Determine git ignore method (CLI flag > config > prompt)
+		const gitAvailable = isGitAvailable();
 		let effectiveGitIgnore: GitIgnoreMethod | undefined = argv.gitIgnore;
-		if (argv.gitIgnore && scope === "global") {
+		if (!gitAvailable && (argv.gitIgnore || config.gitIgnore)) {
+			// git not installed — skip any git-ignore configuration
+			console.warn(LOG_MESSAGES.GIT_NOT_FOUND_SKIP_GITIGNORE);
+			effectiveGitIgnore = undefined;
+		} else if (argv.gitIgnore && scope === "global") {
 			console.warn(
 				"⚠ --git-ignore flag is only supported for project scope. Skipping git ignore configuration.",
 			);
 			effectiveGitIgnore = undefined;
-		} else if (!argv.gitIgnore && scope === "project") {
+		} else if (!argv.gitIgnore && scope === "project" && gitAvailable) {
 			// Check config for saved preference
 			if (config.gitIgnore) {
 				effectiveGitIgnore = config.gitIgnore;
@@ -120,7 +125,7 @@ export async function installHandler(
 		}
 
 		// Fallback: if a remote repo is set but git is not available, use bundled
-		if (effectiveRepo && !isGitAvailable()) {
+		if (effectiveRepo && !gitAvailable) {
 			console.warn(LOG_MESSAGES.GIT_NOT_FOUND_FALLBACK);
 			effectiveRepo = undefined;
 			effectiveBranch = undefined;

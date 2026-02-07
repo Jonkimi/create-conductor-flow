@@ -240,4 +240,67 @@ describe("Install Command", () => {
 			false,
 		);
 	});
+
+	it("should skip --git-ignore when git is unavailable", async () => {
+		vi.mocked(isGitAvailable).mockReturnValue(false);
+
+		const mockArgv = {
+			path: ".",
+			agent: "opencode",
+			gitIgnore: "gitignore" as any,
+			scope: "project",
+			_: [],
+			$0: "conductor",
+		};
+		mockGenerator.validate.mockResolvedValue("/abs/path");
+
+		await installHandler(mockArgv as any);
+
+		expect(console.warn).toHaveBeenCalledWith(
+			expect.stringContaining("git not found, skipping git ignore"),
+		);
+		// promptForGitIgnore should not be called
+		expect(promptModule.promptForGitIgnore).not.toHaveBeenCalled();
+	});
+
+	it("should skip saved config gitIgnore when git is unavailable", async () => {
+		vi.mocked(isGitAvailable).mockReturnValue(false);
+
+		const mockArgv = {
+			path: ".",
+			agent: "opencode",
+			scope: "project",
+			config: {
+				gitIgnore: "exclude" as any,
+			},
+			_: [],
+			$0: "conductor",
+		};
+		mockGenerator.validate.mockResolvedValue("/abs/path");
+
+		await installHandler(mockArgv as any);
+
+		expect(console.warn).toHaveBeenCalledWith(
+			expect.stringContaining("git not found, skipping git ignore"),
+		);
+		expect(promptModule.promptForGitIgnore).not.toHaveBeenCalled();
+	});
+
+	it("should not prompt for git-ignore when git is unavailable", async () => {
+		vi.mocked(isGitAvailable).mockReturnValue(false);
+
+		const mockArgv = {
+			path: ".",
+			agent: "opencode",
+			scope: "project",
+			_: [],
+			$0: "conductor",
+		};
+		mockGenerator.validate.mockResolvedValue("/abs/path");
+
+		await installHandler(mockArgv as any);
+
+		// Should not prompt for git ignore since git is not available
+		expect(promptModule.promptForGitIgnore).not.toHaveBeenCalled();
+	});
 });
