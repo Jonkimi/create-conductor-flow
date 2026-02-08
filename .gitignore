@@ -12,3 +12,4 @@ src/conductor
 .factory
 tmp-*
 .github/*
+.automaker/
