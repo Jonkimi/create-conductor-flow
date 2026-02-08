@@ -1,12 +1,12 @@
 # Implementation Plan - Use .git Directory Check for Git Ignore Logic
 
 ## Phase 1: Utility Update
-- [ ] Task: Create `isGitRepository` utility
-    - [ ] Create/Update `src/utils/gitDetect.ts` to include `isGitRepository(path: string)`.
-    - [ ] Ensure it checks for the existence of `.git` directory strictly.
-- [ ] Task: Add unit tests for `isGitRepository`
-    - [ ] Create/Update `src/utils/gitDetect.test.ts`.
-    - [ ] Test cases: path with `.git`, path without `.git`.
+- [x] Task: Create `isGitRepository` utility `cc162b6`
+    - [x] Create/Update `src/utils/gitDetect.ts` to include `isGitRepository(path: string)`.
+    - [x] Ensure it checks for the existence of `.git` directory strictly.
+- [x] Task: Add unit tests for `isGitRepository` `cc162b6`
+    - [x] Create/Update `src/utils/gitDetect.test.ts`.
+    - [x] Test cases: path with `.git`, path without `.git`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Utility Update' (Protocol in workflow.md)
 
 ## Phase 2: Command Logic Update
