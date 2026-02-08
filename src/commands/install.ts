@@ -17,7 +17,7 @@ import {
 	TemplateSource,
 	LOG_MESSAGES,
 } from "../utils/templatePrompt.js";
-import { isGitAvailable } from "../utils/gitDetect.js";
+import { isGitAvailable, isGitRepository } from "../utils/gitDetect.js";
 import { saveConfig, type Config } from "../utils/config.js";
 
 export async function installHandler(
@@ -63,18 +63,20 @@ export async function installHandler(
 		console.log(`✔ Selected scope: ${scope}`);
 
 		// 2.5. Determine git ignore method (CLI flag > config > prompt)
-		const gitAvailable = isGitAvailable();
+		const isGitRepo = isGitRepository(targetDir);
 		let effectiveGitIgnore: GitIgnoreMethod | undefined = argv.gitIgnore;
-		if (!gitAvailable && (argv.gitIgnore || config.gitIgnore)) {
-			// git not installed — skip any git-ignore configuration
-			console.warn(LOG_MESSAGES.GIT_NOT_FOUND_SKIP_GITIGNORE);
+		if (!isGitRepo && (argv.gitIgnore || config.gitIgnore)) {
+			// Target is not a git repository — skip any git-ignore configuration
+			console.warn(
+				"⚠ Target directory is not a git repository, skipping git ignore configuration",
+			);
 			effectiveGitIgnore = undefined;
 		} else if (argv.gitIgnore && scope === "global") {
 			console.warn(
 				"⚠ --git-ignore flag is only supported for project scope. Skipping git ignore configuration.",
 			);
 			effectiveGitIgnore = undefined;
-		} else if (!argv.gitIgnore && scope === "project" && gitAvailable) {
+		} else if (!argv.gitIgnore && scope === "project" && isGitRepo) {
 			// Check config for saved preference
 			if (config.gitIgnore) {
 				effectiveGitIgnore = config.gitIgnore;
@@ -122,7 +124,7 @@ export async function installHandler(
 		}
 
 		// Fallback: if a remote repo is set but git is not available, use bundled
-		if (effectiveRepo && !gitAvailable) {
+		if (effectiveRepo && !isGitAvailable()) {
 			console.warn(LOG_MESSAGES.GIT_NOT_FOUND_FALLBACK);
 			effectiveRepo = undefined;
 			effectiveBranch = undefined;
