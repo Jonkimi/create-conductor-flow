@@ -9,7 +9,7 @@
     - [x] Test cases: path with `.git`, path without `.git`.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Utility Update' (Protocol in workflow.md)
 
-## Phase 2: Command Logic Update
+## Phase 2: Command Logic Update [checkpoint: d04d60d]
 - [x] Task: specific integration test for git ignore logic `137dcbc`
     - [x] Create `tests/git-repo-check.test.ts` to test `install` command behavior.
     - [x] Test case: `install` in a directory without `.git` should not trigger git ignore prompts/actions.
@@ -17,7 +17,7 @@
 - [x] Task: Update `install` command `137dcbc`
     - [x] Modify `src/commands/install.ts` to use `isGitRepository` instead of `isGitAvailable` for the git ignore section.
     - [x] Ensure logic flows correctly (skip if no `.git`).
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Command Logic Update' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Command Logic Update' (Protocol in workflow.md)
 
 ## Phase 3: Verification
 - [ ] Task: Run full test suite to ensure no regressions.
