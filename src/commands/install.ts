@@ -65,18 +65,25 @@ export async function installHandler(
 		// 2.5. Determine git ignore method (CLI flag > config > prompt)
 		const isGitRepo = isGitRepository(targetDir);
 		let effectiveGitIgnore: GitIgnoreMethod | undefined = argv.gitIgnore;
-		if (!isGitRepo && (argv.gitIgnore || config.gitIgnore)) {
-			// Target is not a git repository — skip any git-ignore configuration
-			console.warn(
-				"⚠ Target directory is not a git repository, skipping git ignore configuration",
-			);
-			effectiveGitIgnore = undefined;
-		} else if (argv.gitIgnore && scope === "global") {
+		if (argv.gitIgnore && scope === "global") {
 			console.warn(
 				"⚠ --git-ignore flag is only supported for project scope. Skipping git ignore configuration.",
 			);
 			effectiveGitIgnore = undefined;
-		} else if (!argv.gitIgnore && scope === "project" && isGitRepo) {
+		} else if (!isGitRepo) {
+			// Target is not a git repository
+			const requested = argv.gitIgnore ?? config.gitIgnore;
+			if (requested && requested !== "none") {
+				// Warn only when a git-requiring method was requested
+				console.warn(
+					"⚠ Target directory is not a git repository, skipping git ignore configuration",
+				);
+			}
+			// "none" can pass through (no git operations needed); others get cleared
+			if (argv.gitIgnore !== "none") {
+				effectiveGitIgnore = undefined;
+			}
+		} else if (!argv.gitIgnore && scope === "project") {
 			// Check config for saved preference
 			if (config.gitIgnore) {
 				effectiveGitIgnore = config.gitIgnore;

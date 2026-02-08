@@ -359,6 +359,9 @@ describe("CLI E2E Tests", () => {
 					});
 
 					it("should save preferences after successful installation", () => {
+						// Init git so git-ignore exclude can work
+						execSync("git init", { cwd: tempDir, encoding: "utf-8" });
+
 						const output = runCLIWithConfig(
 							`${tempDir} --agent claude-code --scope project --git-ignore exclude`,
 						);
@@ -386,6 +389,8 @@ describe("CLI E2E Tests", () => {
 						const tempDir2 = fs.mkdtempSync(
 							join(os.tmpdir(), "conductor-e2e2-"),
 						);
+						// Init git so saved git-ignore config can be applied
+						execSync("git init", { cwd: tempDir2, encoding: "utf-8" });
 						try {
 							const output = runCLIWithConfig(
 								`${tempDir2} --agent cursor --scope project`,
