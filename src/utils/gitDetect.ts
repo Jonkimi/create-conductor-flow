@@ -30,3 +30,18 @@ export function isGitAvailable(): boolean {
 export function resetGitAvailableCache(): void {
 	cachedResult = undefined;
 }
+
+import { existsSync } from "fs";
+import { join } from "path";
+
+/**
+ * Checks if the given directory path is a git repository by looking for a .git directory.
+ * This is a synchronous check.
+ *
+ * @param targetPath The directory path to check
+ * @returns true if .git exists in the target path
+ */
+export function isGitRepository(targetPath: string): boolean {
+	const gitDir = join(targetPath, ".git");
+	return existsSync(gitDir);
+}

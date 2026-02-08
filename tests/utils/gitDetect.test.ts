@@ -1,7 +1,11 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { execSync } from "child_process";
+import { mkdtempSync, mkdirSync, rmSync } from "fs";
+import { join } from "path";
+import { tmpdir } from "os";
 import {
 	isGitAvailable,
+	isGitRepository,
 	resetGitAvailableCache,
 } from "../../src/utils/gitDetect.js";
 
@@ -13,6 +17,31 @@ describe("gitDetect", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
 		resetGitAvailableCache();
+	});
+
+	describe("isGitRepository", () => {
+		let tempDir: string;
+
+		beforeEach(() => {
+			tempDir = mkdtempSync(join(tmpdir(), "git-detect-test-"));
+		});
+
+		afterEach(() => {
+			rmSync(tempDir, { recursive: true, force: true });
+		});
+
+		it("should return true when .git directory exists", () => {
+			mkdirSync(join(tempDir, ".git"));
+			expect(isGitRepository(tempDir)).toBe(true);
+		});
+
+		it("should return false when .git directory does not exist", () => {
+			expect(isGitRepository(tempDir)).toBe(false);
+		});
+
+		it("should return false for a non-existent path", () => {
+			expect(isGitRepository(join(tempDir, "does-not-exist"))).toBe(false);
+		});
 	});
 
 	describe("isGitAvailable", () => {
