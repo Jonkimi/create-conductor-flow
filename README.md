@@ -182,7 +182,6 @@ Examples:
 The CLI remembers your preferences between runs, so you don't have to specify the same options every time.
 
 **What's Saved:**
-- Agent selection (`--agent`)
 - Template source (`--repo`, `--branch`)
 - Git ignore preference (`--git-ignore`)
 
@@ -197,9 +196,8 @@ The CLI remembers your preferences between runs, so you don't have to specify th
 # First run - specify your preferences
 npm create conductor-flow --agent claude-code --git-ignore exclude
 
-# Future runs - automatically uses claude-code and exclude
+# Future runs - automatically uses exclude
 npm create conductor-flow
-# Output: [Config] Using saved agent: claude-code
 # Output: [Config] Using saved git-ignore: exclude
 ```
 

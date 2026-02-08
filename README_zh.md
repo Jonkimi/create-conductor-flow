@@ -180,7 +180,6 @@ Examples:
 CLI 会在运行之间记住您的首选项，因此您不必每次都指定相同的选项。
 
 **保存的内容：**
-- 代理选择 (`--agent`)
 - 模板来源 (`--repo`, `--branch`)
 - Git 忽略偏好 (`--git-ignore`)
 
@@ -195,9 +194,8 @@ CLI 会在运行之间记住您的首选项，因此您不必每次都指定相�
 # 首次运行 - 指定您的首选项
 npm create conductor-flow --agent claude-code --git-ignore exclude
 
-# 后续运行 - 自动使用 claude-code 和 exclude
+# 后续运行 - 自动使用 exclude
 npm create conductor-flow
-# 输出: [Config] Using saved agent: claude-code
 # 输出: [Config] Using saved git-ignore: exclude
 ```
 

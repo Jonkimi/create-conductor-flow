@@ -180,7 +180,6 @@ Examples:
 CLI は実行間の設定を記憶しているため、毎回同じオプションを指定する必要はありません。
 
 **保存される内容:**
-- エージェントの選択 (`--agent`)
 - テンプレートソース (`--repo`, `--branch`)
 - Git 除外設定 (`--git-ignore`)
 
@@ -195,9 +194,8 @@ CLI は実行間の設定を記憶しているため、毎回同じオプショ�
 # 初回実行 - 設定を指定
 npm create conductor-flow --agent claude-code --git-ignore exclude
 
-# 今後の実行 - claude-code と exclude を自動的に使用
+# 今後の実行 - exclude を自動的に使用
 npm create conductor-flow
-# 出力: [Config] Using saved agent: claude-code
 # 出力: [Config] Using saved git-ignore: exclude
 ```
 

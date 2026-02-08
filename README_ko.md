@@ -180,7 +180,6 @@ Examples:
 CLI는 실행 간에 기본 설정을 기억하므로 매번 동일한 옵션을 지정할 필요가 없습니다.
 
 **저장되는 내용:**
-- 에이전트 선택 (`--agent`)
 - 템플릿 소스 (`--repo`, `--branch`)
 - Git 무시 기본 설정 (`--git-ignore`)
 
@@ -195,9 +194,8 @@ CLI는 실행 간에 기본 설정을 기억하므로 매번 동일한 옵션을
 # 첫 실행 - 기본 설정 지정
 npm create conductor-flow --agent claude-code --git-ignore exclude
 
-# 향후 실행 - 자동으로 claude-code 및 exclude 사용
+# 향후 실행 - 자동으로 exclude 사용
 npm create conductor-flow
-# 출력: [Config] Using saved agent: claude-code
 # 출력: [Config] Using saved git-ignore: exclude
 ```
 
