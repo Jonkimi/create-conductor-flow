@@ -40,3 +40,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Persistent Configuration & XDG Standard Adoption**
 *Link: [./archive/persistent_config_20260207/](./archive/persistent_config_20260207/)* <!-- status: complete -->
+
+---
+
+- [ ] **Track: Install Command Git Check Logic Update**
+*Link: [./tracks/install_git_check_20260207/](./tracks/install_git_check_20260207/)*
