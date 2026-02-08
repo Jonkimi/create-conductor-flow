@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.2](https://github.com/Jonkimi/create-conductor-flow/compare/v1.3.1...v1.3.2) (2026-02-08)
+
+
+### Bug Fixes
+
+* **install:** Refine git-ignore logic for non-git repos ([50dbd99](https://github.com/Jonkimi/create-conductor-flow/commit/50dbd992cc66109febb9cec209cfda25755774ff))
+
+
+### Features
+
+* **install:** Use isGitRepository for git ignore logic ([137dcbc](https://github.com/Jonkimi/create-conductor-flow/commit/137dcbc89bf7d8970548ba8c271bbe57fb90d8f7))
+* **utils:** Add isGitRepository utility and tests ([cc162b6](https://github.com/Jonkimi/create-conductor-flow/commit/cc162b690980279d21a755a352ba6f767fc3ba50))
+
 ## [1.3.1](https://github.com/Jonkimi/create-conductor-flow/compare/v1.3.0...v1.3.1) (2026-02-07)
 
 # [1.3.0](https://github.com/Jonkimi/create-conductor-flow/compare/v1.2.0...v1.3.0) (2026-02-07)
