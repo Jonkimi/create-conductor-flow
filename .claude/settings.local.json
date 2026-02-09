@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(CI=true pnpm test:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\ntest\\(git-ignore\\): Add unit tests for git ignore utility module\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)",
+      "Bash(pnpm build:*)",
+      "Bash(node:*)",
+      "Bash(CONDUCTOR_NO_BANNER=1 node dist/index.js:*)",
+      "Bash(xxd:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run build:*)",
+      "Bash(test:*)",
+      "Bash(ls:*)",
+      "Bash(git log:*)",
+      "Bash(CI=true pnpm vitest run:*)",
+      "Bash(CI=true node:*)",
+      "Bash(npx vitest:*)",
+      "Bash(CI=true npx vitest:*)",
+      "Bash(git stash:*)",
+      "Bash(npm test:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(xargs cat:*)",
+      "Bash(git clone:*)",
+      "Bash(grep:*)",
+      "Bash(wc:*)",
+      "WebFetch(domain:www.vibekanban.com)"
+    ]
+  }
+}

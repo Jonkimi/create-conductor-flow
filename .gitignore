@@ -6,10 +6,10 @@ src/conductor
 
 # Generated agent configuration directories (test artifacts)
 .kilocode/
-.gemini
 .roo
 .qwen
 .factory
 tmp-*
 .github/*
 .automaker/
+.worktrees/
