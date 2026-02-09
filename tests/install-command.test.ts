@@ -4,6 +4,8 @@ import * as promptModule from "../src/cli/prompt.js";
 import * as generatorFactory from "../src/generators/index.js";
 import { isGitAvailable, isGitRepository } from "../src/utils/gitDetect.js";
 
+import * as configModule from "../src/utils/config.js";
+
 vi.mock("../src/cli/prompt.js");
 vi.mock("../src/generators/index.js", () => ({
 	getGenerator: vi.fn(),
@@ -11,6 +13,12 @@ vi.mock("../src/generators/index.js", () => ({
 vi.mock("../src/utils/gitDetect.js", () => ({
 	isGitAvailable: vi.fn().mockReturnValue(true),
 	isGitRepository: vi.fn().mockReturnValue(true),
+}));
+vi.mock("../src/utils/config.js", () => ({
+	saveConfig: vi.fn().mockResolvedValue(undefined),
+	loadConfig: vi.fn().mockResolvedValue({}),
+	getConfigFilePath: vi.fn().mockReturnValue("/tmp/mock-config.json"),
+	getConfigDir: vi.fn().mockReturnValue("/tmp/mock-config"),
 }));
 
 describe("Install Command", () => {
