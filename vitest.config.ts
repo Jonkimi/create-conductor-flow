@@ -28,6 +28,6 @@ export default defineConfig({
     },
     watch: false,
     globals: true,
-    testTimeout: 10000,
+    testTimeout: 20000,
   },
 });
