@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.3](https://github.com/Jonkimi/create-conductor-flow/compare/v1.3.2...v1.3.3) (2026-03-10)
+
+
+### Features
+
+* **conductor:** Implement Conductor framework commands and templates for CLI Agent worktrees development ([8ce7c38](https://github.com/Jonkimi/create-conductor-flow/commit/8ce7c3862fd66ddb6301186eac0f835b4b16683c))
+* use posix join for cross-platform paths ([76295b9](https://github.com/Jonkimi/create-conductor-flow/commit/76295b9581fe739dceaaa783bd96ecd9a8fb9b03))
+
 ## [1.3.2](https://github.com/Jonkimi/create-conductor-flow/compare/v1.3.1...v1.3.2) (2026-02-08)
 
 
