@@ -29,7 +29,7 @@ export class DefaultContentStrategy implements ContentStrategy {
 		}
 
 		let prompt = parsed.prompt;
-		console.log(GEMINI_DEFAULT_INSTALL_PATH, installPath);
+		// console.log(GEMINI_DEFAULT_INSTALL_PATH, installPath);
 		prompt = prompt.replaceAll(GEMINI_DEFAULT_INSTALL_PATH, installPath);
 
 		// Replace 'conductor:' with 'conductor-' (or configured prefix)

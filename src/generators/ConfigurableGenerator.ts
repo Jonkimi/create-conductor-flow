@@ -1,4 +1,4 @@
-import { join } from "path";
+import { join, posix } from "path";
 import select from "@inquirer/select";
 import fs from "fs-extra";
 
@@ -57,7 +57,7 @@ export class ConfigurableGenerator implements AgentGenerator {
 		// Determine installation path string used in templates
 		// For project-level: relative path (e.g., ".codex/conductor")
 		// For global-level: absolute/home path (e.g., "~/.codex/conductor")
-		let installPath = join(agentDir, "conductor");
+		let installPath = posix.join(agentDir, "conductor");
 		if (scope === "global") {
 			// Assuming agentDir doesn't start with / or ~
 			installPath = `~/${agentDir}/conductor`;
